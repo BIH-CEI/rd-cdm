@@ -24,10 +24,10 @@ class CodeSystem:
         return str(self)
 
 # Function to create a list of CodeSystem instances without versions
-def create_code_systems():
-    """Create a list of CodeSystem instances."""
+def create_code_systems(versions: dict[str, str]):
+    """Create a list of CodeSystem instances and filter by defined versions."""
     
-    return [
+    all_code_systems = [
         CodeSystem(
             name="NCBI organismal classification", 
             namespace_prefix="NCBITaxon", 
@@ -54,7 +54,7 @@ def create_code_systems():
                  "German Modification", 
             namespace_prefix="ICD10GM", 
             url="https://www.bfarm.de/EN/Code-systems/Classifications/ICD/"
-                "ICD-10-GM/_node.html", 
+                 "ICD-10-GM/_node.html", 
             synonyms=["ICD10-GM", "ICD-10-GM", "ICD10_GM", "ICD_10_GM"]
         ),
         CodeSystem(
@@ -146,8 +146,10 @@ def create_code_systems():
             url="https://ncit.nci.nih.gov/"
         )
     ]
-
+    
+    # Filter code systems to include only those with a defined version
     filtered_code_systems = [
         cs for cs in all_code_systems if cs.namespace_prefix in versions
     ]
 
+    return filtered_code_systems

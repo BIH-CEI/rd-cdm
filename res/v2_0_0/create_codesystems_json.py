@@ -1,4 +1,9 @@
 import json
+import os
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../src')))
+
 from src.data_model.codesystems import create_code_systems
 
 # Define the versions for each code system

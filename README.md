@@ -5,7 +5,7 @@ An international Rare Disease Common Data Model based on the ERDRI-CDS, HL7 FHIR
 
 
 [![Python CI](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml/badge.svg)](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml)
-
+![Badge](https://img.shields.io/badge/v2.0.0%20JSON%20Schema%20pass-brightgreen)
 
 ## Table of Contents
 

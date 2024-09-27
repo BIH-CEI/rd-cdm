@@ -1,7 +1,6 @@
-# Rare Disease Common Data Model
+# Ontology-Based Rare Disease Common Data Model
 
-An international Rare Disease Common Data Model based on the ERDRI-CDS, HL7 FHIR
- and the GA4GH Phenopacket Schema
+An ontology-based Rare Disease Common Data Model (RD CDM) to enable international registry use, HL7 FHIR and GA4GH Phenopackets.
 
 
 ## Table of Contents

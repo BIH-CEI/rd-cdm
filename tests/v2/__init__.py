@@ -4,7 +4,7 @@ import os
 
 def validate_schemas(version):
     # Construct the base path and version-specific file paths
-    base_path = f'res/v{version}/'  # Adjust path for the subfolder
+    base_path = f'../res/v{version}/'  # Adjusted for subfolder
 
     schema_file = f'{base_path}schema_v{version}.json'
     data_elements_file = f'{base_path}data_elements_v{version}.json'

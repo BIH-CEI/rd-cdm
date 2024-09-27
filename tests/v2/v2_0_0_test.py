@@ -1,7 +1,7 @@
 from tests import validate_schemas
 
 def main():
-    version = "2.0.0"  # Change this to "2.1.0" for testing the next version
+    version = "2.0.0"  # Specify the version for this test
     if validate_schemas(version):
         print(f"{version} JSON Schema pass! 🎉")
     else:

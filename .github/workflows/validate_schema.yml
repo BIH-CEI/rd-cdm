@@ -18,7 +18,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install jsonschema
-    - name: Validate schema
+    - name: Run Schema Validation Tests
       run: |
         python -m jsonschema -i rd_cdm_data_elements_v2.0.0.json rd_cdm_schema_v2.0.0.json
         python -m jsonschema -i rd_cdm_codesystems_v2.0.0.json rd_cdm_schema_v2.0.0.json

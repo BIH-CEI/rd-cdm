@@ -1,137 +1,80 @@
-# PythonTemplate
-This repository contains a simple template for Python repositories, including actions and a `.gitignore` file. The actions include organizing imports with `isort`, linting using `ruff`, automatic test execution using `pytest`, as well as a small coverage report with `coverage` on merging to the main branch.
+# Rare Disease Common Data Model
 
-## Get started
+An international Rare Disease Common Data Model based on the ERDRI-CDS, HL7 FHIR
+ and the GA4GH Phenopacket Schema
 
-First, clone the repository.
-
-Create the `main`, `develop` and, `gh-pages` branches.
-
-Whenever you want to change something, create a new branch. If it is done, create a pull request to the `develop` branch.
-
-Only pull from `develop` to `main` with fully functional, tested and documented new versions.
-
-### Repository Settings
-**Branch Protection Rules**
-1. Go to the repository settings
-2. Open `Branches` in the left sidebar
-3. Click `Add branch ruleset`
-4. Choose an appropriate ruleset name, such as `Branch protection rules for main and develop`
-5. Under `target branches`, enter `main` and `develop`
-6. Under `Rules` select at least:
-    - `Restricht deletions`
-    - `Require linear history`
-    - `Require a pull request before merging`
-      - Select an appropriate number of reviewers
-      - 
-    - `Block force pushes`
-7. Click `Create` to finish. you can now find the ruleset under `Rules`>`Rulesets`
-
-**Actions Permissions**
-1. Go to the repository settings
-2. Open `Actions` > `General` in the left sidebar
-3. Under `Workflow permissions`, select
-   - `Read and write permissions`
-   - `Allow GitHub Actions to create and approve pull requests`
-
-### Set Up Project
-1. [Optional] Create a new virtual environment
-2. Run `pip install -e .[test,docs]`
-
-**Documentation Setup**
-1. Create a `docs` folder in the root of the project and open it (`mkdir docs && cd docs`)
-2. Run `spinx-quickstart` to create a new documentation (On Windows, run `sphinx-quickstart.exe`). Fill out all relevant information.
-    - Select no `[n]` when asked `Separate source and build directories (y/n) [n]`
-3. [Optionally] Run `make html` to build the documentation (On Windows, might have to write full path to `make.bat`).
-4. Copy `docs/conf.py` into your own docs folder, replacing the existing one.
-5. Change all relevant fields in the `pyproject.toml` and `docs/conf.py` files. (Don't forget the intersphinx setup)
-
-If you want to run sphinx locally: 
-- `sphinx-apidoc --separate --module-first -d 2 -H "API reference" --follow-links -o apidocs ../src/template_for_python_projects`
-- `make.bat` html
-- Open `docs/_build/html/index.html` in your browser
-
-### Submodules
-Sometimes it is necessary to have other repositories as submodules. To initiate this you can follow this tutorial by Git itself on [Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules). But in essence you need this command:
-
-`git submodule add https://github.com/frehburg/TemplateForPythonProjects`
-
-If you then want to import the submodule as a python package in your code, the ci will not be able to resolve it. To fix this, add the following lines to `python_ci.yml`:
-
-```
-- name: Checkout code
-        uses: actions/checkout@v3
-        with:  # this
-          submodules: true   # this to ensure submodules are checked out
-```
-
-and further down
-
-```
- run: |
-          python3 -m pip install --upgrade pip
-          python3 -m pip install --editable .[test,docs]
-          python3 -m pip install --editable ./submodules/TemplateForPythonProjects  # this to install the submodule package
-```
-
-
-
-
-You can also add a badge like this one to your README.md file:
-[![Build status](https://github.com/frehburg/TemplateForPythonProjects/workflows/CI/badge.svg)](https://github.com/frehburg/TemplateForPythonProjects/actions/workflows/python_ci.yml)  
-[Stable Documentation](https://frehburg.github.io/TemplateForPythonProjects/stable/)  
-[Latest Documentation](https://frehburg.github.io/TemplateForPythonProjects/latest/)  
-
-See here a template for your README
-
-# Project Name
-
-Brief description of your project.
 
 ## Table of Contents
 
 - [Project Description](#project-description)
 - [Features](#features)
 - [Getting Started](#getting-started)
-   - [Prerequisites](#prerequisites)
-   - [Installation](#installation)
-- [Features](#features)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
 - [Contributing](#contributing)
+- [Resources](#resources-)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
 
 ## Project Description
 
-A brief overview of your project and its purpose.
+tbc.
 
 ## Features
 
-List the key features of your project.
+tbc.
+
 
 ## Getting Started
 
-Instructions on how to set up and run your project locally.
+tbc.
 
 ### Prerequisites
 
-List any software, libraries, or dependencies that need to be installed before setting up the project.
+tbc.
 
 ### Installation
 
-Step-by-step instructions on how to install and set up your project.
-
-To install your own code run `pip install -e .` in a terminal
-
-## Features
-
-Provide examples and explanations of how your project can be used. Include code snippets or screenshots if necessary.
+tbc.
 
 ## Contributing
 
-Guidelines for contributing to your project. Include information about how others can contribute, submit issues, and create pull requests.
+Please write an issue or exchange with other users in the discussions if you
+encounter any problems or wish to give feedback. Feel free to reach out to us, 
+if you are interested in collaborating and improve the use of our RD CDM or rare 
+disease research and care.
+
+## Resources 
+
+### Ontologies
+- Human Phenotype Ontology (HP, Version 2024-08-13) [🔗](http://www.human-phenotype-ontology.org)
+- Monarch Initiative Disease Ontology (MONDO, Version Version 2024-09-03) [🔗](https://mondo.monarchinitiative.org/)
+- Online Mendelian Inheritance in Man (OMIM, Version 2024-09-12) [🔗](https://www.omim.org/)
+- Orphanet Rare Disease Ontology (OPRHA, Version 2024-09-12) [🔗](https://www.orpha.net/)
+- National Center for Biotechnology Information Taxonomy (NCBITaxon, Version 2024-07-03) [🔗](https://www.ncbi.nlm.nih.gov/taxonomy)
+- Logical Observation Identifiers Names and Codes (LOINC, Version 2.78) [🔗](https://loinc.org/)
+- HUGO Gene Nomenclature Committee (HGNC, Version 2024-08-23) [🔗](https://www.genenames.org/)
+- Gene Ontology (GENO, Version 2023-10-08) [🔗](https://geneontology.org/)
+- NCI Thesaurus OBO Edition (NCIT, Version Version 24.04e ) [🔗](https://obofoundry.org/ontology/ncit.html)
+
+### Submodules
+- [toFHIR](https://github.com/srdc/tofhir?tab=readme-ov-file)
+- [Phenopacket Mapper](https://github.com/BIH-CEI/phenopacket_mapper)
+- [RareLink](https://github.com/BIH-CEI/RareLink)
 
 ## License
 
-Specify the license under which your project is distributed.
+This project is licensed under the terms of the [MIT License](https://github.com/BIH-CEI/RareLink/blob/develop/LICENSE)
 
 ## Acknowledgements
+
+We would like to extend our thanks to ... for his support in the development of this project.
+
+---
+
+- Authors:
+  - [Adam Graefe](https://github.com/aslgraefe)
+  - [Filip Rehburg](https://github.com/frehburg)
+  - Prof. Peter N. Robinson
+  - Prof. Sylvia Thun
+  - Prof. Oya Beyan

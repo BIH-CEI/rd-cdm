@@ -5,6 +5,8 @@
 # from . import value_sets
 # from . import data_model_schema
 from .codesystems import create_code_systems
+from . import Code, CodableConcept
+from . import ValueSetChoice, ValueSet
 
 __all__ = [
     # 'codesystems',
@@ -12,4 +14,8 @@ __all__ = [
     # 'value_sets',
     # 'data_model_schema',
     'create_code_systems'
+    'Code',
+    'CodableConcept',
+    'ValueSetChoice',
+    'ValueSet'
     ]

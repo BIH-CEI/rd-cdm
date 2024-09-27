@@ -11,7 +11,7 @@
       },
       "metadata": {
         "type": "object",
-        "description": "Metadata about the data model, such as author, creation date, and ontologies used",
+        "description": "Metadata about the data model, such as author, creation date, and code systems used",
         "properties": {
           "author": {
             "type": "string",
@@ -22,30 +22,41 @@
             "format": "date",
             "description": "Date the model was created"
           },
-          "ontologies": {
+          "codeSystems": {
             "type": "array",
-            "description": "A list of ontologies used in the data model",
+            "description": "A list of code systems used in the data model",
             "items": {
               "type": "object",
               "properties": {
-                "ontologyName": {
+                "codeSystemName": {
                   "type": "string",
-                  "description": "The name of the ontology (e.g., SNOMED CT, LOINC)"
+                  "description": "The name of the code system (e.g., SNOMED CT, LOINC)"
                 },
                 "version": {
                   "type": "string",
-                  "description": "The version of the ontology being used"
+                  "description": "The version of the code system being used"
                 },
                 "url": {
                   "type": "string",
-                  "description": "The URL or reference to the ontology source"
+                  "description": "The URL or reference to the code system source"
+                },
+                "namespace_prefix": {
+                  "type": "string",
+                  "description": "The official short prefix for the code system"
+                },
+                "synonyms": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Optional list of synonyms for the code system"
                 }
               },
-              "required": ["ontologyName", "version", "url"]
+              "required": ["codeSystemName", "version", "url", "namespace_prefix"]
             }
           }
         },
-        "required": ["author", "creationDate", "ontologies"]
+        "required": ["author", "creationDate", "codeSystems"]
       },
       "dataElements": {
         "type": "array",
@@ -67,7 +78,7 @@
             },
             "elementCodeSystem": {
               "type": "string",
-              "description": "The terminology used for the data element (e.g., SNOMED CT, LOINC)"
+              "description": "The code system used for the data element (e.g., SNOMED CT, LOINC)"
             },
             "dataType": {
               "type": "string",

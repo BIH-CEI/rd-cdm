@@ -1,5 +1,5 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schema": "https://json-schema.org/draft/2020-12/json-schema-core",
     "title": "RD CDM Data Model",
     "version": "2.0.0",
     "description": "RareLink Common Data Model (CDM) for Rare Diseases. This version defines the structure of RD CDM v2.0.",

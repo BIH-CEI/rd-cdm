@@ -1,0 +1,39 @@
+{
+  "valueSets": [
+    {
+      "valueSetName": "Sex at Birth Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
+      "display": "Sex at Birth",
+      "valueSetCode": "281053000",
+      "valueSetCodeSystem": "SNOMED",
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Female",
+          "choiceCode": "248152002",
+          "choiceCodeSystem": "SNOMED"
+        },
+        {
+          "choiceDisplay": "Male",
+          "choiceCode": "248153007",
+          "choiceCodeSystem": "SNOMED"
+        },
+        {
+          "choiceDisplay": "Patient sex unknown",
+          "choiceCode": "184115007",
+          "choiceCodeSystem": "SNOMED"
+        },
+        {
+          "choiceDisplay": "Intersex",
+          "choiceCode": "32570691000036108",
+          "choiceCodeSystem": "SNOMED"
+        },
+        {
+          "choiceDisplay": "Not recorded",
+          "choiceCode": "1220561009",
+          "choiceCodeSystem": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

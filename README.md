@@ -4,6 +4,9 @@ An international Rare Disease Common Data Model based on the ERDRI-CDS, HL7 FHIR
  and the GA4GH Phenopacket Schema
 
 
+[![Python CI](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml/badge.svg)](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml)
+
+
 ## Table of Contents
 
 - [Project Description](#project-description)

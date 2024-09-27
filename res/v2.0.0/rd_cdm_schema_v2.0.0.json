@@ -1,14 +1,13 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/json-schema-core",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "RD CDM Data Model",
     "version": "2.0.0",
-    "description": "RareLink Common Data Model (CDM) for Rare Diseases. This version defines the structure of RD CDM v2.0.",
+    "description": "The ontology-based Rare Disease Common Data Model (RD CDM) to enable international registry use, HL7 FHIR, and GA4GH Phenopackets. This version defines the structure of RD CDM v2.0.0.",
     "type": "object",
     "properties": {
       "version": {
         "type": "string",
-        "description": "The version of the data model",
-        "example": "2.0.0"
+        "description": "The version of the data model"
       },
       "metadata": {
         "type": "object",
@@ -43,24 +42,7 @@
                 }
               },
               "required": ["ontologyName", "version", "url"]
-            },
-            "ontologies": [
-              {
-                "ontologyName": "SNOMED CT",
-                "version": "2023-06",
-                "url": "http://snomed.org/sct"
-              },
-              {
-                "ontologyName": "LOINC",
-                "version": "v2.77",
-                "url": "http://loinc.org"
-              },
-              {
-                "ontologyName": "Orphanet",
-                "version": "2023",
-                "url": "http://www.orpha.net"
-              }
-            ]
+            }
           }
         },
         "required": ["author", "creationDate", "ontologies"]
@@ -79,13 +61,13 @@
               "type": "string",
               "description": "The name of the data element"
             },
-            "code": {
+            "elementCode": {
               "type": "string",
               "description": "The code associated with the data element"
             },
-            "terminology": {
+            "elementCodeSystem": {
               "type": "string",
-              "description": "The terminology used (e.g., SNOMED CT, LOINC)"
+              "description": "The terminology used for the data element (e.g., SNOMED CT, LOINC)"
             },
             "dataType": {
               "type": "string",
@@ -102,16 +84,16 @@
                   "type": "string",
                   "description": "Display name for the concept"
                 },
-                "code": {
+                "conceptCode": {
                   "type": "string",
                   "description": "Code for the concept"
                 },
-                "codeSystem": {
+                "conceptCodeSystem": {
                   "type": "string",
-                  "description": "Code system associated with the concept"
+                  "description": "Code system associated with the concept (e.g., SNOMED CT, LOINC)"
                 }
               },
-              "required": ["display", "code", "codeSystem"]
+              "required": ["display", "conceptCode", "conceptCodeSystem"]
             },
             "fhirExpression": {
               "type": "string",
@@ -126,42 +108,8 @@
               "description": "Detailed description of the data element"
             }
           },
-          "required": ["elementName", "dataType", "code"]
-        },
-        "dataElements": [
-          {
-            "section": "1. Formal Criteria",
-            "elementName": "1.1 Pseudonym",
-            "code": "422549004",
-            "terminology": "SNOMED CT",
-            "dataType": "Identifier",
-            "dataSpecification": "n/a",
-            "concepts": {
-              "display": "Pseudonym",
-              "code": "422549004",
-              "codeSystem": "SCT"
-            },
-            "fhirExpression": "Patient.identifier.value",
-            "phenopacketSchemaElement": "Individual.id",
-            "description": "The (local) patient-related Identification code"
-          },
-          {
-            "section": "1. Formal Criteria",
-            "elementName": "1.2 Date of Admission",
-            "code": "399423000",
-            "terminology": "SNOMED CT",
-            "dataType": "Date",
-            "dataSpecification": "YYYY-MM-DD",
-            "concepts": {
-              "display": "Date of Admission",
-              "code": "399423000",
-              "codeSystem": "SCT"
-            },
-            "fhirExpression": "Encounter.period.start",
-            "phenopacketSchemaElement": "Individual.time_at_last_encounter",
-            "description": "The date of admission or data capture of the individual"
-          }
-        ]
+          "required": ["elementName", "elementCode", "elementCodeSystem", "dataType"]
+        }
       }
     },
     "required": ["version", "dataElements"]

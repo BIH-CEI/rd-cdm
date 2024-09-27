@@ -1,0 +1,23 @@
+name: Validate JSON Schema
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: |
+        pip install jsonschema
+    - name: Validate schema
+      run: |
+        python -m jsonschema -i data_elements_v2.0.0.json rd_cdm_schema_v2.0.0.json

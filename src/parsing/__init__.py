@@ -1,9 +1,7 @@
 """This module contains the data model functions to create the current data 
 model as JSON files."""
 
-import json
-import os
-from . import create_codesystems_json
+from . import create_codesystem_json
 
 __all__ = [
     'create_codesystem_json',

@@ -1,27 +1,6 @@
 from dataclasses import dataclass, field
 
-@dataclass(slots=True, frozen=True)
-class CodeSystem:
-    """Data class for a CodeSystem."""
-    
-    name: str
-    namespace_prefix: str
-    url: str = None
-    iri_prefix: str = None
-    synonyms: list = field(default_factory=list)
-
-    def __eq__(self, other):
-        """Check if two CodeSystems are equal based on their namespace prefix."""
-        if not isinstance(other, CodeSystem):
-            return False
-        return (self.namespace_prefix == other.namespace_prefix or
-                self.namespace_prefix in other.synonyms)
-
-    def __str__(self):
-        return f"CodeSystem(name={self.name}, namespace_prefix={self.namespace_prefix})"
-
-    def __repr__(self):
-        return str(self)
+from .base_types import CodeSystem
 
 # Function to create a list of CodeSystem instances without versions
 def create_code_systems(versions: dict[str, str]):

@@ -1,13 +1,13 @@
 from dataclasses import dataclass, field
 from typing import List
-from . import Code, CodableConcept
+from .base_types import CodeSystem, Coding
 
 @dataclass(slots=True, frozen=True)
 class ValueSetChoice:
     """Data class representing a single choice in a value set."""
     choiceDisplay: str
-    choiceCode: Code
-    choiceCodeSystem: str
+    choiceCode: Coding
+    choiceCodeSystem: CodeSystem
 
 @dataclass(slots=True, frozen=True)
 class ValueSet:
@@ -16,8 +16,7 @@ class ValueSet:
     valueSetOrigin: str
     valueSetLink: str
     display: str
-    valueSetCode: Code
-    valueSetCodeSystem: str
+    valueSetCode: Coding
+    valueSetCodeSystem: CodeSystem
     valueSetChoices: List[ValueSetChoice] = field(default_factory=list)
-
 

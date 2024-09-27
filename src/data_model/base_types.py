@@ -1,6 +1,60 @@
 from dataclasses import dataclass, field
 from typing import List, Union, Literal
-from . import CodeSystem
+
+@dataclass(slots=True, frozen=True)
+class CodeSystem:
+    """
+    Represents a system of codes used to define concepts (e.g., SNOMED CT, 
+    LOINC, ICD). A CodeSystem holds codes and related metadata for standardized 
+    data representation in domains like healthcare and bioinformatics.
+
+    Attributes:
+    -----------
+    name : str
+        The full name of the CodeSystem (e.g., "SNOMED CT").
+    
+    namespace_prefix : str
+        A short prefix used to reference the CodeSystem (e.g., "SNOMED").
+    
+    url : str, optional
+        A URL for more information about the CodeSystem (e.g., documentation).
+    
+    iri_prefix : str, optional
+        IRI prefix for representing codes in semantic web technologies.
+    
+    synonyms : list, optional
+        Alternative names or abbreviations for the CodeSystem.
+    
+    Methods:
+    --------
+    __eq__(self, other):
+        Checks equality based on `namespace_prefix` or `synonyms`.
+    
+    __str__(self):
+        Returns a simple string representation of the CodeSystem.
+    
+    __repr__(self):
+        Same as __str__, useful for debugging.
+    """
+
+    name: str
+    namespace_prefix: str
+    url: str = None
+    iri_prefix: str = None
+    synonyms: list = field(default_factory=list)
+
+    def __eq__(self, other):
+        if not isinstance(other, CodeSystem):
+            return False
+        return (self.namespace_prefix == other.namespace_prefix or
+                self.namespace_prefix in other.synonyms)
+
+    def __str__(self):
+        return f"CodeSystem(name={self.name}, namespace_prefix={self.namespace_prefix})"
+
+    def __repr__(self):
+        return str(self)
+
 
 @dataclass(frozen=True, slots=True, eq=True)
 class Coding:
@@ -78,3 +132,4 @@ class CodeableConcept:
 
     def __str__(self):
         return f"CodeableConcept(codings=[{', '.join(map(str, self.coding))}], text={self.text})"
+    

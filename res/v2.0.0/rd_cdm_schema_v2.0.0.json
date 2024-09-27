@@ -42,7 +42,7 @@
                 },
                 "namespace_prefix": {
                   "type": "string",
-                  "description": "The official short prefix for the code system"
+                  "description": "The short prefix for the code system"
                 },
                 "synonyms": {
                   "type": "array",
@@ -64,6 +64,10 @@
         "items": {
           "type": "object",
           "properties": {
+            "ordinal": {
+              "type": "string",
+              "description": "The ordinal value to define the hierarchical position of the data element. Can be of the form 1.1, 1.1.1, or 1.1a."
+            },
             "section": {
               "type": "string",
               "description": "The section of the data element"
@@ -85,41 +89,87 @@
               "description": "The data type of the element (e.g., string, integer, boolean)"
             },
             "dataSpecification": {
-              "type": "string",
-              "description": "Specification or format for the data element"
+              "type": "array",
+              "description": "One or more data specifications (e.g., format) for the data element",
+              "items": {
+                "type": "string"
+              }
             },
-            "concepts": {
-              "type": "object",
+            "valueSet": {
+              "type": ["null", "object"],  // Allow valueSet to be null if not used
+              "description": "Optional value set for this data element",
               "properties": {
+                "valueSetName": {
+                  "type": "string",
+                  "description": "The name of the value set"
+                },
+                "valueSetOrigin": {
+                  "type": "string",
+                  "description": "The origin or source of the value set (e.g., created internally, HL7, etc.)"
+                },
+                "valueSetLink": {
+                  "type": "string",
+                  "description": "A URL linking to the source of the value set, if applicable"
+                },
                 "display": {
                   "type": "string",
-                  "description": "Display name for the concept"
+                  "description": "Display name for the value set"
                 },
-                "conceptCode": {
+                "valueSetCode": {
                   "type": "string",
-                  "description": "Code for the concept"
+                  "description": "Code for the value set"
                 },
-                "conceptCodeSystem": {
+                "valueSetCodeSystem": {
                   "type": "string",
-                  "description": "Code system associated with the concept (e.g., SNOMED CT, LOINC)"
+                  "description": "Code system associated with the value set (e.g., SNOMED CT, LOINC)"
+                },
+                "valueSetChoices": {
+                  "type": "array",
+                  "description": "A list of possible choices within this value set",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "choiceDisplay": {
+                        "type": "string",
+                        "description": "Display name for the value set choice"
+                      },
+                      "choiceCode": {
+                        "type": "string",
+                        "description": "Code for the value set choice"
+                      },
+                      "choiceCodeSystem": {
+                        "type": "string",
+                        "description": "Code system associated with the value set choice"
+                      }
+                    },
+                    "required": ["choiceDisplay", "choiceCode", "choiceCodeSystem"]
+                  }
                 }
               },
-              "required": ["display", "conceptCode", "conceptCodeSystem"]
+              "required": ["valueSetName", "display", "valueSetCode", "valueSetCodeSystem", "valueSetChoices"]
             },
-            "fhirExpression": {
+            "fhirExpression_v4.0.1": {
               "type": "string",
               "description": "FHIR v4.0.1 expression for this data element"
             },
-            "phenopacketSchemaElement": {
+            "recommendedVS_fhir": {
+              "type": ["null", "string"],
+              "description": "Recommended value set for FHIR v4.0.1 expression, if applicable"
+            },
+            "phenopacketSchemaElement_v2.0": {
               "type": "string",
               "description": "GA4GH Phenopacket Schema v2.0 element for this data element"
+            },
+            "recommendedVS_phenopacket": {
+              "type": ["null", "string"],
+              "description": "Recommended value set for Phenopacket Schema v2.0 expression, if applicable"
             },
             "description": {
               "type": "string",
               "description": "Detailed description of the data element"
             }
           },
-          "required": ["elementName", "elementCode", "elementCodeSystem", "dataType"]
+          "required": ["ordinal", "elementName", "elementCode", "elementCodeSystem", "dataType"]
         }
       }
     },

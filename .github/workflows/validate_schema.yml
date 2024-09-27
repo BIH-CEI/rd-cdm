@@ -20,4 +20,6 @@ jobs:
         pip install jsonschema
     - name: Validate schema
       run: |
-        python -m jsonschema -i data_elements_v2.0.0.json rd_cdm_schema_v2.0.0.json
+        python -m jsonschema -i rd_cdm_data_elements_v2.0.0.json rd_cdm_schema_v2.0.0.json
+        python -m jsonschema -i rd_cdm_codesystems_v2.0.0.json rd_cdm_schema_v2.0.0.json
+        python -m jsonschema -i rd_cdm_valuesets_v2.0.0.json rd_cdm_schema_v2.0.0.json

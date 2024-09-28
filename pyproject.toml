@@ -6,7 +6,8 @@ build-backend = "setuptools.build_meta"
 name = "template_for_python_projects"
 authors = [
     {name = "Filip Rehburg", email="filip.rehburg@charite.de"},
-     ]
+    {name = "Adam SL Graefe", email="adam.graefe@charite.de"},
+]
 description = "TODO"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -29,7 +30,7 @@ classifiers = [
 dependencies = [
     "numpy",
 ]
-dynamic = ["version"]
+version = "0.1.0"  # Explicit version added to avoid dynamic version lookup issues
 
 [project.optional-dependencies]
 test = ["pytest>=7.0.0,<8.0.0"]
@@ -44,10 +45,8 @@ bugtracker = "https://github.com/frehburg/template_for_python_projects/issues"
 [tool.setuptools]
 package-dir = { "" = "src" }
 
-[tool.setuptools.dynamic]
-version = { attr = "template_for_python_projects.__version__" }
+[tool.setuptools.packages.find]
+where = ["src"]  # Ensure that the packages in 'src' directory are discovered properly
 
-# The following would provide a command line executable called `sample`
-# which executes the function `main` from this package when invoked.
-[project.scripts]  # Optional
-sample = "sample:main"
+[project.scripts]
+sample = "sample:main"  # If you have a CLI script, otherwise this section can be removed

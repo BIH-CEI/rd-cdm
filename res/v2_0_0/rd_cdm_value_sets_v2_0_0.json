@@ -1,4 +1,6 @@
 {
+  "version": "v2_0_0",
+  "dataElements": [],
   "valueSets": [
     {
       "valueSetName": "Sex at Birth Value Set v2.0.0",
@@ -7,31 +9,37 @@
       "display": "Sex at Birth",
       "valueSetCode": "281053000",
       "valueSetCodeSystem": "SNOMED",
+      "valueSetCodeSystemVersion": "2024-09-01",
       "valueSetChoices": [
         {
           "choiceDisplay": "Female",
           "choiceCode": "248152002",
-          "choiceCodeSystem": "SNOMED"
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
         },
         {
           "choiceDisplay": "Male",
           "choiceCode": "248153007",
-          "choiceCodeSystem": "SNOMED"
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
         },
         {
           "choiceDisplay": "Patient sex unknown",
           "choiceCode": "184115007",
-          "choiceCodeSystem": "SNOMED"
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
         },
         {
           "choiceDisplay": "Intersex",
           "choiceCode": "32570691000036108",
-          "choiceCodeSystem": "SNOMED"
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
         },
         {
           "choiceDisplay": "Not recorded",
           "choiceCode": "1220561009",
-          "choiceCodeSystem": "SNOMED"
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
         }
       ]
     }

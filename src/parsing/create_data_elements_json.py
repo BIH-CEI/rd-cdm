@@ -21,6 +21,22 @@ def load_data_element_definitions(version):
         return None
 
 def create_data_elements_json(version):
+    """
+    Create a JSON file for the data elements of a specified version.
+
+    This function generates a JSON file containing the data elements for a 
+    given version of the data model. It first loads the data element definitions 
+    using `load_data_element_definitions()`. The result is written as a JSON 
+    file in the "res" folder under the respective version directory.
+
+    Example:
+    - For version "v2_0_0", the JSON will be created at:
+      "res/v2_0_0/rd_cdm_data_elements_v2_0_0.json".
+
+    :param version: A string representing the data model version (e.g., 
+                    "v2_0_0").
+    """
+
     data_elements = load_data_element_definitions(version)
     if data_elements is None:
         print(f"Failed to create data elements JSON for {version}.")
@@ -28,6 +44,7 @@ def create_data_elements_json(version):
 
     # Create a JSON structure for the data elements
     data_elements_json = {
+        "version": version,  # Adding the version key to the root of the JSON
         "dataElements": [
             {
                 "ordinal": de.ordinal,
@@ -68,6 +85,7 @@ def create_data_elements_json(version):
     with open(output_path, "w") as json_file:
         json.dump(data_elements_json, json_file, indent=2)
         print(f"JSON file created successfully: {output_path}")
+
 
 # Run the function for the versions you want
 if __name__ == "__main__":

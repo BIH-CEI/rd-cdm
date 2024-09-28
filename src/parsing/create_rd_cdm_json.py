@@ -9,6 +9,9 @@ def load_json(file_path):
     except FileNotFoundError:
         print(f"File not found: {file_path}")
         return None
+    except json.JSONDecodeError as e:
+        print(f"Invalid JSON format in {file_path}: {e.msg}")
+        return None
 
 def create_final_rd_cdm_json(version):
     """Combine CodeSystems, DataElements, and ValueSets into one final JSON."""
@@ -38,17 +41,20 @@ def create_final_rd_cdm_json(version):
         "metadata": {
             "author": "Author Name",  # Replace with your metadata logic
             "creationDate": "2024-01-01",  # Example date
-            "codeSystems": code_systems.get("CodeSystems", [])
         },
+        "codeSystems": code_systems.get("CodeSystems", []),
         "dataElements": data_elements.get("dataElements", []),
         "valueSets": value_sets.get("valueSets", [])
     }
     
     # Write the final JSON file
     output_path = os.path.join(base_path, f"rd_cdm_{version}.json")
-    with open(output_path, "w") as json_file:
-        json.dump(rd_cdm_json, json_file, indent=2)
-        print(f"Final RD CDM JSON created successfully: {output_path}")
+    try:
+        with open(output_path, "w") as json_file:
+            json.dump(rd_cdm_json, json_file, indent=2)
+            print(f"Final RD CDM JSON created successfully: {output_path}")
+    except IOError as e:
+        print(f"Failed to write final RD CDM JSON: {e}")
     
     return rd_cdm_json  # Return the final RD CDM JSON for testing
 

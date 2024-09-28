@@ -68,7 +68,9 @@ def create_codesystem_json(version):
 
     code_systems = create_code_systems(versions)
 
+    # Create a JSON structure for the code systems
     code_systems_json = {
+        "version": version,  # Adding the version key to the root of the JSON
         "CodeSystems": [
             {
                 "codeSystemName": cs.name,
@@ -80,10 +82,12 @@ def create_codesystem_json(version):
         ]
     }
 
+    # Write the JSON file to the res folder
     output_path = f"res/{version}/rd_cdm_codesystems_{version}.json"
     with open(output_path, "w") as json_file:
         json.dump(code_systems_json, json_file, indent=2)
         print(f"JSON file created successfully: {output_path}")
+
 
 if __name__ == "__main__":
     create_codesystem_json("v2_0_0")

@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "Schema RD CDM Data Model",
-    "version": "2.0.0",
+    "version": "v2_0_0",
     "description": "The ontology-based Rare Disease Common Data Model (RD CDM) to enable international registry use, HL7 FHIR, and GA4GH Phenopackets. This version defines the structure of RD CDM v2.0.0.",
     "type": "object",
     "properties": {
@@ -96,7 +96,7 @@
               }
             },
             "valueSet": {
-              "type": ["null", "object"],  // Allow valueSet to be null if not used
+              "type": ["null", "object"],
               "description": "Optional value set for this data element",
               "properties": {
                 "valueSetName": {

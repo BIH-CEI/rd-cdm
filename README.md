@@ -3,9 +3,15 @@
 An international Rare Disease Common Data Model based on the ERDRI-CDS, HL7 FHIR
  and the GA4GH Phenopacket Schema
 
+<!-- Python CI Badge -->
+![Python CI](https://github.com/{OWNER}/{REPO}/actions/workflows/python_ci.yml/badge.svg)
 
-[![Python CI](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml/badge.svg)](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml)
-![Badge](https://img.shields.io/badge/v2.0.0%20JSON%20Schema%20pass-brightgreen)
+<!-- JSON Creation Badge -->
+![RD CDM v2.0.0 JSON Creation](https://img.shields.io/badge/RD%20CDM%20v2.0.0-JSON%20Created%20Successfully-brightgreen)
+
+<!-- Validation Badge -->
+![RD CDM v2.0.0 Validation](https://img.shields.io/badge/RD%20CDM%20v2.0.0-Validation%20Successful-brightgreen)
+
 
 ## Table of Contents
 

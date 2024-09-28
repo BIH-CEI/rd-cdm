@@ -28,14 +28,18 @@ class TestCreateRdCdmJson(unittest.TestCase):
         
         # Check for the expected keys in the final RD CDM JSON
         self.assertIn("metadata", data)
-        self.assertIn("codeSystems", data["metadata"])
+        
+        # Update this check to look for 'codeSystems' at the top level instead of inside 'metadata'
+        self.assertIn("codeSystems", data)  # 'codeSystems' is now at the top level
+        
         self.assertIn("dataElements", data)
         self.assertIn("valueSets", data)
 
-    def tearDown(self):
-        """Clean up after tests."""
-        if os.path.exists(self.output_file):
-            os.remove(self.output_file)
+
+    # def tearDown(self):
+    #     """Clean up after tests."""
+    #     if os.path.exists(self.output_file):
+    #         os.remove(self.output_file)
 
 if __name__ == "__main__":
     unittest.main()

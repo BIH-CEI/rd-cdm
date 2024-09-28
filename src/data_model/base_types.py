@@ -76,18 +76,18 @@ class Coding:
 
     @staticmethod
     def parse_coding(
-            coding_str: str,
-            resources: List[CodeSystem],
-            compliance: Literal['soft', 'hard'] = 'soft'
+        coding_str: str,
+        resources: List[CodeSystem],
+        compliance: Literal['soft', 'hard'] = 'soft'
     ) -> 'Coding':
         """Parse a string representing a coding into a Coding object.
 
         Expected format: <namespace_prefix>:<code>.
 
         E.g.:
-        >>> Coding.parse_coding("SNOMED:404684003", [code_system.SNOMED_CT])
-        Coding(system=CodeSystem(name=SNOMED CT, name space prefix=SNOMED, version=0.0.0),
-               code='404684003', display='', text='')
+        >>> snomed = CodeSystem(name="SNOMED CT", namespace_prefix="SNOMED", url="https://snomed.org")
+        >>> Coding.parse_coding("SNOMED:404684003", [snomed])
+        Coding(system=CodeSystem(name=SNOMED CT, namespace_prefix=SNOMED), code='404684003', display='', text='')
 
         This function recognizes name space prefixes belonging to code systems provided in the resources list.
         If a name space is not found, it returns a Coding object with the system as the name space prefix and the code.
@@ -95,7 +95,7 @@ class Coding:
         :param coding_str: A string representing a coding.
         :param resources: A list of all resources (code systems) used.
         :param compliance: Whether to throw a ValueError or just issue a warning if a name space prefix is not found.
-        :return: A Coding object as specified in the input string.
+        :return: a Coding object as specified in the input string.
         """
         try:
             namespace, code = coding_str.split(":")

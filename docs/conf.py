@@ -14,10 +14,10 @@ import sys
 src_path = os.path.abspath(os.path.join('..', 'src'))
 sys.path.insert(0, src_path)
 
-project = 'template_for_python_projects'
-copyright = '2024, test'
-author = 'test'
-release = '0.0.1'
+project = 'Ontology-Based Rare Disease Common Data Model (RD CDM)'
+copyright = 'Berlin Institute of Health, Charité Universitätsmedizin Berlin'
+author = 'Adam SL Graefe'
+release = '2.0.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -35,6 +35,7 @@ extensions = [
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+html_static_path = ['_static']
 
 pygments_style = 'sphinx'
 

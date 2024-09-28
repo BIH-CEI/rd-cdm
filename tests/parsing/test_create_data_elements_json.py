@@ -20,10 +20,10 @@ class TestCreateDataElementsJson(unittest.TestCase):
         self.assertIsInstance(data, dict)
         self.assertIn("dataElements", data)
 
-    # def tearDown(self):
-    #     """Clean up after tests."""
-    #     if os.path.exists(self.output_file):
-    #         os.remove(self.output_file)
+        for element in data["dataElements"]:
+            self.assertIn("dataType", element)
+            self.assertIsInstance(element["dataType"], str)
 
 if __name__ == "__main__":
     unittest.main()
+

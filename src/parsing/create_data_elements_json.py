@@ -6,6 +6,7 @@ import importlib
 # Add the src directory to the system path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
+from data_model.utils import json_serializer
 from src.data_model.data_elements import DataElement, DataElementModel
 from src.data_model.base_types import CodeSystem, Coding
 
@@ -50,30 +51,15 @@ def create_data_elements_json(version):
                 "ordinal": de.ordinal,
                 "section": de.section,
                 "elementName": de.elementName,
-                "elementCode": de.elementCode.code,  # Assuming Coding object
-                "elementCodeSystem": de.elementCodeSystem.namespace_prefix,
+                "elementCode": de.elementCode.code,
+                "elementCodeSystem": de.elementCodeSystem if isinstance(de.elementCodeSystem, str) else de.elementCodeSystem.namespace_prefix,
                 "dataType": de.dataType,
                 "dataSpecification": de.dataSpecification,
-                "valueSet": {
-                    "valueSetName": de.valueSet.valueSetName,
-                    "valueSetOrigin": de.valueSet.valueSetOrigin,
-                    "valueSetLink": de.valueSet.valueSetLink,
-                    "display": de.valueSet.display,
-                    "valueSetCode": de.valueSet.valueSetCode.code,
-                    "valueSetCodeSystem": de.valueSet.valueSetCodeSystem.namespace_prefix,
-                    "valueSetChoices": [
-                        {
-                            "choiceDisplay": choice.choiceDisplay,
-                            "choiceCode": choice.choiceCode.code,
-                            "choiceCodeSystem": choice.choiceCodeSystem.namespace_prefix
-                        }
-                        for choice in de.valueSet.valueSetChoices
-                    ]
-                } if de.valueSet else None,
-                "fhirExpression_v4.0.1": de.fhirExpression_v4_0_1,
-                "recommendedVS_fhir": de.recommendedVS_fhir,
-                "phenopacketSchemaElement_v2.0": de.phenopacketSchemaElement_v2_0,
-                "recommendedVS_phenopacket": de.recommendedVS_phenopacket,
+                "valueSet": de.valueSet if isinstance(de.valueSet, str) else None,  # Directly use the string reference
+                "fhirExpression_v4_0_1": de.fhirExpression_v4_0_1,
+                "recommendedDataSpec_fhir": de.recommendedDataSpec_fhir,
+                "phenopacketSchemaElement_v2_0": de.phenopacketSchemaElement_v2_0,
+                "recommendedDataSpec_phenopackets": de.recommendedDataSpec_phenopackets,
                 "description": de.description
             }
             for de in data_elements
@@ -83,11 +69,10 @@ def create_data_elements_json(version):
     # Write the JSON file to the res folder
     output_path = f"res/{version}/rd_cdm_data_elements_{version}.json"
     with open(output_path, "w") as json_file:
-        json.dump(data_elements_json, json_file, indent=2)
+        json.dump(data_elements_json, json_file, default=json_serializer, indent=2)
         print(f"JSON file created successfully: {output_path}")
 
 
 # Run the function for the versions you want
 if __name__ == "__main__":
     create_data_elements_json("v2_0_0")
-    #create_data_elements_json("v2_1_0")

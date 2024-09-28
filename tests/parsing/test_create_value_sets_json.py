@@ -13,17 +13,24 @@ class TestCreateValueSetsJson(unittest.TestCase):
     
     def test_create_value_sets_json(self):
         """Test if the value sets JSON file is correctly created."""
+        # Call the function to create the value sets JSON
         create_value_set_json(self.version)
+        
+        # Check if the file was created
         self.assertTrue(os.path.exists(self.output_file), "Output file not created")
+        
+        # Open and load the created JSON file
         with open(self.output_file, 'r') as f:
             data = json.load(f)
-        self.assertIsInstance(data, dict)
-        self.assertIn("valueSets", data)
-
-    # def tearDown(self):
-    #     """Clean up after tests."""
-    #     if os.path.exists(self.output_file):
-    #         os.remove(self.output_file)
+        
+        # Assert that the data is a dictionary
+        self.assertIsInstance(data, dict, "Output is not a dictionary")
+        
+        # Check if "valueSets" key is present in the JSON
+        self.assertIn("valueSets", data, "'valueSets' not found in JSON")
+        
+        # Optional: Check if the version is correctly set in the JSON
+        self.assertEqual(data.get("version"), self.version, "Version mismatch in JSON")
 
 if __name__ == "__main__":
     unittest.main()

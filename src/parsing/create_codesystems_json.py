@@ -3,10 +3,11 @@ import sys
 import os
 import importlib
 
+# Add src directory to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-from src.data_model.codesystems import create_code_systems
-
+from data_model.utils import json_serializer
+from src.data_model.codesystems import CodeSystems 
 
 def load_code_system_versions(version):
     """
@@ -17,28 +18,17 @@ def load_code_system_versions(version):
     is stored in a class containing a dictionary mapping code system names to
     their respective version numbers.
 
-    The module to be imported should follow a standard structure:
-    - The module is located in "src/<version>/" (e.g., "src/v2_0_0/").
-    - It contains a class named "CODESYSTEMS_VERSIONS_<version>" that stores 
-      the code system versions in a dictionary called `versions`.
-    
-    Example:
-    - For version "v2_0_0", the module "rd_cdm_v2_0_0_codesystems_versions.py" 
-      should define a class "CODESYSTEMS_VERSIONS_V2_0_0" containing a `versions`
-      dictionary with code system mappings.
-
     :param version: A string representing the version of the code systems 
                     to load (e.g., "v2_0_0").
     :return: A dictionary with the code system versions for the given version, 
              or None if the module or class is not found.
     """
     try:
-        module = importlib.import_module(
-            f"src.{version}.rd_cdm_{version}_codesystems_versions"
-        )
+        # Dynamically import the version-specific module
+        module = importlib.import_module(f"src.{version}.rd_cdm_{version}_codesystems_versions")
         class_name = f"CODESYSTEMS_VERSIONS_{version.replace('.', '_').upper()}"
         version_class = getattr(module, class_name)
-        return version_class.versions 
+        return version_class.versions
     except (ModuleNotFoundError, AttributeError) as e:
         print(f"Error loading version module for {version}: {e}")
         return None
@@ -49,46 +39,47 @@ def create_codesystem_json(version):
 
     This function generates a JSON file containing the code systems for a 
     given version of the data model. It first loads the code system versions 
-    using `load_code_system_versions()`, then it uses `create_code_systems()` 
-    to build a list of code systems. The result is written as a JSON file in 
-    the "res" folder under the respective version directory.
-
-    Example:
-    - For version "v2_0_0", the JSON will be created at:
-      "res/v2_0_0/rd_cdm_codesystems_v2_0_0.json".
+    using `load_code_system_versions()`, then it uses `CodeSystems` to fetch 
+    all code systems. The result is written as a JSON file in the "res" folder 
+    under the respective version directory.
 
     :param version: A string representing the data model version (e.g., 
                     "v2_0_0").
     """
 
+    # Load code system versions for the specified version
     versions = load_code_system_versions(version)
     if versions is None:
         print(f"Failed to create code system JSON for {version}.")
         return
 
-    code_systems = create_code_systems(versions)
+    # Access all predefined code systems using the CodeSystems class
+    code_systems = CodeSystems.get_all_code_systems()
 
-    # Create a JSON structure for the code systems
+    # Generate the JSON structure
     code_systems_json = {
-        "version": version,  # Adding the version key to the root of the JSON
+        "version": version,
         "CodeSystems": [
             {
                 "codeSystemName": cs.name,
                 "namespace_prefix": cs.namespace_prefix,
-                "version": versions[cs.namespace_prefix],
+                "version": versions.get(cs.namespace_prefix, "unknown"),  # Get version from versions dict
                 "url": cs.url,
                 "synonyms": cs.synonyms
-            } for cs in code_systems if cs.namespace_prefix in versions
+            } for cs in code_systems.values()  # Access values from the dictionary returned by get_all_code_systems
         ]
     }
 
+    # Ensure the output directory exists
+    output_directory = f"res/{version}/"
+    os.makedirs(output_directory, exist_ok=True)
+
     # Write the JSON file to the res folder
-    output_path = f"res/{version}/rd_cdm_codesystems_{version}.json"
+    output_path = os.path.join(output_directory, f"rd_cdm_codesystems_{version}.json")
     with open(output_path, "w") as json_file:
-        json.dump(code_systems_json, json_file, indent=2)
+        json.dump(code_systems_json, json_file, default=json_serializer, indent=2)
         print(f"JSON file created successfully: {output_path}")
 
 
 if __name__ == "__main__":
     create_codesystem_json("v2_0_0")
-

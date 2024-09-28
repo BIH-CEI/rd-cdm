@@ -1,18 +1,23 @@
 """This submodules contains the data model schemas for the application."""
 
-from .codesystems import create_code_systems
-from .base_types import CodeSystem, CodeableConcept, Coding, Date
+from .codesystems import CodeSystems
+from .base_types import CodeSystem, CodeableConcept, Coding, Date, String, Boolean
 from .value_set import ValueSet, ValueSetChoice
 from .data_elements import DataElement, DataElementModel
+from .utils import json_serializer
+
 
 __all__ = [
-    'create_code_systems',
+    'CodeSystems',
     'CodeSystem',
     'CodeableConcept',
-    'Coding'
+    'Coding',
     'ValueSetChoice',
     'ValueSet',
     'DataElement',
     'DataElementModel',
-    'Date'
+    'Date',
+    'String',
+    'Boolean',
+    'json_serializer'
     ]

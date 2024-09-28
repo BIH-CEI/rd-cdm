@@ -31,15 +31,24 @@ jobs:
         mkdir -p gh-pages
         touch gh-pages/.nojekyll
         
+        function branch_exists {
+          git show-ref refs/heads/$1 > /dev/null 2>&1
+        }
+        
         function build_docs {
-          # The function will checkout a branch and build the Javadoc & documentation 
-          # into provided documentation directory.
+          # The function will checkout a branch and build the Sphinx docs 
+          # into the provided documentation directory.
           BRANCH=${1}
           DOCDIR=${2}
-        
-          git checkout ${BRANCH}
-          git fetch
-          git pull
+          
+          if branch_exists ${BRANCH}; then
+            git checkout ${BRANCH}
+            git fetch
+            git pull
+          else
+            echo "Branch ${BRANCH} does not exist. Skipping..."
+            return
+          fi
         
           ## Init the target folder.
           # We will put all site documentation there.
@@ -57,11 +66,10 @@ jobs:
           cd ..
         }
         
-        # We store the docs for `main` in `stable` dir
+        # We store the docs for `main` in `stable` dir, if it exists
         build_docs main stable
-        # We store the docs for `development` in `latest` dir
+        # We store the docs for `develop` in `latest` dir
         build_docs develop latest
-
 
     - name: Deploy documentation
       if: ${{ github.event_name == 'push' }}

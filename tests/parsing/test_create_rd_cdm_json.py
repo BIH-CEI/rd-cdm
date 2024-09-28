@@ -12,11 +12,15 @@ class TestCreateRdCdmJson(unittest.TestCase):
         self.output_file = f"res/{self.version}/rd_cdm_{self.version}.json"
 
     def test_create_final_rd_cdm_json(self):
-        """Test if the final RD CDM JSON file is correctly created."""
-        # Create the final RD CDM JSON
+        """Test if the final RD CDM JSON file is correctly created.
+        
+        This test is a combination of the tests for the individual JSON files
+        (code systems, data elements, and value sets) that are combined to create
+        the final RD CDM JSON file.
+        """
         result = create_final_rd_cdm_json(self.version)
         
-        # Check if the file was created
+        
         self.assertTrue(os.path.exists(self.output_file), "Output file not created")
         
         # Check if the function returned the combined JSON
@@ -34,12 +38,6 @@ class TestCreateRdCdmJson(unittest.TestCase):
         
         self.assertIn("dataElements", data)
         self.assertIn("valueSets", data)
-
-
-    # def tearDown(self):
-    #     """Clean up after tests."""
-    #     if os.path.exists(self.output_file):
-    #         os.remove(self.output_file)
 
 if __name__ == "__main__":
     unittest.main()

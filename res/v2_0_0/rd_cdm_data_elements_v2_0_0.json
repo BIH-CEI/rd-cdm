@@ -1,0 +1,83 @@
+{
+  "dataElements": [
+    {
+      "ordinal": "1.1",
+      "section": "1. Formal Criteria",
+      "elementName": "Pseudonym",
+      "elementCode": "422549004",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Identifier",
+      "dataSpecification": [
+        "n/a"
+      ],
+      "valueSet": null,
+      "fhirExpression_v4.0.1": "Patient.identifier.value",
+      "recommendedVS_fhir": null,
+      "phenopacketSchemaElement_v2.0": "Individual.id",
+      "recommendedVS_phenopacket": null,
+      "description": "The (local) patient-related identification code."
+    },
+    {
+      "ordinal": "1.2",
+      "section": "1. Formal Criteria",
+      "elementName": "Date of Admission",
+      "elementCode": "399423000",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Date",
+      "dataSpecification": [
+        "YYYY-MM-DD",
+        "ISO 8601"
+      ],
+      "valueSet": null,
+      "fhirExpression_v4.0.1": "Encounter.period.start",
+      "recommendedVS_fhir": null,
+      "phenopacketSchemaElement_v2.0": "Individual.time_at_last_encounter",
+      "recommendedVS_phenopacket": null,
+      "description": "The date of admission or data capture of the individual."
+    },
+    {
+      "ordinal": "2.1",
+      "section": "2. Personal Information",
+      "elementName": "Date of Birth",
+      "elementCode": "184099003",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Date",
+      "dataSpecification": [
+        "YYYY",
+        "YYYY-MM",
+        "YYYY-MM-DD"
+      ],
+      "valueSet": null,
+      "fhirExpression_v4.0.1": "Patient.birthDate",
+      "recommendedVS_fhir": null,
+      "phenopacketSchemaElement_v2.0": "Individual.date_of_birth",
+      "recommendedVS_phenopacket": null,
+      "description": "The individual's date of birth."
+    },
+    {
+      "ordinal": "2.2",
+      "section": "2. Personal Information",
+      "elementName": "Sex at Birth",
+      "elementCode": "281053000",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe / VSc"
+      ],
+      "valueSet": {
+        "valueSetName": "Sex at Birth Value Set v2.0.0",
+        "valueSetOrigin": "RD CDM v2.0.0",
+        "valueSetLink": "https://github.com/BIH-CEI/rd-cdm",
+        "display": "Sex at Birth",
+        "valueSetCode": "281053000",
+        "valueSetCodeSystem": "SNOMED",
+        "valueSetChoices": []
+      },
+      "fhirExpression_v4.0.1": "Patient.extension:individual-recordedSexOrGender",
+      "recommendedVS_fhir": "Recorded Sex Or Gender Type",
+      "phenopacketSchemaElement_v2.0": "Individual.sex",
+      "recommendedVS_phenopacket": "Sex",
+      "description": "The individual's sex that was assigned at birth."
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 from typing import List, Union, Literal
+from datetime import datetime
 
 @dataclass(slots=True, frozen=True)
 class CodeSystem:
@@ -132,4 +133,25 @@ class CodeableConcept:
 
     def __str__(self):
         return f"CodeableConcept(codings=[{', '.join(map(str, self.coding))}], text={self.text})"
+    
+@dataclass(frozen=True, slots=True)
+class Date:
+    """Represents a date in the formats YYYY, YYYY-MM, or YYYY-MM-DD."""
+    value: Union[str, datetime]
+
+    def __post_init__(self):
+        if not self.is_valid_format(self.value):
+            raise ValueError(f"Invalid date format: {self.value}")
+
+    @staticmethod
+    def is_valid_format(date_str):
+        """Validate that the date is in the correct format."""
+        formats = ["%Y", "%Y-%m", "%Y-%m-%d"]
+        for fmt in formats:
+            try:
+                datetime.strptime(date_str, fmt)
+                return True
+            except ValueError:
+                continue
+        return False
     

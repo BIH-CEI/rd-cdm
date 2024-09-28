@@ -34,12 +34,13 @@
       ]
     },
     {
-      "codeSystemName": "SNOMED CT",
+      "codeSystemName": "SNOMED",
       "namespace_prefix": "SNOMED",
       "version": "2024-09-01",
       "url": "https://www.snomed.org/snomed-ct",
       "synonyms": [
-        "SCT"
+        "SCT",
+        "SNOMED CT"
       ]
     },
     {

@@ -2,8 +2,10 @@
 
 from . import rd_cdm_v2_0_0_codesystems_versions
 from .rd_cdm_v2_0_0_value_sets import VALUE_SETS_VERSIONS_V2_0_0
+from .rd_cdm_v2_0_0_data_elements import DATA_ELEMENTS_VERSIONS_V2_0_0
 
 __all__ = [
     'rd_cdm_v2_0_0_codesystems_versions',
-    'VALUE_SETS_VERSIONS_V2_0_0'
+    'VALUE_SETS_VERSIONS_V2_0_0',
+    'DATA_ELEMENTS_VERSIONS_V2_0_0'
 ]

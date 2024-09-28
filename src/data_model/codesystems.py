@@ -44,10 +44,10 @@ def create_code_systems(versions: dict[str, str]):
             synonyms=["ICD10-CM", "ICD10_CM", "ICD-10-CM", "ICD_10_CM"]
         ),
         CodeSystem(
-            name="SNOMED CT", 
+            name="SNOMED", 
             namespace_prefix="SNOMED", 
             url="https://www.snomed.org/snomed-ct", 
-            synonyms=["SCT"]
+            synonyms=["SCT", "SNOMED CT"]
         ),
         CodeSystem(
             name="International Classification of Diseases, Eleventh Revision", 

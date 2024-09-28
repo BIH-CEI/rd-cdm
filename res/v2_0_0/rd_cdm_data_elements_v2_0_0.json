@@ -13,9 +13,9 @@
       ],
       "valueSet": null,
       "fhirExpression_v4.0.1": "Patient.identifier.value",
-      "recommendedVS_fhir": null,
+      "recommendedVS_fhir": "n/a",
       "phenopacketSchemaElement_v2.0": "Individual.id",
-      "recommendedVS_phenopacket": null,
+      "recommendedVS_phenopackets": "None",
       "description": "The (local) patient-related identification code."
     },
     {
@@ -31,9 +31,9 @@
       ],
       "valueSet": null,
       "fhirExpression_v4.0.1": "Encounter.period.start",
-      "recommendedVS_fhir": null,
+      "recommendedVS_fhir": "n/a",
       "phenopacketSchemaElement_v2.0": "Individual.time_at_last_encounter",
-      "recommendedVS_phenopacket": null,
+      "recommendedVS_phenopackets": "n/a",
       "description": "The date of admission or data capture of the individual."
     },
     {
@@ -50,9 +50,9 @@
       ],
       "valueSet": null,
       "fhirExpression_v4.0.1": "Patient.birthDate",
-      "recommendedVS_fhir": null,
+      "recommendedVS_fhir": "n/a",
       "phenopacketSchemaElement_v2.0": "Individual.date_of_birth",
-      "recommendedVS_phenopacket": null,
+      "recommendedVS_phenopackets": "n/a",
       "description": "The individual's date of birth."
     },
     {
@@ -77,7 +77,7 @@
       "fhirExpression_v4.0.1": "Patient.extension:individual-recordedSexOrGender",
       "recommendedVS_fhir": "Recorded Sex Or Gender Type",
       "phenopacketSchemaElement_v2.0": "Individual.sex",
-      "recommendedVS_phenopacket": "Sex",
+      "recommendedVS_phenopackets": "Sex",
       "description": "The individual's sex that was assigned at birth."
     },
     {
@@ -90,11 +90,19 @@
       "dataSpecification": [
         "VSc"
       ],
-      "valueSet": null,
+      "valueSet": {
+        "valueSetName": "Karyotypic Sex Value Set v2.0.0",
+        "valueSetOrigin": "RD CDM v2.0.0",
+        "valueSetLink": "https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
+        "display": "Karyotypic Sex",
+        "valueSetCode": "1296886006",
+        "valueSetCodeSystem": "SNOMED",
+        "valueSetChoices": []
+      },
       "fhirExpression_v4.0.1": "Observation.value",
-      "recommendedVS_fhir": null,
+      "recommendedVS_fhir": "n/a",
       "phenopacketSchemaElement_v2.0": "Individual.karyotypic_sex",
-      "recommendedVS_phenopacket": null,
+      "recommendedVS_phenopackets": "Karyotypic Sex",
       "description": "The chromosomal sex of an individual."
     },
     {
@@ -107,11 +115,19 @@
       "dataSpecification": [
         "VSe / VSc"
       ],
-      "valueSet": null,
+      "valueSet": {
+        "valueSetName": "Gender Identity Value Set v2.0.0",
+        "valueSetOrigin": "RD CDM v2.0.0",
+        "valueSetLink": "https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
+        "display": "Gender Identity",
+        "valueSetCode": "263495000",
+        "valueSetCodeSystem": "SNOMED",
+        "valueSetChoices": []
+      },
       "fhirExpression_v4.0.1": "Patient.extension:individual-genderIdentity",
-      "recommendedVS_fhir": null,
+      "recommendedVS_fhir": "Gender Identity",
       "phenopacketSchemaElement_v2.0": "Individual.gender",
-      "recommendedVS_phenopacket": null,
+      "recommendedVS_phenopackets": "OntologyClass",
       "description": "The self-assigned gender of the individual."
     },
     {
@@ -120,15 +136,15 @@
       "elementName": "Country of Birth",
       "elementCode": "370159000",
       "elementCodeSystem": "SNOMED",
-      "dataType": "Address",
+      "dataType": "Code",
       "dataSpecification": [
         "VS"
       ],
       "valueSet": null,
       "fhirExpression_v4.0.1": "Patient.extension:patient-birthPlace",
-      "recommendedVS_fhir": null,
-      "phenopacketSchemaElement_v2.0": null,
-      "recommendedVS_phenopacket": null,
+      "recommendedVS_fhir": "Address",
+      "phenopacketSchemaElement_v2.0": "n/a",
+      "recommendedVS_phenopackets": "n/a",
       "description": "The individual's country of birth."
     }
   ]

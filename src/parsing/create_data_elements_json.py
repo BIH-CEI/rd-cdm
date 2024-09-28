@@ -74,7 +74,7 @@ def create_data_elements_json(version):
                 "fhirExpression_v4.0.1": de.fhirExpression_v4_0_1,
                 "recommendedVS_fhir": de.recommendedVS_fhir,
                 "phenopacketSchemaElement_v2.0": de.phenopacketSchemaElement_v2_0,
-                "recommendedVS_phenopacket": de.recommendedVS_phenopacket,
+                "recommendedVS_phenopackets": de.recommendedVS_phenopacket,
                 "description": de.description
             }
             for de in data_elements

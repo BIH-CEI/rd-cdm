@@ -18,7 +18,9 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             dataSpecification=["n/a"],
             valueSet=None,
             fhirExpression_v4_0_1="Patient.identifier.value",
+            recommendedDataSpec_fhir="n/a",
             phenopacketSchemaElement_v2_0="Individual.id",
+            recommendedDataSpec_phenopackets="None",
             description="The (local) patient-related identification code."
         ),
         DataElement(
@@ -31,7 +33,9 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             dataSpecification=["YYYY-MM-DD", "ISO 8601"],
             valueSet=None,
             fhirExpression_v4_0_1="Encounter.period.start",
+            recommendedDataSpec_fhir="n/a",
             phenopacketSchemaElement_v2_0="Individual.time_at_last_encounter",
+            recommendedDataSpec_phenopackets="n/a",
             description="The date of admission or data capture of the individual."
         ),
         DataElement(
@@ -44,9 +48,9 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             dataSpecification=["YYYY", "YYYY-MM", "YYYY-MM-DD"],
             valueSet=None,
             fhirExpression_v4_0_1="Patient.birthDate",
-            recommendedVS_fhir=None,
+            recommendedDataSpec_fhir="n/a",
             phenopacketSchemaElement_v2_0="Individual.date_of_birth",
-            recommendedVS_phenopacket=None,
+            recommendedDataSpec_phenopackets="n/a",
             description="The individual's date of birth."
         ),
         DataElement(
@@ -67,9 +71,9 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
                 valueSetChoices=[]  # Add the choices if required
             ),
             fhirExpression_v4_0_1="Patient.extension:individual-recordedSexOrGender",
-            recommendedVS_fhir="Recorded Sex Or Gender Type",
+            recommendedDataSpec_fhir="Recorded Sex Or Gender Type",
             phenopacketSchemaElement_v2_0="Individual.sex",
-            recommendedVS_phenopacket="Sex",
+            recommendedDataSpec_phenopackets="Sex",
             description="The individual's sex that was assigned at birth."
         ),
         DataElement(
@@ -80,9 +84,19 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             elementCodeSystem=SNOMED,
             dataType=Code,
             dataSpecification=["VSc"],
-            valueSet=None,  # Add relevant value set in the future
+            valueSet=ValueSet(
+                valueSetName="Karyotypic Sex Value Set v2.0.0",
+                valueSetOrigin="RD CDM v2.0.0",
+                valueSetLink="https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
+                display="Karyotypic Sex",
+                valueSetCode=Coding(system=SNOMED, code="1296886006"),
+                valueSetCodeSystem=SNOMED,
+                valueSetChoices=[]
+            ), 
             fhirExpression_v4_0_1="Observation.value",
+            recommendedDataSpec_fhir="n/a",
             phenopacketSchemaElement_v2_0="Individual.karyotypic_sex",
+            recommendedDataSpec_phenopackets="Karyotypic Sex",
             description="The chromosomal sex of an individual."
         ),
         DataElement(
@@ -93,9 +107,19 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             elementCodeSystem=SNOMED,
             dataType=Code,
             dataSpecification=["VSe / VSc"],
-            valueSet=None,  # Add relevant value set in the future
+            valueSet=ValueSet(
+                valueSetName="Gender Identity Value Set v2.0.0",
+                valueSetOrigin="RD CDM v2.0.0",
+                valueSetLink="https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
+                display="Gender Identity",
+                valueSetCode=Coding(system=SNOMED, code="263495000"),
+                valueSetCodeSystem=SNOMED,
+                valueSetChoices=[]
+            ),  
             fhirExpression_v4_0_1="Patient.extension:individual-genderIdentity",
+            recommendedDataSpec_fhir="Gender Identity",
             phenopacketSchemaElement_v2_0="Individual.gender",
+            recommendedDataSpec_phenopackets="OntologyClass",
             description="The self-assigned gender of the individual."
         ),
         DataElement(
@@ -104,13 +128,13 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             elementName="Country of Birth",
             elementCode=Coding(system=SNOMED, code="370159000"),
             elementCodeSystem=SNOMED,
-            dataType=Address,
+            dataType=Code,
             dataSpecification=["VS"],  # Add relevant value set
             valueSet=None,  # Add relevant value set in the future
             fhirExpression_v4_0_1="Patient.extension:patient-birthPlace",
-            phenopacketSchemaElement_v2_0=None,
+            recommendedDataSpec_fhir="Address",
+            phenopacketSchemaElement_v2_0="n/a",
+            recommendedDataSpec_phenopackets="n/a",
             description="The individual's country of birth."
         )
     ]
-    
-    

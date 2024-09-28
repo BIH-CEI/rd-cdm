@@ -31,10 +31,19 @@ def test_validate_json_file(json_file, schema_file):
         with open(json_file, "r") as jf:
             data = json.load(jf)
 
+        # Validate JSON against the schema
         validate(instance=data, schema=schema)
+
     except FileNotFoundError:
         pytest.fail(f"File not found: {json_file}")
+
     except json.JSONDecodeError as e:
         pytest.fail(f"Invalid JSON format in {json_file}: {e.msg}")
+
     except ValidationError as e:
+        # Detailed logging of what failed
+        print(f"Validation failed for {json_file}: {e.message}")
+        print(f"Error in data element: {e.instance}")  # The problematic element
+        print(f"Error in schema part: {e.schema}")  # The part of the schema causing the issue
+        print(f"Validation path: {e.path}")  # The path in the JSON where the error occurred
         pytest.fail(f"Validation failed for {json_file}: {e.message}")

@@ -1,7 +1,7 @@
 # Rare Disease Common Data Model
 
-An international Rare Disease Common Data Model based on the ERDRI-CDS, HL7 FHIR
- and the GA4GH Phenopacket Schema
+An ontology-based Rare Disease Common Data Model (RD CDM) to enable 
+international registry use, HL7 FHIR and GA4GH Phenopackets.
 
 <!-- Python CI Badge -->
 ![Python CI](https://github.com/{OWNER}/{REPO}/actions/workflows/python_ci.yml/badge.svg)
@@ -27,31 +27,61 @@ An international Rare Disease Common Data Model based on the ERDRI-CDS, HL7 FHIR
 
 ## Project Description
 
-tbc.
+The Rare Disease Common Data Model (RD CDM) is designed to harmonize rare 
+disease data capture across international registries. It integrates standards 
+such as the ERDRI-CDS, HL7 FHIR, and GA4GH Phenopacket Schema, creating a 
+scalable, ontology-driven framework that supports advanced interoperability for 
+research and care. The RD CDM Version 2.0 consists of 66 data elements, 
+extending the ERDRI-CDS and allowing deeper insights into genetic findings, 
+phenotypic features, and family history of individuals.
+
+
 
 ## Features
 
-tbc.
+- Interoperability: Aligns with HL7 FHIR v4.0.1 and GA4GH Phenopacket v2.0 for
+    structured data exchange.
+- Ontology-driven: Utilizes ontologies such as SNOMED CT, LOINC, MONDO, OMIM, 
+    and HPO for standardizing rare disease terminologies.
+- Modular Structure: Comprises essential data elements categorized into formal 
+    criteria, personal information, patient status, disease, genetic findings, 
+    phenotypic findings, and family history.
+- Cross-registry Compatibility: Enables data reuse across multiple registries 
+    with consistent encoding and semantic alignment.
 
 
 ## Getting Started
 
-tbc.
+This section provides instructions for getting started with the RD CDM.
 
 ### Prerequisites
 
-tbc.
+- Python 3.x
+- Dependencies in requirements.txt
 
 ### Installation
 
-tbc.
+1. Clone the repository
+   ```bash
+   git clone https://github.com/{OWNER}/{REPO}.git
+   cd {REPO}
+   ```
+
+2. Install dependencies:
+  ```bash
+  pip install -r requirements.txt
+  ```
+
+3. Run tests to validate the JSON schema:
+  ```bash
+  pytest tests/
+  ```
 
 ## Contributing
 
-Please write an issue or exchange with other users in the discussions if you
-encounter any problems or wish to give feedback. Feel free to reach out to us, 
-if you are interested in collaborating and improve the use of our RD CDM or rare 
-disease research and care.
+Contributions are welcome! Please feel free to create issues, discuss features, 
+or submit pull requests to help enhance this project. For larger contributions, 
+consider reaching out to discuss collaboration opportunities.
 
 ## Resources 
 
@@ -67,22 +97,21 @@ disease research and care.
 - NCI Thesaurus OBO Edition (NCIT, Version Version 24.04e ) [🔗](https://obofoundry.org/ontology/ncit.html)
 
 ### Submodules
-- [toFHIR](https://github.com/srdc/tofhir?tab=readme-ov-file)
-- [Phenopacket Mapper](https://github.com/BIH-CEI/phenopacket_mapper)
 - [RareLink](https://github.com/BIH-CEI/RareLink)
 
 ## License
 
-This project is licensed under the terms of the [MIT License](https://github.com/BIH-CEI/RareLink/blob/develop/LICENSE)
+This project is licensed under the terms of the [MIT License](https://github.com/BIH-CEI/rd-cdm/blob/develop/LICENSE)
 
 ## Acknowledgements
 
-We would like to extend our thanks to ... for his support in the development of this project.
+We would like to extend our thanks to all the authors involved in the 
+development of this RD CDM model. 
 
 ---
 
 - Authors:
-  - [Adam Graefe](https://github.com/aslgraefe)
+  - [Adam SL Graefe](https://github.com/aslgraefe)
   - [Filip Rehburg](https://github.com/frehburg)
   - Prof. Peter N. Robinson
   - Prof. Sylvia Thun

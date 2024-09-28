@@ -1,10 +1,10 @@
 from src.data_model.value_set import ValueSet, ValueSetChoice
 from src.data_model.base_types import CodeSystem, Coding
+from src.data_model.codesystems import CodeSystems
 
-# Example CodeSystem definitions
-SNOMED = CodeSystem(name="SNOMED CT", namespace_prefix="SNOMED", url="https://www.snomed.org/snomed-ct")
+SNOMED = CodeSystems.SNOMED
+HL7FHIR = CodeSystems.HL7FHIR
 
-# Define the value sets for v2_0_0
 class VALUE_SETS_VERSIONS_V2_0_0:
     """Value set definitions for version 2_0_0."""
     
@@ -138,5 +138,302 @@ class VALUE_SETS_VERSIONS_V2_0_0:
                     choiceCodeSystem=SNOMED
                 )
             ]
-        )
+        ),
+        ValueSet(
+            valueSetName="Vital Status Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
+            display="Vital Status",
+            valueSetCode=Coding(system=SNOMED, code="278844005"),
+            valueSetCodeSystem=SNOMED,
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Alive",
+                    choiceCode=Coding(system=SNOMED, code="438949009"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Dead",
+                    choiceCode=Coding(system=SNOMED, code="419099009"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Unknown - Lost in follow-up",
+                    choiceCode=Coding(system=SNOMED, code="399307001"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Unknown - Opted-out",
+                    choiceCode=Coding(system=SNOMED, code="185924006"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Unknown - Other Reason",
+                    choiceCode=Coding(system=SNOMED, code="261665006"),
+                    choiceCodeSystem=SNOMED
+                )
+            ]
+        ),
+        ValueSet(
+            valueSetName="Age Category Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
+            display="Age Category",
+            valueSetCode=Coding(system=SNOMED, code="105727008"),
+            valueSetCodeSystem=SNOMED,
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Infancy",
+                    choiceCode=Coding(system=SNOMED, code="3658006"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Toddler",
+                    choiceCode=Coding(system=SNOMED, code="713153009"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Childhood",
+                    choiceCode=Coding(system=SNOMED, code="255398004"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Adolescence",
+                    choiceCode=Coding(system=SNOMED, code="263659003"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Adulthood",
+                    choiceCode=Coding(system=SNOMED, code="41847000"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Fetal period",
+                    choiceCode=Coding(system=SNOMED, code="303112003"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Dead",
+                    choiceCode=Coding(system=SNOMED, code="419099009"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Unknown",
+                    choiceCode=Coding(system=SNOMED, code="261665006"),
+                    choiceCodeSystem=SNOMED
+                )
+            ]
+        ),
+        ValueSet(
+            valueSetName="Vital Status Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
+            display="Vital Status",
+            valueSetCode=Coding(system=SNOMED, code="278844005"),
+            valueSetCodeSystem=SNOMED,
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Alive",
+                    choiceCode=Coding(system=SNOMED, code="438949009"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Dead",
+                    choiceCode=Coding(system=SNOMED, code="419099009"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Unknown - Lost in follow-up",
+                    choiceCode=Coding(system=SNOMED, code="399307001"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Unknown - Opted-out",
+                    choiceCode=Coding(system=SNOMED, code="185924006"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Unknown - Other Reason",
+                    choiceCode=Coding(system=SNOMED, code="261665006"),
+                    choiceCodeSystem=SNOMED
+                )
+            ]
+        ),
+        ValueSet(
+            valueSetName="Age Category Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
+            display="Age Category",
+            valueSetCode=Coding(system=SNOMED, code="105727008"),
+            valueSetCodeSystem=SNOMED,
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Infancy",
+                    choiceCode=Coding(system=SNOMED, code="3658006"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Toddler",
+                    choiceCode=Coding(system=SNOMED, code="713153009"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Childhood",
+                    choiceCode=Coding(system=SNOMED, code="255398004"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Adolescence",
+                    choiceCode=Coding(system=SNOMED, code="263659003"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Adulthood",
+                    choiceCode=Coding(system=SNOMED, code="41847000"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Fetal period",
+                    choiceCode=Coding(system=SNOMED, code="303112003"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Dead",
+                    choiceCode=Coding(system=SNOMED, code="419099009"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Unknown",
+                    choiceCode=Coding(system=SNOMED, code="261665006"),
+                    choiceCodeSystem=SNOMED
+                )
+            ]
+        ),
+        ValueSet(
+            valueSetName="Undiagnosed RD Case Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
+            display="Undiagnosed RD Case",
+            valueSetCode=Coding(system=SNOMED, code="723663001"),
+            valueSetCodeSystem=SNOMED,
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Yes",
+                    choiceCode=Coding(system=SNOMED, code="373066001"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="No",
+                    choiceCode=Coding(system=SNOMED, code="373067005"),
+                    choiceCodeSystem=SNOMED
+                )
+            ]
+        ),
+        # 4. Care Pathway
+        ValueSet(
+            valueSetName="Encounter Status Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
+            display="Encounter Status",
+            valueSetCode=Coding(system=SNOMED, code="305058001"),
+            valueSetCodeSystem=SNOMED,
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Planned", 
+                    choiceCode=Coding(system=HL7FHIR, code="planned"), 
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Arrived", 
+                    choiceCode=Coding(system=HL7FHIR, code="arrived"), 
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Triaged", 
+                    choiceCode=Coding(system=HL7FHIR, code="triaged"), 
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="In Progress", 
+                    choiceCode=Coding(system=HL7FHIR, code="in-progress"), 
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="On Leave", 
+                    choiceCode=Coding(system=HL7FHIR, code="onleave"), 
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Finished", 
+                    choiceCode=Coding(system=HL7FHIR, code="finished"), 
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Cancelled", 
+                    choiceCode=Coding(system=HL7FHIR, code="cancelled"), 
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Entered in Error", 
+                    choiceCode=Coding(system=HL7FHIR, code="entered-in-error"), 
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Unknown", 
+                    choiceCode=Coding(system=HL7FHIR, code="unknown"), 
+                    choiceCodeSystem=HL7FHIR
+                )
+            ]
+        ),
+        ValueSet(
+            valueSetName="Encounter Class Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
+            display="Encounter Class",
+            valueSetCode=Coding(system=HL7FHIR, code="encounter.class"),
+            valueSetCodeSystem=[HL7FHIR, SNOMED],
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Ambulatory", 
+                    choiceCode=Coding(system=HL7FHIR, code="AMB"), 
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Inpatient", 
+                    choiceCode=Coding(system=HL7FHIR, code="IMP"), 
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Observation", 
+                    choiceCode=Coding(system=HL7FHIR, code="OBSENC"), 
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Emergency", 
+                    choiceCode=Coding(system=HL7FHIR, code="EMER"), 
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Virtual", 
+                    choiceCode=Coding(system=HL7FHIR, code="VR"), 
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Home Health", 
+                    choiceCode=Coding(system=HL7FHIR, code="HH"), 
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="RD Specialist Center", 
+                    choiceCode=Coding(system=HL7FHIR, code="RDC"), 
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Unknown", 
+                    choiceCode=Coding(system=SNOMED, code="261665006"), 
+                    choiceCodeSystem=SNOMED
+                )
+            ]
+        ),
     ]
+    

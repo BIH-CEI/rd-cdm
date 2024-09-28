@@ -64,24 +64,20 @@
               }
             },
             "fhirExpression_v4_0_1": {
-              "type": ["string", "null"],
-              "description": "FHIR expression associated with the element, can also be 'n/a'.",
-              "enum": ["n/a", null]
+            "type": ["string", "null"],
+            "description": "FHIR expression associated with the element, can also be 'n/a'."
             },
             "recommendedDataSpec_fhir": {
-              "type": ["string", "null"],
-              "description": "Recommended FHIR data specification or value set, can also be 'n/a'.",
-              "enum": ["n/a", null]
+            "type": ["string", "null"],
+            "description": "Recommended FHIR data specification or value set, can also be 'n/a'."
             },
             "phenopacketSchemaElement_v2_0": {
-              "type": ["string", "null"],
-              "description": "Recommended Phenopacket data specification, can also be 'n/a'.",
-              "enum": ["n/a", null]
+            "type": ["string", "null"],
+            "description": "Recommended Phenopacket data specification, can also be 'n/a'."
             },
             "recommendedDataSpec_phenopackets": {
-              "type": ["string", "null"],
-              "description": "Recommended Phenopacket data specification or value set, can also be 'n/a'.",
-              "enum": ["n/a", null]
+            "type": ["string", "null"],
+            "description": "Recommended Phenopacket data specification or value set, can also be 'n/a'."
             },
             "description": {
               "type": "string"

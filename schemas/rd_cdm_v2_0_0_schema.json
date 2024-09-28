@@ -56,7 +56,21 @@
         "valueSetLink": { "type": "string" },
         "display": { "type": "string" },
         "valueSetCode": { "type": "string" },
-        "valueSetCodeSystem": { "type": "string" },
+      "valueSetCodeSystem": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "codeSystem": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "The code systems associated with the value set."
+      },
         "valueSetChoices": {
           "type": "array",
           "items": {

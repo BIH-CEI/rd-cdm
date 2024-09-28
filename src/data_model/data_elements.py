@@ -13,11 +13,11 @@ class DataElement:
     elementCodeSystem: CodeSystem
     dataType: str
     dataSpecification: List[str]
-    valueSet: Optional[ValueSet] = None  # ValueSet is optional
+    valueSet: Optional[str] = None  # Now it references the ValueSet by name (just a string)
     fhirExpression_v4_0_1: Optional[str] = None
-    recommendedVS_fhir: Optional[str] = None
+    recommendedDataSpec_fhir: Optional[str] = None
     phenopacketSchemaElement_v2_0: Optional[str] = None
-    recommendedVS_phenopacket: Optional[str] = None
+    recommendedDataSpec_phenopackets: Optional[str] = None
     description: str = ""
 
 @dataclass(slots=True, frozen=True)

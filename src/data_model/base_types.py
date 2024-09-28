@@ -10,7 +10,6 @@ class CodeSystem:
     data representation in domains like healthcare and bioinformatics.
 
     Attributes:
-    -----------
     name : str
         The full name of the CodeSystem (e.g., "SNOMED CT").
     
@@ -27,7 +26,6 @@ class CodeSystem:
         Alternative names or abbreviations for the CodeSystem.
     
     Methods:
-    --------
     __eq__(self, other):
         Checks equality based on `namespace_prefix` or `synonyms`.
     
@@ -180,10 +178,12 @@ class Address:
     street: str
     city: str
     zip_code: str
+    country: str
 
     def to_json(self):
         """Return a dictionary representing this Address."""
         return {
+            "country" : self.country,
             "street": self.street,
             "city": self.city,
             "zip_code": self.zip_code
@@ -198,3 +198,22 @@ class Identifier:
     def to_json(self):
         """Return a dictionary representing this Identifier."""
         return {"id": self.id, "type": self.type}
+    
+
+@dataclass(frozen=True, slots=True)
+class String:
+    """Represents a string data type."""
+    value: str
+
+    def __post_init__(self):
+        if not isinstance(self.value, str):
+            raise ValueError(f"Invalid value for String: {self.value}. Expected a string.")
+
+@dataclass(frozen=True, slots=True)
+class Boolean:
+    """Represents a boolean data type."""
+    value: bool
+
+    def __post_init__(self):
+        if not isinstance(self.value, bool):
+            raise ValueError(f"Invalid value for Boolean: {self.value}. Expected a boolean.")

@@ -13,17 +13,21 @@ class TestCreateCodeSystemsJson(unittest.TestCase):
     
     def test_create_codesystem_json(self):
         """Test if the code systems JSON file is correctly created."""
+        # Call the function that generates the JSON file
         create_codesystem_json(self.version)
+
+        # Check if the output file was created
         self.assertTrue(os.path.exists(self.output_file), "Output file not created")
+        
+        # Open and read the output file
         with open(self.output_file, 'r') as f:
             data = json.load(f)
+
+        # Check that the data is a dictionary and contains "CodeSystems"
         self.assertIsInstance(data, dict)
         self.assertIn("CodeSystems", data)
 
-    # def tearDown(self):
-    #     """Clean up after tests."""
-    #     if os.path.exists(self.output_file):
-    #         os.remove(self.output_file)
+        # Further checks can be added to validate the content if necessary
 
 if __name__ == "__main__":
     unittest.main()

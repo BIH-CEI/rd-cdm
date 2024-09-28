@@ -8,8 +8,12 @@
       "valueSetLink": "https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
       "display": "Sex at Birth",
       "valueSetCode": "281053000",
-      "valueSetCodeSystem": "SNOMED",
-      "valueSetCodeSystemVersion": "2024-09-01",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
       "valueSetChoices": [
         {
           "choiceDisplay": "Female",
@@ -49,8 +53,12 @@
       "valueSetLink": "https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
       "display": "Karyotypic Sex",
       "valueSetCode": "1296886006",
-      "valueSetCodeSystem": "SNOMED",
-      "valueSetCodeSystemVersion": "2024-09-01",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
       "valueSetChoices": [
         {
           "choiceDisplay": "XX",
@@ -120,8 +128,12 @@
       "valueSetLink": "https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
       "display": "Gender Identity",
       "valueSetCode": "263495000",
-      "valueSetCodeSystem": "SNOMED",
-      "valueSetCodeSystemVersion": "2024-09-01",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
       "valueSetChoices": [
         {
           "choiceDisplay": "Female gender identity",
@@ -150,6 +162,385 @@
         {
           "choiceDisplay": "Not recorded",
           "choiceCode": "1220561009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Vital Status Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
+      "display": "Vital Status",
+      "valueSetCode": "278844005",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Alive",
+          "choiceCode": "438949009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Dead",
+          "choiceCode": "419099009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown - Lost in follow-up",
+          "choiceCode": "399307001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown - Opted-out",
+          "choiceCode": "185924006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown - Other Reason",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Age Category Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
+      "display": "Age Category",
+      "valueSetCode": "105727008",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Infancy",
+          "choiceCode": "3658006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Toddler",
+          "choiceCode": "713153009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Childhood",
+          "choiceCode": "255398004",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Adolescence",
+          "choiceCode": "263659003",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Adulthood",
+          "choiceCode": "41847000",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Fetal period",
+          "choiceCode": "303112003",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Dead",
+          "choiceCode": "419099009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Vital Status Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
+      "display": "Vital Status",
+      "valueSetCode": "278844005",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Alive",
+          "choiceCode": "438949009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Dead",
+          "choiceCode": "419099009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown - Lost in follow-up",
+          "choiceCode": "399307001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown - Opted-out",
+          "choiceCode": "185924006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown - Other Reason",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Age Category Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
+      "display": "Age Category",
+      "valueSetCode": "105727008",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Infancy",
+          "choiceCode": "3658006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Toddler",
+          "choiceCode": "713153009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Childhood",
+          "choiceCode": "255398004",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Adolescence",
+          "choiceCode": "263659003",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Adulthood",
+          "choiceCode": "41847000",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Fetal period",
+          "choiceCode": "303112003",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Dead",
+          "choiceCode": "419099009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Undiagnosed RD Case Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
+      "display": "Undiagnosed RD Case",
+      "valueSetCode": "723663001",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Yes",
+          "choiceCode": "373066001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "No",
+          "choiceCode": "373067005",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Encounter Status Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
+      "display": "Encounter Status",
+      "valueSetCode": "305058001",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Planned",
+          "choiceCode": "planned",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Arrived",
+          "choiceCode": "arrived",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Triaged",
+          "choiceCode": "triaged",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "In Progress",
+          "choiceCode": "in-progress",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "On Leave",
+          "choiceCode": "onleave",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Finished",
+          "choiceCode": "finished",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Cancelled",
+          "choiceCode": "cancelled",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Entered in Error",
+          "choiceCode": "entered-in-error",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "unknown",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Encounter Class Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
+      "display": "Encounter Class",
+      "valueSetCode": "encounter.class",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "HL7FHIR",
+          "version": "v4.0.1"
+        },
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Ambulatory",
+          "choiceCode": "AMB",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Inpatient",
+          "choiceCode": "IMP",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Observation",
+          "choiceCode": "OBSENC",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Emergency",
+          "choiceCode": "EMER",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Virtual",
+          "choiceCode": "VR",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Home Health",
+          "choiceCode": "HH",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "RD Specialist Center",
+          "choiceCode": "RDC",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "261665006",
           "choiceCodeSystem": "SNOMED",
           "choiceCodeSystemVersion": "2024-09-01"
         }

@@ -51,30 +51,15 @@ def create_data_elements_json(version):
                 "ordinal": de.ordinal,
                 "section": de.section,
                 "elementName": de.elementName,
-                "elementCode": de.elementCode.code,  # Assuming Coding object
-                "elementCodeSystem": de.elementCodeSystem.namespace_prefix,
+                "elementCode": de.elementCode.code,
+                "elementCodeSystem": de.elementCodeSystem if isinstance(de.elementCodeSystem, str) else de.elementCodeSystem.namespace_prefix,
                 "dataType": de.dataType,
                 "dataSpecification": de.dataSpecification,
-                "valueSet": {
-                    "valueSetName": de.valueSet.valueSetName,
-                    "valueSetOrigin": de.valueSet.valueSetOrigin,
-                    "valueSetLink": de.valueSet.valueSetLink,
-                    "display": de.valueSet.display,
-                    "valueSetCode": de.valueSet.valueSetCode.code,
-                    "valueSetCodeSystem": de.valueSet.valueSetCodeSystem.namespace_prefix,
-                    "valueSetChoices": [
-                        {
-                            "choiceDisplay": choice.choiceDisplay,
-                            "choiceCode": choice.choiceCode.code,
-                            "choiceCodeSystem": choice.choiceCodeSystem.namespace_prefix
-                        }
-                        for choice in de.valueSet.valueSetChoices
-                    ]
-                } if de.valueSet else None,
-                "fhirExpression_v4.0.1": de.fhirExpression_v4_0_1,
-                "recommendedVS_fhir": de.recommendedVS_fhir,
-                "phenopacketSchemaElement_v2.0": de.phenopacketSchemaElement_v2_0,
-                "recommendedVS_phenopackets": de.recommendedVS_phenopacket,
+                "valueSet": de.valueSet if isinstance(de.valueSet, str) else None,  # Directly use the string reference
+                "fhirExpression_v4_0_1": de.fhirExpression_v4_0_1,
+                "recommendedDataSpec_fhir": de.recommendedDataSpec_fhir,
+                "phenopacketSchemaElement_v2_0": de.phenopacketSchemaElement_v2_0,
+                "recommendedDataSpec_phenopackets": de.recommendedDataSpec_phenopackets,
                 "description": de.description
             }
             for de in data_elements
@@ -91,4 +76,3 @@ def create_data_elements_json(version):
 # Run the function for the versions you want
 if __name__ == "__main__":
     create_data_elements_json("v2_0_0")
-    #create_data_elements_json("v2_1_0")

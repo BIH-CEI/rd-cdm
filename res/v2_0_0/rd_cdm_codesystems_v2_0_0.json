@@ -23,6 +23,28 @@
       "synonyms": []
     },
     {
+      "codeSystemName": "International Classification of Diseases, Ninth Revision",
+      "namespace_prefix": "ICD9",
+      "version": "unknown",
+      "url": "https://www.cdc.gov/nchs/icd/icd9.htm",
+      "synonyms": [
+        "ICD-9",
+        "ICD_9"
+      ]
+    },
+    {
+      "codeSystemName": "International Classification of Diseases, Tenth Revision, German Modification",
+      "namespace_prefix": "ICD10GM",
+      "version": "unknown",
+      "url": "https://www.bfarm.de/EN/Code-systems/Classifications/ICD/ICD-10-GM/_node.html",
+      "synonyms": [
+        "ICD10-GM",
+        "ICD-10-GM",
+        "ICD10_GM",
+        "ICD_10_GM"
+      ]
+    },
+    {
       "codeSystemName": "International Classification of Diseases, Tenth Revision, Clinical Modification",
       "namespace_prefix": "ICD10CM",
       "version": "2024-09-01",
@@ -75,7 +97,7 @@
       "synonyms": []
     },
     {
-      "codeSystemName": "International Classification of Functioning, Disability and Health (ICF)",
+      "codeSystemName": "International Classification of Functioning, Disability and Health",
       "namespace_prefix": "ICF",
       "version": "1.0.2",
       "url": "https://www.who.int/classifications/icf/en/",

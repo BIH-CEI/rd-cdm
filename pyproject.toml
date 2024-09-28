@@ -1,12 +1,9 @@
-[build-system]
-requires = ["setuptools>=61.0.0", "wheel"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "template_for_python_projects"
 authors = [
     {name = "Filip Rehburg", email="filip.rehburg@charite.de"},
-     ]
+    {name = "Adam SL Graefe", email="adam.graefe@charite.de"},
+]
 description = "TODO"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -28,8 +25,9 @@ classifiers = [
 ]
 dependencies = [
     "numpy",
+    "jsonschema",  # Added jsonschema to dependencies
 ]
-dynamic = ["version"]
+version = "0.1.0"
 
 [project.optional-dependencies]
 test = ["pytest>=7.0.0,<8.0.0"]
@@ -44,10 +42,5 @@ bugtracker = "https://github.com/frehburg/template_for_python_projects/issues"
 [tool.setuptools]
 package-dir = { "" = "src" }
 
-[tool.setuptools.dynamic]
-version = { attr = "template_for_python_projects.__version__" }
-
-# The following would provide a command line executable called `sample`
-# which executes the function `main` from this package when invoked.
-[project.scripts]  # Optional
-sample = "sample:main"
+[tool.setuptools.packages.find]
+where = ["src"]

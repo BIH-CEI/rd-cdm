@@ -4,6 +4,7 @@ from .codesystems import create_code_systems
 from .base_types import CodeSystem, CodeableConcept, Coding, Date
 from .value_set import ValueSet, ValueSetChoice
 from .data_elements import DataElement, DataElementModel
+from .utils import json_serializer
 
 __all__ = [
     'create_code_systems',
@@ -15,4 +16,5 @@ __all__ = [
     'DataElement',
     'DataElementModel',
     'Date'
+    'json_serializer'
     ]

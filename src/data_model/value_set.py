@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from typing import List
-from .base_types import CodeSystem, Coding
+from .base_types import CodeSystem, Code, Coding
 
 @dataclass(slots=True, frozen=True)
 class ValueSetChoice:

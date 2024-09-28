@@ -79,6 +79,57 @@
       "phenopacketSchemaElement_v2.0": "Individual.sex",
       "recommendedVS_phenopacket": "Sex",
       "description": "The individual's sex that was assigned at birth."
+    },
+    {
+      "ordinal": "2.3",
+      "section": "2. Personal Information",
+      "elementName": "Karyotypic Sex",
+      "elementCode": "1296886006",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSc"
+      ],
+      "valueSet": null,
+      "fhirExpression_v4.0.1": "Observation.value",
+      "recommendedVS_fhir": null,
+      "phenopacketSchemaElement_v2.0": "Individual.karyotypic_sex",
+      "recommendedVS_phenopacket": null,
+      "description": "The chromosomal sex of an individual."
+    },
+    {
+      "ordinal": "2.4",
+      "section": "2. Personal Information",
+      "elementName": "Gender Identity",
+      "elementCode": "263495000",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe / VSc"
+      ],
+      "valueSet": null,
+      "fhirExpression_v4.0.1": "Patient.extension:individual-genderIdentity",
+      "recommendedVS_fhir": null,
+      "phenopacketSchemaElement_v2.0": "Individual.gender",
+      "recommendedVS_phenopacket": null,
+      "description": "The self-assigned gender of the individual."
+    },
+    {
+      "ordinal": "2.5",
+      "section": "2. Personal Information",
+      "elementName": "Country of Birth",
+      "elementCode": "370159000",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Address",
+      "dataSpecification": [
+        "VS"
+      ],
+      "valueSet": null,
+      "fhirExpression_v4.0.1": "Patient.extension:patient-birthPlace",
+      "recommendedVS_fhir": null,
+      "phenopacketSchemaElement_v2.0": null,
+      "recommendedVS_phenopacket": null,
+      "description": "The individual's country of birth."
     }
   ]
 }

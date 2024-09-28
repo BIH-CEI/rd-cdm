@@ -1,6 +1,6 @@
 from src.data_model.data_elements import DataElement
 from src.data_model.value_set import ValueSet
-from src.data_model.base_types import CodeSystem, Coding, Date
+from src.data_model.base_types import CodeSystem, Coding, Date, Code, Address
 
 SNOMED = CodeSystem(name="SNOMED CT", namespace_prefix="SNOMED", url="https://www.snomed.org/snomed-ct")
 
@@ -27,7 +27,7 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             elementName="Date of Admission",
             elementCode=Coding(system=SNOMED, code="399423000"),
             elementCodeSystem=SNOMED,
-            dataType="Date",
+            dataType=Date,
             dataSpecification=["YYYY-MM-DD", "ISO 8601"],
             valueSet=None,
             fhirExpression_v4_0_1="Encounter.period.start",
@@ -40,7 +40,7 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             elementName="Date of Birth",
             elementCode=Coding(system=SNOMED, code="184099003"),
             elementCodeSystem=SNOMED,
-            dataType="Date",
+            dataType=Date,
             dataSpecification=["YYYY", "YYYY-MM", "YYYY-MM-DD"],
             valueSet=None,
             fhirExpression_v4_0_1="Patient.birthDate",
@@ -55,7 +55,7 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             elementName="Sex at Birth",
             elementCode=Coding(system=SNOMED, code="281053000"),
             elementCodeSystem=SNOMED,
-            dataType="Code",
+            dataType=Code,
             dataSpecification=["VSe / VSc"],
             valueSet=ValueSet(
                 valueSetName="Sex at Birth Value Set v2.0.0",
@@ -71,6 +71,46 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             phenopacketSchemaElement_v2_0="Individual.sex",
             recommendedVS_phenopacket="Sex",
             description="The individual's sex that was assigned at birth."
+        ),
+        DataElement(
+            ordinal="2.3",
+            section="2. Personal Information",
+            elementName="Karyotypic Sex",
+            elementCode=Coding(system=SNOMED, code="1296886006"),
+            elementCodeSystem=SNOMED,
+            dataType=Code,
+            dataSpecification=["VSc"],
+            valueSet=None,  # Add relevant value set in the future
+            fhirExpression_v4_0_1="Observation.value",
+            phenopacketSchemaElement_v2_0="Individual.karyotypic_sex",
+            description="The chromosomal sex of an individual."
+        ),
+        DataElement(
+            ordinal="2.4",
+            section="2. Personal Information",
+            elementName="Gender Identity",
+            elementCode=Coding(system=SNOMED, code="263495000"),
+            elementCodeSystem=SNOMED,
+            dataType=Code,
+            dataSpecification=["VSe / VSc"],
+            valueSet=None,  # Add relevant value set in the future
+            fhirExpression_v4_0_1="Patient.extension:individual-genderIdentity",
+            phenopacketSchemaElement_v2_0="Individual.gender",
+            description="The self-assigned gender of the individual."
+        ),
+        DataElement(
+            ordinal="2.5",
+            section="2. Personal Information",
+            elementName="Country of Birth",
+            elementCode=Coding(system=SNOMED, code="370159000"),
+            elementCodeSystem=SNOMED,
+            dataType=Address,
+            dataSpecification=["VS"],  # Add relevant value set
+            valueSet=None,  # Add relevant value set in the future
+            fhirExpression_v4_0_1="Patient.extension:patient-birthPlace",
+            phenopacketSchemaElement_v2_0=None,
+            description="The individual's country of birth."
         )
     ]
+    
     

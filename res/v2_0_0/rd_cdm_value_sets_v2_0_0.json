@@ -42,6 +42,118 @@
           "choiceCodeSystemVersion": "2024-09-01"
         }
       ]
+    },
+    {
+      "valueSetName": "Karyotypic Sex Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
+      "display": "Karyotypic Sex",
+      "valueSetCode": "1296886006",
+      "valueSetCodeSystem": "SNOMED",
+      "valueSetCodeSystemVersion": "2024-09-01",
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "XX",
+          "choiceCode": "734875008",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "XY",
+          "choiceCode": "734876009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "X0",
+          "choiceCode": "80427008",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "XXY",
+          "choiceCode": "65162001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "XXX",
+          "choiceCode": "35111009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "XXYY",
+          "choiceCode": "403760006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "XXXY",
+          "choiceCode": "78317008",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "XXXX",
+          "choiceCode": "10567003",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "XYY",
+          "choiceCode": "48930007",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Other",
+          "choiceCode": "74964007",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Gender Identity Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/your_repo_path/v2.0.0/value_sets_v2.0.0.json",
+      "display": "Gender Identity",
+      "valueSetCode": "263495000",
+      "valueSetCodeSystem": "SNOMED",
+      "valueSetCodeSystemVersion": "2024-09-01",
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Female gender identity",
+          "choiceCode": "446141000124107",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Male gender identity",
+          "choiceCode": "446151000124109",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Gender unknown",
+          "choiceCode": "394743007",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Identifies as nonbinary gender",
+          "choiceCode": "33791000087105",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Not recorded",
+          "choiceCode": "1220561009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
     }
   ]
 }

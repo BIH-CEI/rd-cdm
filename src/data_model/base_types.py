@@ -134,6 +134,10 @@ class CodeableConcept:
     def __str__(self):
         return f"CodeableConcept(codings=[{', '.join(map(str, self.coding))}], text={self.text})"
     
+from dataclasses import dataclass
+from datetime import datetime
+from typing import Union
+
 @dataclass(frozen=True, slots=True)
 class Date:
     """Represents a date in the formats YYYY, YYYY-MM, or YYYY-MM-DD."""
@@ -154,4 +158,43 @@ class Date:
             except ValueError:
                 continue
         return False
-    
+
+    def to_json(self):
+        """Return the date as a string for JSON serialization."""
+        return str(self.value)
+
+
+@dataclass(frozen=True, slots=True)
+class Code:
+    """Represents a coded value."""
+    system: str
+    code: str
+
+    def to_json(self):
+        """Return a dictionary representing this Code."""
+        return {"system": self.system, "code": self.code}
+
+@dataclass(frozen=True, slots=True)
+class Address:
+    """Represents an address."""
+    street: str
+    city: str
+    zip_code: str
+
+    def to_json(self):
+        """Return a dictionary representing this Address."""
+        return {
+            "street": self.street,
+            "city": self.city,
+            "zip_code": self.zip_code
+        }
+
+@dataclass(frozen=True, slots=True)
+class Identifier:
+    """Represents an identifier."""
+    id: str
+    type: str
+
+    def to_json(self):
+        """Return a dictionary representing this Identifier."""
+        return {"id": self.id, "type": self.type}

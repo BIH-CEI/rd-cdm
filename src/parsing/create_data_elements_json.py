@@ -6,6 +6,7 @@ import importlib
 # Add the src directory to the system path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
+from data_model.utils import json_serializer
 from src.data_model.data_elements import DataElement, DataElementModel
 from src.data_model.base_types import CodeSystem, Coding
 
@@ -83,7 +84,7 @@ def create_data_elements_json(version):
     # Write the JSON file to the res folder
     output_path = f"res/{version}/rd_cdm_data_elements_{version}.json"
     with open(output_path, "w") as json_file:
-        json.dump(data_elements_json, json_file, indent=2)
+        json.dump(data_elements_json, json_file, default=json_serializer, indent=2)
         print(f"JSON file created successfully: {output_path}")
 
 

@@ -169,6 +169,13 @@
       "version": "24.04e",
       "url": "https://ncit.nci.nih.gov/",
       "synonyms": []
+    },
+    {
+      "codeSystemName": "Custom Code System RD CDM v2.0.0",
+      "namespace_prefix": "CustomCode",
+      "version": "unknown",
+      "url": "https://github.com/BIH-CEI/rd-cdm",
+      "synonyms": []
     }
   ]
 }

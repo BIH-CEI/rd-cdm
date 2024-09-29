@@ -1223,6 +1223,693 @@
           "choiceCodeSystemVersion": "2.78"
         }
       ]
+    },
+    {
+      "valueSetName": "Therapeutic Actionability Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "display": "Therapeutic Actionability",
+      "valueSetCode": "therapeutic_actionability",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "GA4GH",
+          "version": "v2.0"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "There is not enough information at this time to support any therapeutic actionability for this variant.",
+          "choiceCode": "UNKNOWN_ACTIONABILITY",
+          "choiceCodeSystem": "GA4GH",
+          "choiceCodeSystemVersion": "v2.0"
+        },
+        {
+          "choiceDisplay": "This variant has no therapeutic actionability.",
+          "choiceCode": "NOT_ACTIONABLE",
+          "choiceCodeSystem": "GA4GH",
+          "choiceCodeSystemVersion": "v2.0"
+        },
+        {
+          "choiceDisplay": "This variant is known to be therapeuticallyactionalbe.",
+          "choiceCode": "ACTIONABLE",
+          "choiceCodeSystem": "GA4GH",
+          "choiceCodeSystemVersion": "v2.0"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Clinical Annotation Level Of Evidence Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "display": "Clinical Annotation Level Of Evidence",
+      "valueSetCode": "93044-6",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "LOINC",
+          "version": "2.78"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Very Strong Evidence Pathogenic",
+          "choiceCode": "LA30200-2",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Strong Evidence Pathogenic",
+          "choiceCode": "LA30201-0",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Moderate Evidence Pathogenic",
+          "choiceCode": "LA30202-8",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Supporting Evidence Pathogenic",
+          "choiceCode": "LA30203-6",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Supporting Evidence Benign",
+          "choiceCode": "LA30204-4",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Strong Evidence Benign",
+          "choiceCode": "LA30205-1",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Stand-alone Evidence Pathogenic",
+          "choiceCode": "LA30206-9",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Stand-alone Evidence Benign",
+          "choiceCode": "LA30207-7",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Uncertain Significance",
+          "choiceCode": "LA26333-7",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Phenotype Status Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "display": "Phenotypic Findings Status",
+      "valueSetCode": "phenotypicfeature.excluded",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Confirmed Present",
+          "choiceCode": "410605003",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Refuted",
+          "choiceCode": "723511001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Propositus Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "display": "Propositus/-a",
+      "valueSetCode": "64245008",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Yes",
+          "choiceCode": "373066001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "No",
+          "choiceCode": "373067005",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Not recorded",
+          "choiceCode": "1220561009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Propositus Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "display": "Propositus/-a",
+      "valueSetCode": "64245008",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Yes",
+          "choiceCode": "373066001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "No",
+          "choiceCode": "373067005",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Not recorded",
+          "choiceCode": "1220561009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Family Relationship To Index Case Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "display": "Relationship to Propositus",
+      "valueSetCode": "408732007",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Natural mother",
+          "choiceCode": "65656005",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural father",
+          "choiceCode": "9947008",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural daughter",
+          "choiceCode": "83420006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural son",
+          "choiceCode": "113160008",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural brother",
+          "choiceCode": "60614009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural sister",
+          "choiceCode": "73678001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Twin sibling",
+          "choiceCode": "11286003",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Half-brother",
+          "choiceCode": "45929001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Half-sister",
+          "choiceCode": "2272004",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural grandfather",
+          "choiceCode": "62296006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural grandmother",
+          "choiceCode": "17945006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Not recorded",
+          "choiceCode": "1220561009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Consanguinity Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "display": "Consanguinity",
+      "valueSetCode": "842009",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Yes",
+          "choiceCode": "373066001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "No",
+          "choiceCode": "373067005",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Not recorded",
+          "choiceCode": "1220561009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "FamilyMember Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "display": "Family Member Relationship",
+      "valueSetCode": "444018008",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Natural mother",
+          "choiceCode": "65656005",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural father",
+          "choiceCode": "9947008",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural daughter",
+          "choiceCode": "83420006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural son",
+          "choiceCode": "113160008",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural brother",
+          "choiceCode": "60614009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural sister",
+          "choiceCode": "73678001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Twin sibling",
+          "choiceCode": "11286003",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Half-brother",
+          "choiceCode": "45929001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Half-sister",
+          "choiceCode": "2272004",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural grandfather",
+          "choiceCode": "62296006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural grandmother",
+          "choiceCode": "17945006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Not recorded",
+          "choiceCode": "1220561009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "FamilyHistoryStatus Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "display": "Family Member Record Status",
+      "valueSetCode": "familymemberhistory.status",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "HL7FHIR",
+          "version": "v4.0.1"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Partial",
+          "choiceCode": "partial",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Completed",
+          "choiceCode": "completed",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Entered in Error",
+          "choiceCode": "entered-in-error",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Health Unknown",
+          "choiceCode": "health-unknown",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        }
+      ]
+    },
+    {
+      "valueSetName": "AdministrativeGender Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "display": "Family Member Sex",
+      "valueSetCode": "54123-5",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Female",
+          "choiceCode": "248152002",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Male",
+          "choiceCode": "248153007",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Patient sex unknown",
+          "choiceCode": "184115007",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Intersex",
+          "choiceCode": "32570691000036108",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Not recorded",
+          "choiceCode": "1220561009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Deceased Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "display": "Family Member Deceased",
+      "valueSetCode": "740604001",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Yes",
+          "choiceCode": "373066001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "No",
+          "choiceCode": "373067005",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Consent Status Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "display": "Consent Status",
+      "valueSetCode": "309370004",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "HL7FHIR",
+          "version": "v4.0.1"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Pending",
+          "choiceCode": "draft",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Proposed",
+          "choiceCode": "proposed",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Active",
+          "choiceCode": "active",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Rejected",
+          "choiceCode": "rejected",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Inactive",
+          "choiceCode": "inactive",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Entered in Error",
+          "choiceCode": "entered-in-error",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Contact for Research Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "display": "Agreement to be Contacted for Research",
+      "valueSetCode": "consent_contact_research",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Yes",
+          "choiceCode": "373066001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "No",
+          "choiceCode": "373067005",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Data Reuse Consent Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "display": "Consent to the Reuse of Data",
+      "valueSetCode": "conset_data_reuse",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Yes",
+          "choiceCode": "373066001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "No",
+          "choiceCode": "373067005",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Biological Sample Consent Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "display": "Biological Sample",
+      "valueSetCode": "123038009",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Yes",
+          "choiceCode": "373066001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "No",
+          "choiceCode": "373067005",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
     }
   ]
 }

@@ -207,7 +207,8 @@ class String:
 
     def __post_init__(self):
         if not isinstance(self.value, str):
-            raise ValueError(f"Invalid value for String: {self.value}. Expected a string.")
+            raise ValueError(
+                f"Invalid value for String: {self.value}. Expected a string.")
 
 @dataclass(frozen=True, slots=True)
 class Boolean:
@@ -216,4 +217,15 @@ class Boolean:
 
     def __post_init__(self):
         if not isinstance(self.value, bool):
-            raise ValueError(f"Invalid value for Boolean: {self.value}. Expected a boolean.")
+            raise ValueError(
+                f"Invalid value for Boolean: {self.value}. Expected a boolean.")
+        
+@dataclass(frozen=True, slots=True)
+class Integer:
+    """Represents an integer data type."""
+    value: int
+
+    def __post_init__(self):
+        if not isinstance(self.value, int):
+            raise ValueError(
+                f"Invalid value for Integer: {self.value}. Expected an integer.")

@@ -1,6 +1,6 @@
 from src.data_model.data_elements import DataElement
 from src.data_model.value_set import ValueSet
-from src.data_model.base_types import CodeSystem, Coding, Date, Code, String
+from src.data_model.base_types import CodeSystem, Coding, Date, Code, String, Integer
 from src.data_model.codesystems import CodeSystems
 
 # Define CodeSystems
@@ -8,7 +8,7 @@ SNOMED = CodeSystems.SNOMED
 HL7FHIR = CodeSystems.HL7FHIR
 GA4GH = CodeSystems.GA4GH
 LOINC = CodeSystems.LOINC
-
+CustomCode = CodeSystems.CustomCode
 
 class DATA_ELEMENTS_VERSIONS_V2_0_0:
     """Data elements definitions for version 2_0_0."""
@@ -688,7 +688,434 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             recommendedDataSpec_phenopackets="n/a",
             description="The level of evidence supporting the clinical annotation of "
                         "the genetic variant."
+        ),
+        # 6.2 Phenotypic Findings
+        DataElement(
+            ordinal="6.2.1",
+            section="6. Phenotypic Feature",
+            elementName="Phenotypic Feature",
+            elementCode=Coding(system=SNOMED, code="8116006"),
+            elementCodeSystem=SNOMED,
+            dataType=Code,
+            dataSpecification=["HPO"],
+            valueSet="n/a",
+            fhirExpression_v4_0_1="Observation.Code",
+            recommendedDataSpec_fhir="Code",
+            phenopacketSchemaElement_v2_0="PhenotypicFeature.type",
+            recommendedDataSpec_phenopackets="OntologyClass",
+            description="An observed physical and clinical characteristic"
+                         "encoded with HPO."
+        ),
+        DataElement(
+            ordinal="6.2.2",
+            section="6. Phenotypic Feature",
+            elementName="Determination Date",
+            elementCode=Coding(system=SNOMED, code="439272007:704321009=363778006"),
+            elementCodeSystem=SNOMED,
+            dataType=Date,
+            dataSpecification=["YYYY-MM-DD"],
+            valueSet="n/a",
+            fhirExpression_v4_0_1="Observation.effectiveDateTime",
+            recommendedDataSpec_fhir="DateTime",
+            phenopacketSchemaElement_v2_0="PhenotypicFeature.onset",
+            recommendedDataSpec_phenopackets="TimeElement",
+            description="The date on which the phenotypic feature was observed "
+                        "or recorded. We recommend capturing the time a"
+                         "characteristic was observed."
+        ),
+        DataElement(
+            ordinal="6.2.3",
+            section="6. Phenotypic Feature",
+            elementName="Status",
+            elementCode=Coding(system=GA4GH, code="phenotypicfeature.excluded"),
+            elementCodeSystem=GA4GH,
+            dataType=Code,
+            dataSpecification=["VSe"],
+            valueSet="Phenotype Status Value Set v2.0.0",
+            fhirExpression_v4_0_1="Observation.Status",
+            recommendedDataSpec_fhir="ValueSet: Observation.status",
+            phenopacketSchemaElement_v2_0="PhenotypicFeature.excluded",
+            recommendedDataSpec_phenopackets="boolean",
+            description="The current status of the phenotypic feature, "
+                        "indicating whether it is confirmed or refuted."
+        ),
+        DataElement(
+            ordinal="6.2.4",
+            section="6. Phenotypic Feature",
+            elementName="Modifiers",
+            elementCode=Coding(system=GA4GH, code="phenotypicfeature.modifier"),
+            elementCodeSystem=GA4GH,
+            dataType=Code,
+            dataSpecification=["OntologyClass (HPO, NCBITAXON, SCT)"],
+            valueSet="n/a",
+            fhirExpression_v4_0_1="Suggested: Observation.extension",
+            recommendedDataSpec_fhir="CodeableConcept",
+            phenopacketSchemaElement_v2_0="PhenotypicFeature.modifiers",
+            recommendedDataSpec_phenopackets="list of OntologyClass",
+            description="Any number of additional modifiers describing a" 
+                        " specific phenotypic feature further, such as severity"
+                        " (HP:0012824), clinical modifiers (HP:0012823), or"
+                        " linking causative infectious agents using the"
+                        " NCBITAXON Ontology."
+        ),
+        # 6.3 Measurements
+
+
+        # 6.4 Family History
+        DataElement(
+            ordinal="6.4.1",
+            section="6.4 Family History",
+            elementName="Propositus/-a",
+            elementCode=Coding(system=SNOMED, code="64245008"),
+            elementCodeSystem=SNOMED,
+            dataType=Code,
+            dataSpecification=["VSe / VSc"],
+            valueSet="Propositus Value Set v2.0.0",
+            fhirExpression_v4_0_1="n/a",
+            recommendedDataSpec_fhir="n/a",
+            phenopacketSchemaElement_v2_0="(Family.relatives → 1 Phenopacket "
+                                            "per family member)",
+            recommendedDataSpec_phenopackets="(Family.relatives → 1 Phenopacket"
+                                            " per family member)",
+            description="Is the individual the first affected family member who "
+                        "seeks medical attention for a genetic disorder, leading"
+                        " to the diagnosis of other family members. Disclaimer: "
+                        "The SCT code for propositus (64245008) refers to any "
+                        " gender."
+        ),
+        DataElement(
+            ordinal="6.4.2",
+            section="6.4 Family History",
+            elementName="Relationship of the Individual to the Propositus",
+            elementCode=Coding(system=SNOMED, code="408732007"),
+            elementCodeSystem=SNOMED,
+            dataType=Code,
+            dataSpecification=["VSe / VSc"],
+            valueSet="Family Relationship To Index Case Value Set v2.0.0",
+            fhirExpression_v4_0_1="n/a",
+            recommendedDataSpec_fhir="n/a",
+            phenopacketSchemaElement_v2_0="(Family.relatives → 1 Phenopacket "
+                                            "per family member)",
+            recommendedDataSpec_phenopackets="(Family.relatives → 1 Phenopacket"
+                                            " per family member)",
+            description="Specifies the familial relationship of the individual "
+                        "being evaluated to the propositus. Disclaimer: The "
+                        "SNOMED code for propositus (64245008) refers to "
+                        "any gender."
+        ),
+        DataElement(
+            ordinal="6.4.3",
+            section="6.4 Family History",
+            elementName="Consanguinity",
+            elementCode=Coding(system=SNOMED, code="842009"),
+            elementCodeSystem=SNOMED,
+            dataType=Code,
+            dataSpecification=["VSe"],
+            valueSet="Consanguinity Value Set v2.0.0",
+            fhirExpression_v4_0_1="n/a",
+            recommendedDataSpec_fhir="n/a",
+            phenopacketSchemaElement_v2_0="Family.consanguinous_parents",
+            recommendedDataSpec_phenopackets="boolean",
+            description="The presence of a biological relationship between "
+                        "parents who are related by blood, typically as first "
+                        "or second cousins."
+        ),
+        DataElement(
+            ordinal="6.4.4",
+            section="6.4 Family History",
+            elementName="Family Member Relationship",
+            elementCode=Coding(system=SNOMED, code="444018008"),
+            elementCodeSystem=SNOMED,
+            dataType=Code,
+            dataSpecification=["VSe / VSc"],
+            valueSet="FamilyMember Value Set v2.0.0",
+            fhirExpression_v4_0_1="FamilyMemberHistory.relationship.coding",
+            recommendedDataSpec_fhir="ValueSet: FamilyMember",
+            phenopacketSchemaElement_v2_0="Family.Pedigree.Person.individual_id",
+            recommendedDataSpec_phenopackets="string",
+            description="Specifies the relationship of the selected family "
+                        "member to the patient."
+        ),
+        DataElement(
+            ordinal="6.4.5",
+            section="6.4 Family",
+            elementName="Family Member Record Status",
+            elementCode=Coding(system=HL7FHIR, code="familymemberhistory.status"),
+            elementCodeSystem=HL7FHIR,
+            dataType=Code,
+            dataSpecification=["VS"],
+            valueSet="FamilyHistoryStatus Value Set v2.0.0",
+            fhirExpression_v4_0_1="FamilyMemberHistory.status",
+            phenopacketSchemaElement_v2_0="(Family.relatives → 1 Phenopacket "
+                                            "per family member)",
+            recommendedDataSpec_phenopackets="(Family.relatives → 1 Phenopacket"
+                                            " per family member)",
+            description="Specifies the record’s status of the family history of"
+                        " a specific family member."
+        ),        
+        DataElement(
+            ordinal="6.4.6",
+            section="6.4 Family",
+            elementName="Family Member Sex",
+            elementCode=Coding(system=LOINC, code="54123-5"),
+            elementCodeSystem=LOINC,
+            dataType=Code,
+            dataSpecification=["VSe / VSc"],
+            valueSet="AdministrativeGender Value Set v2.0.0",
+            fhirExpression_v4_0_1="FamilyMemberHistory.sex",
+            recommendedDataSpec_fhir="ValueSet: AdministrativeGender",
+            phenopacketSchemaElement_v2_0="Family.Pedigree.Person.sex",
+            recommendedDataSpec_phenopackets="ValueSet: Sex",
+            description="Specifies the sex (or gender) of the specific family "
+                        "member. If possible, the sex assigned at birth "
+                        "should be selected."
+        ),
+        DataElement(
+            ordinal="6.4.7",
+            section="6.4 Family",
+            elementName="Family Member Age",
+            elementCode=Coding(system=LOINC, code="54141-7"),
+            elementCodeSystem=LOINC,
+            dataType=Integer,
+            dataSpecification=["XXX"],
+            valueSet="n/a",
+            fhirExpression_v4_0_1="FamilyMemberHistory.ageAge",
+            recommendedDataSpec_fhir="Age",
+            phenopacketSchemaElement_v2_0="(Family.relatives → 1 Phenopacket "
+                                            "per family member)",
+            recommendedDataSpec_phenopackets="(Family.relatives → 1 Phenopacket"
+                                            " per family member)",
+            description="Records the current age of the selected family member."
+        ),
+        DataElement(
+            ordinal="6.4.8",
+            section="6.4 Family",
+            elementName="Family Member Date of Birth",
+            elementCode=Coding(system=LOINC, code="54124-3"),
+            elementCodeSystem=LOINC,
+            dataType=Date,
+            dataSpecification=["YYYY-MM-DD"],
+            valueSet="n/a",
+            fhirExpression_v4_0_1="FamilyMemberHistory.bornDate",
+            recommendedDataSpec_fhir="DateTime",
+            phenopacketSchemaElement_v2_0="(Family.relatives → 1 Phenopacket "
+                                            "per family member)",
+            recommendedDataSpec_phenopackets="(Family.relatives → 1 Phenopacket"
+                                            " per family member)",
+            description="Records the date of birth of the selected family member."
+        ),
+        DataElement(
+            ordinal="6.4.9",
+            section="6.4 Family",
+            elementName="Family Member Deceased",
+            elementCode=Coding(system=SNOMED, code="740604001"),
+            elementCodeSystem=SNOMED,
+            dataType=Code,
+            dataSpecification=["VSe"],
+            valueSet="Deceased Value Set v2.0.0",
+            fhirExpression_v4_0_1="FamilyMemberHistory.deceased.deceasedBoolean",
+            recommendedDataSpec_fhir="boolean",
+            phenopacketSchemaElement_v2_0="(Family.relatives → 1 Phenopacket "
+                                            "per family member)",
+            recommendedDataSpec_phenopackets="(Family.relatives → 1 Phenopacket"
+                                            " per family member)",
+            description="Indicates whether the selected family member is "
+                        "deceased."
+        ),
+        DataElement(
+            ordinal="6.4.10",
+            section="6.4 Family",
+            elementName="Family Member Cause of Death",
+            elementCode=Coding(system=LOINC, code="54112-8"),
+            elementCodeSystem=LOINC,
+            dataType=Code,
+            dataSpecification=["ICD10"],
+            valueSet="n/a",
+            fhirExpression_v4_0_1="FamilyMemberHistory.condition.code & "
+                                  "FamilyMemberHistory.condition."
+                                  "contributedToDeath",
+            recommendedDataSpec_fhir="Code",
+            phenopacketSchemaElement_v2_0="(Family.relatives → 1 Phenopacket "
+                                            "per family member)",
+            recommendedDataSpec_phenopackets="(Family.relatives → 1 Phenopacket"
+                                            " per family member)",
+            description="Records the cause of death of the selected deceased" 
+                        "family member."
+        ),
+        DataElement(
+            ordinal="6.4.11",
+            section="6.4 Family",
+            elementName="Family Member Deceased Age",
+            elementCode=Coding(system=LOINC, code="92662-6"),
+            elementCodeSystem=LOINC,
+            dataType=Integer,
+            dataSpecification=["XXX"],
+            valueSet="n/a",
+            fhirExpression_v4_0_1="FamilyMemberHistory.deceasedAge",
+            recommendedDataSpec_fhir="Family.relatives",
+            phenopacketSchemaElement_v2_0="Family.relatives",
+            recommendedDataSpec_phenopackets="Family.relatives",
+            description="Records the age at which the selected family"
+                        " member died."
+        ),
+        DataElement(
+            ordinal="6.4.12",
+            section="6.4 Family",
+            elementName="Family Member Disease",
+            elementCode=Coding(system=LOINC, code="75315-2"),
+            elementCodeSystem=LOINC,
+            dataType=Code,
+            dataSpecification=["Ontology Class (ORDO, ICD-10, ICD-11, "
+                               "MONDO, OMIM_p)"],
+            valueSet="n/a",
+            fhirExpression_v4_0_1="FamilyMemberHistory.condition.code",
+            recommendedDataSpec_fhir="Family.relatives",
+            phenopacketSchemaElement_v2_0="Family.relatives",
+            recommendedDataSpec_phenopackets="Family.relatives",
+            description="Indicates whether the selected family member is "
+                        "affected by the same rare disease as the individual."
+        ),
+        # 7 Consent
+        DataElement(
+            ordinal="7.1",
+            section="7. Consent",
+            elementName="Consent Status",
+            elementCode=Coding(system=SNOMED, code="309370004"),
+            elementCodeSystem=SNOMED,
+            dataType=Code,
+            dataSpecification=["VS"],
+            valueSet="Consent Status Value Set v2.0.0",
+            fhirExpression_v4_0_1="Consent.status",
+            recommendedDataSpec_fhir="ValueSet: ConsentStatus",
+            phenopacketSchemaElement_v2_0="n/a",
+            recommendedDataSpec_phenopackets="n/a",
+            description="Indicates the current status of the consent."
+        ),
+        DataElement(
+            ordinal="7.2",
+            section="7. Consent",
+            elementName="Consent Date",
+            elementCode=Coding(system=HL7FHIR, code="consent.datetime"),
+            elementCodeSystem=HL7FHIR,
+            dataType=Date,
+            dataSpecification=["YYYY-MM-DD"],
+            valueSet="n/a",
+            fhirExpression_v4_0_1="Consent.dateTime",
+            recommendedDataSpec_fhir="DateTime",
+            phenopacketSchemaElement_v2_0="n/a",
+            recommendedDataSpec_phenopackets="n/a",
+            description="Records the date when the consent was given."
+        ),
+        DataElement(
+            ordinal="7.3",
+            section="7. Consent",
+            elementName="Health Policy Monitoring",
+            elementCode=Coding(system=SNOMED, code="386318002"),
+            elementCodeSystem=SNOMED,
+            dataType=String,
+            dataSpecification=["n/a"],
+            valueSet="n/a",
+            fhirExpression_v4_0_1="Consent.policy",
+            recommendedDataSpec_fhir="string",
+            phenopacketSchemaElement_v2_0="n/a",
+            recommendedDataSpec_phenopackets="n/a",
+            description="References to the policies that are included in this"
+                        "consent scope."
+        ),
+        DataElement(
+            ordinal="7.4",
+            section="7. Consent",
+            elementName="Agreement to be Contacted for Research",
+            elementCode=Coding(system=CustomCode,
+                                code="consent_contact_research"),
+            elementCodeSystem=CustomCode,
+            dataType=Code,
+            dataSpecification=["VSe"],
+            valueSet="Contact for Research Value Set v2.0.0",
+            fhirExpression_v4_0_1="Consent.scope.coding",
+            recommendedDataSpec_fhir="CodeableConcept",
+            phenopacketSchemaElement_v2_0="n/a",
+            recommendedDataSpec_phenopackets="n/a",
+            description="Indicates whether the patient agrees to be contacted "
+                        "for research."
+        ),
+        DataElement(
+            ordinal="7.5",
+            section="7. Consent",
+            elementName="Consent to the Reuse of Data",
+            elementCode=Coding(system=CustomCode,
+                                code="conset_data_reuse"),
+            elementCodeSystem=CustomCode,
+            dataType=Code,
+            dataSpecification=["VSe"],
+            valueSet="Data Reuse Consent Value Set v2.0.0",
+            fhirExpression_v4_0_1="Consent.scope.coding",
+            recommendedDataSpec_fhir="CodeableConcept",
+            phenopacketSchemaElement_v2_0="n/a",
+            recommendedDataSpec_phenopackets="n/a",
+            description="Indicates whether the patient consents to the reuse of their data."
+        ),
+        DataElement(
+            ordinal="7.6",
+            section="7. Consent",
+            elementName="Biological Sample",
+            elementCode=Coding(system=SNOMED, code="123038009"),
+            elementCodeSystem=SNOMED,
+            dataType=Code,
+            dataSpecification=["VSe"],
+            valueSet="Biological Sample Consent Value Set v2.0.0",
+            fhirExpression_v4_0_1="n/a",
+            recommendedDataSpec_fhir="n/a",
+            phenopacketSchemaElement_v2_0="n/a",
+            recommendedDataSpec_phenopackets="n/a",
+            description="Indicates whether a patient's biological sample is "
+                        "available for research."
+        ),
+        DataElement(
+            ordinal="7.7",
+            section="7. Consent",
+            elementName="Link to a Biobank",
+            elementCode=Coding(system=CustomCode, code="biobank_link"),
+            elementCodeSystem=CustomCode,
+            dataType=String,
+            dataSpecification=["n/a"],
+            valueSet="n/a",
+            fhirExpression_v4_0_1="n/a",
+            recommendedDataSpec_fhir="n/a",
+            phenopacketSchemaElement_v2_0="n/a",
+            recommendedDataSpec_phenopackets="n/a",
+            description="If there is a biological sample, this data element"
+                        " indicates the link to the biobank of the individual's"
+                        " biological sample."
+        ),
+        DataElement(
+            ordinal="8.1",
+            section="8. Disability",
+            elementName="Classification of Functioning / Disability",
+            elementCode=Coding(system=CustomCode, code="icf_score"),
+            elementCodeSystem=CustomCode,
+            dataType=Code,
+            dataSpecification=["ICF"],
+            valueSet="n/a",
+            fhirExpression_v4_0_1="n/a",
+            recommendedDataSpec_fhir="n/a",
+            phenopacketSchemaElement_v2_0="n/a",
+            recommendedDataSpec_phenopackets="n/a",
+            description="Specifies the classification of the individualss "
+                        "functioning or disability according to the "
+                        "International Classification of Functioning, Disability"
+                        " and Health (ICF)."
         )
+
+
+
+
+
+        
+
+
+
+
 
 
 

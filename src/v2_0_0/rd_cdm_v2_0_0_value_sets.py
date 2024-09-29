@@ -6,6 +6,7 @@ SNOMED = CodeSystems.SNOMED
 HL7FHIR = CodeSystems.HL7FHIR
 LOINC = CodeSystems.LOINC
 GA4GH = CodeSystems.GA4GH
+CustomCode = CodeSystems.CustomCode
 
 class VALUE_SETS_VERSIONS_V2_0_0:
     """Value set definitions for version 2_0_0."""
@@ -1060,7 +1061,476 @@ class VALUE_SETS_VERSIONS_V2_0_0:
                     choiceCodeSystem=LOINC
                 )
             ]
-        )
+        ),
+
+        # 6.2 Phenotypic Findings
+        ValueSet(
+            valueSetName="Phenotype Status Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+            display="Phenotypic Findings Status",
+            valueSetCode=Coding(system=GA4GH, code="phenotypicfeature.excluded"),
+            valueSetCodeSystem=SNOMED,
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Confirmed Present",
+                    choiceCode=Coding(system=SNOMED, code="410605003"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Refuted",
+                    choiceCode=Coding(system=SNOMED, code="723511001"),
+                    choiceCodeSystem=SNOMED
+                )
+            ]
+        ),
+        ValueSet(
+            valueSetName="Propositus Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+            display="Propositus/-a",
+            valueSetCode=Coding(system=SNOMED, code="64245008"),
+            valueSetCodeSystem=SNOMED,
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Yes",
+                    choiceCode=Coding(system=SNOMED, code="373066001"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="No",
+                    choiceCode=Coding(system=SNOMED, code="373067005"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Unknown",
+                    choiceCode=Coding(system=SNOMED, code="261665006"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Not recorded",
+                    choiceCode=Coding(system=SNOMED, code="1220561009"),
+                    choiceCodeSystem=SNOMED
+                )
+            ]
+        ),
+        # 6.3 Measurements
+
+        # 6.4 Family History
+        ValueSet(
+            valueSetName="Propositus Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+            display="Propositus/-a",
+            valueSetCode=Coding(system=SNOMED, code="64245008"),
+            valueSetCodeSystem=SNOMED,
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Yes",
+                    choiceCode=Coding(system=SNOMED, code="373066001"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="No",
+                    choiceCode=Coding(system=SNOMED, code="373067005"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Unknown",
+                    choiceCode=Coding(system=SNOMED, code="261665006"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Not recorded",
+                    choiceCode=Coding(system=SNOMED, code="1220561009"),
+                    choiceCodeSystem=SNOMED
+                )
+            ]
+        ),
+        ValueSet(
+            valueSetName="Family Relationship To Index Case Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+            display="Relationship to Propositus",
+            valueSetCode=Coding(system=SNOMED, code="408732007"),
+            valueSetCodeSystem=SNOMED,
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Natural mother",
+                    choiceCode=Coding(system=SNOMED, code="65656005"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Natural father",
+                    choiceCode=Coding(system=SNOMED, code="9947008"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Natural daughter",
+                    choiceCode=Coding(system=SNOMED, code="83420006"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Natural son",
+                    choiceCode=Coding(system=SNOMED, code="113160008"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Natural brother",
+                    choiceCode=Coding(system=SNOMED, code="60614009"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Natural sister",
+                    choiceCode=Coding(system=SNOMED, code="73678001"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Twin sibling",
+                    choiceCode=Coding(system=SNOMED, code="11286003"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Half-brother",
+                    choiceCode=Coding(system=SNOMED, code="45929001"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Half-sister",
+                    choiceCode=Coding(system=SNOMED, code="2272004"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Natural grandfather",
+                    choiceCode=Coding(system=SNOMED, code="62296006"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Natural grandmother",
+                    choiceCode=Coding(system=SNOMED, code="17945006"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Not recorded",
+                    choiceCode=Coding(system=SNOMED, code="1220561009"),
+                    choiceCodeSystem=SNOMED
+                )
+            ]
+        ),
+        ValueSet(
+            valueSetName="Consanguinity Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+            display="Consanguinity",
+            valueSetCode=Coding(system=SNOMED, code="842009"),
+            valueSetCodeSystem=SNOMED,
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Yes",
+                    choiceCode=Coding(system=SNOMED, code="373066001"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="No",
+                    choiceCode=Coding(system=SNOMED, code="373067005"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Unknown",
+                    choiceCode=Coding(system=SNOMED, code="261665006"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Not recorded",
+                    choiceCode=Coding(system=SNOMED, code="1220561009"),
+                    choiceCodeSystem=SNOMED
+                )
+            ]
+        ),
+        ValueSet(
+            valueSetName="FamilyMember Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+            display="Family Member Relationship",
+            valueSetCode=Coding(system=SNOMED, code="444018008"),
+            valueSetCodeSystem=SNOMED,
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Natural mother",
+                    choiceCode=Coding(system=SNOMED, code="65656005"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Natural father",
+                    choiceCode=Coding(system=SNOMED, code="9947008"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Natural daughter",
+                    choiceCode=Coding(system=SNOMED, code="83420006"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Natural son",
+                    choiceCode=Coding(system=SNOMED, code="113160008"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Natural brother",
+                    choiceCode=Coding(system=SNOMED, code="60614009"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Natural sister",
+                    choiceCode=Coding(system=SNOMED, code="73678001"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Twin sibling",
+                    choiceCode=Coding(system=SNOMED, code="11286003"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Half-brother",
+                    choiceCode=Coding(system=SNOMED, code="45929001"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Half-sister",
+                    choiceCode=Coding(system=SNOMED, code="2272004"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Natural grandfather",
+                    choiceCode=Coding(system=SNOMED, code="62296006"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Natural grandmother",
+                    choiceCode=Coding(system=SNOMED, code="17945006"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Not recorded",
+                    choiceCode=Coding(system=SNOMED, code="1220561009"),
+                    choiceCodeSystem=SNOMED
+                )
+            ]
+        ),
+        ValueSet(
+            valueSetName="FamilyHistoryStatus Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+            display="Family Member Record Status",
+            valueSetCode=Coding(system=HL7FHIR, code="familymemberhistory.status"),
+            valueSetCodeSystem=HL7FHIR,
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Partial",
+                    choiceCode=Coding(system=HL7FHIR, code="partial"),
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Completed",
+                    choiceCode=Coding(system=HL7FHIR, code="completed"),
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Entered in Error",
+                    choiceCode=Coding(system=HL7FHIR, code="entered-in-error"),
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Health Unknown",
+                    choiceCode=Coding(system=HL7FHIR, code="health-unknown"),
+                    choiceCodeSystem=HL7FHIR
+                )
+            ]
+        ),
+        ValueSet(
+            valueSetName="AdministrativeGender Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+            display="Family Member Sex",
+            valueSetCode=Coding(system=LOINC, code="54123-5"),
+            valueSetCodeSystem=SNOMED,
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Female",
+                    choiceCode=Coding(system=SNOMED, code="248152002"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Male",
+                    choiceCode=Coding(system=SNOMED, code="248153007"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Patient sex unknown",
+                    choiceCode=Coding(system=SNOMED, code="184115007"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Intersex",
+                    choiceCode=Coding(system=SNOMED, code="32570691000036108"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Not recorded",
+                    choiceCode=Coding(system=SNOMED, code="1220561009"),
+                    choiceCodeSystem=SNOMED
+                )
+            ]
+        ),
+        ValueSet(
+            valueSetName="Deceased Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+            display="Family Member Deceased",
+            valueSetCode=Coding(system=SNOMED, code="740604001"),
+            valueSetCodeSystem=SNOMED,
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Yes",
+                    choiceCode=Coding(system=SNOMED, code="373066001"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="No",
+                    choiceCode=Coding(system=SNOMED, code="373067005"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Unknown",
+                    choiceCode=Coding(system=SNOMED, code="261665006"),
+                    choiceCodeSystem=SNOMED
+                )
+            ]
+        ),
+        ValueSet(
+            valueSetName="Consent Status Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+            display="Consent Status",
+            valueSetCode=Coding(system=SNOMED, code="309370004"),
+            valueSetCodeSystem=HL7FHIR,
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Pending",
+                    choiceCode=Coding(system=HL7FHIR, code="draft"),
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Proposed",
+                    choiceCode=Coding(system=HL7FHIR, code="proposed"),
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Active",
+                    choiceCode=Coding(system=HL7FHIR, code="active"),
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Rejected",
+                    choiceCode=Coding(system=HL7FHIR, code="rejected"),
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Inactive",
+                    choiceCode=Coding(system=HL7FHIR, code="inactive"),
+                    choiceCodeSystem=HL7FHIR
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Entered in Error",
+                    choiceCode=Coding(system=HL7FHIR, code="entered-in-error"),
+                    choiceCodeSystem=HL7FHIR
+                )
+            ]
+        ),
+        ValueSet(
+            valueSetName="Contact for Research Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/"
+                         "rd_cdm_value_sets_v2_0_0.json",
+            display="Agreement to be Contacted for Research",
+            valueSetCode=Coding(system=CustomCode, code="consent_contact_research"),
+            valueSetCodeSystem=SNOMED,
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Yes",
+                    choiceCode=Coding(system=SNOMED, code="373066001"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="No",
+                    choiceCode=Coding(system=SNOMED, code="373067005"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Unknown",
+                    choiceCode=Coding(system=SNOMED, code="261665006"),
+                    choiceCodeSystem=SNOMED
+                )
+            ]
+        ),
+        ValueSet(
+            valueSetName="Data Reuse Consent Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/"
+                         "rd_cdm_value_sets_v2_0_0.json",
+            display="Consent to the Reuse of Data",
+            valueSetCode=Coding(system=CustomCode, code="conset_data_reuse"),
+            valueSetCodeSystem=SNOMED,
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Yes",
+                    choiceCode=Coding(system=SNOMED, code="373066001"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="No",
+                    choiceCode=Coding(system=SNOMED, code="373067005"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Unknown",
+                    choiceCode=Coding(system=SNOMED, code="261665006"),
+                    choiceCodeSystem=SNOMED
+                )
+            ]
+        ),
+        ValueSet(
+            valueSetName="Biological Sample Consent Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/"
+                         "rd_cdm_value_sets_v2_0_0.json",
+            display="Biological Sample",
+            valueSetCode=Coding(system=SNOMED, code="123038009"),
+            valueSetCodeSystem=SNOMED,
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Yes",
+                    choiceCode=Coding(system=SNOMED, code="373066001"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="No",
+                    choiceCode=Coding(system=SNOMED, code="373067005"),
+                    choiceCodeSystem=SNOMED
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Unknown",
+                    choiceCode=Coding(system=SNOMED, code="261665006"),
+                    choiceCodeSystem=SNOMED
+                )
+            ]
+        ),
+        
+
+        
+
+
+
 
 
     ]

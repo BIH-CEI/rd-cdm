@@ -688,6 +688,448 @@
       "phenopacketSchemaElement_v2_0": "VariantInterpretation.acmg_pathogenicity_classification",
       "recommendedDataSpec_phenopackets": "ValueSet: AcmgPathogenicityClassification",
       "description": "The clinical significance of the genetic variant, indicating its impact on health and disease."
+    },
+    {
+      "ordinal": "6.1.15",
+      "section": "6. Genetic Findings",
+      "elementName": "Therapeutic Actionability",
+      "elementCode": "therapeutic_actionability",
+      "elementCodeSystem": "GA4GH",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VS"
+      ],
+      "valueSet": "Therapeutic Actionability Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "n/a",
+      "recommendedDataSpec_fhir": "n/a",
+      "phenopacketSchemaElement_v2_0": "VariantInterpretation.therapeutic_actionability",
+      "recommendedDataSpec_phenopackets": "ValueSet: TherapeuticActionability",
+      "description": "An enumeration flagging the variant as being a candidate for treatment or clinical intervention, which could improve the clinical outcome."
+    },
+    {
+      "ordinal": "6.1.16",
+      "section": "6. Genetic Findings",
+      "elementName": "Clinical Annotation Level Of Evidence",
+      "elementCode": "93044-6",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe / VSc"
+      ],
+      "valueSet": "Clinical Annotation Level Of Evidence Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Observation.extension:Variant.Interpretation",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "The level of evidence supporting the clinical annotation of the genetic variant."
+    },
+    {
+      "ordinal": "6.2.1",
+      "section": "6. Phenotypic Feature",
+      "elementName": "Phenotypic Feature",
+      "elementCode": "8116006",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "HPO"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.Code",
+      "recommendedDataSpec_fhir": "Code",
+      "phenopacketSchemaElement_v2_0": "PhenotypicFeature.type",
+      "recommendedDataSpec_phenopackets": "OntologyClass",
+      "description": "An observed physical and clinical characteristicencoded with HPO."
+    },
+    {
+      "ordinal": "6.2.2",
+      "section": "6. Phenotypic Feature",
+      "elementName": "Determination Date",
+      "elementCode": "439272007:704321009=363778006",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Date",
+      "dataSpecification": [
+        "YYYY-MM-DD"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.effectiveDateTime",
+      "recommendedDataSpec_fhir": "DateTime",
+      "phenopacketSchemaElement_v2_0": "PhenotypicFeature.onset",
+      "recommendedDataSpec_phenopackets": "TimeElement",
+      "description": "The date on which the phenotypic feature was observed or recorded. We recommend capturing the time acharacteristic was observed."
+    },
+    {
+      "ordinal": "6.2.3",
+      "section": "6. Phenotypic Feature",
+      "elementName": "Status",
+      "elementCode": "phenotypicfeature.excluded",
+      "elementCodeSystem": "GA4GH",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe"
+      ],
+      "valueSet": "Phenotype Status Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Observation.Status",
+      "recommendedDataSpec_fhir": "ValueSet: Observation.status",
+      "phenopacketSchemaElement_v2_0": "PhenotypicFeature.excluded",
+      "recommendedDataSpec_phenopackets": "boolean",
+      "description": "The current status of the phenotypic feature, indicating whether it is confirmed or refuted."
+    },
+    {
+      "ordinal": "6.2.4",
+      "section": "6. Phenotypic Feature",
+      "elementName": "Modifiers",
+      "elementCode": "phenotypicfeature.modifier",
+      "elementCodeSystem": "GA4GH",
+      "dataType": "Code",
+      "dataSpecification": [
+        "OntologyClass (HPO, NCBITAXON, SCT)"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Suggested: Observation.extension",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "PhenotypicFeature.modifiers",
+      "recommendedDataSpec_phenopackets": "list of OntologyClass",
+      "description": "Any number of additional modifiers describing a specific phenotypic feature further, such as severity (HP:0012824), clinical modifiers (HP:0012823), or linking causative infectious agents using the NCBITAXON Ontology."
+    },
+    {
+      "ordinal": "6.4.1",
+      "section": "6.4 Family History",
+      "elementName": "Propositus/-a",
+      "elementCode": "64245008",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe / VSc"
+      ],
+      "valueSet": "Propositus Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "n/a",
+      "recommendedDataSpec_fhir": "n/a",
+      "phenopacketSchemaElement_v2_0": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "recommendedDataSpec_phenopackets": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "description": "Is the individual the first affected family member who seeks medical attention for a genetic disorder, leading to the diagnosis of other family members. Disclaimer: The SCT code for propositus (64245008) refers to any  gender."
+    },
+    {
+      "ordinal": "6.4.2",
+      "section": "6.4 Family History",
+      "elementName": "Relationship of the Individual to the Propositus",
+      "elementCode": "408732007",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe / VSc"
+      ],
+      "valueSet": "Family Relationship To Index Case Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "n/a",
+      "recommendedDataSpec_fhir": "n/a",
+      "phenopacketSchemaElement_v2_0": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "recommendedDataSpec_phenopackets": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "description": "Specifies the familial relationship of the individual being evaluated to the propositus. Disclaimer: The SNOMED code for propositus (64245008) refers to any gender."
+    },
+    {
+      "ordinal": "6.4.3",
+      "section": "6.4 Family History",
+      "elementName": "Consanguinity",
+      "elementCode": "842009",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe"
+      ],
+      "valueSet": "Consanguinity Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "n/a",
+      "recommendedDataSpec_fhir": "n/a",
+      "phenopacketSchemaElement_v2_0": "Family.consanguinous_parents",
+      "recommendedDataSpec_phenopackets": "boolean",
+      "description": "The presence of a biological relationship between parents who are related by blood, typically as first or second cousins."
+    },
+    {
+      "ordinal": "6.4.4",
+      "section": "6.4 Family History",
+      "elementName": "Family Member Relationship",
+      "elementCode": "444018008",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe / VSc"
+      ],
+      "valueSet": "FamilyMember Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "FamilyMemberHistory.relationship.coding",
+      "recommendedDataSpec_fhir": "ValueSet: FamilyMember",
+      "phenopacketSchemaElement_v2_0": "Family.Pedigree.Person.individual_id",
+      "recommendedDataSpec_phenopackets": "string",
+      "description": "Specifies the relationship of the selected family member to the patient."
+    },
+    {
+      "ordinal": "6.4.5",
+      "section": "6.4 Family",
+      "elementName": "Family Member Record Status",
+      "elementCode": "familymemberhistory.status",
+      "elementCodeSystem": "HL7FHIR",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VS"
+      ],
+      "valueSet": "FamilyHistoryStatus Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "FamilyMemberHistory.status",
+      "recommendedDataSpec_fhir": null,
+      "phenopacketSchemaElement_v2_0": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "recommendedDataSpec_phenopackets": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "description": "Specifies the record\u2019s status of the family history of a specific family member."
+    },
+    {
+      "ordinal": "6.4.6",
+      "section": "6.4 Family",
+      "elementName": "Family Member Sex",
+      "elementCode": "54123-5",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe / VSc"
+      ],
+      "valueSet": "AdministrativeGender Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "FamilyMemberHistory.sex",
+      "recommendedDataSpec_fhir": "ValueSet: AdministrativeGender",
+      "phenopacketSchemaElement_v2_0": "Family.Pedigree.Person.sex",
+      "recommendedDataSpec_phenopackets": "ValueSet: Sex",
+      "description": "Specifies the sex (or gender) of the specific family member. If possible, the sex assigned at birth should be selected."
+    },
+    {
+      "ordinal": "6.4.7",
+      "section": "6.4 Family",
+      "elementName": "Family Member Age",
+      "elementCode": "54141-7",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Integer",
+      "dataSpecification": [
+        "XXX"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "FamilyMemberHistory.ageAge",
+      "recommendedDataSpec_fhir": "Age",
+      "phenopacketSchemaElement_v2_0": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "recommendedDataSpec_phenopackets": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "description": "Records the current age of the selected family member."
+    },
+    {
+      "ordinal": "6.4.8",
+      "section": "6.4 Family",
+      "elementName": "Family Member Date of Birth",
+      "elementCode": "54124-3",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Date",
+      "dataSpecification": [
+        "YYYY-MM-DD"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "FamilyMemberHistory.bornDate",
+      "recommendedDataSpec_fhir": "DateTime",
+      "phenopacketSchemaElement_v2_0": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "recommendedDataSpec_phenopackets": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "description": "Records the date of birth of the selected family member."
+    },
+    {
+      "ordinal": "6.4.9",
+      "section": "6.4 Family",
+      "elementName": "Family Member Deceased",
+      "elementCode": "740604001",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe"
+      ],
+      "valueSet": "Deceased Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "FamilyMemberHistory.deceased.deceasedBoolean",
+      "recommendedDataSpec_fhir": "boolean",
+      "phenopacketSchemaElement_v2_0": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "recommendedDataSpec_phenopackets": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "description": "Indicates whether the selected family member is deceased."
+    },
+    {
+      "ordinal": "6.4.10",
+      "section": "6.4 Family",
+      "elementName": "Family Member Cause of Death",
+      "elementCode": "54112-8",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Code",
+      "dataSpecification": [
+        "ICD10"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "FamilyMemberHistory.condition.code & FamilyMemberHistory.condition.contributedToDeath",
+      "recommendedDataSpec_fhir": "Code",
+      "phenopacketSchemaElement_v2_0": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "recommendedDataSpec_phenopackets": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "description": "Records the cause of death of the selected deceasedfamily member."
+    },
+    {
+      "ordinal": "6.4.11",
+      "section": "6.4 Family",
+      "elementName": "Family Member Deceased Age",
+      "elementCode": "92662-6",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Integer",
+      "dataSpecification": [
+        "XXX"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "FamilyMemberHistory.deceasedAge",
+      "recommendedDataSpec_fhir": "Family.relatives",
+      "phenopacketSchemaElement_v2_0": "Family.relatives",
+      "recommendedDataSpec_phenopackets": "Family.relatives",
+      "description": "Records the age at which the selected family member died."
+    },
+    {
+      "ordinal": "6.4.12",
+      "section": "6.4 Family",
+      "elementName": "Family Member Disease",
+      "elementCode": "75315-2",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Code",
+      "dataSpecification": [
+        "Ontology Class (ORDO, ICD-10, ICD-11, MONDO, OMIM_p)"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "FamilyMemberHistory.condition.code",
+      "recommendedDataSpec_fhir": "Family.relatives",
+      "phenopacketSchemaElement_v2_0": "Family.relatives",
+      "recommendedDataSpec_phenopackets": "Family.relatives",
+      "description": "Indicates whether the selected family member is affected by the same rare disease as the individual."
+    },
+    {
+      "ordinal": "7.1",
+      "section": "7. Consent",
+      "elementName": "Consent Status",
+      "elementCode": "309370004",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VS"
+      ],
+      "valueSet": "Consent Status Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Consent.status",
+      "recommendedDataSpec_fhir": "ValueSet: ConsentStatus",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "Indicates the current status of the consent."
+    },
+    {
+      "ordinal": "7.2",
+      "section": "7. Consent",
+      "elementName": "Consent Date",
+      "elementCode": "consent.datetime",
+      "elementCodeSystem": "HL7FHIR",
+      "dataType": "Date",
+      "dataSpecification": [
+        "YYYY-MM-DD"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Consent.dateTime",
+      "recommendedDataSpec_fhir": "DateTime",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "Records the date when the consent was given."
+    },
+    {
+      "ordinal": "7.3",
+      "section": "7. Consent",
+      "elementName": "Health Policy Monitoring",
+      "elementCode": "386318002",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "String",
+      "dataSpecification": [
+        "n/a"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Consent.policy",
+      "recommendedDataSpec_fhir": "string",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "References to the policies that are included in thisconsent scope."
+    },
+    {
+      "ordinal": "7.4",
+      "section": "7. Consent",
+      "elementName": "Agreement to be Contacted for Research",
+      "elementCode": "consent_contact_research",
+      "elementCodeSystem": "CustomCode",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe"
+      ],
+      "valueSet": "Contact for Research Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Consent.scope.coding",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "Indicates whether the patient agrees to be contacted for research."
+    },
+    {
+      "ordinal": "7.5",
+      "section": "7. Consent",
+      "elementName": "Consent to the Reuse of Data",
+      "elementCode": "conset_data_reuse",
+      "elementCodeSystem": "CustomCode",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe"
+      ],
+      "valueSet": "Data Reuse Consent Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Consent.scope.coding",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "Indicates whether the patient consents to the reuse of their data."
+    },
+    {
+      "ordinal": "7.6",
+      "section": "7. Consent",
+      "elementName": "Biological Sample",
+      "elementCode": "123038009",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe"
+      ],
+      "valueSet": "Biological Sample Consent Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "n/a",
+      "recommendedDataSpec_fhir": "n/a",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "Indicates whether a patient's biological sample is available for research."
+    },
+    {
+      "ordinal": "7.7",
+      "section": "7. Consent",
+      "elementName": "Link to a Biobank",
+      "elementCode": "biobank_link",
+      "elementCodeSystem": "CustomCode",
+      "dataType": "String",
+      "dataSpecification": [
+        "n/a"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "n/a",
+      "recommendedDataSpec_fhir": "n/a",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "If there is a biological sample, this data element indicates the link to the biobank of the individual's biological sample."
+    },
+    {
+      "ordinal": "8.1",
+      "section": "8. Disability",
+      "elementName": "Classification of Functioning / Disability",
+      "elementCode": "icf_score",
+      "elementCodeSystem": "CustomCode",
+      "dataType": "Code",
+      "dataSpecification": [
+        "ICF"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "n/a",
+      "recommendedDataSpec_fhir": "n/a",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "Specifies the classification of the individualss functioning or disability according to the International Classification of Functioning, Disability and Health (ICF)."
     }
   ]
 }

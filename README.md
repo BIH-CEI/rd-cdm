@@ -58,10 +58,10 @@ This section provides instructions for getting started with the RD CDM.
 ### Installation
 
 1. Clone the repository
-   ```bash
-   git clone https://github.com/{OWNER}/{REPO}.git
-   cd {REPO}
-   ```
+  ```bash
+  git clone https://github.com/BIH-CEI/rd-cdm.git
+  cd rd-cdm
+  ```
 
 2. Install dependencies:
   ```bash

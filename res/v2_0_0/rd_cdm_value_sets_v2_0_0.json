@@ -1354,41 +1354,185 @@
       ]
     },
     {
-      "valueSetName": "Propositus Value Set v2.0.0",
+      "valueSetName": "Onset Category Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
       "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
-      "display": "Propositus/-a",
-      "valueSetCode": "64245008",
+      "display": "Onset Category",
+      "valueSetCode": "0003674",
       "valueSetCodeSystem": [
         {
-          "codeSystem": "SNOMED",
-          "version": "2024-09-01"
+          "codeSystem": "HP",
+          "version": "2024-08-13"
         }
       ],
       "valueSetChoices": [
         {
-          "choiceDisplay": "Yes",
-          "choiceCode": "373066001",
-          "choiceCodeSystem": "SNOMED",
-          "choiceCodeSystemVersion": "2024-09-01"
+          "choiceDisplay": "Embryonal onset (0w-8w embryonal)",
+          "choiceCode": "0011460",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
         },
         {
-          "choiceDisplay": "No",
-          "choiceCode": "373067005",
-          "choiceCodeSystem": "SNOMED",
-          "choiceCodeSystemVersion": "2024-09-01"
+          "choiceDisplay": "Fetal onset (8w embryonal - birth)",
+          "choiceCode": "0011461",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
         },
         {
-          "choiceDisplay": "Unknown",
-          "choiceCode": "261665006",
-          "choiceCodeSystem": "SNOMED",
-          "choiceCodeSystemVersion": "2024-09-01"
+          "choiceDisplay": "Congenital onset (at birth)",
+          "choiceCode": "0003577",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
         },
         {
-          "choiceDisplay": "Not recorded",
-          "choiceCode": "1220561009",
-          "choiceCodeSystem": "SNOMED",
-          "choiceCodeSystemVersion": "2024-09-01"
+          "choiceDisplay": "Neonatal onset (0d-28d)",
+          "choiceCode": "0003623",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Infantile onset (28d-1y)",
+          "choiceCode": "0003593",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Childhood onset (1y-5y)",
+          "choiceCode": "0011463",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Juvenile onset (5y-15y)",
+          "choiceCode": "0003621",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Young adult onset (16y-40y)",
+          "choiceCode": "0011462",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Middle age adult onset (40y-60y)",
+          "choiceCode": "0003596",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Late adult onset (60y+)",
+          "choiceCode": "0003584",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Temporal Pattern Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "display": "Temporal Pattern",
+      "valueSetCode": "0011008",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "HP",
+          "version": "2024-08-13"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Acute",
+          "choiceCode": "0011009",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Chronic",
+          "choiceCode": "0011010",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Fluctuating",
+          "choiceCode": "0031914",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Prolonged",
+          "choiceCode": "0025297",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Recurrent",
+          "choiceCode": "0031796",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Stable",
+          "choiceCode": "0031915",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Subacute",
+          "choiceCode": "0011011",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Transient",
+          "choiceCode": "0025153",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Severity Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "display": "Severity",
+      "valueSetCode": "0012824",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "HP",
+          "version": "2024-08-13"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Borderline",
+          "choiceCode": "0012827",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Mild",
+          "choiceCode": "0012825",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Moderate",
+          "choiceCode": "0012826",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Profound",
+          "choiceCode": "0012829",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Severe",
+          "choiceCode": "0012828",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
         }
       ]
     },

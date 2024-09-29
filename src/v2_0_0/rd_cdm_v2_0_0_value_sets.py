@@ -7,6 +7,7 @@ HL7FHIR = CodeSystems.HL7FHIR
 LOINC = CodeSystems.LOINC
 GA4GH = CodeSystems.GA4GH
 CustomCode = CodeSystems.CustomCode
+HP = CodeSystems.HP
 
 class VALUE_SETS_VERSIONS_V2_0_0:
     """Value set definitions for version 2_0_0."""
@@ -1007,7 +1008,7 @@ class VALUE_SETS_VERSIONS_V2_0_0:
                 )
             ]
         ),
-                ValueSet(
+        ValueSet(
             valueSetName="Clinical Annotation Level Of Evidence Value Set v2.0.0",
             valueSetOrigin="RD CDM v2.0.0",
             valueSetLink="https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
@@ -1085,35 +1086,152 @@ class VALUE_SETS_VERSIONS_V2_0_0:
             ]
         ),
         ValueSet(
-            valueSetName="Propositus Value Set v2.0.0",
+            valueSetName="Onset Category Value Set v2.0.0",
             valueSetOrigin="RD CDM v2.0.0",
             valueSetLink="https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
-            display="Propositus/-a",
-            valueSetCode=Coding(system=SNOMED, code="64245008"),
-            valueSetCodeSystem=SNOMED,
+            display="Onset Category",
+            valueSetCode=Coding(system=HP, code="0003674"),
+            valueSetCodeSystem=HP,
             valueSetChoices=[
                 ValueSetChoice(
-                    choiceDisplay="Yes",
-                    choiceCode=Coding(system=SNOMED, code="373066001"),
-                    choiceCodeSystem=SNOMED
+                    choiceDisplay="Embryonal onset (0w-8w embryonal)",
+                    choiceCode=Coding(system=HP, code="0011460"),
+                    choiceCodeSystem=HP
                 ),
                 ValueSetChoice(
-                    choiceDisplay="No",
-                    choiceCode=Coding(system=SNOMED, code="373067005"),
-                    choiceCodeSystem=SNOMED
+                    choiceDisplay="Fetal onset (8w embryonal - birth)",
+                    choiceCode=Coding(system=HP, code="0011461"),
+                    choiceCodeSystem=HP
                 ),
                 ValueSetChoice(
-                    choiceDisplay="Unknown",
-                    choiceCode=Coding(system=SNOMED, code="261665006"),
-                    choiceCodeSystem=SNOMED
+                    choiceDisplay="Congenital onset (at birth)",
+                    choiceCode=Coding(system=HP, code="0003577"),
+                    choiceCodeSystem=HP
                 ),
                 ValueSetChoice(
-                    choiceDisplay="Not recorded",
-                    choiceCode=Coding(system=SNOMED, code="1220561009"),
-                    choiceCodeSystem=SNOMED
+                    choiceDisplay="Neonatal onset (0d-28d)",
+                    choiceCode=Coding(system=HP, code="0003623"),
+                    choiceCodeSystem=HP
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Infantile onset (28d-1y)",
+                    choiceCode=Coding(system=HP, code="0003593"),
+                    choiceCodeSystem=HP
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Childhood onset (1y-5y)",
+                    choiceCode=Coding(system=HP, code="0011463"),
+                    choiceCodeSystem=HP
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Juvenile onset (5y-15y)",
+                    choiceCode=Coding(system=HP, code="0003621"),
+                    choiceCodeSystem=HP
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Young adult onset (16y-40y)",
+                    choiceCode=Coding(system=HP, code="0011462"),
+                    choiceCodeSystem=HP
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Middle age adult onset (40y-60y)",
+                    choiceCode=Coding(system=HP, code="0003596"),
+                    choiceCodeSystem=HP
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Late adult onset (60y+)",
+                    choiceCode=Coding(system=HP, code="0003584"),
+                    choiceCodeSystem=HP
                 )
             ]
         ),
+        ValueSet(
+            valueSetName="Temporal Pattern Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+            display="Temporal Pattern",
+            valueSetCode=Coding(system=HP, code="0011008"),
+            valueSetCodeSystem=HP,
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Acute",
+                    choiceCode=Coding(system=HP, code="0011009"),
+                    choiceCodeSystem=HP
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Chronic",
+                    choiceCode=Coding(system=HP, code="0011010"),
+                    choiceCodeSystem=HP
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Fluctuating",
+                    choiceCode=Coding(system=HP, code="0031914"),
+                    choiceCodeSystem=HP
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Prolonged",
+                    choiceCode=Coding(system=HP, code="0025297"),
+                    choiceCodeSystem=HP
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Recurrent",
+                    choiceCode=Coding(system=HP, code="0031796"),
+                    choiceCodeSystem=HP
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Stable",
+                    choiceCode=Coding(system=HP, code="0031915"),
+                    choiceCodeSystem=HP
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Subacute",
+                    choiceCode=Coding(system=HP, code="0011011"),
+                    choiceCodeSystem=HP
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Transient",
+                    choiceCode=Coding(system=HP, code="0025153"),
+                    choiceCodeSystem=HP
+                )
+            ]
+        ),
+        ValueSet(
+            valueSetName="Severity Value Set v2.0.0",
+            valueSetOrigin="RD CDM v2.0.0",
+            valueSetLink="https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/"
+                         "rd_cdm_value_sets_v2_0_0.json",
+            display="Severity",
+            valueSetCode=Coding(system=HP, code="0012824"),
+            valueSetCodeSystem=HP,
+            valueSetChoices=[
+                ValueSetChoice(
+                    choiceDisplay="Borderline",
+                    choiceCode=Coding(system=HP, code="0012827"),
+                    choiceCodeSystem=HP
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Mild",
+                    choiceCode=Coding(system=HP, code="0012825"),
+                    choiceCodeSystem=HP
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Moderate",
+                    choiceCode=Coding(system=HP, code="0012826"),
+                    choiceCodeSystem=HP
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Profound",
+                    choiceCode=Coding(system=HP, code="0012829"),
+                    choiceCodeSystem=HP
+                ),
+                ValueSetChoice(
+                    choiceDisplay="Severe",
+                    choiceCode=Coding(system=HP, code="0012828"),
+                    choiceCodeSystem=HP
+                )
+            ]
+        ),
+
         # 6.3 Measurements
 
         # 6.4 Family History
@@ -1525,7 +1643,7 @@ class VALUE_SETS_VERSIONS_V2_0_0:
                 )
             ]
         ),
-        
+
 
         
 

@@ -1,6 +1,6 @@
 from src.data_model.data_elements import DataElement
 from src.data_model.value_set import ValueSet
-from src.data_model.base_types import CodeSystem, Coding, Date, Code, String, Integer
+from src.data_model.base_types import Coding, Date, Code, String, Integer, Identifier, Value
 from src.data_model.codesystems import CodeSystems
 
 # Define CodeSystems
@@ -9,10 +9,14 @@ HL7FHIR = CodeSystems.HL7FHIR
 GA4GH = CodeSystems.GA4GH
 LOINC = CodeSystems.LOINC
 CustomCode = CodeSystems.CustomCode
+HP = CodeSystems.HP
+ECO = CodeSystems.ECO
+NCIT = CodeSystems.NCIT
 
 class DATA_ELEMENTS_VERSIONS_V2_0_0:
     """Data elements definitions for version 2_0_0."""
 
+    # 1. Formal Criteria
     data_elements = [
         DataElement(
             ordinal="1.1",
@@ -20,7 +24,7 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             elementName="Pseudonym",
             elementCode=Coding(system=SNOMED, code="422549004"),
             elementCodeSystem=SNOMED,
-            dataType="Identifier",
+            dataType=Identifier,
             dataSpecification=["n/a"],
             valueSet=None,
             fhirExpression_v4_0_1="Patient.identifier.value",
@@ -44,6 +48,9 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             recommendedDataSpec_phenopackets="TimeElement",
             description="The date of admission or data capture of the individual."
         ),
+#_______________________________________________________________________________
+
+        # 2. Personal Information
         DataElement(
             ordinal="2.1",
             section="2. Personal Information",
@@ -120,7 +127,9 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             recommendedDataSpec_phenopackets="n/a",
             description="The individual's country of birth."
         ),
-        # Section 3: Patient Status
+#_______________________________________________________________________________
+        
+        # 3. Patient Status
         DataElement(
             ordinal="3.1",
             section="3. Patient Status",
@@ -221,6 +230,9 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             description="Identifies cases where an RD diagnosis has not"
                          "been established."
         ),
+#_______________________________________________________________________________
+       
+        # 4. Care Pathway
         DataElement(
             ordinal="4.1",
             section="4. Care Pathway",
@@ -283,6 +295,9 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             description="The class of an encounter of the individual"
                         "at the time of data capture."
         ),
+#_______________________________________________________________________________
+
+        # 5. Disease
         DataElement(
             ordinal="5.1",
             section="5. Disease",
@@ -634,8 +649,8 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             recommendedDataSpec_fhir="Code",
             phenopacketSchemaElement_v2_0="n/a",
             recommendedDataSpec_phenopackets="n/a",
-            description="The variant’s type of DNA change, such as point mutation, "
-                        "deletion, insertion, or other types."
+            description="The variant’s type of DNA change, such as point "
+                        "mutation, deletion, insertion, or other types."
         ),
         DataElement(
             ordinal="6.1.14",
@@ -686,9 +701,10 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             recommendedDataSpec_fhir="CodeableConcept",
             phenopacketSchemaElement_v2_0="n/a",
             recommendedDataSpec_phenopackets="n/a",
-            description="The level of evidence supporting the clinical annotation of "
-                        "the genetic variant."
+            description="The level of evidence supporting the clinical "
+                        "annotation of the genetic variant."
         ),
+#_______________________________________________________________________________        
         # 6.2 Phenotypic Findings
         DataElement(
             ordinal="6.2.1",
@@ -699,7 +715,7 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             dataType=Code,
             dataSpecification=["HPO"],
             valueSet="n/a",
-            fhirExpression_v4_0_1="Observation.Code",
+            fhirExpression_v4_0_1="Observation.code",
             recommendedDataSpec_fhir="Code",
             phenopacketSchemaElement_v2_0="PhenotypicFeature.type",
             recommendedDataSpec_phenopackets="OntologyClass",
@@ -708,9 +724,27 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
         ),
         DataElement(
             ordinal="6.2.2",
+            section="6.2 Phenotypic Feature",
+            elementName="Status",
+            elementCode=Coding(system=SNOMED, code="363778006"),
+            elementCodeSystem=SNOMED,
+            dataType=Code,
+            dataSpecification=["VSe"],
+            valueSet="Phenotype Status Value Set v2.0.0",
+            fhirExpression_v4_0_1="Observation.status",
+            recommendedDataSpec_fhir="ValueSet: ObservationStatus",
+            phenopacketSchemaElement_v2_0="PhenotypicFeature.excluded",
+            recommendedDataSpec_phenopackets="boolean",
+            description="The current status of the phenotypic feature, "
+                        "indicating whether it is confirmed or refuted."
+        ),
+
+        DataElement(
+            ordinal="6.2.3",
             section="6. Phenotypic Feature",
             elementName="Determination Date",
-            elementCode=Coding(system=SNOMED, code="439272007:704321009=363778006"),
+            elementCode=Coding(system=SNOMED, 
+                               code="439272007:704321009=363778006"),
             elementCodeSystem=SNOMED,
             dataType=Date,
             dataSpecification=["YYYY-MM-DD"],
@@ -723,24 +757,75 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
                         "or recorded. We recommend capturing the time a"
                          "characteristic was observed."
         ),
-        DataElement(
-            ordinal="6.2.3",
-            section="6. Phenotypic Feature",
-            elementName="Status",
-            elementCode=Coding(system=GA4GH, code="phenotypicfeature.excluded"),
-            elementCodeSystem=GA4GH,
-            dataType=Code,
-            dataSpecification=["VSe"],
-            valueSet="Phenotype Status Value Set v2.0.0",
-            fhirExpression_v4_0_1="Observation.Status",
-            recommendedDataSpec_fhir="ValueSet: Observation.status",
-            phenopacketSchemaElement_v2_0="PhenotypicFeature.excluded",
-            recommendedDataSpec_phenopackets="boolean",
-            description="The current status of the phenotypic feature, "
-                        "indicating whether it is confirmed or refuted."
-        ),
+
         DataElement(
             ordinal="6.2.4",
+            section="6.2 Phenotypic Feature",
+            elementName="Resolution Date",
+            elementCode=Coding(system=HP, code="0034382"),
+            elementCodeSystem=HP,
+            dataType=Date,
+            dataSpecification=["YYYY-MM-DD"],
+            valueSet="n/a",
+            fhirExpression_v4_0_1="Observation.effectiveDateTime",
+            recommendedDataSpec_fhir="DateTime",
+            phenopacketSchemaElement_v2_0="PhenotypicFeature.resolution",
+            recommendedDataSpec_phenopackets="TimeElement",
+            description="Time at which the feature resolved or abated."
+        ),
+
+        DataElement(
+            ordinal="6.2.5",
+            section="6.2 Phenotypic Feature",
+            elementName="Onset Category",
+            elementCode=Coding(system=HP, code="0003674"),
+            elementCodeSystem=HP,
+            dataType=Code,
+            dataSpecification=["VSe"],
+            valueSet="Onset Category Value Set v2.0.0",
+            fhirExpression_v4_0_1="Observation.category",
+            recommendedDataSpec_fhir="CodeableConcept",
+            phenopacketSchemaElement_v2_0="PhenotypicFeature.onset",
+            recommendedDataSpec_phenopackets="OntologyClass",
+            description="Time at which the feature was first observed within "
+                        " HPO onset categories."
+        ),
+
+        DataElement(
+            ordinal="6.2.6",
+            section="6.2 Phenotypic Feature",
+            elementName="Temporal Pattern",
+            elementCode=Coding(system=HP, code="0011008"),
+            elementCodeSystem=HP,
+            dataType=Code,
+            dataSpecification=["VSe"],
+            valueSet="Temporal Pattern Value Set v2.0.0",
+            fhirExpression_v4_0_1="Observation.interpretation",
+            recommendedDataSpec_fhir="CodeableConcept",
+            phenopacketSchemaElement_v2_0="PhenotypicFeature.modifiers",
+            recommendedDataSpec_phenopackets="OntologyClass",
+            description="The speed at which disease manifestations appear and "
+                        "develop."
+        ),
+
+        DataElement(
+            ordinal="6.2.7",
+            section="6.2 Phenotypic Feature",
+            elementName="Severity",
+            elementCode=Coding(system=HP, code="0012824"),
+            elementCodeSystem=HP,
+            dataType=Code,
+            dataSpecification=["VSe"],
+            valueSet="Severity Value Set v2.0.0",
+            fhirExpression_v4_0_1="Observation.interpretation",
+            recommendedDataSpec_fhir="CodeableConcept",
+            phenopacketSchemaElement_v2_0="PhenotypicFeature.severity",
+            recommendedDataSpec_phenopackets="OntologyClass",
+            description="A description of the severity of the feature."
+        ),
+
+        DataElement(
+            ordinal="6.2.8",
             section="6. Phenotypic Feature",
             elementName="Modifiers",
             elementCode=Coding(system=GA4GH, code="phenotypicfeature.modifier"),
@@ -758,18 +843,153 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
                         " linking causative infectious agents using the"
                         " NCBITAXON Ontology."
         ),
+
+        DataElement(
+            ordinal="6.2.9",
+            section="6.2 Phenotypic Feature",
+            elementName="Evidence",
+            elementCode=Coding(system=GA4GH, code="phenotypicfeature.evidence"),
+            elementCodeSystem=GA4GH,
+            dataType=Code,
+            dataSpecification=["ECO"],
+            valueSet="n/a",
+            fhirExpression_v4_0_1="Observation.method",
+            recommendedDataSpec_fhir="CodeableConcept",
+            phenopacketSchemaElement_v2_0="PhenotypicFeature.evidence",
+            recommendedDataSpec_phenopackets="OntologyClass",
+            description="The evidence for an assertion of the observation of a "
+                        "type defined within the Evidence & Conclusion "
+                        "Ontology (ECO)."
+        ),
+#_______________________________________________________________________________        
         # 6.3 Measurements
 
+        DataElement(
+            ordinal="6.3.1",
+            section="6.3 Measurement",
+            elementName="Assay",
+            elementCode=Coding(system=NCIT, code="C60819"),
+            elementCodeSystem=NCIT,
+            dataType=Code,
+            dataSpecification=["OntologyClass (e.g. LOINC)"],
+            valueSet="n/a",
+            fhirExpression_v4_0_1="Observation.code",
+            recommendedDataSpec_fhir="Code",
+            phenopacketSchemaElement_v2_0="Measurement.assay",
+            recommendedDataSpec_phenopackets="OntologyClass",
+            description="A class that describes the assay used to produce"
+                         "the measurement."                             
+            ),
 
+        DataElement(
+            ordinal="6.3.2",
+            section="6.3 Measurement",
+            elementName="Value",
+            elementCode=Coding(system=NCIT, code="C25712"),
+            elementCodeSystem=NCIT,
+            dataType=Value,
+            dataSpecification=["float"],
+            valueSet="n/a",
+            fhirExpression_v4_0_1="Observation.value[x]",
+            recommendedDataSpec_fhir="Quantity|integer",
+            phenopacketSchemaElement_v2_0="Measurement.measurement_value",
+            recommendedDataSpec_phenopackets="Quantity[double/float]",
+            description="The result of the measurement."
+        ),
+
+        DataElement(
+            ordinal="6.3.3",
+            section="6.3 Measurement",
+            elementName="Value Unit",
+            elementCode=Coding(system=NCIT, code="C92571"),
+            elementCodeSystem=NCIT,
+            dataType=Code,
+            dataSpecification=["UO"],
+            valueSet="n/a",
+            fhirExpression_v4_0_1="Observation.value[x].unit",
+            recommendedDataSpec_fhir="CodeableConcept",
+            phenopacketSchemaElement_v2_0="Measurement.measurement_value",
+            recommendedDataSpec_phenopackets="OntologyClass",
+            description="The unit of the result's measurement."
+        ),
+
+        DataElement(
+            ordinal="6.3.4",
+            section="6.3 Measurement",
+            elementName="Interpretation",
+            elementCode=Coding(system=NCIT, code="C41255"),
+            elementCodeSystem=NCIT,
+            dataType=Code,
+            dataSpecification=["NCIT"],
+            valueSet="n/a",
+            fhirExpression_v4_0_1="Observation.interpretation",
+            recommendedDataSpec_fhir="n/a",
+            phenopacketSchemaElement_v2_0="n/a",
+            recommendedDataSpec_phenopackets="n/a",
+            description="The interpretation of the measurement (e.g.: "
+                        "Below/Within/Above age-related reference range, "
+                        "Absent/Low/Normal, or Positive/Negative)."
+        ),
+
+        DataElement(
+            ordinal="6.3.5",
+            section="6.3 Measurement",
+            elementName="Time Observed",
+            elementCode=Coding(system=NCIT, code="C82577"),
+            elementCodeSystem=NCIT,
+            dataType=Date,
+            dataSpecification=["YYYY-MM-DD"],
+            valueSet="n/a",
+            fhirExpression_v4_0_1="Observation.effectiveDateTime",
+            recommendedDataSpec_fhir="DateTime",
+            phenopacketSchemaElement_v2_0="Measurement.time_observed",
+            recommendedDataSpec_phenopackets="TimeElement",
+            description="Time at which the measurement was performed."
+        ),
+
+        DataElement(
+            ordinal="6.3.6",
+            section="6.3 Measurement",
+            elementName="Procedure",
+            elementCode=Coding(system=SNOMED, code="122869004"),
+            elementCodeSystem=SNOMED,
+            dataType=Code,
+            dataSpecification=["OntologyClass (e.g. NCIT, SNOMED)"],
+            valueSet="n/a",
+            fhirExpression_v4_0_1="Procedure.code",
+            recommendedDataSpec_fhir="Measurement.procedure",
+            phenopacketSchemaElement_v2_0="Measurement.procedure",
+            recommendedDataSpec_phenopackets="Measurement.procedure",
+            description="Clinical procedure performed to acquire the sample "
+                        "used for the measurement."
+        ),
+
+#_______________________________________________________________________________
         # 6.4 Family History
         DataElement(
             ordinal="6.4.1",
+            section="6.4 Family History",
+            elementName="Family Member Pseudonym",
+            elementCode=Coding(system=CustomCode, code="family_member_id"),
+            elementCodeSystem=CustomCode,
+            dataType=Identifier,
+            dataSpecification=["n/a"],
+            valueSet="n/a",
+            fhirExpression_v4_0_1="FamilyMemberHistory.identifier",
+            recommendedDataSpec_fhir="Identifier",
+            phenopacketSchemaElement_v2_0="Family.Pedigree.Person.individual_id",
+            recommendedDataSpec_phenopackets="string",
+            description="A unique identifier or local pseudonym for the family"
+                        "member."
+        )   ,         
+        DataElement(
+            ordinal="6.4.2",
             section="6.4 Family History",
             elementName="Propositus/-a",
             elementCode=Coding(system=SNOMED, code="64245008"),
             elementCodeSystem=SNOMED,
             dataType=Code,
-            dataSpecification=["VSe / VSc"],
+            dataSpecification=["VSe", "VSc"],
             valueSet="Propositus Value Set v2.0.0",
             fhirExpression_v4_0_1="n/a",
             recommendedDataSpec_fhir="n/a",
@@ -784,13 +1004,13 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
                         " gender."
         ),
         DataElement(
-            ordinal="6.4.2",
+            ordinal="6.4.3",
             section="6.4 Family History",
             elementName="Relationship of the Individual to the Propositus",
             elementCode=Coding(system=SNOMED, code="408732007"),
             elementCodeSystem=SNOMED,
             dataType=Code,
-            dataSpecification=["VSe / VSc"],
+            dataSpecification=["VSe", "VSc"],
             valueSet="Family Relationship To Index Case Value Set v2.0.0",
             fhirExpression_v4_0_1="n/a",
             recommendedDataSpec_fhir="n/a",
@@ -804,7 +1024,7 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
                         "any gender."
         ),
         DataElement(
-            ordinal="6.4.3",
+            ordinal="6.4.4",
             section="6.4 Family History",
             elementName="Consanguinity",
             elementCode=Coding(system=SNOMED, code="842009"),
@@ -821,13 +1041,13 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
                         "or second cousins."
         ),
         DataElement(
-            ordinal="6.4.4",
+            ordinal="6.4.5",
             section="6.4 Family History",
             elementName="Family Member Relationship",
             elementCode=Coding(system=SNOMED, code="444018008"),
             elementCodeSystem=SNOMED,
             dataType=Code,
-            dataSpecification=["VSe / VSc"],
+            dataSpecification=["VSe", "VSc"],
             valueSet="FamilyMember Value Set v2.0.0",
             fhirExpression_v4_0_1="FamilyMemberHistory.relationship.coding",
             recommendedDataSpec_fhir="ValueSet: FamilyMember",
@@ -837,7 +1057,7 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
                         "member to the patient."
         ),
         DataElement(
-            ordinal="6.4.5",
+            ordinal="6.4.6",
             section="6.4 Family",
             elementName="Family Member Record Status",
             elementCode=Coding(system=HL7FHIR, code="familymemberhistory.status"),
@@ -846,21 +1066,19 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             dataSpecification=["VS"],
             valueSet="FamilyHistoryStatus Value Set v2.0.0",
             fhirExpression_v4_0_1="FamilyMemberHistory.status",
-            phenopacketSchemaElement_v2_0="(Family.relatives → 1 Phenopacket "
-                                            "per family member)",
-            recommendedDataSpec_phenopackets="(Family.relatives → 1 Phenopacket"
-                                            " per family member)",
+            phenopacketSchemaElement_v2_0="n/a",
+            recommendedDataSpec_phenopackets="n/a",
             description="Specifies the record’s status of the family history of"
                         " a specific family member."
         ),        
         DataElement(
-            ordinal="6.4.6",
+            ordinal="6.4.7",
             section="6.4 Family",
             elementName="Family Member Sex",
             elementCode=Coding(system=LOINC, code="54123-5"),
             elementCodeSystem=LOINC,
             dataType=Code,
-            dataSpecification=["VSe / VSc"],
+            dataSpecification=["VSe", "VSc"],
             valueSet="AdministrativeGender Value Set v2.0.0",
             fhirExpression_v4_0_1="FamilyMemberHistory.sex",
             recommendedDataSpec_fhir="ValueSet: AdministrativeGender",
@@ -871,13 +1089,13 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
                         "should be selected."
         ),
         DataElement(
-            ordinal="6.4.7",
+            ordinal="6.4.8",
             section="6.4 Family",
             elementName="Family Member Age",
             elementCode=Coding(system=LOINC, code="54141-7"),
             elementCodeSystem=LOINC,
             dataType=Integer,
-            dataSpecification=["XXX"],
+            dataSpecification=["Integer"],
             valueSet="n/a",
             fhirExpression_v4_0_1="FamilyMemberHistory.ageAge",
             recommendedDataSpec_fhir="Age",
@@ -888,7 +1106,7 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             description="Records the current age of the selected family member."
         ),
         DataElement(
-            ordinal="6.4.8",
+            ordinal="6.4.9",
             section="6.4 Family",
             elementName="Family Member Date of Birth",
             elementCode=Coding(system=LOINC, code="54124-3"),
@@ -905,7 +1123,7 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             description="Records the date of birth of the selected family member."
         ),
         DataElement(
-            ordinal="6.4.9",
+            ordinal="6.4.10",
             section="6.4 Family",
             elementName="Family Member Deceased",
             elementCode=Coding(system=SNOMED, code="740604001"),
@@ -923,13 +1141,13 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
                         "deceased."
         ),
         DataElement(
-            ordinal="6.4.10",
+            ordinal="6.4.11",
             section="6.4 Family",
             elementName="Family Member Cause of Death",
             elementCode=Coding(system=LOINC, code="54112-8"),
             elementCodeSystem=LOINC,
             dataType=Code,
-            dataSpecification=["ICD10"],
+            dataSpecification=["ICD10CM"],
             valueSet="n/a",
             fhirExpression_v4_0_1="FamilyMemberHistory.condition.code & "
                                   "FamilyMemberHistory.condition."
@@ -943,13 +1161,13 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
                         "family member."
         ),
         DataElement(
-            ordinal="6.4.11",
+            ordinal="6.4.12",
             section="6.4 Family",
             elementName="Family Member Deceased Age",
             elementCode=Coding(system=LOINC, code="92662-6"),
             elementCodeSystem=LOINC,
             dataType=Integer,
-            dataSpecification=["XXX"],
+            dataSpecification=["Integer"],
             valueSet="n/a",
             fhirExpression_v4_0_1="FamilyMemberHistory.deceasedAge",
             recommendedDataSpec_fhir="Family.relatives",
@@ -959,14 +1177,14 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
                         " member died."
         ),
         DataElement(
-            ordinal="6.4.12",
+            ordinal="6.4.13",
             section="6.4 Family",
             elementName="Family Member Disease",
             elementCode=Coding(system=LOINC, code="75315-2"),
             elementCodeSystem=LOINC,
             dataType=Code,
-            dataSpecification=["Ontology Class (ORDO, ICD-10, ICD-11, "
-                               "MONDO, OMIM_p)"],
+            dataSpecification=["Ontology Class", "ORDO", "ICD-10-CM", "ICD-11",
+                               "MONDO", "OMIM_p"],
             valueSet="n/a",
             fhirExpression_v4_0_1="FamilyMemberHistory.condition.code",
             recommendedDataSpec_fhir="Family.relatives",
@@ -975,6 +1193,7 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
             description="Indicates whether the selected family member is "
                         "affected by the same rare disease as the individual."
         ),
+#_______________________________________________________________________________
         # 7 Consent
         DataElement(
             ordinal="7.1",
@@ -1106,26 +1325,5 @@ class DATA_ELEMENTS_VERSIONS_V2_0_0:
                         "International Classification of Functioning, Disability"
                         " and Health (ICF)."
         )
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     ]

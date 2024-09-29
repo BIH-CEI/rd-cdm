@@ -178,6 +178,13 @@
       "synonyms": []
     },
     {
+      "codeSystemName": "Evidence & Conclusion Ontology (ECO)",
+      "namespace_prefix": "ECO",
+      "version": "unknown",
+      "url": "https://www.evidenceontology.org/",
+      "synonyms": []
+    },
+    {
       "codeSystemName": "Custom Code System RD CDM v2.0.0",
       "namespace_prefix": "CustomCode",
       "version": "unknown",
@@ -919,7 +926,7 @@
         "HPO"
       ],
       "valueSet": "n/a",
-      "fhirExpression_v4_0_1": "Observation.Code",
+      "fhirExpression_v4_0_1": "Observation.code",
       "recommendedDataSpec_fhir": "Code",
       "phenopacketSchemaElement_v2_0": "PhenotypicFeature.type",
       "recommendedDataSpec_phenopackets": "OntologyClass",
@@ -927,6 +934,23 @@
     },
     {
       "ordinal": "6.2.2",
+      "section": "6.2 Phenotypic Feature",
+      "elementName": "Status",
+      "elementCode": "363778006",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe"
+      ],
+      "valueSet": "Phenotype Status Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Observation.status",
+      "recommendedDataSpec_fhir": "ValueSet: ObservationStatus",
+      "phenopacketSchemaElement_v2_0": "PhenotypicFeature.excluded",
+      "recommendedDataSpec_phenopackets": "boolean",
+      "description": "The current status of the phenotypic feature, indicating whether it is confirmed or refuted."
+    },
+    {
+      "ordinal": "6.2.3",
       "section": "6. Phenotypic Feature",
       "elementName": "Determination Date",
       "elementCode": "439272007:704321009=363778006",
@@ -943,24 +967,75 @@
       "description": "The date on which the phenotypic feature was observed or recorded. We recommend capturing the time acharacteristic was observed."
     },
     {
-      "ordinal": "6.2.3",
-      "section": "6. Phenotypic Feature",
-      "elementName": "Status",
-      "elementCode": "phenotypicfeature.excluded",
-      "elementCodeSystem": "GA4GH",
+      "ordinal": "6.2.4",
+      "section": "6.2 Phenotypic Feature",
+      "elementName": "Resolution Date",
+      "elementCode": "0034382",
+      "elementCodeSystem": "HP",
+      "dataType": "Date",
+      "dataSpecification": [
+        "YYYY-MM-DD"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.effectiveDateTime",
+      "recommendedDataSpec_fhir": "DateTime",
+      "phenopacketSchemaElement_v2_0": "PhenotypicFeature.resolution",
+      "recommendedDataSpec_phenopackets": "TimeElement",
+      "description": "Time at which the feature resolved or abated."
+    },
+    {
+      "ordinal": "6.2.5",
+      "section": "6.2 Phenotypic Feature",
+      "elementName": "Onset Category",
+      "elementCode": "0003674",
+      "elementCodeSystem": "HP",
       "dataType": "Code",
       "dataSpecification": [
         "VSe"
       ],
-      "valueSet": "Phenotype Status Value Set v2.0.0",
-      "fhirExpression_v4_0_1": "Observation.Status",
-      "recommendedDataSpec_fhir": "ValueSet: Observation.status",
-      "phenopacketSchemaElement_v2_0": "PhenotypicFeature.excluded",
-      "recommendedDataSpec_phenopackets": "boolean",
-      "description": "The current status of the phenotypic feature, indicating whether it is confirmed or refuted."
+      "valueSet": "Onset Category Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Observation.category",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "PhenotypicFeature.onset",
+      "recommendedDataSpec_phenopackets": "OntologyClass",
+      "description": "Time at which the feature was first observed within  HPO onset categories."
     },
     {
-      "ordinal": "6.2.4",
+      "ordinal": "6.2.6",
+      "section": "6.2 Phenotypic Feature",
+      "elementName": "Temporal Pattern",
+      "elementCode": "0011008",
+      "elementCodeSystem": "HP",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe"
+      ],
+      "valueSet": "Temporal Pattern Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Observation.interpretation",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "PhenotypicFeature.modifiers",
+      "recommendedDataSpec_phenopackets": "OntologyClass",
+      "description": "The speed at which disease manifestations appear and develop."
+    },
+    {
+      "ordinal": "6.2.7",
+      "section": "6.2 Phenotypic Feature",
+      "elementName": "Severity",
+      "elementCode": "0012824",
+      "elementCodeSystem": "HP",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe"
+      ],
+      "valueSet": "Severity Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Observation.interpretation",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "PhenotypicFeature.severity",
+      "recommendedDataSpec_phenopackets": "OntologyClass",
+      "description": "A description of the severity of the feature."
+    },
+    {
+      "ordinal": "6.2.8",
       "section": "6. Phenotypic Feature",
       "elementName": "Modifiers",
       "elementCode": "phenotypicfeature.modifier",
@@ -977,14 +1052,151 @@
       "description": "Any number of additional modifiers describing a specific phenotypic feature further, such as severity (HP:0012824), clinical modifiers (HP:0012823), or linking causative infectious agents using the NCBITAXON Ontology."
     },
     {
+      "ordinal": "6.2.9",
+      "section": "6.2 Phenotypic Feature",
+      "elementName": "Evidence",
+      "elementCode": "phenotypicfeature.evidence",
+      "elementCodeSystem": "GA4GH",
+      "dataType": "Code",
+      "dataSpecification": [
+        "ECO"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.method",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "PhenotypicFeature.evidence",
+      "recommendedDataSpec_phenopackets": "OntologyClass",
+      "description": "The evidence for an assertion of the observation of a type defined within the Evidence & Conclusion Ontology (ECO)."
+    },
+    {
+      "ordinal": "6.3.1",
+      "section": "6.3 Measurement",
+      "elementName": "Assay",
+      "elementCode": "C60819",
+      "elementCodeSystem": "NCIT",
+      "dataType": "Code",
+      "dataSpecification": [
+        "OntologyClass (e.g. LOINC)"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.code",
+      "recommendedDataSpec_fhir": "Code",
+      "phenopacketSchemaElement_v2_0": "Measurement.assay",
+      "recommendedDataSpec_phenopackets": "OntologyClass",
+      "description": "A class that describes the assay used to producethe measurement."
+    },
+    {
+      "ordinal": "6.3.2",
+      "section": "6.3 Measurement",
+      "elementName": "Value",
+      "elementCode": "C25712",
+      "elementCodeSystem": "NCIT",
+      "dataType": "Value",
+      "dataSpecification": [
+        "float"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.value[x]",
+      "recommendedDataSpec_fhir": "Quantity|integer",
+      "phenopacketSchemaElement_v2_0": "Measurement.measurement_value",
+      "recommendedDataSpec_phenopackets": "Quantity[double/float]",
+      "description": "The result of the measurement."
+    },
+    {
+      "ordinal": "6.3.3",
+      "section": "6.3 Measurement",
+      "elementName": "Value Unit",
+      "elementCode": "C92571",
+      "elementCodeSystem": "NCIT",
+      "dataType": "Code",
+      "dataSpecification": [
+        "UO"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.value[x].unit",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "Measurement.measurement_value",
+      "recommendedDataSpec_phenopackets": "OntologyClass",
+      "description": "The unit of the result's measurement."
+    },
+    {
+      "ordinal": "6.3.4",
+      "section": "6.3 Measurement",
+      "elementName": "Interpretation",
+      "elementCode": "C41255",
+      "elementCodeSystem": "NCIT",
+      "dataType": "Code",
+      "dataSpecification": [
+        "NCIT"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.interpretation",
+      "recommendedDataSpec_fhir": "n/a",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "The interpretation of the measurement (e.g.: Below/Within/Above age-related reference range, Absent/Low/Normal, or Positive/Negative)."
+    },
+    {
+      "ordinal": "6.3.5",
+      "section": "6.3 Measurement",
+      "elementName": "Time Observed",
+      "elementCode": "C82577",
+      "elementCodeSystem": "NCIT",
+      "dataType": "Date",
+      "dataSpecification": [
+        "YYYY-MM-DD"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.effectiveDateTime",
+      "recommendedDataSpec_fhir": "DateTime",
+      "phenopacketSchemaElement_v2_0": "Measurement.time_observed",
+      "recommendedDataSpec_phenopackets": "TimeElement",
+      "description": "Time at which the measurement was performed."
+    },
+    {
+      "ordinal": "6.3.6",
+      "section": "6.3 Measurement",
+      "elementName": "Procedure",
+      "elementCode": "122869004",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "OntologyClass (e.g. NCIT, SNOMED)"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Procedure.code",
+      "recommendedDataSpec_fhir": "Measurement.procedure",
+      "phenopacketSchemaElement_v2_0": "Measurement.procedure",
+      "recommendedDataSpec_phenopackets": "Measurement.procedure",
+      "description": "Clinical procedure performed to acquire the sample used for the measurement."
+    },
+    {
       "ordinal": "6.4.1",
+      "section": "6.4 Family History",
+      "elementName": "Family Member Pseudonym",
+      "elementCode": "family_member_id",
+      "elementCodeSystem": "CustomCode",
+      "dataType": "Identifier",
+      "dataSpecification": [
+        "n/a"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "FamilyMemberHistory.identifier",
+      "recommendedDataSpec_fhir": "Identifier",
+      "phenopacketSchemaElement_v2_0": "Family.Pedigree.Person.individual_id",
+      "recommendedDataSpec_phenopackets": "string",
+      "description": "A unique identifier or local pseudonym for the familymember."
+    },
+    {
+      "ordinal": "6.4.2",
       "section": "6.4 Family History",
       "elementName": "Propositus/-a",
       "elementCode": "64245008",
       "elementCodeSystem": "SNOMED",
       "dataType": "Code",
       "dataSpecification": [
-        "VSe / VSc"
+        "VSe",
+        "VSc"
       ],
       "valueSet": "Propositus Value Set v2.0.0",
       "fhirExpression_v4_0_1": "n/a",
@@ -994,14 +1206,15 @@
       "description": "Is the individual the first affected family member who seeks medical attention for a genetic disorder, leading to the diagnosis of other family members. Disclaimer: The SCT code for propositus (64245008) refers to any  gender."
     },
     {
-      "ordinal": "6.4.2",
+      "ordinal": "6.4.3",
       "section": "6.4 Family History",
       "elementName": "Relationship of the Individual to the Propositus",
       "elementCode": "408732007",
       "elementCodeSystem": "SNOMED",
       "dataType": "Code",
       "dataSpecification": [
-        "VSe / VSc"
+        "VSe",
+        "VSc"
       ],
       "valueSet": "Family Relationship To Index Case Value Set v2.0.0",
       "fhirExpression_v4_0_1": "n/a",
@@ -1011,7 +1224,7 @@
       "description": "Specifies the familial relationship of the individual being evaluated to the propositus. Disclaimer: The SNOMED code for propositus (64245008) refers to any gender."
     },
     {
-      "ordinal": "6.4.3",
+      "ordinal": "6.4.4",
       "section": "6.4 Family History",
       "elementName": "Consanguinity",
       "elementCode": "842009",
@@ -1028,14 +1241,15 @@
       "description": "The presence of a biological relationship between parents who are related by blood, typically as first or second cousins."
     },
     {
-      "ordinal": "6.4.4",
+      "ordinal": "6.4.5",
       "section": "6.4 Family History",
       "elementName": "Family Member Relationship",
       "elementCode": "444018008",
       "elementCodeSystem": "SNOMED",
       "dataType": "Code",
       "dataSpecification": [
-        "VSe / VSc"
+        "VSe",
+        "VSc"
       ],
       "valueSet": "FamilyMember Value Set v2.0.0",
       "fhirExpression_v4_0_1": "FamilyMemberHistory.relationship.coding",
@@ -1045,7 +1259,7 @@
       "description": "Specifies the relationship of the selected family member to the patient."
     },
     {
-      "ordinal": "6.4.5",
+      "ordinal": "6.4.6",
       "section": "6.4 Family",
       "elementName": "Family Member Record Status",
       "elementCode": "familymemberhistory.status",
@@ -1057,19 +1271,20 @@
       "valueSet": "FamilyHistoryStatus Value Set v2.0.0",
       "fhirExpression_v4_0_1": "FamilyMemberHistory.status",
       "recommendedDataSpec_fhir": null,
-      "phenopacketSchemaElement_v2_0": "(Family.relatives \u2192 1 Phenopacket per family member)",
-      "recommendedDataSpec_phenopackets": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
       "description": "Specifies the record\u2019s status of the family history of a specific family member."
     },
     {
-      "ordinal": "6.4.6",
+      "ordinal": "6.4.7",
       "section": "6.4 Family",
       "elementName": "Family Member Sex",
       "elementCode": "54123-5",
       "elementCodeSystem": "LOINC",
       "dataType": "Code",
       "dataSpecification": [
-        "VSe / VSc"
+        "VSe",
+        "VSc"
       ],
       "valueSet": "AdministrativeGender Value Set v2.0.0",
       "fhirExpression_v4_0_1": "FamilyMemberHistory.sex",
@@ -1079,14 +1294,14 @@
       "description": "Specifies the sex (or gender) of the specific family member. If possible, the sex assigned at birth should be selected."
     },
     {
-      "ordinal": "6.4.7",
+      "ordinal": "6.4.8",
       "section": "6.4 Family",
       "elementName": "Family Member Age",
       "elementCode": "54141-7",
       "elementCodeSystem": "LOINC",
       "dataType": "Integer",
       "dataSpecification": [
-        "XXX"
+        "Integer"
       ],
       "valueSet": "n/a",
       "fhirExpression_v4_0_1": "FamilyMemberHistory.ageAge",
@@ -1096,7 +1311,7 @@
       "description": "Records the current age of the selected family member."
     },
     {
-      "ordinal": "6.4.8",
+      "ordinal": "6.4.9",
       "section": "6.4 Family",
       "elementName": "Family Member Date of Birth",
       "elementCode": "54124-3",
@@ -1113,7 +1328,7 @@
       "description": "Records the date of birth of the selected family member."
     },
     {
-      "ordinal": "6.4.9",
+      "ordinal": "6.4.10",
       "section": "6.4 Family",
       "elementName": "Family Member Deceased",
       "elementCode": "740604001",
@@ -1130,14 +1345,14 @@
       "description": "Indicates whether the selected family member is deceased."
     },
     {
-      "ordinal": "6.4.10",
+      "ordinal": "6.4.11",
       "section": "6.4 Family",
       "elementName": "Family Member Cause of Death",
       "elementCode": "54112-8",
       "elementCodeSystem": "LOINC",
       "dataType": "Code",
       "dataSpecification": [
-        "ICD10"
+        "ICD10CM"
       ],
       "valueSet": "n/a",
       "fhirExpression_v4_0_1": "FamilyMemberHistory.condition.code & FamilyMemberHistory.condition.contributedToDeath",
@@ -1147,14 +1362,14 @@
       "description": "Records the cause of death of the selected deceasedfamily member."
     },
     {
-      "ordinal": "6.4.11",
+      "ordinal": "6.4.12",
       "section": "6.4 Family",
       "elementName": "Family Member Deceased Age",
       "elementCode": "92662-6",
       "elementCodeSystem": "LOINC",
       "dataType": "Integer",
       "dataSpecification": [
-        "XXX"
+        "Integer"
       ],
       "valueSet": "n/a",
       "fhirExpression_v4_0_1": "FamilyMemberHistory.deceasedAge",
@@ -1164,14 +1379,19 @@
       "description": "Records the age at which the selected family member died."
     },
     {
-      "ordinal": "6.4.12",
+      "ordinal": "6.4.13",
       "section": "6.4 Family",
       "elementName": "Family Member Disease",
       "elementCode": "75315-2",
       "elementCodeSystem": "LOINC",
       "dataType": "Code",
       "dataSpecification": [
-        "Ontology Class (ORDO, ICD-10, ICD-11, MONDO, OMIM_p)"
+        "Ontology Class",
+        "ORDO",
+        "ICD-10-CM",
+        "ICD-11",
+        "MONDO",
+        "OMIM_p"
       ],
       "valueSet": "n/a",
       "fhirExpression_v4_0_1": "FamilyMemberHistory.condition.code",
@@ -2670,41 +2890,185 @@
       ]
     },
     {
-      "valueSetName": "Propositus Value Set v2.0.0",
+      "valueSetName": "Onset Category Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
       "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
-      "display": "Propositus/-a",
-      "valueSetCode": "64245008",
+      "display": "Onset Category",
+      "valueSetCode": "0003674",
       "valueSetCodeSystem": [
         {
-          "codeSystem": "SNOMED",
-          "version": "2024-09-01"
+          "codeSystem": "HP",
+          "version": "2024-08-13"
         }
       ],
       "valueSetChoices": [
         {
-          "choiceDisplay": "Yes",
-          "choiceCode": "373066001",
-          "choiceCodeSystem": "SNOMED",
-          "choiceCodeSystemVersion": "2024-09-01"
+          "choiceDisplay": "Embryonal onset (0w-8w embryonal)",
+          "choiceCode": "0011460",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
         },
         {
-          "choiceDisplay": "No",
-          "choiceCode": "373067005",
-          "choiceCodeSystem": "SNOMED",
-          "choiceCodeSystemVersion": "2024-09-01"
+          "choiceDisplay": "Fetal onset (8w embryonal - birth)",
+          "choiceCode": "0011461",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
         },
         {
-          "choiceDisplay": "Unknown",
-          "choiceCode": "261665006",
-          "choiceCodeSystem": "SNOMED",
-          "choiceCodeSystemVersion": "2024-09-01"
+          "choiceDisplay": "Congenital onset (at birth)",
+          "choiceCode": "0003577",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
         },
         {
-          "choiceDisplay": "Not recorded",
-          "choiceCode": "1220561009",
-          "choiceCodeSystem": "SNOMED",
-          "choiceCodeSystemVersion": "2024-09-01"
+          "choiceDisplay": "Neonatal onset (0d-28d)",
+          "choiceCode": "0003623",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Infantile onset (28d-1y)",
+          "choiceCode": "0003593",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Childhood onset (1y-5y)",
+          "choiceCode": "0011463",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Juvenile onset (5y-15y)",
+          "choiceCode": "0003621",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Young adult onset (16y-40y)",
+          "choiceCode": "0011462",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Middle age adult onset (40y-60y)",
+          "choiceCode": "0003596",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Late adult onset (60y+)",
+          "choiceCode": "0003584",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Temporal Pattern Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "display": "Temporal Pattern",
+      "valueSetCode": "0011008",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "HP",
+          "version": "2024-08-13"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Acute",
+          "choiceCode": "0011009",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Chronic",
+          "choiceCode": "0011010",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Fluctuating",
+          "choiceCode": "0031914",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Prolonged",
+          "choiceCode": "0025297",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Recurrent",
+          "choiceCode": "0031796",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Stable",
+          "choiceCode": "0031915",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Subacute",
+          "choiceCode": "0011011",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Transient",
+          "choiceCode": "0025153",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Severity Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "display": "Severity",
+      "valueSetCode": "0012824",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "HP",
+          "version": "2024-08-13"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Borderline",
+          "choiceCode": "0012827",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Mild",
+          "choiceCode": "0012825",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Moderate",
+          "choiceCode": "0012826",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Profound",
+          "choiceCode": "0012829",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Severe",
+          "choiceCode": "0012828",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
         }
       ]
     },

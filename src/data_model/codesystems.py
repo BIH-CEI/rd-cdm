@@ -137,12 +137,17 @@ class CodeSystems:
         url="https://ncit.nci.nih.gov/"
     )
 
+    ECO = CodeSystem(
+        name="Evidence & Conclusion Ontology (ECO)",
+        namespace_prefix="ECO",
+        url="https://www.evidenceontology.org/"
+    )
+    
     CustomCode = CodeSystem(
         name="Custom Code System RD CDM v2.0.0",
         namespace_prefix="CustomCode",
         url="https://github.com/BIH-CEI/rd-cdm"
     )
-
     @classmethod
     def get_all_code_systems(cls):
         """Returns all code systems as a dictionary."""

@@ -33,8 +33,6 @@ research and care. The RD CDM Version 2.0 consists of 66 data elements,
 extending the ERDRI-CDS and allowing deeper insights into genetic findings, 
 phenotypic features, and family history of individuals.
 
-
-
 ## Features
 
 - Interoperability: Aligns with HL7 FHIR v4.0.1 and GA4GH Phenopacket v2.0 for

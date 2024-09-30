@@ -1,3 +1,5 @@
+.. _license_file:
+
 RD CDM License
 ==============
 
@@ -5,7 +7,7 @@ The RD CDM is licensed under the MIT License. The full text of the license can
 be found in the file `LICENSE <https://github.com/BIH-CEI/rd-cdm/blob/af4eaa3589ed80cfafbec4874ed333f79831bb4d/LICENSE>`_.
 
 We encourage open-source contributions to the RD CDM. If you would like to
-contribute, please read our `contributing guidelines <https://rd-cdm.readthedocs.io/en/latest/contributing.html>`_.
+contribute, please read our :ref:`contributing` guidelines.
 
 .. attention::
 

@@ -1,3 +1,5 @@
+.. _contributing:
+
 RD CDM Contributing
 ===================
 

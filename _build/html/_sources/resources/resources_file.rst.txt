@@ -1,3 +1,5 @@
+.. _resources_file:
+
 RD CDM Resources
 =================
 

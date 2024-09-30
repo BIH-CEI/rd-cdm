@@ -40,13 +40,6 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 html_static_path = ['_static']
 pygments_style = 'sphinx'
 
-if on_rtd:
-    # Use the output directory that Read the Docs provides via the environment variable
-    html_output_dir = os.environ.get('READTHEDOCS_OUTPUT', '_build/html')
-else:
-    # Local builds will use the default Sphinx output directory
-    html_output_dir = '_build/html'
-
 # -- Autodoc setup ------------------------------------------------------------
 
 autodoc_member_order = 'bysource'

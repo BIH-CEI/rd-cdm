@@ -13,15 +13,16 @@ RD CDM v2.0.0.dev0
 
 Excel Table
 ~~~~~~~~~~~~
-You can download the RD CDM v2.0.0.dev0 in an Excel here:
+The table provides an overview of the table columns used to depict our Rare 
+Disease Common Data Model (RD CDM). You can download the RD CDM v2.0.0.dev0
+in an Excel here:
 
 - :download:`RD CDM v2.0.0 Excel Table <../_static/v2_0_0_dev0/rd_cdm_v2_0_0_dev0.xlsx>`
 
-or find it on `Figshare <https://figshare.com/articles/dataset/_b_Common_Data_Model_for_Rare_Diseases_b_based_on_the_ERDRI-CDS_HL7_FHIR_and_the_GA4GH_Phenopackets_Schema_v2_0_/26509150>`_.
+or find it on: `Figshare <https://figshare.com/articles/dataset/_b_Common_Data_Model_for_Rare_Diseases_b_based_on_the_ERDRI-CDS_HL7_FHIR_and_the_GA4GH_Phenopackets_Schema_v2_0_/26509150>`_.
 
 .. note::
-    The table provides an overview of the table columns used to depict our Rare 
-    Disease Common Data Model (RD CDM). Each column's abbreviation, further 
+    Each column's abbreviation, further 
     definitions, and explanations see :ref:`background_file`.
 
 JSON Files Download

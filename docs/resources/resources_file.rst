@@ -1,4 +1,4 @@
-RD CDM resources
+RD CDM Resources
 =================
 
 .. attention::

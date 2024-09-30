@@ -1,4 +1,4 @@
-RD CDM contributing
+RD CDM Contributing
 ===================
 
 As we are actively developing the RD CDM, we welcome contributions in the form 

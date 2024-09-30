@@ -16,9 +16,6 @@ project = 'Ontology-Based Rare Disease Common Data Model (RD CDM)'
 copyright = 'Berlin Institute of Health, Charité Universitätsmedizin Berlin'
 author = 'Adam SL Graefe'
 release = '2.0.0'
-import doctest
-import os
-import sys
 
 extensions = [
     'sphinx.ext.autodoc',

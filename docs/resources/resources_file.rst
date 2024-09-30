@@ -20,17 +20,17 @@ definitions, and explanations see :ref:`background_file`.
 
 RD CDM JSON Files Download
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-:download:`Entire RD CDM v2.0.0.dev0 JSON <../res/v2_0_0_dev0/rd_cdm_v2_0_0_dev0.json>`_
-:download:`Code Systems v2.0.0.dev0 JSON <../res/v2_0_0_dev0/rd_cdm_codesystems_v2_0_0_dev0.json>`_
-:download:`Data Elements v2.0.0.dev0 JSON <../res/v2_0_0_dev0/rd_cdm_data_elements_v2_0_0_dev0.json>`_
-:download:`Value Sets v2.0.0.dev0 JSON <../res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json>`_
+:download:`Entire RD CDM v2.0.0.dev0 JSON <../res/v2_0_0_dev0/rd_cdm_v2_0_0_dev0.json>`
+:download:`Code Systems v2.0.0.dev0 JSON <../res/v2_0_0_dev0/rd_cdm_codesystems_v2_0_0_dev0.json>`
+:download:`Data Elements v2.0.0.dev0 JSON <../res/v2_0_0_dev0/rd_cdm_data_elements_v2_0_0_dev0.json>`
+:download:`Value Sets v2.0.0.dev0 JSON <../res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json>`
 
 RD CDM CSV Files Download
 ~~~~~~~~~~~~~~~~~~~~~~~~~
-:download:`Combined RD CDM v2.0.0.dev0 CSV <../res/v2_0_0_dev0/rd_cdm_v2_0_0_dev0.csv>`_
-:download:`Code Systems v2.0.0.dev0 CSV <../res/v2_0_0_dev0/rd_cdm_codesystems_v2_0_0_dev0.csv>`_
-:download:`Data Elements v2.0.0.dev0 CSV <../res/v2_0_0_dev0/rd_cdm_data_elements_v2_0_0_dev0.csv>`_
-:download:`Value Sets v2.0.0.dev0 CSV <../res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.csv>`_
+:download:`Combined RD CDM v2.0.0.dev0 CSV <../res/v2_0_0_dev0/rd_cdm_v2_0_0_dev0.csv>`
+:download:`Code Systems v2.0.0.dev0 CSV <../res/v2_0_0_dev0/rd_cdm_codesystems_v2_0_0_dev0.csv>`
+:download:`Data Elements v2.0.0.dev0 CSV <../res/v2_0_0_dev0/rd_cdm_data_elements_v2_0_0_dev0.csv>`
+:download:`Value Sets v2.0.0.dev0 CSV <../res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.csv>`
 
 For additional details, see :ref:`background_file`.
 

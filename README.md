@@ -8,11 +8,15 @@ international registry use, HL7 FHIR, and GA4GH Phenopackets.
 [![Documentation Status](https://readthedocs.org/projects/rd-cdm/badge/?version=latest)](https://rd-cdm.readthedocs.io/en/latest/?badge=latest)
 
 <!-- Combined Badges for RD CDM v2.0.0 -->
-![RD CDM v2.0.0](https://img.shields.io/badge/RD%20CDM%20v2.0.0-grey) 
+![RD CDM v2.0.0.dev0](https://img.shields.io/badge/RD%20CDM%20v2.0.0-grey) 
 ![JSON Created](https://img.shields.io/badge/JSON%20Created%20Successfully-blue)
 ![CSV Created](https://img.shields.io/badge/CSV%20Created%20Successfully-purple)
 ![Validation Successful](https://img.shields.io/badge/Validation%20Successful-brightgreen)
 
+> **Attention:**
+> The RD CDM paper is currently under review. As soon as it is published, we 
+> will update the version to 2.0.0 and provide a link to the paper here.
+> The version 2.0.0.dev0 is the initial release of the RD CDM under review.
 
 ## Table of Contents
 

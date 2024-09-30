@@ -23,19 +23,13 @@ class TestCreateRdCdmJson(unittest.TestCase):
         
         self.assertTrue(os.path.exists(self.output_file), "Output file not created")
         
-        # Check if the function returned the combined JSON
         self.assertIsNotNone(result, "Final RD CDM creation failed.")
         
-        # Additional test to validate JSON structure
         with open(self.output_file, 'r') as f:
             data = json.load(f)
         
-        # Check for the expected keys in the final RD CDM JSON
         self.assertIn("metadata", data)
-        
-        # Update this check to look for 'codeSystems' at the top level instead of inside 'metadata'
-        self.assertIn("codeSystems", data)  # 'codeSystems' is now at the top level
-        
+        self.assertIn("codeSystems", data)
         self.assertIn("dataElements", data)
         self.assertIn("valueSets", data)
 

@@ -5,7 +5,7 @@
   "description": "The ontology-based Rare Disease Common Data Model (RD CDM) to enable international registry use, HL7 FHIR, and GA4GH Phenopackets.",
   "metadata": {
     "author": "Author Name",
-    "creationDate": "2024-09-29"
+    "creationDate": "2024-09-30"
   },
   "codeSystems": [
     {
@@ -254,7 +254,8 @@
       "elementCodeSystem": "SNOMED",
       "dataType": "Code",
       "dataSpecification": [
-        "VSe / VSc"
+        "VSe",
+        "VSc"
       ],
       "valueSet": "Sex at Birth Value Set v2.0.0",
       "fhirExpression_v4_0_1": "Patient.extension:individual-recordedSexOrGender",
@@ -288,7 +289,8 @@
       "elementCodeSystem": "SNOMED",
       "dataType": "Code",
       "dataSpecification": [
-        "VSe / VSc"
+        "VSe",
+        "VSc"
       ],
       "valueSet": "Gender Identity Value Set v2.0.0",
       "fhirExpression_v4_0_1": "Patient.extension:individual-genderIdentity",
@@ -322,7 +324,8 @@
       "elementCodeSystem": "SNOMED",
       "dataType": "Code",
       "dataSpecification": [
-        "VSe / VSc"
+        "VSe",
+        "VSc"
       ],
       "valueSet": "Vital Status Value Set v2.0.0",
       "fhirExpression_v4_0_1": "Patient.deceased.deceasedBoolean|Observation.value",
@@ -460,7 +463,8 @@
       "elementCodeSystem": "SNOMED",
       "dataType": "Code",
       "dataSpecification": [
-        "VSe / VSc"
+        "VSe",
+        "VSc"
       ],
       "valueSet": "Encounter Status Value Set v2.0.0",
       "fhirExpression_v4_0_1": "Encounter.status",
@@ -477,7 +481,8 @@
       "elementCodeSystem": "HL7FHIR",
       "dataType": "Code",
       "dataSpecification": [
-        "VSe / VSc"
+        "VSe",
+        "VSc"
       ],
       "valueSet": "Encounter Class Value Set v2.0.0",
       "fhirExpression_v4_0_1": "Encounter.class",
@@ -528,7 +533,8 @@
       "elementCodeSystem": "SNOMED",
       "dataType": "Code",
       "dataSpecification": [
-        "VSe / VSc"
+        "VSe",
+        "VSc"
       ],
       "valueSet": "Age at Onset Value Set v2.0.0",
       "fhirExpression_v4_0_1": "Condition.onsetString orObservation.valueCodeableConcept",
@@ -820,7 +826,8 @@
       "elementCodeSystem": "LOINC",
       "dataType": "Code",
       "dataSpecification": [
-        "VSe / VSc",
+        "VSe",
+        "VSc",
         "LOINC"
       ],
       "valueSet": "Zygosity Value Set v2.0.0",
@@ -872,7 +879,8 @@
       "elementCodeSystem": "LOINC",
       "dataType": "Code",
       "dataSpecification": [
-        "VSe / VSc"
+        "VSe",
+        "VSc"
       ],
       "valueSet": "Clinical Significance ACMG Value Set v2.0.0",
       "fhirExpression_v4_0_1": "Observation.component:Variant.Interpretation",
@@ -906,7 +914,8 @@
       "elementCodeSystem": "LOINC",
       "dataType": "Code",
       "dataSpecification": [
-        "VSe / VSc"
+        "VSe",
+        "VSc"
       ],
       "valueSet": "Clinical Annotation Level Of Evidence Value Set v2.0.0",
       "fhirExpression_v4_0_1": "Observation.extension:Variant.Interpretation",
@@ -940,7 +949,8 @@
       "elementCodeSystem": "SNOMED",
       "dataType": "Code",
       "dataSpecification": [
-        "VSe"
+        "VSe",
+        "VSc"
       ],
       "valueSet": "Phenotype Status Value Set v2.0.0",
       "fhirExpression_v4_0_1": "Observation.status",
@@ -991,7 +1001,8 @@
       "elementCodeSystem": "HP",
       "dataType": "Code",
       "dataSpecification": [
-        "VSe"
+        "VSe",
+        "VSc"
       ],
       "valueSet": "Onset Category Value Set v2.0.0",
       "fhirExpression_v4_0_1": "Observation.category",
@@ -1008,7 +1019,8 @@
       "elementCodeSystem": "HP",
       "dataType": "Code",
       "dataSpecification": [
-        "VSe"
+        "VSe",
+        "VSc"
       ],
       "valueSet": "Temporal Pattern Value Set v2.0.0",
       "fhirExpression_v4_0_1": "Observation.interpretation",
@@ -1025,7 +1037,8 @@
       "elementCodeSystem": "HP",
       "dataType": "Code",
       "dataSpecification": [
-        "VSe"
+        "VSe",
+        "VSc"
       ],
       "valueSet": "Severity Value Set v2.0.0",
       "fhirExpression_v4_0_1": "Observation.interpretation",

@@ -1,7 +1,7 @@
 [project]
 name = "template_for_python_projects"
 authors = [
-    {name = "Adam SL Graefe", email="adam.graefe@charite.de"},,
+    {name = "Adam SL Graefe", email="adam.graefe@charite.de"},
     {name = "Filip Rehburg", email="filip.rehburg@charite.de"},
     {name = "Daniel Danis", email="daniel.danis@bih-charite.de"},
     {name = "Peter N Robinson", email="peter.robinson@bih-charite.de"},

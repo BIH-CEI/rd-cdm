@@ -20,17 +20,17 @@ definitions, and explanations see :ref:`background_file`.
 
 RD CDM JSON Files Download
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-- `Combined RD CDM JSON <../res/v2_0_0/rd_cdm_v2_0_0.json>`_
-- `Code Systems JSON <../res/v2_0_0/rd_cdm_codesystems_v2_0_0.json>`_
-- `Data Elements JSON <../res/v2_0_0/rd_cdm_data_elements_v2_0_0.json>`_
-- `Value Sets JSON <../res/v2_0_0/rd_cdm_value_sets_v2_0_0.json>`_
+- `Combined RD CDM JSON <../res/v2_0_0_dev0/rd_cdm_v2_0_0_dev0.json>`_
+- `Code Systems JSON <../res/v2_0_0_dev0/rd_cdm_codesystems_v2_0_0_dev0.json>`_
+- `Data Elements JSON <../res/v2_0_0_dev0/rd_cdm_data_elements_v2_0_0_dev0.json>`_
+- `Value Sets JSON <../res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json>`_
 
 RD CDM CSV Files Download
 ~~~~~~~~~~~~~~~~~~~~~~~~~
-- `Combined RD CDM CSV <../res/v2_0_0/rd_cdm_v2_0_0.csv>`_
-- `Code Systems CSV <../res/v2_0_0/rd_cdm_codesystems_v2_0_0.csv>`_
-- `Data Elements CSV <../res/v2_0_0/rd_cdm_data_elements_v2_0_0.csv>`_
-- `Value Sets CSV <../res/v2_0_0/rd_cdm_value_sets_v2_0_0.csv>`_
+- `Combined RD CDM CSV <../res/v2_0_0_dev0/rd_cdm_v2_0_0_dev0.csv>`_
+- `Code Systems CSV <../res/v2_0_0_dev0/rd_cdm_codesystems_v2_0_0_dev0.csv>`_
+- `Data Elements CSV <../res/v2_0_0_dev0/rd_cdm_data_elements_v2_0_0_dev0.csv>`_
+- `Value Sets CSV <../res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.csv>`_
 
 For additional details, see :ref:`background_file`.
 

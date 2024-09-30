@@ -2,16 +2,26 @@ import json
 import sys
 import os
 import importlib
-
-# Add the src directory to the system path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-
 from data_model.utils import json_serializer
 from src.data_model.value_set import ValueSet, ValueSetChoice
 from src.data_model.base_types import Coding, CodeSystem
 
+# Add the src directory to the system path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+
 def load_value_set_definitions(version):
-    """Dynamically load the value sets for a given version."""
+    """
+    Dynamically load the value sets for a specified version.
+
+    This function imports the module containing the value sets for the given
+    version and retrieves the value sets definitions.
+    
+    Args:
+        version (str): The version of the value sets (e.g., "v2_0_0_dev0").
+
+    Returns:
+        list: The loaded value sets or None if the module or class is not found.
+    """
     try:
         module = importlib.import_module(f"src.{version}.rd_cdm_{version}_value_sets")
         class_name = f"VALUE_SETS_VERSIONS_{version.replace('.', '_').upper()}"
@@ -22,7 +32,19 @@ def load_value_set_definitions(version):
         return None
 
 def load_code_system_versions(version):
-    """Dynamically load the code system versions for a given version."""
+    """
+    Dynamically load the code system versions for a specified version.
+
+    This function imports the module containing the code system versions for
+    the given version and retrieves the version information.
+    
+    Args:
+        version (str): The version of the code systems (e.g., "v2_0_0_dev0").
+
+    Returns:
+        dict: The loaded code system versions or an empty dictionary if the
+        module or class is not found.
+    """
     try:
         module = importlib.import_module(f"src.{version}.rd_cdm_{version}_codesystems_versions")
         class_name = f"CODESYSTEMS_VERSIONS_{version.replace('.', '_').upper()}"
@@ -32,26 +54,28 @@ def load_code_system_versions(version):
         print(f"Error loading code system version module for {version}: {e}")
         return {}
 
-import os
-import json
-from data_model.utils import json_serializer
-
 def create_value_set_json(version):
-    """Create a JSON file for the value sets of a specified version."""
+    """
+    Create a JSON file for the value sets of a specified version.
+
+    This function generates a JSON file that includes the value sets and their
+    associated code systems and choices for the given version, and writes it to
+    the appropriate output directory.
+
+    Args:
+        version (str): The version of the value sets to generate (e.g., "v2_0_0_dev0").
+    """
     
-    # Load value sets for the specified version
     value_sets = load_value_set_definitions(version)
     if value_sets is None:
         print(f"Failed to create value set JSON for {version}.")
         return
 
-    # Load code system versions for the specified version
     code_system_versions = load_code_system_versions(version)
     
-    # Create a JSON structure for the value sets
     value_sets_json = {
         "version": version,
-        "dataElements": [],  # Add dataElements as required by schema
+        "dataElements": [], 
         "valueSets": [
             {
                 "valueSetName": vs.valueSetName,
@@ -60,7 +84,6 @@ def create_value_set_json(version):
                 "display": vs.display,
                 "valueSetCode": vs.valueSetCode.code if isinstance(
                     vs.valueSetCode, Coding) else None,
-                
                 "valueSetCodeSystem": [
                     {
                         "codeSystem": system.namespace_prefix,
@@ -76,7 +99,6 @@ def create_value_set_json(version):
                             vs.valueSetCodeSystem.namespace_prefix, "unknown")
                     }
                 ] if isinstance(vs.valueSetCodeSystem, CodeSystem) else None,
-                
                 "valueSetChoices": [
                     {
                         "choiceDisplay": choice.choiceDisplay,
@@ -98,12 +120,11 @@ def create_value_set_json(version):
         ]
     }
 
-    # Ensure the output directory exists
     output_directory = f"res/{version}/"
     os.makedirs(output_directory, exist_ok=True)
 
-    # Write the JSON file to the res folder
-    output_path = os.path.join(output_directory, f"rd_cdm_value_sets_{version}.json")
+    output_path = os.path.join(
+        output_directory, f"rd_cdm_value_sets_{version}.json")
     with open(output_path, "w") as json_file:
         json.dump(value_sets_json, json_file, default=json_serializer, indent=2)
         print(f"JSON file created successfully: {output_path}")
@@ -111,4 +132,4 @@ def create_value_set_json(version):
 
 # Example usage
 if __name__ == "__main__":
-    create_value_set_json("v2_0_0")
+    create_value_set_json("v2_0_0_dev0")

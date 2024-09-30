@@ -1,11 +1,11 @@
 {
-  "version": "v2_0_0",
+  "version": "v2_0_0_dev0",
   "dataElements": [],
   "valueSets": [
     {
       "valueSetName": "Sex at Birth Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Sex at Birth",
       "valueSetCode": "281053000",
       "valueSetCodeSystem": [
@@ -50,7 +50,7 @@
     {
       "valueSetName": "Karyotypic Sex Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Karyotypic Sex",
       "valueSetCode": "1296886006",
       "valueSetCodeSystem": [
@@ -125,7 +125,7 @@
     {
       "valueSetName": "Gender Identity Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Gender Identity",
       "valueSetCode": "263495000",
       "valueSetCodeSystem": [
@@ -170,7 +170,7 @@
     {
       "valueSetName": "Vital Status Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Vital Status",
       "valueSetCode": "278844005",
       "valueSetCodeSystem": [
@@ -215,7 +215,7 @@
     {
       "valueSetName": "Age Category Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Age Category",
       "valueSetCode": "105727008",
       "valueSetCodeSystem": [
@@ -278,7 +278,7 @@
     {
       "valueSetName": "Vital Status Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Vital Status",
       "valueSetCode": "278844005",
       "valueSetCodeSystem": [
@@ -323,7 +323,7 @@
     {
       "valueSetName": "Age Category Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Age Category",
       "valueSetCode": "105727008",
       "valueSetCodeSystem": [
@@ -386,7 +386,7 @@
     {
       "valueSetName": "Undiagnosed RD Case Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Undiagnosed RD Case",
       "valueSetCode": "723663001",
       "valueSetCodeSystem": [
@@ -413,7 +413,7 @@
     {
       "valueSetName": "Encounter Status Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Encounter Status",
       "valueSetCode": "305058001",
       "valueSetCodeSystem": [
@@ -482,7 +482,7 @@
     {
       "valueSetName": "Encounter Class Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Encounter Class",
       "valueSetCode": "encounter.class",
       "valueSetCodeSystem": [
@@ -549,7 +549,7 @@
     {
       "valueSetName": "Verification Status Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Verification Status",
       "valueSetCode": "99498-8",
       "valueSetCodeSystem": [
@@ -600,7 +600,7 @@
     {
       "valueSetName": "Age at Onset Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Age at Onset",
       "valueSetCode": "424850005",
       "valueSetCodeSystem": [
@@ -639,7 +639,7 @@
     {
       "valueSetName": "Age at Diagnosis Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Age at Diagnosis",
       "valueSetCode": "423493009",
       "valueSetCodeSystem": [
@@ -678,7 +678,7 @@
     {
       "valueSetName": "Body Site Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Body Site",
       "valueSetCode": "363698007",
       "valueSetCodeSystem": [
@@ -699,7 +699,7 @@
     {
       "valueSetName": "Clinical Status Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Clinical Status",
       "valueSetCode": "263493007",
       "valueSetCodeSystem": [
@@ -750,7 +750,7 @@
     {
       "valueSetName": "Severity Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Severity",
       "valueSetCode": "246112005",
       "valueSetCodeSystem": [
@@ -783,7 +783,7 @@
     {
       "valueSetName": "Progress Status Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Progress Status",
       "valueSetCode": "progress_status",
       "valueSetCodeSystem": [
@@ -828,7 +828,7 @@
     {
       "valueSetName": "Interpretation Status Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Interpretation Status",
       "valueSetCode": "interpretation_status",
       "valueSetCodeSystem": [
@@ -873,7 +873,7 @@
     {
       "valueSetName": "Structural Variant Analysis Method Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Structural Variant Analysis Method",
       "valueSetCode": "81304-8",
       "valueSetCodeSystem": [
@@ -948,7 +948,7 @@
     {
       "valueSetName": "Reference Genome Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Reference Genome",
       "valueSetCode": "62374-4",
       "valueSetCodeSystem": [
@@ -993,7 +993,7 @@
     {
       "valueSetName": "Zygosity Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Zygosity",
       "valueSetCode": "53034-5",
       "valueSetCodeSystem": [
@@ -1056,7 +1056,7 @@
     {
       "valueSetName": "Genomic Source Class Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Genomic Source Class",
       "valueSetCode": "48002-0",
       "valueSetCodeSystem": [
@@ -1119,7 +1119,7 @@
     {
       "valueSetName": "DNA Change Type Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "DNA Change Type",
       "valueSetCode": "48019-4",
       "valueSetCodeSystem": [
@@ -1176,7 +1176,7 @@
     {
       "valueSetName": "Clinical Significance ACMG Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Clinical Significance [ACMG]",
       "valueSetCode": "53037-8",
       "valueSetCodeSystem": [
@@ -1227,7 +1227,7 @@
     {
       "valueSetName": "Therapeutic Actionability Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Therapeutic Actionability",
       "valueSetCode": "therapeutic_actionability",
       "valueSetCodeSystem": [
@@ -1260,7 +1260,7 @@
     {
       "valueSetName": "Clinical Annotation Level Of Evidence Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Clinical Annotation Level Of Evidence",
       "valueSetCode": "93044-6",
       "valueSetCodeSystem": [
@@ -1329,7 +1329,7 @@
     {
       "valueSetName": "Phenotype Status Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Phenotypic Findings Status",
       "valueSetCode": "phenotypicfeature.excluded",
       "valueSetCodeSystem": [
@@ -1356,7 +1356,7 @@
     {
       "valueSetName": "Onset Category Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Onset Category",
       "valueSetCode": "0003674",
       "valueSetCodeSystem": [
@@ -1431,7 +1431,7 @@
     {
       "valueSetName": "Temporal Pattern Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Temporal Pattern",
       "valueSetCode": "0011008",
       "valueSetCodeSystem": [
@@ -1494,7 +1494,7 @@
     {
       "valueSetName": "Severity Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Severity",
       "valueSetCode": "0012824",
       "valueSetCodeSystem": [
@@ -1539,7 +1539,7 @@
     {
       "valueSetName": "Propositus Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Propositus/-a",
       "valueSetCode": "64245008",
       "valueSetCodeSystem": [
@@ -1578,7 +1578,7 @@
     {
       "valueSetName": "Family Relationship To Index Case Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Relationship to Propositus",
       "valueSetCode": "408732007",
       "valueSetCodeSystem": [
@@ -1665,7 +1665,7 @@
     {
       "valueSetName": "Consanguinity Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Consanguinity",
       "valueSetCode": "842009",
       "valueSetCodeSystem": [
@@ -1704,7 +1704,7 @@
     {
       "valueSetName": "FamilyMember Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Family Member Relationship",
       "valueSetCode": "444018008",
       "valueSetCodeSystem": [
@@ -1791,7 +1791,7 @@
     {
       "valueSetName": "FamilyHistoryStatus Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Family Member Record Status",
       "valueSetCode": "familymemberhistory.status",
       "valueSetCodeSystem": [
@@ -1830,7 +1830,7 @@
     {
       "valueSetName": "AdministrativeGender Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Family Member Sex",
       "valueSetCode": "54123-5",
       "valueSetCodeSystem": [
@@ -1875,7 +1875,7 @@
     {
       "valueSetName": "Deceased Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Family Member Deceased",
       "valueSetCode": "740604001",
       "valueSetCodeSystem": [
@@ -1908,7 +1908,7 @@
     {
       "valueSetName": "Consent Status Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Consent Status",
       "valueSetCode": "309370004",
       "valueSetCodeSystem": [
@@ -1959,7 +1959,7 @@
     {
       "valueSetName": "Contact for Research Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Agreement to be Contacted for Research",
       "valueSetCode": "consent_contact_research",
       "valueSetCodeSystem": [
@@ -1992,7 +1992,7 @@
     {
       "valueSetName": "Data Reuse Consent Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Consent to the Reuse of Data",
       "valueSetCode": "conset_data_reuse",
       "valueSetCodeSystem": [
@@ -2025,7 +2025,7 @@
     {
       "valueSetName": "Biological Sample Consent Value Set v2.0.0",
       "valueSetOrigin": "RD CDM v2.0.0",
-      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0/rd_cdm_value_sets_v2_0_0.json",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
       "display": "Biological Sample",
       "valueSetCode": "123038009",
       "valueSetCodeSystem": [

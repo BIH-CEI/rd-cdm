@@ -20,10 +20,10 @@ definitions, and explanations see :ref:`background_file`.
 
 JSON Files Download
 ~~~~~~~~~~~~~~~~~~~
-:download:`Entire RD CDM v2.0.0.dev0 JSON <_static/rd_cdm_v2_0_0_dev0/rd_cdm_v2_0_0_dev0.json>`
-:download:`Code Systems v2.0.0.dev0 JSON <_static/rd_cdm_v2_0_0_dev0/rd_cdm_codesystems_v2_0_0_dev0.json>`
-:download:`Data Elements v2.0.0.dev0 JSON <_static/rd_cdm_v2_0_0_dev0/rd_cdm_data_elements_v2_0_0_dev0.json>`
-:download:`Value Sets v2.0.0.dev0 JSON <_static/rd_cdm_v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json>`
+:download:`Entire RD CDM v2.0.0.dev0 JSON <static/rd_cdm_v2_0_0_dev0/rd_cdm_v2_0_0_dev0.json>`
+:download:`Code Systems v2.0.0.dev0 JSON <static/rd_cdm_v2_0_0_dev0/rd_cdm_codesystems_v2_0_0_dev0.json>`
+:download:`Data Elements v2.0.0.dev0 JSON <static/rd_cdm_v2_0_0_dev0/rd_cdm_data_elements_v2_0_0_dev0.json>`
+:download:`Value Sets v2.0.0.dev0 JSON <static/rd_cdm_v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json>`
 
 CSV Files Download
 ~~~~~~~~~~~~~~~~~~~

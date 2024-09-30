@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
-from typing import List, Union, Literal
+import decimal
+from typing import List, Optional, Union, Literal
 from datetime import datetime
 
 @dataclass(slots=True, frozen=True)
@@ -172,21 +173,22 @@ class Code:
         """Return a dictionary representing this Code."""
         return {"system": self.system, "code": self.code}
 
+
 @dataclass(frozen=True, slots=True)
 class Address:
     """Represents an address."""
-    street: str
-    city: str
-    zip_code: str
     country: str
+    street: Optional[str] = field(default=None)
+    city: Optional[str] = field(default=None)
+    zip_code: Optional[str] = field(default=None)
 
     def to_json(self):
-        """Return a dictionary representing this Address."""
+        """Return a dictionary representing this Address, excluding None values."""
         return {
-            "country" : self.country,
-            "street": self.street,
-            "city": self.city,
-            "zip_code": self.zip_code
+            "country": self.country,
+            "street": self.street if self.street else "",
+            "city": self.city if self.city else "",
+            "zip_code": self.zip_code if self.zip_code else ""
         }
 
 @dataclass(frozen=True, slots=True)
@@ -207,7 +209,8 @@ class String:
 
     def __post_init__(self):
         if not isinstance(self.value, str):
-            raise ValueError(f"Invalid value for String: {self.value}. Expected a string.")
+            raise ValueError(
+                f"Invalid value for String: {self.value}. Expected a string.")
 
 @dataclass(frozen=True, slots=True)
 class Boolean:
@@ -216,4 +219,29 @@ class Boolean:
 
     def __post_init__(self):
         if not isinstance(self.value, bool):
-            raise ValueError(f"Invalid value for Boolean: {self.value}. Expected a boolean.")
+            raise ValueError(
+                f"Invalid value for Boolean: {self.value}. Expected a boolean.")
+        
+@dataclass(frozen=True, slots=True)
+class Integer:
+    """Represents an integer data type."""
+    value: int
+
+    def __post_init__(self):
+        if not isinstance(self.value, int):
+            raise ValueError(
+                f"Invalid value for Integer: {self.value}. Expected an integer.")
+
+@dataclass(frozen=True, slots=True)
+class Value:
+    """Represents a value."""
+    value: Union[float]
+
+    def __post_init__(self):
+        if not isinstance(self.value, (float)):
+            raise ValueError(
+                f"Invalid value for Value: {self.value}. Expected a float.")
+
+    def to_json(self):
+        """Return a dictionary representing this Value."""
+        return {"value": self.value}

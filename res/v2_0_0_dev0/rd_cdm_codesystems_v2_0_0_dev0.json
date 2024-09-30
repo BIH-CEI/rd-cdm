@@ -1,5 +1,5 @@
 {
-  "version": "v2_0_0",
+  "version": "v2_0_0_dev0",
   "CodeSystems": [
     {
       "codeSystemName": "NCBI organismal classification",
@@ -168,6 +168,20 @@
       "namespace_prefix": "NCIT",
       "version": "24.04e",
       "url": "https://ncit.nci.nih.gov/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "Evidence & Conclusion Ontology (ECO)",
+      "namespace_prefix": "ECO",
+      "version": "unknown",
+      "url": "https://www.evidenceontology.org/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "Custom Code System RD CDM v2.0.0",
+      "namespace_prefix": "CustomCode",
+      "version": "unknown",
+      "url": "https://github.com/BIH-CEI/rd-cdm",
       "synonyms": []
     }
   ]

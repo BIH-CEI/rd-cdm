@@ -34,7 +34,7 @@ def create_final_rd_cdm_json(version):
     also adds metadata including the current creation date and author.
 
     Args:
-        version (str): The version of the RD CDM (e.g., "v2_0_0").
+        version (str): The version of the RD CDM (e.g., "v2_0_0_dev0").
 
     Returns:
         dict: The combined RD CDM JSON structure, or None if any components fail 
@@ -83,4 +83,4 @@ def create_final_rd_cdm_json(version):
     return rd_cdm_json
 # Run the function for the desired version
 if __name__ == "__main__":
-    create_final_rd_cdm_json("v2_0_0")
+    create_final_rd_cdm_json("v2_0_0_dev0")

@@ -3,8 +3,10 @@ import os
 import sys
 
 # Configuration file for the Sphinx documentation builder.
+#
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
+
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
@@ -17,8 +19,6 @@ copyright = 'Berlin Institute of Health, Charité Universitätsmedizin Berlin'
 author = 'Adam SL Graefe'
 release = '2.0.0'
 
-# -- Detect Read the Docs build environment -----------------------------------
-# If the environment variable READTHEDOCS is set, we're building on Read the Docs
 on_rtd = os.environ.get('READTHEDOCS') == 'True'
 
 # -- General configuration ---------------------------------------------------
@@ -37,19 +37,11 @@ extensions = [
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+html_static_path = ['_static']
+pygments_style = 'sphinx'
 
-# -- Static path configuration ------------------------------------------------
-# If on Read the Docs, make sure that static files are correctly located
 if on_rtd:
-    # Set the output to the specific path that Read the Docs expects
-    html_static_path = ['_static']
-else:
-    html_static_path = ['_static']
-
-# -- Output directory configuration -------------------------------------------
-# In case you need to set specific paths for Read the Docs
-if on_rtd:
-    # Use the environment variable provided by Read the Docs
+    # Use the output directory that Read the Docs provides via the environment variable
     html_output_dir = os.environ.get('READTHEDOCS_OUTPUT', '_build/html')
 else:
     # Local builds will use the default Sphinx output directory
@@ -64,7 +56,7 @@ autodoc_member_order = 'bysource'
 doctest_path = [src_path]
 doctest_test_doctest_blocks = ""
 
-# Code to be executed before each doctest block
+# code to be executed before each doctest block
 doctest_global_setup = """ 
 import numpy as np
 """
@@ -73,6 +65,7 @@ doctest_default_flags = (doctest.REPORT_ONLY_FIRST_FAILURE
                          | doctest.ELLIPSIS
                          | doctest.IGNORE_EXCEPTION_DETAIL
                          | doctest.DONT_ACCEPT_TRUE_FOR_1)
+
 
 # -- Intersphinx setup --------------------------------------------------------
 intersphinx_mapping = {
@@ -88,4 +81,5 @@ intersphinx_mapping = {
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'sphinx_rtd_theme'  # Using the RTD theme
+html_theme = 'sphinx_rtd_theme'  # experiment with this
+html_static_path = ['_static']

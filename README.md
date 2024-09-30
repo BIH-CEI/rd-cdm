@@ -7,9 +7,12 @@ international registry use, HL7 FHIR, and GA4GH Phenopackets.
 [![Python CI](https://github.com/BIH-CEI/rd-cdm/actions/workflows/python_ci.yml/badge.svg)](https://github.com/BIH-CEI/rd-cdm/actions/workflows/python_ci.yml)
 [![Documentation Status](https://readthedocs.org/projects/rd-cdm/badge/?version=latest)](https://rd-cdm.readthedocs.io/en/latest/?badge=latest)
 
-<!-- JSON Creation and Validation Badges -->
-![RD CDM v2.0.0 JSON Creation](https://img.shields.io/badge/RD%20CDM%20v2.0.0-JSON%20Created%20Successfully-blue)
-![RD CDM v2.0.0 Validation](https://img.shields.io/badge/RD%20CDM%20v2.0.0-Validation%20Successful-brightgreen)
+<!-- Combined Badges for RD CDM v2.0.0 -->
+![RD CDM v2.0.0](https://img.shields.io/badge/RD%20CDM%20v2.0.0-grey) 
+![JSON Created](https://img.shields.io/badge/JSON%20Created%20Successfully-blue)
+![CSV Created](https://img.shields.io/badge/CSV%20Created%20Successfully-purple)
+![Validation Successful](https://img.shields.io/badge/Validation%20Successful-brightgreen)
+
 
 ## Table of Contents
 

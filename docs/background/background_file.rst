@@ -48,9 +48,9 @@ information alongisde precise genetic data on rare diseases.
 RD CDM Overview
 ---------------
 
-.. image:: https://github.com/BIH-CEI/rd-cdm/blob/develop/res/figures/Figure%201_RD%20CDM.png
+.. image:: ../_static/v2_0_0_dev0/figure1_rd_cdm.png
    :alt: RD CDM Diagram
-   :width: 600px
+   :width: 1400px
 
 Overview of the RD CDM v2.0.0 showing the data elements and sections. The RD CDM
 does not define cardinalities or relationships to allow for nation-specific 
@@ -66,7 +66,7 @@ balloting and implementation.
 RD CDM Table Columns
 --------------------
 
-.. image:: https://github.com/BIH-CEI/rd-cdm/blob/develop/res/figures/Figure%202%20RD%20CDM.jpeg
+.. image:: ../_static/v2_0_0_dev0/figure2_rd_cdm.jpeg
    :alt: RD CDM Table Columns
    :width: 600px
 
@@ -83,7 +83,7 @@ when reading the tables for each section of our RD CDM.
 RD CDM Layers of harmonisation
 ------------------------------
 
-.. image:: https://github.com/BIH-CEI/rd-cdm/blob/develop/res/figures/Figure%203%20RD%20CDM.jpeg
+.. image:: ../_static/v2_0_0_dev0/figure3_rd_cdm.jpeg
    :alt: RD CDM Layers of Harmonisation
    :width: 600px
 

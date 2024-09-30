@@ -1,3 +1,5 @@
+.. _background_file:
+
 RD CDM Background
 =================
 

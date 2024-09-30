@@ -17,7 +17,7 @@ This changelog provides a history of the changes to the RD CDM.
     not publicly available.
 
 Version 2.0.0.dev0 (2024-09-30)
----------------------------
+-------------------------------
 
 - Initial release of the RD CDM.
 

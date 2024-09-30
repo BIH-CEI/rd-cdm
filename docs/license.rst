@@ -7,7 +7,7 @@ be found in the file `LICENSE <https://github.com/BIH-CEI/rd-cdm/blob/af4eaa3589
 We encourage open-source contributions to the RD CDM. If you would like to
 contribute, please read our `contributing guidelines <https://rd-cdm.readthedocs.io/en/latest/contributing.html>`_.
 
-.. disclaimer::
+.. attention::
 
     We cannot take responsibility for the correctness of the data in the RD CDM.
     The RD CDM is a community-driven project and we encourage contributions from

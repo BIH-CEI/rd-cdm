@@ -115,7 +115,7 @@ development of this RD CDM model.
 
 - Authors:
   - [Adam SL Graefe](https://github.com/aslgraefe)
-  - [Filip Rehburg](https://github.com/frehburg)
+  - [Filip Rehburg](https://github.com/frehburg) 
   - Prof. Peter N. Robinson
   - Prof. Sylvia Thun
   - Prof. Oya Beyan

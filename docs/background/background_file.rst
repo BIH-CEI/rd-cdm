@@ -68,7 +68,6 @@ open-source GitHub repository alongside its documentation to ensure
 sustainability, reusability and flexibility for future improvements and usage.
 
 
-
 RD CDM Overview
 ---------------
 

@@ -45,10 +45,33 @@ relationships, based on HL7 FHIR v4.0.1 and the GA4GH Phenopacket Schema v2.0,
 the RD CDM provides a comprehensive model for capturing detailed clinical
 information alongisde precise genetic data on rare diseases.
 
+RD CDM Methodology
+-------------------
+
+.. image:: ../_static/v2_0_0_dev0/figure4_rd_cdm.jpeg
+   :alt: RD CDM Diagram
+   :width: 1400px
+
+Steps in the development of the ontology-based Rare Disease Common Data Model 
+(RD-CDM) harmonising international registry use, FHIR and Phenopackets.As many 
+steps were performed concurrently and overlapped across multiple sites, this 
+methodology should be considered a non-hierarchical approach. First, we included
+and assessed previous RD data models, followed by mapping elements to FHIR 
+basic resources v4.0.175 and Phenopacket Schema v2.0 elements17. A clinical 
+evaluation was performed to assess the relevance of these elements while 
+balancing the data model’s scope and spectrum of data granularity. We then 
+performed ontology-based encoding to establish a common denominator between the 
+models and data standards. Prototypical versions of our RD-CDM were implemented 
+in REDCap, capturing real patient data from various RDs and use cases. 
+Additionally, the project was developed in our public ART-DECOR project, and 
+open-source GitHub repository alongside its documentation to ensure 
+sustainability, reusability and flexibility for future improvements and usage.
+
+
 RD CDM Overview
 ---------------
 
-.. image:: ../_static/v2_0_0_dev0/figure1_rd_cdm.png
+.. image:: ../_static/v2_0_0_dev0/figure1_rd_cdm.jpeg
    :alt: RD CDM Diagram
    :width: 1400px
 

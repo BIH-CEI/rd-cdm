@@ -1,6 +1,6 @@
 .. _changelog: 
 
-RD CDM Changelog
+Changelog
 ================
 
 .. attention::
@@ -22,4 +22,10 @@ Version 2.0.0.dev0 (2024-09-30)
 -------------------------------
 
 - Initial release of the RD CDM.
+
+
+Version 2.0.0 (tba)
+-------------------
+
+to be announced as soon as the paper is published.
 

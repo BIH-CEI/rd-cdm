@@ -1,6 +1,6 @@
 .. _resources_file:
 
-RD CDM Resources
+Resources
 =================
 
 .. attention::
@@ -43,6 +43,12 @@ CSV Files Download
 
 
 For additional details, see :ref:`background_file`.
+
+
+RD CDM v2.0.0
+-------------
+
+to be updated as soon as the paper is published.
 
 
 

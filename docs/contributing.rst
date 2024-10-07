@@ -1,6 +1,6 @@
 .. _contributing:
 
-RD CDM Contributing
+Contributing
 ===================
 
 As we are actively developing the RD CDM, we welcome contributions in the form 

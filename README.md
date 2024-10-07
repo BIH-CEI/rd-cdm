@@ -14,7 +14,7 @@ registry use, FHIR, and the Phenopacket Schema
 ![CSV Created](https://img.shields.io/badge/CSV%20Created%20Successfully-6A5ACD)
 ![Validation Successful](https://img.shields.io/badge/Validation%20Successful-brightgreen)
 
-![Latest Documentation](https://rd-cdm.readthedocs.io/en/latest/)
+[Latest Documentation](https://rd-cdm.readthedocs.io/en/latest/)
 
 > **Attention:**
 > The RD CDM paper is currently under review. As soon as it is published, we 

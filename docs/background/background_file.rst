@@ -30,8 +30,8 @@ and reusable medical records cannot be overstated. Interoperable data formats
 allow for more efficient research, better care coordination, and a clearer 
 understanding of complex clinical cases. However, existing medical systems often
 fail to support the depth of phenotypic and genotypic data required for rare 
-disease research and treatment, making interoperability a crucial enabler for 
-improving outcomes in RD care.
+disease research and treatment, making interoperability key for improving 
+outcomes in RD care.
 
 To address these needs, we introduce our RD CDM v2.0.0— a common data model 
 specifically designed for rare diseases. This RD CDM simplifies the capture, 
@@ -57,7 +57,7 @@ Steps in the development of the ontology-based Rare Disease Common Data Model
 steps were performed concurrently and overlapped across multiple sites, this 
 methodology should be considered a non-hierarchical approach. First, we included
 and assessed previous RD data models, followed by mapping elements to FHIR 
-basic resources v4.0.175 and Phenopacket Schema v2.0 elements17. A clinical 
+basic resources v4.0.1 and Phenopacket Schema v2.0 elements. A clinical 
 evaluation was performed to assess the relevance of these elements while 
 balancing the data model’s scope and spectrum of data granularity. We then 
 performed ontology-based encoding to establish a common denominator between the 
@@ -102,6 +102,9 @@ when reading the tables for each section of our RD CDM.
     The table can be found in Figshare at the following link:
     `RD CDM v2.0.0 Excel Table <https://figshare.com/articles/dataset/_b_Common_Data_Model_for_Rare_Diseases_b_based_on_the_ERDRI-CDS_HL7_FHIR_and_the_GA4GH_Phenopackets_Schema_v2_0_/26509150>`_.
 
+    or can be downloaded here: 
+    :download:`RD CDM v2.0.0 Excel Table <../_static/v2_0_0_dev0/RD CDM v2.0.0.xlsx>`. 
+
 
 RD CDM Layers of harmonisation
 ------------------------------
@@ -119,11 +122,10 @@ Type Layer, (5) the Value Set Layer, and (6) the Value Set Choice Layer. All
 layers and their selection criteria are depicted in the figure below. 
 
 While over 95% of all data elements are directly aligned with HL7 FHIR or GA4GH 
-Phenopackets, only one-third of terminology bindings and 80% of value types 
-match the specifications outlined by these standards. Our ontology-based 
-approach results in less than 41% of value sets being directly derived from HL7 
-FHIR and GA4GH Phenopacket Schema, with slightly more than 45% of value set 
-choices were encoded accordingly. 
+Phenopackets, only one-third of terminology bindings and 85% of value types 
+match the specifications outlined by these standards. More than 87% of value 
+sets being directly are aligned with the specifications defined by
+HL7 FHIR and GA4GH Phenopacket Schema, 
 
 .. note::
     The RD CDM paper is currently under review. As soon as it is published, we

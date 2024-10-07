@@ -58,7 +58,7 @@ phenotypic features, and family history of individuals.
 ## Getting Started
 
 This section provides instructions for getting started with the RD CDM. For more
-detail please read our  ![Documentation](https://rd-cdm.readthedocs.io/en/latest/)
+detail please read our  [Documentation](https://rd-cdm.readthedocs.io/en/latest/)
 
 ### Prerequisites
 

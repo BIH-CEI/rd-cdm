@@ -3,7 +3,6 @@ import sys
 import os
 import importlib
 from data_model.utils import json_serializer
-from src.data_model.value_set import ValueSet, ValueSetChoice
 from src.data_model.base_types import Coding, CodeSystem
 
 # Add the src directory to the system path

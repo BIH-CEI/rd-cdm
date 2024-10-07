@@ -1,6 +1,6 @@
 .. _license_file:
 
-RD CDM License
+License
 ==============
 
 The RD CDM is licensed under the MIT License. The full text of the license can 

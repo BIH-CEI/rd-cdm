@@ -1,6 +1,6 @@
 .. _contributing:
 
-RD CDM Contributing
+Contributing
 ===================
 
 As we are actively developing the RD CDM, we welcome contributions in the form 
@@ -12,6 +12,12 @@ the GA4GH Phenopacket Schema, HL7 FHIR, and the International Patient Summary.
 
 We encourage contributions to the RD CDM. These contributions can be in the
 form of new resources, new concepts, relationships, or implementations.
+
+.. attention::
+    The RD CDM paper is currently under review. As soon as it is published, we
+    will update the version to 2.0.0 and provide a link to the paper here.
+    The version 2.0.0.dev0 is the initial release of the RD CDM under review.
+
 
 If you would like to contribute, please consider the following:
 
@@ -44,7 +50,7 @@ and any feedback you may have.
 ----------------
 
 If you would like to contribute to the documentation, please feel free create 
-an issue in our `GitHub repository <https://github.com/BIH-CEI/rd-cdm/issues>_` 
+an issue in our `GitHub repository <https://github.com/BIH-CEI/rd-cdm/issues>`_ 
 or reach out to us directly. We are always looking for ways to improve our 
 documentation and welcome any suggestions.
 

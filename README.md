@@ -105,8 +105,8 @@ consider reaching out to discuss collaboration opportunities.
 - Gene Ontology[🔗](https://geneontology.org/)
 - NCI Thesaurus OBO Edition [🔗](https://obofoundry.org/ontology/ncit.html)
 
-For the versions used in a specific RD-CDM version, please see the [resources 
-in our documentation]('https://rd-cdm.readthedocs.io/en/latest/resources/resources_file.html').
+For the versions used in a specific RD-CDM version, please see the 
+[resources in our documentation](https://rd-cdm.readthedocs.io/en/latest/resources/resources_file.html).
 
 ### Submodules
 - [RareLink](https://github.com/BIH-CEI/RareLink)

@@ -1,6 +1,5 @@
 import data_model
 import json
-import os
 
 def validate_schemas(version):
     base_path = f'../res/v{version}/'  # Adjusted for subfolder

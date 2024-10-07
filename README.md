@@ -1,7 +1,7 @@
 # Ontology-Based Rare Disease Common Data Model
 
-An ontology-based Rare Disease Common Data Model (RD CDM) to enable 
-international registry use, HL7 FHIR, and GA4GH Phenopackets.
+An ontology-based Rare Disease Common Data Model harmonising international 
+registry use, FHIR, and the Phenopacket Schema
 
 <!-- Python CI and Documentation Status Badges -->
 [![Python CI](https://github.com/BIH-CEI/rd-cdm/actions/workflows/python_ci.yml/badge.svg)](https://github.com/BIH-CEI/rd-cdm/actions/workflows/python_ci.yml)
@@ -13,6 +13,8 @@ international registry use, HL7 FHIR, and GA4GH Phenopackets.
 ![JSON Created](https://img.shields.io/badge/JSON%20Created%20Successfully-blue)
 ![CSV Created](https://img.shields.io/badge/CSV%20Created%20Successfully-6A5ACD)
 ![Validation Successful](https://img.shields.io/badge/Validation%20Successful-brightgreen)
+
+![Latest Documentation](https://rd-cdm.readthedocs.io/en/latest/)
 
 > **Attention:**
 > The RD CDM paper is currently under review. As soon as it is published, we 

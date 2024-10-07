@@ -7,8 +7,6 @@ import importlib
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 from data_model.utils import json_serializer
-from src.data_model.data_elements import DataElement, DataElementModel
-from src.data_model.base_types import CodeSystem, Coding
 
 def load_data_element_definitions(version):
     """Dynamically load the data elements for a given version."""

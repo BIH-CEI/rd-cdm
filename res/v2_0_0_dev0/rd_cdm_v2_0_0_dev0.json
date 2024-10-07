@@ -5,7 +5,7 @@
   "description": "The ontology-based Rare Disease Common Data Model (RD CDM) to enable international registry use, HL7 FHIR, and GA4GH Phenopackets.",
   "metadata": {
     "author": "Author Name",
-    "creationDate": "2024-10-03"
+    "creationDate": "2024-10-07"
   },
   "codeSystems": [
     {

@@ -2,10 +2,8 @@ class CODESYSTEMS_VERSIONS_V2_0_0_dev0:
     """Code system versions for v2_0_0_dev0."""
     versions = {
         "NCBITaxon": "2024-07-03",
-        "GENO": "2023-10-08",
-        "SO": "2.6",
         "ICD10CM": "2024-09-01",
-        "SNOMED": "2024-09-01",
+        "SNOMED": "2024-10-01",
         "ICD11": "2024-09-01",
         "HL7FHIR": "v4.0.1",
         "GA4GH": "v2.0",

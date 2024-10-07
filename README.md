@@ -39,7 +39,7 @@ The Rare Disease Common Data Model (RD CDM) is designed to harmonize rare
 disease data capture across international registries. It integrates standards 
 such as the ERDRI-CDS, HL7 FHIR, and GA4GH Phenopacket Schema, creating a 
 scalable, ontology-driven framework that supports advanced interoperability for 
-research and care. The RD CDM Version 2.0 consists of 66 data elements, 
+research and care. The RD CDM Version 2.0.0 consists of 78 data elements, 
 extending the ERDRI-CDS and allowing deeper insights into genetic findings, 
 phenotypic features, and family history of individuals.
 
@@ -55,10 +55,10 @@ phenotypic features, and family history of individuals.
 - Cross-registry Compatibility: Enables data reuse across multiple registries 
     with consistent encoding and semantic alignment.
 
-
 ## Getting Started
 
-This section provides instructions for getting started with the RD CDM.
+This section provides instructions for getting started with the RD CDM. For more
+detail please read our  ![Documentation](https://rd-cdm.readthedocs.io/en/latest/)
 
 ### Prerequisites
 
@@ -92,15 +92,21 @@ consider reaching out to discuss collaboration opportunities.
 ## Resources 
 
 ### Ontologies
-- Human Phenotype Ontology (HP, Version 2024-08-13) [🔗](http://www.human-phenotype-ontology.org)
-- Monarch Initiative Disease Ontology (MONDO, Version Version 2024-09-03) [🔗](https://mondo.monarchinitiative.org/)
-- Online Mendelian Inheritance in Man (OMIM, Version 2024-09-12) [🔗](https://www.omim.org/)
-- Orphanet Rare Disease Ontology (OPRHA, Version 2024-09-12) [🔗](https://www.orpha.net/)
-- National Center for Biotechnology Information Taxonomy (NCBITaxon, Version 2024-07-03) [🔗](https://www.ncbi.nlm.nih.gov/taxonomy)
-- Logical Observation Identifiers Names and Codes (LOINC, Version 2.78) [🔗](https://loinc.org/)
-- HUGO Gene Nomenclature Committee (HGNC, Version 2024-08-23) [🔗](https://www.genenames.org/)
-- Gene Ontology (GENO, Version 2023-10-08) [🔗](https://geneontology.org/)
-- NCI Thesaurus OBO Edition (NCIT, Version Version 24.04e ) [🔗](https://obofoundry.org/ontology/ncit.html)
+- Human Phenotype Ontology [🔗](http://www.human-phenotype-ontology.org)
+- Monarch Initiative Disease Ontology [🔗](https://mondo.monarchinitiative.org/)
+- Online Mendelian Inheritance in Man [🔗](https://www.omim.org/)
+- Orphanet Rare Disease Ontology [🔗](https://www.orpha.net/)
+- SNOMED CT [🔗](https://www.snomed.org/snomed-ct)
+- ICD 11 [🔗](https://icd.who.int/en)
+- ICD10CM [🔗](https://www.cdc.gov/nchs/icd/icd10cm.htm)
+- National Center for Biotechnology Information Taxonomy [🔗](https://www.ncbi.nlm.nih.gov/taxonomy)
+- Logical Observation Identifiers Names and Codes [🔗](https://loinc.org/)
+- HUGO Gene Nomenclature Committee [🔗](https://www.genenames.org/)
+- Gene Ontology[🔗](https://geneontology.org/)
+- NCI Thesaurus OBO Edition [🔗](https://obofoundry.org/ontology/ncit.html)
+
+For the versions used in a specific RD-CDM version, please see the [resources 
+in our documentation]('https://rd-cdm.readthedocs.io/en/latest/resources/resources_file.html').
 
 ### Submodules
 - [RareLink](https://github.com/BIH-CEI/RareLink)
@@ -119,6 +125,8 @@ development of this RD CDM model.
 - Authors:
   - [Adam SL Graefe](https://github.com/aslgraefe)
   - [Filip Rehburg](https://github.com/frehburg) 
+  - Miriam Hübner
+  - Steffen Sander
   - Prof. Peter N. Robinson
   - Prof. Sylvia Thun
   - Prof. Oya Beyan

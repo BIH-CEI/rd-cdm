@@ -71,3 +71,8 @@ html_static_path = ['_static']
 html_css_files = [
     'custom.css',  # Include your custom CSS
 ]
+html_theme_options = {
+    'collapse_navigation': False,  # Keeps the sidebar expanded
+    'navigation_depth': 4,         # Adjust this to control the depth of headers shown (e.g., 4 levels)
+    'titles_only': False           # Show all section and subsection titles
+}

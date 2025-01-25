@@ -1,7 +1,8 @@
-# Ontology-Based Rare Disease Common Data Model
+# Ontology-based rare disease dommon data model (RD-CDM)
 
-An ontology-based Rare Disease Common Data Model harmonising international 
-registry use, FHIR, and the Phenopacket Schema
+Welcome to the repo of the ontology-based rare disease common data model 
+(RD-CDM) harmonising international registry use, FHIR, and the Phenopacket 
+Schema
 
 <!-- Python CI and Documentation Status Badges -->
 [![Python CI](https://github.com/BIH-CEI/rd-cdm/actions/workflows/python_ci.yml/badge.svg)](https://github.com/BIH-CEI/rd-cdm/actions/workflows/python_ci.yml)

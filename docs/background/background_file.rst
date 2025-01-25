@@ -4,7 +4,7 @@ Background
 =================
 
 .. attention::
-    The RD CDM paper is currently under review. As soon as it is published, we
+    The RD-CDM paper is currently under review. As soon as it is published, we
     will provide a link to the paper here and all tables and figures will be
     available in the paper.
 
@@ -45,10 +45,10 @@ relationships, based on HL7 FHIR v4.0.1 and the GA4GH Phenopacket Schema v2.0,
 the RD CDM provides a comprehensive model for capturing detailed clinical
 information alongisde precise genetic data on rare diseases.
 
-RD CDM Methodology
+Methodology
 -------------------
 
-.. image:: ../_static/v2_0_0_dev0/figure4_rd_cdm.jpeg
+.. image:: ../_static/v2_0_0_dev0/figure5_rd_cdm.jpeg
    :alt: RD CDM Diagram
    :width: 1400px
 
@@ -68,7 +68,7 @@ open-source GitHub repository alongside its documentation to ensure
 sustainability, reusability and flexibility for future improvements and usage.
 
 
-RD CDM Overview
+Overview
 ---------------
 
 .. image:: ../_static/v2_0_0_dev0/figure1_rd_cdm.jpeg
@@ -86,7 +86,7 @@ balloting and implementation.
     guidelines <https://rd-cdm.readthedocs.io/en/latest/contributing.html>`_.
 
 
-RD CDM Table Columns
+Table Columns
 --------------------
 
 .. image:: ../_static/v2_0_0_dev0/figure2_rd_cdm.jpeg
@@ -106,10 +106,10 @@ when reading the tables for each section of our RD CDM.
     :download:`RD CDM v2.0.0 Excel Table <../_static/v2_0_0_dev0/RD CDM v2.0.0.xlsx>`. 
 
 
-RD CDM Layers of harmonisation
+Layers of harmonisation
 ------------------------------
 
-.. image:: ../_static/v2_0_0_dev0/figure3_rd_cdm.jpeg
+.. image:: ../_static/v2_0_0_dev0/figure4_rd_cdm.jpeg
    :alt: RD CDM Layers of Harmonisation
    :width: 600px
 

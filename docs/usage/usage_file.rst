@@ -1,10 +1,10 @@
 .. _usage_file: 
 
-RD CDM Usage
+Usage
 ============
 
 .. attention::
-    The RD CDM paper is currently under review. As soon as it is published, we
+    The RD-CDM paper is currently under review. As soon as it is published, we
     will provide a link to the paper here and all tables and figures will be
     available in the paper. The version 2.0.0.dev0 is the initial release of 
     the RD CDM under review.

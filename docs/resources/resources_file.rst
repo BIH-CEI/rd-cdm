@@ -4,13 +4,13 @@ Resources
 =================
 
 .. attention::
-    The RD CDM paper is currently under review. As soon as it is published, we
+    The RD-CDM paper is currently under review. As soon as it is published, we
     will update the version to 2.0.0 and provide a link to the paper here.
     The version 2.0.0.dev0 is the initial release of the RD CDM under review.
 
 In here you find all resources that are available in the RD CDM to download.
 
-RD CDM v2.0.0.dev0 
+RD-CDM v2.0.0.dev0 
 -------------------
 
 Excel Table
@@ -45,7 +45,7 @@ CSV Files Download
 For additional details, see :ref:`background_file`.
 
 
-RD CDM v2.0.0
+RD-CDM v2.0.0
 -------------
 
 to be updated as soon as the paper is published.

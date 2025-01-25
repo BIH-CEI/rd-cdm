@@ -12,7 +12,7 @@ src_path = os.path.abspath(os.path.join('..', 'src'))
 sys.path.insert(0, src_path)
 
 
-project = 'Ontology-Based Rare Disease Common Data Model (RD CDM)'
+project = 'Ontology-based rare disease common data model (RD CDM)'
 copyright = 'Berlin Institute of Health, Charité Universitätsmedizin Berlin'
 author = 'Adam S.L. Graefe'
 release = '2.0.0'
@@ -72,7 +72,7 @@ html_css_files = [
     'custom.css',  # Include your custom CSS
 ]
 html_theme_options = {
-    'collapse_navigation': False,  # Keeps the sidebar expanded
-    'navigation_depth': 4,         # Adjust this to control the depth of headers shown (e.g., 4 levels)
-    'titles_only': False           # Show all section and subsection titles
+    'collapse_navigation': False,  # Prevents collapsing sections
+    'navigation_depth': -1,        # Shows all levels of navigation
+    'titles_only': False           # Includes all subsections, not just titles
 }

@@ -46,7 +46,7 @@ the RD CDM provides a comprehensive model for capturing detailed clinical
 information alongisde precise genetic data on rare diseases.
 
 Methodology
--------------------
+-------------
 
 .. image:: ../_static/v2_0_0_dev0/figure5_rd_cdm.jpeg
    :alt: RD CDM Diagram

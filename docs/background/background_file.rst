@@ -128,7 +128,7 @@ sets being directly are aligned with the specifications defined by
 HL7 FHIR and GA4GH Phenopacket Schema, 
 
 .. attention::
-    The RD CDM paper is currently under review. As soon as it is published, we
+    The RD-CDM paper is currently under review. As soon as it is published, we
     will provide a link to the paper here and all tables and figures will be
     available in the paper.
 

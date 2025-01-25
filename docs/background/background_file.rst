@@ -4,7 +4,7 @@ Background
 =================
 
 .. attention::
-    The RD CDM paper is currently under review. As soon as it is published, we
+    The RD-CDM paper is currently under review. As soon as it is published, we
     will provide a link to the paper here and all tables and figures will be
     available in the paper.
 
@@ -33,11 +33,11 @@ fail to support the depth of phenotypic and genotypic data required for rare
 disease research and treatment, making interoperability key for improving 
 outcomes in RD care.
 
-To address these needs, we introduce our RD CDM v2.0.0— a common data model 
+To address these needs, we introduce our RD-CDM v2.0.0 — a common data model 
 specifically designed for rare diseases. This RD CDM simplifies the capture, 
 storage, and exchange of complex clinical data, enabling researchers and 
 healthcare providers to work with harmonized datasets across different 
-institutions and countries. The RD CDM is based on the ERDRI-CDS,
+institutions and countries. The RD-CDM is based on the ERDRI-CDS,
 a common data set developed by the European Rare Disease Research
 Infrastructure (ERDRI) to support the collection of harmonized data for rare
 disease research. By extending the ERDRI-CDS with additional concepts and
@@ -45,10 +45,10 @@ relationships, based on HL7 FHIR v4.0.1 and the GA4GH Phenopacket Schema v2.0,
 the RD CDM provides a comprehensive model for capturing detailed clinical
 information alongisde precise genetic data on rare diseases.
 
-RD CDM Methodology
+Methodology
 -------------------
 
-.. image:: ../_static/v2_0_0_dev0/figure4_rd_cdm.jpeg
+.. image:: ../_static/v2_0_0_dev0/figure5_rd_cdm.jpeg
    :alt: RD CDM Diagram
    :width: 1400px
 
@@ -68,7 +68,7 @@ open-source GitHub repository alongside its documentation to ensure
 sustainability, reusability and flexibility for future improvements and usage.
 
 
-RD CDM Overview
+Overview
 ---------------
 
 .. image:: ../_static/v2_0_0_dev0/figure1_rd_cdm.jpeg
@@ -86,7 +86,7 @@ balloting and implementation.
     guidelines <https://rd-cdm.readthedocs.io/en/latest/contributing.html>`_.
 
 
-RD CDM Table Columns
+Table Columns
 --------------------
 
 .. image:: ../_static/v2_0_0_dev0/figure2_rd_cdm.jpeg
@@ -106,10 +106,10 @@ when reading the tables for each section of our RD CDM.
     :download:`RD CDM v2.0.0 Excel Table <../_static/v2_0_0_dev0/RD CDM v2.0.0.xlsx>`. 
 
 
-RD CDM Layers of harmonisation
+Layers of harmonisation
 ------------------------------
 
-.. image:: ../_static/v2_0_0_dev0/figure3_rd_cdm.jpeg
+.. image:: ../_static/v2_0_0_dev0/figure4_rd_cdm.jpeg
    :alt: RD CDM Layers of Harmonisation
    :width: 600px
 
@@ -128,7 +128,7 @@ sets being directly are aligned with the specifications defined by
 HL7 FHIR and GA4GH Phenopacket Schema, 
 
 .. attention::
-    The RD CDM paper is currently under review. As soon as it is published, we
+    The RD-CDM paper is currently under review. As soon as it is published, we
     will provide a link to the paper here and all tables and figures will be
     available in the paper.
 

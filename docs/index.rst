@@ -17,7 +17,7 @@ approach of the RD CDM allows for the integration of various data sources and
 the harmonization of data across different systems.
 
 .. attention::
-    The RD CDM paper is currently under review. As soon as it is published, we
+    The RD-CDM paper is currently under review. As soon as it is published, we
     will provide a link to the paper here and all tables and figures will be
     available in the paper.
 

@@ -1,10 +1,10 @@
 .. _usage_file: 
 
-RD CDM Usage
+Usage
 ============
 
 .. attention::
-    The RD CDM paper is currently under review. As soon as it is published, we
+    The RD-CDM paper is currently under review. As soon as it is published, we
     will provide a link to the paper here and all tables and figures will be
     available in the paper. The version 2.0.0.dev0 is the initial release of 
     the RD CDM under review.
@@ -17,9 +17,26 @@ improving outcomes in RD care.
 
 Please see the :ref:`license_file` for information on the RD CDM license.
 
-
 .. note::
-    The RD CDM is a community-driven project, and we welcome contributions from
+    The RD-CDM is a community-driven project, and we welcome contributions from
     researchers, clinicians, and other stakeholders in the rare disease community.
     If you would like to contribute to the RD CDM, please read our :ref:`contributing`.
+
+
+RareLink
+--------
+
+RareLink is a novel rare disease framework in REDCap linking international 
+registries, FHIR, and Phenopackets based on the RD-CDM. It is designed to 
+support the collection of harmonized data for rare disease research 
+across any REDCap project worldwide and allows for the preconfigured export of 
+the RD-CDM data in FHIR and Phenopackets formats.
+
+For more information on RareLink, please see the: 
+
+- RareLink Docuemntation: https://rarelink.readthedocs.io/en/latest/index.html
+- RareLink GitHub: https://github.com/BIH-CEI/rarelink 
+
+
+
 

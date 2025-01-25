@@ -33,11 +33,11 @@ fail to support the depth of phenotypic and genotypic data required for rare
 disease research and treatment, making interoperability key for improving 
 outcomes in RD care.
 
-To address these needs, we introduce our RD CDM v2.0.0— a common data model 
+To address these needs, we introduce our RD-CDM v2.0.0 — a common data model 
 specifically designed for rare diseases. This RD CDM simplifies the capture, 
 storage, and exchange of complex clinical data, enabling researchers and 
 healthcare providers to work with harmonized datasets across different 
-institutions and countries. The RD CDM is based on the ERDRI-CDS,
+institutions and countries. The RD-CDM is based on the ERDRI-CDS,
 a common data set developed by the European Rare Disease Research
 Infrastructure (ERDRI) to support the collection of harmonized data for rare
 disease research. By extending the ERDRI-CDS with additional concepts and

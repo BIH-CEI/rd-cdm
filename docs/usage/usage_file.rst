@@ -17,9 +17,26 @@ improving outcomes in RD care.
 
 Please see the :ref:`license_file` for information on the RD CDM license.
 
-
 .. note::
-    The RD CDM is a community-driven project, and we welcome contributions from
+    The RD-CDM is a community-driven project, and we welcome contributions from
     researchers, clinicians, and other stakeholders in the rare disease community.
     If you would like to contribute to the RD CDM, please read our :ref:`contributing`.
+
+
+RareLink
+--------
+
+RareLink is a rare disease framework in REDCap linking international 
+registries, FHIR, and Phenopackets based on the RD-CDM. It is designed to 
+support the collection of harmonized data for rare disease research and 
+treatment across any REDCap project and allows for the preconfigured export of 
+the RD-CDM data in FHIR and Phenopackets formats.
+
+For more information on RareLink, please see the: 
+
+- RareLink Docuemntation: https://rarelink.readthedocs.io/en/latest/index.html
+- RareLink GitHub: https://github.com/BIH-CEI/rarelink 
+
+
+
 

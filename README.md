@@ -89,6 +89,20 @@ Contributions are welcome! Please feel free to create issues, discuss features,
 or submit pull requests to help enhance this project. For larger contributions, 
 consider reaching out to discuss collaboration opportunities.
 
+## RareLink 
+
+RareLink is a novel rare disease framework in REDCap linking international 
+registries, FHIR, and Phenopackets based on the RD-CDM. It is designed to 
+support the collection of harmonized data for rare disease research 
+across any REDCap project worldwide and allows for the preconfigured export of 
+the RD-CDM data in FHIR and Phenopackets formats.
+
+For more information on RareLink, please see the: 
+
+- [RareLink Docuemntation](https://rarelink.readthedocs.io/en/latest/index.html)
+- [RareLink GitHub](https://github.com/BIH-CEI/rarelink)
+
+
 ## Resources 
 
 ### Ontologies

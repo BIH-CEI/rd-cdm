@@ -14,7 +14,7 @@ sys.path.insert(0, src_path)
 
 project = 'Ontology-Based Rare Disease Common Data Model (RD CDM)'
 copyright = 'Berlin Institute of Health, Charité Universitätsmedizin Berlin'
-author = 'Adam SL Graefe'
+author = 'Adam S.L. Graefe'
 release = '2.0.0'
 
 extensions = [
@@ -56,7 +56,6 @@ doctest_default_flags = (doctest.REPORT_ONLY_FIRST_FAILURE
 # -- Intersphinx setup --------------------------------------------------------
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3/", None),
-    # TODO - change to stable when we arrive there
     "pandas": ("https://pandas.pydata.org/pandas-docs/version/2.0.0/", None),
     "requests": ("https://docs.python-requests.org/en/stable/", None),
     "scipy": ("https://docs.scipy.org/doc/scipy-1.11.0/", None),

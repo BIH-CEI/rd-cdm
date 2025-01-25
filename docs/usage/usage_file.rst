@@ -26,10 +26,10 @@ Please see the :ref:`license_file` for information on the RD CDM license.
 RareLink
 --------
 
-RareLink is a rare disease framework in REDCap linking international 
+RareLink is a novel rare disease framework in REDCap linking international 
 registries, FHIR, and Phenopackets based on the RD-CDM. It is designed to 
-support the collection of harmonized data for rare disease research and 
-treatment across any REDCap project and allows for the preconfigured export of 
+support the collection of harmonized data for rare disease research 
+across any REDCap project worldwide and allows for the preconfigured export of 
 the RD-CDM data in FHIR and Phenopackets formats.
 
 For more information on RareLink, please see the: 

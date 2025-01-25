@@ -1,4 +1,4 @@
-# Ontology-based rare disease dommon data model (RD-CDM)
+# ontology-based rare disease common data model
 
 Welcome to the repo of the ontology-based rare disease common data model 
 (RD-CDM) harmonising international registry use, FHIR, and the Phenopacket 

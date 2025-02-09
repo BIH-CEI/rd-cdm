@@ -29,7 +29,7 @@ Scientific Data: https://www.nature.com/articles/s41597-025-04558-z
 - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
-- [Contributing](#contributing)
+- [Contributing & contact](#contributing-and-contact)
 - [Resources](#resources-)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
@@ -84,11 +84,14 @@ detail please read our  [Documentation](https://rd-cdm.readthedocs.io/en/latest/
   pytest tests/
   ```
 
-## Contributing
+## Contributing and Contact
 
-Contributions are welcome! Please feel free to create issues, discuss features, 
+The RD-CDM is a community-driven effort and we invite open and international
+collaboration. Please feel free to create issues, discuss features, 
 or submit pull requests to help enhance this project. For larger contributions, 
-consider reaching out to discuss collaboration opportunities.
+consider reaching out to discuss collaboration opportunities. 
+Please find more information on how to contact us and contribute 
+in the [`Contribution` section of our documentation](https://rd-cdm.readthedocs.io/en/latest/contributing.html).
 
 ## RareLink 
 
@@ -131,9 +134,7 @@ This project is licensed under the terms of the [MIT License](https://github.com
 
 ## Contact & Contribution
 
-The RD-CDM is a community-driven effort and we invite open and international
-collaboration. Please find more information on how to contact us and contribute 
-in the [`Contribution` section of our documentation](https://rd-cdm.readthedocs.io/en/latest/contributing.html).
+
 
 ## Citation
 

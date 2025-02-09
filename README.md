@@ -103,7 +103,6 @@ For more information on RareLink, please see the:
 - [RareLink Docuemntation](https://rarelink.readthedocs.io/en/latest/index.html)
 - [RareLink GitHub](https://github.com/BIH-CEI/rarelink)
 
-
 ## Resources 
 
 ### Ontologies

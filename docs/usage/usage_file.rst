@@ -3,11 +3,9 @@
 Usage
 ============
 
-.. attention::
-    The RD-CDM paper is currently under review. As soon as it is published, we
-    will provide a link to the paper here and all tables and figures will be
-    available in the paper. The version 2.0.0.dev0 is the initial release of 
-    the RD CDM under review.
+.. tip::
+    The RD-CDM paper has now been published at Nature Scientific Data. You can 
+    read it `here <https://www.nature.com/articles/s41597-025-04558-z>`_!
 
 The RD CDM is developed within an open-source community and is available for use
 by researchers, clinicians, and other stakeholders in the rare disease community.

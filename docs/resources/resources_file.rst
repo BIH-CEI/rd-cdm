@@ -3,10 +3,9 @@
 Resources
 =================
 
-.. attention::
-    The RD-CDM paper is currently under review. As soon as it is published, we
-    will update the version to 2.0.0 and provide a link to the paper here.
-    The version 2.0.0.dev0 is the initial release of the RD CDM under review.
+.. tip::
+    The RD-CDM paper has now been published at Nature Scientific Data. You can 
+    read it `here <https://www.nature.com/articles/s41597-025-04558-z>`_!
 
 In here you find all resources that are available in the RD CDM to download.
 

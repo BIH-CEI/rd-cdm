@@ -16,10 +16,9 @@ Schema, HL7 FHIR, and the International Patient Summary. The ontology-based
 approach of the RD CDM allows for the integration of various data sources and 
 the harmonization of data across different systems.
 
-.. attention::
-    The RD-CDM paper is currently under review. As soon as it is published, we
-    will provide a link to the paper here and all tables and figures will be
-    available in the paper.
+.. tip::
+    The RD-CDM paper has now been published at Nature Scientific Data. You can 
+    read it `here <https://www.nature.com/articles/s41597-025-04558-z>`_!
 
 .. toctree::
    :maxdepth: 2

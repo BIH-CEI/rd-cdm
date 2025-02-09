@@ -19,7 +19,7 @@ class TestCreateCodeSystemsJson(unittest.TestCase):
         This method defines the version and expected output file path for
         the code systems JSON file. It runs before each test method.
         """
-        self.version = "v2_0_0_dev0"
+        self.version = "v2_0_0"
         self.output_file = f"res/{self.version}/rd_cdm_codesystems_{self.version}.json"
     
     def test_create_codesystem_json(self):

@@ -1,5 +1,5 @@
 {
-  "version": "v2_0_0_dev0",
+  "version": "v2_0_0",
   "CodeSystems": [
     {
       "codeSystemName": "NCBI organismal classification",

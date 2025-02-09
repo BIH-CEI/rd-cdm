@@ -14,12 +14,12 @@ def load_code_system_versions(version):
     Load code system versions for the specified data model version.
 
     This function dynamically imports a Python module that holds the versioned
-    code systems for a given data model version (e.g., "v2_0_0_dev0"). Each version
+    code systems for a given data model version (e.g., "v2_0_0"). Each version
     is stored in a class containing a dictionary mapping code system names to
     their respective version numbers.
 
     :param version: A string representing the version of the code systems 
-                    to load (e.g., "v2_0_0_dev0").
+                    to load (e.g., "v2_0_0").
     :return: A dictionary with the code system versions for the given version, 
              or None if the module or class is not found.
     """
@@ -44,7 +44,7 @@ def create_codesystem_json(version):
     under the respective version directory.
 
     :param version: A string representing the data model version (e.g., 
-                    "v2_0_0_dev0").
+                    "v2_0_0").
     """
 
     # Load code system versions for the specified version
@@ -82,4 +82,4 @@ def create_codesystem_json(version):
 
 
 if __name__ == "__main__":
-    create_codesystem_json("v2_0_0_dev0")
+    create_codesystem_json("v2_0_0")

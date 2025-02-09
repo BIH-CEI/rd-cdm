@@ -29,11 +29,11 @@ def create_data_elements_json(version):
     file in the "res" folder under the respective version directory.
 
     Example:
-    - For version "v2_0_0_dev0", the JSON will be created at:
-      "res/v2_0_0_dev0/rd_cdm_data_elements_v2_0_0_dev0.json".
+    - For version "v2_0_0", the JSON will be created at:
+      "res/v2_0_0/rd_cdm_data_elements_v2_0_0.json".
 
     :param version: A string representing the data model version (e.g., 
-                    "v2_0_0_dev0").
+                    "v2_0_0").
     """
 
     data_elements = load_data_element_definitions(version)
@@ -73,4 +73,4 @@ def create_data_elements_json(version):
 
 # Run the function for the versions you want
 if __name__ == "__main__":
-    create_data_elements_json("v2_0_0_dev0")
+    create_data_elements_json("v2_0_0")

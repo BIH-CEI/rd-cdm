@@ -10,17 +10,17 @@ Schema
 [![DOI](https://zenodo.org/badge/863993011.svg)](https://doi.org/10.5281/zenodo.13891625)
 
 <!-- Combined Badges for RD CDM v2.0.0 -->
-![RD CDM v2.0.0.dev0](https://img.shields.io/badge/RD%20CDM%20v2.0.0.dev0-grey) 
+![RD-CDM v2.0.0](https://img.shields.io/badge/RD%20CDM%20v2.0.0-grey) 
 ![JSON Created](https://img.shields.io/badge/JSON%20Created%20Successfully-blue)
 ![CSV Created](https://img.shields.io/badge/CSV%20Created%20Successfully-6A5ACD)
 ![Validation Successful](https://img.shields.io/badge/Validation%20Successful-brightgreen)
 
 [Latest Documentation](https://rd-cdm.readthedocs.io/en/latest/)
 
-> **Attention:**
-> The RD-CDM paper is currently under review. As soon as it is published, we 
-> will update the version to 2.0.0 and provide a link to the paper here.
-> The version 2.0.0.dev0 is the initial release of the RD CDM under review.
+### Manuscript
+
+The corresponding paper of our RD-CDM v2.0.0 has now beed published at Nature
+Scientific Data: https://www.nature.com/articles/s41597-025-04558-z
 
 ## Table of Contents
 
@@ -29,9 +29,10 @@ Schema
 - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
-- [Contributing](#contributing)
+- [Contributing & contact](#contributing-and-contact)
 - [Resources](#resources-)
 - [License](#license)
+- [Citing](#citing)
 - [Acknowledgements](#acknowledgements)
 
 ## Project Description
@@ -59,7 +60,7 @@ genetic findings, phenotypic features, and family history of individuals.
 ## Getting Started
 
 This section provides instructions for getting started with the RD CDM. For more
-detail please read our  [Documentation](https://rd-cdm.readthedocs.io/en/latest/)
+detail please read our [Documentation](https://rd-cdm.readthedocs.io/en/latest/)
 
 ### Prerequisites
 
@@ -84,11 +85,14 @@ detail please read our  [Documentation](https://rd-cdm.readthedocs.io/en/latest/
   pytest tests/
   ```
 
-## Contributing
+## Contributing and Contact
 
-Contributions are welcome! Please feel free to create issues, discuss features, 
+The RD-CDM is a community-driven effort and we invite open and international
+collaboration. Please feel free to create issues, discuss features, 
 or submit pull requests to help enhance this project. For larger contributions, 
-consider reaching out to discuss collaboration opportunities.
+consider reaching out to discuss collaboration opportunities. 
+Please find more information on how to contact us and contribute 
+in the [`Contribution` section of our documentation](https://rd-cdm.readthedocs.io/en/latest/contributing.html).
 
 ## RareLink 
 
@@ -102,7 +106,6 @@ For more information on RareLink, please see the:
 
 - [RareLink Docuemntation](https://rarelink.readthedocs.io/en/latest/index.html)
 - [RareLink GitHub](https://github.com/BIH-CEI/rarelink)
-
 
 ## Resources 
 
@@ -129,6 +132,13 @@ For the versions used in a specific RD-CDM version, please see the
 ## License
 
 This project is licensed under the terms of the [MIT License](https://github.com/BIH-CEI/rd-cdm/blob/develop/LICENSE)
+
+## Citing
+
+If you use the model for your research, do not hesitate to reach out to and 
+plase cite our article: 
+
+> Graefe, A.S.L., Hübner, M.R., Rehburg, F. et al. An ontology-based rare disease common data model harmonising international registries, FHIR, and Phenopackets. Sci Data 12, 234 (2025). https://doi.org/10.1038/s41597-025-04558-z
 
 ## Acknowledgements
 

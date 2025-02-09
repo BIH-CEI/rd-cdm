@@ -39,13 +39,13 @@ jobs:
 
     - name: Validate JSON files
       run: |
-        python -m jsonschema -i res/v2_0_0_dev0/rd_cdm_data_elements_v2_0_0_dev0.json rd_cdm_v2_0_0_dev0_schema.json
-        python -m jsonschema -i res/v2_0_0_dev0/rd_cdm_codesystems_v2_0_0_dev0.json rd_cdm_v2_0_0_dev0_schema.json
-        python -m jsonschema -i res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json rd_cdm_v2_0_0_dev0_schema.json
+        python -m jsonschema -i res/v2_0_0/rd_cdm_data_elements_v2_0_0.json rd_cdm_v2_0_0_schema.json
+        python -m jsonschema -i res/v2_0_0/rd_cdm_codesystems_v2_0_0.json rd_cdm_v2_0_0_schema.json
+        python -m jsonschema -i res/v2_0_0/rd_cdm_value_sets_v2_0_0.json rd_cdm_v2_0_0_schema.json
 
     - name: Create Validation Badge
       run: |
-        if python -m jsonschema -i res/v2_0_0_dev0/rd_cdm_data_elements_v2_0_0_dev0.json rd_cdm_schema_v2_0_0_dev0.json; then
+        if python -m jsonschema -i res/v2_0_0/rd_cdm_data_elements_v2_0_0.json rd_cdm_schema_v2_0_0.json; then
           echo "![RD CDM v2.0.0 Validation](https://img.shields.io/badge/RD%20CDM%20v2.0.0-Validation%20Successful-brightgreen)" > json_validation_badge.md
         else
           echo "![RD CDM v2.0.0 Validation](https://img.shields.io/badge/RD%20CDM%20v2.0.0-Validation%20Failed-red)" > json_validation_badge.md

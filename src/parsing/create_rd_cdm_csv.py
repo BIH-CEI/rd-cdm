@@ -165,7 +165,7 @@ def create_final_rd_cdm_csv(version):
     Load the final RD CDM JSON file and create both individual and combined CSVs.
 
     Args:
-        version (str): The version of the RD CDM (e.g., "v2_0_0_dev0").
+        version (str): The version of the RD CDM (e.g., "v2_0_0").
     """
     base_path = f"res/{version}/"
     json_file_path = os.path.join(base_path, f"rd_cdm_{version}.json")
@@ -185,4 +185,4 @@ def create_final_rd_cdm_csv(version):
 
 # Run the function for the desired version
 if __name__ == "__main__":
-    create_final_rd_cdm_csv("v2_0_0_dev0")
+    create_final_rd_cdm_csv("v2_0_0")

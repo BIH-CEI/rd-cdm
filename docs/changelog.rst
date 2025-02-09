@@ -3,16 +3,12 @@
 Changelog
 ================
 
-.. attention::
-    The RD CDM paper is currently under review. As soon as it is published, we
-    will update the version to 2.0.0 and provide a link to the paper here.
-    The version 2.0.0.dev0 is the initial release of the RD CDM under review.
+.. tip::
+    The RD-CDM paper has now been published at Nature Scientific Data. You can 
+    read it `here <https://www.nature.com/articles/s41597-025-04558-z>`_!
 
 This changelog provides a history of the changes to the RD CDM.
 
-.. note::
-    The RD CDM is currently under active development. We are working on a new 
-    version of the RD CDM which will be available on `Read the Docs <https://rd-cdm.readthedocs.io/en/latest/>`_.
 
 .. note:: 
     Previous versions (v1.0 - v1.7) were developed in a German context and are
@@ -21,11 +17,14 @@ This changelog provides a history of the changes to the RD CDM.
 Version 2.0.0.dev0 (2024-09-30)
 -------------------------------
 
-- Initial release of the RD CDM.
+- Initial release of the RD-CDM in development and review. 
 
 
-Version 2.0.0 (tba)
--------------------
+Version 2.0.0 (2025-08-02)
+----------------------------
 
-to be announced as soon as the paper is published.
+The RD-CDM has been updated to version 2.0.0 as the corresponding
+manuscript was published.
+
+
 

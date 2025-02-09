@@ -20,7 +20,7 @@ Schema
 ### Manuscript
 
 The corresponding paper of our RD-CDM v2.0.0 has now beed published at Nature
-Scientific Data. You can read it [HERE](https://www.nature.com/articles/s41597-025-04558-z)!
+Scientific Data: https://www.nature.com/articles/s41597-025-04558-z
 
 ## Table of Contents
 
@@ -129,6 +129,13 @@ For the versions used in a specific RD-CDM version, please see the
 ## License
 
 This project is licensed under the terms of the [MIT License](https://github.com/BIH-CEI/rd-cdm/blob/develop/LICENSE)
+
+## Citation
+
+If you use the model for your research, do not hesitate to reach out to and 
+plase cite our article: 
+
+> Graefe, A.S.L., Hübner, M.R., Rehburg, F. et al. An ontology-based rare disease common data model harmonising international registries, FHIR, and Phenopackets. Sci Data 12, 234 (2025). https://doi.org/10.1038/s41597-025-04558-z
 
 ## Acknowledgements
 

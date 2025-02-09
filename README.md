@@ -32,6 +32,7 @@ Scientific Data: https://www.nature.com/articles/s41597-025-04558-z
 - [Contributing & contact](#contributing-and-contact)
 - [Resources](#resources-)
 - [License](#license)
+- [Citing](#citing)
 - [Acknowledgements](#acknowledgements)
 
 ## Project Description
@@ -132,11 +133,7 @@ For the versions used in a specific RD-CDM version, please see the
 
 This project is licensed under the terms of the [MIT License](https://github.com/BIH-CEI/rd-cdm/blob/develop/LICENSE)
 
-## Contact & Contribution
-
-
-
-## Citation
+## Citing
 
 If you use the model for your research, do not hesitate to reach out to and 
 plase cite our article: 

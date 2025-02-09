@@ -1,4 +1,4 @@
-class CODESYSTEMS_VERSIONS_V2_0_0_dev0:
+class CODESYSTEMS_VERSIONS_v2_0_0:
     """Code system versions for v2_0_0_dev0."""
     versions = {
         "NCBITaxon": "2024-07-03",

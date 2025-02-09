@@ -30,7 +30,7 @@ def create_data_elements_json(version):
 
     Example:
     - For version "v2_0_0_dev0", the JSON will be created at:
-      "res/v2_0_0_dev0/rd_cdm_data_elements_v2_0_0_dev0.json".
+      "res/v2_0_0_dev0/rd_cdm_data_elements_v2_0_0.json".
 
     :param version: A string representing the data model version (e.g., 
                     "v2_0_0_dev0").

@@ -10,17 +10,17 @@ Schema
 [![DOI](https://zenodo.org/badge/863993011.svg)](https://doi.org/10.5281/zenodo.13891625)
 
 <!-- Combined Badges for RD CDM v2.0.0 -->
-![RD CDM v2.0.0.dev0](https://img.shields.io/badge/RD%20CDM%20v2.0.0.dev0-grey) 
+![RD-CDM v2.0.0](https://img.shields.io/badge/RD%20CDM%20v2.0.0-grey) 
 ![JSON Created](https://img.shields.io/badge/JSON%20Created%20Successfully-blue)
 ![CSV Created](https://img.shields.io/badge/CSV%20Created%20Successfully-6A5ACD)
 ![Validation Successful](https://img.shields.io/badge/Validation%20Successful-brightgreen)
 
 [Latest Documentation](https://rd-cdm.readthedocs.io/en/latest/)
 
-> **Attention:**
-> The RD-CDM paper is currently under review. As soon as it is published, we 
-> will update the version to 2.0.0 and provide a link to the paper here.
-> The version 2.0.0.dev0 is the initial release of the RD CDM under review.
+### Manuscript
+
+The corresponding paper of our RD-CDM v2.0.0 has now beed published at Nature
+Scientific Data. You can read it [HERE](https://www.nature.com/articles/s41597-025-04558-z)!
 
 ## Table of Contents
 

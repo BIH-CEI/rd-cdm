@@ -19,7 +19,7 @@ class TestCreateRdCdmCsv(unittest.TestCase):
         This method defines the version and expected output file paths for
         the individual and combined CSV files. It runs before each test method.
         """
-        self.version = "v2_0_0_dev0"
+        self.version = "v2_0_0"
         self.output_dir = f"res/{self.version}/"
         self.code_systems_csv = os.path.join(
             self.output_dir, f"rd_cdm_codesystems_{self.version}.csv")

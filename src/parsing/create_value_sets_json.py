@@ -16,7 +16,7 @@ def load_value_set_definitions(version):
     version and retrieves the value sets definitions.
     
     Args:
-        version (str): The version of the value sets (e.g., "v2_0_0_dev0").
+        version (str): The version of the value sets (e.g., "v2_0_0").
 
     Returns:
         list: The loaded value sets or None if the module or class is not found.
@@ -38,7 +38,7 @@ def load_code_system_versions(version):
     the given version and retrieves the version information.
     
     Args:
-        version (str): The version of the code systems (e.g., "v2_0_0_dev0").
+        version (str): The version of the code systems (e.g., "v2_0_0").
 
     Returns:
         dict: The loaded code system versions or an empty dictionary if the
@@ -62,7 +62,7 @@ def create_value_set_json(version):
     the appropriate output directory.
 
     Args:
-        version (str): The version of the value sets to generate (e.g., "v2_0_0_dev0").
+        version (str): The version of the value sets to generate (e.g., "v2_0_0").
     """
     
     value_sets = load_value_set_definitions(version)
@@ -131,4 +131,4 @@ def create_value_set_json(version):
 
 # Example usage
 if __name__ == "__main__":
-    create_value_set_json("v2_0_0_dev0")
+    create_value_set_json("v2_0_0")

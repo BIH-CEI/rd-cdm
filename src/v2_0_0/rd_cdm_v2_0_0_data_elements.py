@@ -14,7 +14,7 @@ ECO = CodeSystems.ECO
 NCIT = CodeSystems.NCIT
 
 class DATA_ELEMENTS_VERSIONS_v2_0_0:
-    """Data elements definitions for version 2_0_0_dev0."""
+    """Data elements definitions for version 2_0_0."""
 
     # 1. Formal Criteria
     data_elements = [

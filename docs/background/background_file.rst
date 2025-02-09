@@ -48,7 +48,7 @@ information alongisde precise genetic data on rare diseases.
 Methodology
 -------------
 
-.. image:: ../_static/v2_0_0_dev0/figure5_rd_cdm.jpeg
+.. image:: ../_static/v2_0_0/figure5_rd_cdm.jpeg
    :alt: RD CDM Diagram
    :width: 1400px
 
@@ -71,7 +71,7 @@ sustainability, reusability and flexibility for future improvements and usage.
 Overview
 ---------------
 
-.. image:: ../_static/v2_0_0_dev0/figure1_rd_cdm.jpeg
+.. image:: ../_static/v2_0_0/figure1_rd_cdm.jpeg
    :alt: RD CDM Diagram
    :width: 1400px
 
@@ -89,7 +89,7 @@ balloting and implementation.
 Table Columns
 --------------------
 
-.. image:: ../_static/v2_0_0_dev0/figure2_rd_cdm.jpeg
+.. image:: ../_static/v2_0_0/figure2_rd_cdm.jpeg
    :alt: RD CDM Table Columns
    :width: 600px
 
@@ -103,13 +103,13 @@ when reading the tables for each section of our RD CDM.
     `RD CDM v2.0.0 Excel Table <https://figshare.com/articles/dataset/_b_Common_Data_Model_for_Rare_Diseases_b_based_on_the_ERDRI-CDS_HL7_FHIR_and_the_GA4GH_Phenopackets_Schema_v2_0_/26509150>`_.
 
     or can be downloaded here: 
-    :download:`RD CDM v2.0.0 Excel Table <../_static/v2_0_0_dev0/RD CDM v2.0.0.xlsx>`. 
+    :download:`RD CDM v2.0.0 Excel Table <../_static/v2_0_0/RD CDM v2.0.0.xlsx>`. 
 
 
 Layers of harmonisation
 ------------------------------
 
-.. image:: ../_static/v2_0_0_dev0/figure4_rd_cdm.jpeg
+.. image:: ../_static/v2_0_0/figure4_rd_cdm.jpeg
    :alt: RD CDM Layers of Harmonisation
    :width: 600px
 

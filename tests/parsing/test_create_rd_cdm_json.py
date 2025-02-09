@@ -8,7 +8,7 @@ class TestCreateRdCdmJson(unittest.TestCase):
 
     def setUp(self):
         """Set up test environment."""
-        self.version = "v2_0_0_dev0"
+        self.version = "v2_0_0"
         self.output_file = f"res/{self.version}/rd_cdm_{self.version}.json"
 
     def test_create_final_rd_cdm_json(self):

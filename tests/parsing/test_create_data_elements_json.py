@@ -19,7 +19,7 @@ class TestCreateDataElementsJson(unittest.TestCase):
         This method defines the version and expected output file path for
         the data elements JSON file. It runs before each test method.
         """
-        self.version = "v2_0_0_dev0"
+        self.version = "v2_0_0"
         self.output_file = f"res/{self.version}/rd_cdm_data_elements_{self.version}.json"
     
     def test_create_data_elements_json(self):

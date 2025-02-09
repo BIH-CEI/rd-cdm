@@ -129,6 +129,12 @@ For the versions used in a specific RD-CDM version, please see the
 
 This project is licensed under the terms of the [MIT License](https://github.com/BIH-CEI/rd-cdm/blob/develop/LICENSE)
 
+## Contact & Contribution
+
+The RD-CDM is a community-driven effort and we invite open and international
+collaboration. Please find more information on how to contact us and contribute 
+in the [`Contribution` section of our documentation](https://rd-cdm.readthedocs.io/en/latest/contributing.html).
+
 ## Citation
 
 If you use the model for your research, do not hesitate to reach out to and 

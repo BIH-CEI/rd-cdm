@@ -34,7 +34,7 @@ disease research and treatment, making interoperability key for improving
 outcomes in RD care.
 
 To address these needs, we introduce our RD-CDM v2.0.0 — a common data model 
-specifically designed for rare diseases. This RD CDM simplifies the capture, 
+specifically designed for rare diseases. This RD-CDM simplifies the capture, 
 storage, and exchange of complex clinical data, enabling researchers and 
 healthcare providers to work with harmonized datasets across different 
 institutions and countries. The RD-CDM is based on the ERDRI-CDS,
@@ -42,14 +42,14 @@ a common data set developed by the European Rare Disease Research
 Infrastructure (ERDRI) to support the collection of harmonized data for rare
 disease research. By extending the ERDRI-CDS with additional concepts and
 relationships, based on HL7 FHIR v4.0.1 and the GA4GH Phenopacket Schema v2.0,
-the RD CDM provides a comprehensive model for capturing detailed clinical
+the RD-CDM provides a comprehensive model for capturing detailed clinical
 information alongisde precise genetic data on rare diseases.
 
 Methodology
 -------------
 
 .. image:: ../_static/v2_0_0/figure5_rd_cdm.jpeg
-   :alt: RD CDM Diagram
+   :alt: RD-CDM Diagram
    :width: 1400px
 
 Steps in the development of the ontology-based Rare Disease Common Data Model 
@@ -72,17 +72,17 @@ Overview
 ---------------
 
 .. image:: ../_static/v2_0_0/figure1_rd_cdm.jpeg
-   :alt: RD CDM Diagram
+   :alt: RD-CDM Diagram
    :width: 1400px
 
-Overview of the RD CDM v2.0.0 showing the data elements and sections. The RD CDM
+Overview of the RD-CDM v2.0.0 showing the data elements and sections. The RD-CDM
 does not define cardinalities or relationships to allow for nation-specific 
 balloting and implementation.
 
 .. note::
-    The RD CDM is a community-driven project, and we welcome contributions from
+    The RD-CDM is a community-driven project, and we welcome contributions from
     researchers, clinicians, and other stakeholders in the rare disease community.
-    If you would like to contribute to the RD CDM, please read our `contributing
+    If you would like to contribute to the RD-CDM, please read our `contributing
     guidelines <https://rd-cdm.readthedocs.io/en/latest/contributing.html>`_.
 
 
@@ -90,32 +90,32 @@ Table Columns
 --------------------
 
 .. image:: ../_static/v2_0_0/figure2_rd_cdm.jpeg
-   :alt: RD CDM Table Columns
+   :alt: RD-CDM Table Columns
    :width: 600px
 
 This Figure Provides an overview of the table columns used to depict our Rare 
-Disease Common Data Model (RD CDM). Each column's abbreviation, further 
+Disease Common Data Model (RD-CDM). Each column's abbreviation, further 
 definitions, and explanations are given. We recommend referring to this figure 
-when reading the tables for each section of our RD CDM. 
+when reading the tables for each section of our RD-CDM. 
 
 .. note:: 
     The table can be found in Figshare at the following link:
-    `RD CDM v2.0.0 Excel Table <https://figshare.com/articles/dataset/_b_Common_Data_Model_for_Rare_Diseases_b_based_on_the_ERDRI-CDS_HL7_FHIR_and_the_GA4GH_Phenopackets_Schema_v2_0_/26509150>`_.
+    `RD-CDM v2.0.0 Excel Table <https://figshare.com/articles/dataset/_b_Common_Data_Model_for_Rare_Diseases_b_based_on_the_ERDRI-CDS_HL7_FHIR_and_the_GA4GH_Phenopackets_Schema_v2_0_/26509150>`_.
 
     or can be downloaded here: 
-    :download:`RD CDM v2.0.0 Excel Table <../_static/v2_0_0/RD CDM v2.0.0.xlsx>`. 
+    :download:`RD-CDM v2.0.0 Excel Table <../_static/v2_0_0/RD-CDM v2.0.0.xlsx>`. 
 
 
 Layers of harmonisation
 ------------------------------
 
 .. image:: ../_static/v2_0_0/figure4_rd_cdm.jpeg
-   :alt: RD CDM Layers of Harmonisation
+   :alt: RD-CDM Layers of Harmonisation
    :width: 600px
 
 We analysed to what extent interoperability requirements were met 
 while harmonising data elements from the ERDRI-CDS, HL7 FHIR resources and 
-the GA4GH Phenopacket Schema to a single RD CDM. We identified six layers of 
+the GA4GH Phenopacket Schema to a single RD-CDM. We identified six layers of 
 harmonisation on the level of each data element: (1) the Alignment Layer, 
 (2) the Labelling Layer, (3) the Terminology Binding Layer, (4) the Data 
 Type Layer, (5) the Value Set Layer, and (6) the Value Set Choice Layer. All 

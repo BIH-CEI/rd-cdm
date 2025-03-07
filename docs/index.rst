@@ -1,19 +1,19 @@
 .. _index:
 
 
-Welcome to the RD CDM Documentation!
+Welcome to the RD-CDM Documentation!
 ====================================
 
 .. image:: https://readthedocs.org/projects/rd-cdm/badge/?version=latest
     :target: https://rd-cdm.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
-The Rare Disease Common Data Model (RD CDM) is a non-balloted extension of the 
+The ontology-based rare disease common data model (RD-CDM) is a non-balloted extension of the 
 ERDRI-CDS which aims to provide as an internationally viable template for the 
 development and implementation of country-specific Rare disease common data 
-models. The RD CDM is designed to be compatible with the GA4GH Phenopacket 
+models. The RD-CDM is designed to be compatible with the GA4GH Phenopacket 
 Schema, HL7 FHIR, and the International Patient Summary. The ontology-based 
-approach of the RD CDM allows for the integration of various data sources and 
+approach of the RD-CDM allows for the integration of various data sources and 
 the harmonization of data across different systems.
 
 .. tip::

@@ -9,7 +9,7 @@ Schema
 [![Documentation Status](https://readthedocs.org/projects/rd-cdm/badge/?version=latest)](https://rd-cdm.readthedocs.io/en/latest/?badge=latest)
 [![DOI](https://zenodo.org/badge/863993011.svg)](https://doi.org/10.5281/zenodo.13891625)
 
-<!-- Combined Badges for RD CDM v2.0.0 -->
+<!-- Combined Badges for RD-CDM v2.0.0 -->
 ![RD-CDM v2.0.0](https://img.shields.io/badge/RD%20CDM%20v2.0.0-grey) 
 ![JSON Created](https://img.shields.io/badge/JSON%20Created%20Successfully-blue)
 ![CSV Created](https://img.shields.io/badge/CSV%20Created%20Successfully-6A5ACD)
@@ -41,7 +41,7 @@ The ontology-based rare disease common data model (RD-CDM) is designed to
 harmonize rare disease data capture across international registries. It 
 integrates standards such as the ERDRI-CDS, HL7 FHIR, and GA4GH Phenopacket 
 Schema, creating a scalable, ontology-driven framework that supports advanced 
-interoperability for research and care. The RD CDM Version 2.0.0 consists of 
+interoperability for research and care. The RD-CDM Version 2.0.0 consists of 
 78 data elements, extending the ERDRI-CDS and allowing deeper insights into 
 genetic findings, phenotypic features, and family history of individuals.
 
@@ -59,7 +59,7 @@ genetic findings, phenotypic features, and family history of individuals.
 
 ## Getting Started
 
-This section provides instructions for getting started with the RD CDM. For more
+This section provides instructions for getting started with the RD-CDM. For more
 detail please read our [Documentation](https://rd-cdm.readthedocs.io/en/latest/)
 
 ### Prerequisites
@@ -143,7 +143,7 @@ plase cite our article:
 ## Acknowledgements
 
 We would like to extend our thanks to all the authors involved in the 
-development of this RD CDM model. 
+development of this RD-CDM model. 
 
 ---
 

@@ -7,7 +7,7 @@ Changelog
     The RD-CDM paper has now been published at Nature Scientific Data. You can 
     read it `here <https://www.nature.com/articles/s41597-025-04558-z>`_!
 
-This changelog provides a history of the changes to the RD CDM.
+This changelog provides a history of the changes to the RD-CDM.
 
 
 .. note:: 

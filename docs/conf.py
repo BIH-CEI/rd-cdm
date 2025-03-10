@@ -12,7 +12,7 @@ src_path = os.path.abspath(os.path.join('..', 'src'))
 sys.path.insert(0, src_path)
 
 
-project = 'Ontology-based rare disease common data model (RD CDM)'
+project = 'Ontology-based rare disease common data model (RD-CDM)'
 copyright = 'Berlin Institute of Health, Charité Universitätsmedizin Berlin'
 author = 'Adam S.L. Graefe'
 release = '2.0.0'

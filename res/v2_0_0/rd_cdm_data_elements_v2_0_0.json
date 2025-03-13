@@ -314,9 +314,7 @@
       "recommendedDataSpec_fhir": "Code",
       "phenopacketSchemaElement_v2_0": "Disease.term",
       "recommendedDataSpec_phenopackets": "OntologyClass",
-      "description": "A disease that the individual was affected by. If 
-      agenetic diagnosis or subtypes were diagnosed, please also provide the 
-      respective OMIM_g and OMIM_p codes."
+      "description": "A disease that the individual was affected by. If agenetic diagnosis or subtypes were diagnosed, please also provide the respective OMIM_g and OMIM_p codes."
     },
     {
       "ordinal": "5.2",

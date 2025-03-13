@@ -5,7 +5,7 @@
   "description": "The ontology-based Rare Disease Common Data Model (RD CDM) to enable international registry use, HL7 FHIR, and GA4GH Phenopackets.",
   "metadata": {
     "author": "Author Name",
-    "creationDate": "2025-02-09"
+    "creationDate": "2025-03-13"
   },
   "codeSystems": [
     {
@@ -506,7 +506,7 @@
       "recommendedDataSpec_fhir": "Code",
       "phenopacketSchemaElement_v2_0": "Disease.term",
       "recommendedDataSpec_phenopackets": "OntologyClass",
-      "description": "A disease that the individual was affected by. If agenetic diagnosis or subtypes were diagnosed, pleasealso provide the respective OMIM_g and OMIM_p codes."
+      "description": "A disease that the individual was affected by. If agenetic diagnosis or subtypes were diagnosed, please also provide the respective OMIM_g and OMIM_p codes."
     },
     {
       "ordinal": "5.2",

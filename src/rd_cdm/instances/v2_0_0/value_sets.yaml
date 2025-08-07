@@ -1,173 +1,173 @@
 value_sets:
-- id: SNOMED:281053000
+- id: SNOMEDCT:281053000
   label: Sex at Birth Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '248152002'
     label: Female
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '248153007'
     label: Male
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '184115007'
     label: Patient sex unknown
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '32570691000036108'
     label: Intersex
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '1220561009'
     label: Not recorded
-- id: SNOMED:1296886006
+- id: SNOMEDCT:1296886006
   label: Karyotypic Sex Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '734875008'
     label: XX
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '734876009'
     label: XY
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '80427008'
     label: X0
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '65162001'
     label: XXY
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '35111009'
     label: XXX
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '403760006'
     label: XXYY
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '78317008'
     label: XXXY
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '10567003'
     label: XXXX
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '48930007'
     label: XYY
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '74964007'
     label: Other
-- id: SNOMED:263495000
+- id: SNOMEDCT:263495000
   label: Gender Identity Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '446141000124107'
     label: Female gender identity
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '446151000124109'
     label: Male gender identity
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '394743007'
     label: Gender unknown
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '33791000087105'
     label: Identifies as nonbinary gender
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '1220561009'
     label: Not recorded
-- id: SNOMED:278844005
+- id: SNOMEDCT:278844005
   label: Vital Status Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '438949009'
     label: Alive
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '419099009'
     label: Dead
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '399307001'
     label: Unknown - Lost in follow-up
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '185924006'
     label: Unknown - Opted-out
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown - Other Reason
-- id: SNOMED:105727008
+- id: SNOMEDCT:105727008
   label: Age Category Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '3658006'
     label: Infancy
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '713153009'
     label: Toddler
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '255398004'
     label: Childhood
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '263659003'
     label: Adolescence
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '41847000'
     label: Adulthood
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '303112003'
     label: Fetal period
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '419099009'
     label: Dead
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown
-- id: SNOMED:278844005
+- id: SNOMEDCT:278844005
   label: Vital Status Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '438949009'
     label: Alive
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '419099009'
     label: Dead
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '399307001'
     label: Unknown - Lost in follow-up
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '185924006'
     label: Unknown - Opted-out
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown - Other Reason
-- id: SNOMED:105727008
+- id: SNOMEDCT:105727008
   label: Age Category Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '3658006'
     label: Infancy
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '713153009'
     label: Toddler
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '255398004'
     label: Childhood
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '263659003'
     label: Adolescence
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '41847000'
     label: Adulthood
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '303112003'
     label: Fetal period
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '419099009'
     label: Dead
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown
-- id: SNOMED:723663001
+- id: SNOMEDCT:723663001
   label: Undiagnosed RD Case Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373066001'
     label: 'Yes'
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373067005'
     label: 'No'
-- id: SNOMED:305058001
+- id: SNOMEDCT:305058001
   label: Encounter Status Value Set v2.0.0
   codes:
   - system: HL7FHIR
@@ -221,7 +221,7 @@ value_sets:
   - system: HL7FHIR
     code: RDC
     label: RD Specialist Center
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown
 - id: HL7FHIR:99498-8
@@ -245,40 +245,40 @@ value_sets:
   - system: HL7FHIR
     code: entered-in-error
     label: Entered in Error
-- id: SNOMED:424850005
+- id: SNOMEDCT:424850005
   label: Age at Onset Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '118189007'
     label: Prenatal
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '3950001'
     label: Birth
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '410672004'
     label: Date
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown
-- id: SNOMED:423493009
+- id: SNOMEDCT:423493009
   label: Age at Diagnosis Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '118189007'
     label: Prenatal
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '3950001'
     label: Birth
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '410672004'
     label: Date
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown
-- id: SNOMED:363698007
+- id: SNOMEDCT:363698007
   label: Body Site Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: << 442083009
     label: << 442083009 |Anatomical or acquired body structure|
 - id: HL7FHIR:263493007
@@ -302,16 +302,16 @@ value_sets:
   - system: HL7FHIR
     code: resolved
     label: Resolved
-- id: SNOMED:246112005
+- id: SNOMEDCT:246112005
   label: Severity Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '24484000'
     label: Severe
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '6736007'
     label: Moderate
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '255604002'
     label: Mild
 - id: GA4GH:progress_status
@@ -359,151 +359,151 @@ value_sets:
   label: Structural Variant Analysis Method Value Set v2.0.0
   codes:
   - system: LOINC
-    code: LA26406-1
+    code: 'LA26406-1'
     label: Karyotyping
   - system: LOINC
-    code: LA26404-6
+    code: 'LA26404-6'
     label: FISH
   - system: LOINC
-    code: LA26418-6
+    code: 'LA26418-6'
     label: PCR
   - system: LOINC
-    code: LA26419-4
+    code: 'LA26419-4'
     label: qPCR (real-time PCR)
   - system: LOINC
-    code: LA26400-4
+    code: 'LA26400-4'
     label: SNP array
   - system: LOINC
-    code: LA26813-8
+    code: 'LA26813-8'
     label: Restriction fragment length polymorphism (RFLP)
   - system: LOINC
-    code: LA26810-4
+    code: 'LA26810-4'
     label: DNA hybridization
   - system: LOINC
-    code: LA26398-0
+    code: 'LA26398-0'
     label: Sequencing
   - system: LOINC
-    code: LA26415-2
+    code: 'LA26415-2'
     label: MLPA
   - system: LOINC
-    code: LA46-8
+    code: 'LA46-8'
     label: Other
 - id: LOINC:62374-4
   label: Reference Genome Value Set v2.0.0
   codes:
   - system: LOINC
-    code: LA14032-9
+    code: 'LA14032-9'
     label: NCBI Build 34 (hg16)
   - system: LOINC
-    code: LA14029-5
+    code: 'LA14029-5'
     label: GRCh37 (hg19)
   - system: LOINC
-    code: LA14030-3
+    code: 'LA14030-3'
     label: NCBI Build 36.1 (hg18)
   - system: LOINC
-    code: LA14031-1
+    code: 'LA14031-1'
     label: NCBI Build 35 (hg17)
   - system: LOINC
-    code: LA26806-2
+    code: 'LA26806-2'
     label: GRCh38 (hg38)
 - id: LOINC:53034-5
   label: Zygosity Value Set v2.0.0
   codes:
   - system: LOINC
-    code: LA6705-3
+    code: 'LA6705-3'
     label: Homozygous
   - system: LOINC
-    code: LA6706-1
+    code: 'LA6706-1'
     label: (Simple) Heterozygous
   - system: LOINC
-    code: LA26217-2
+    code: 'LA26217-2'
     label: Compound Heterozygous
   - system: LOINC
-    code: LA26220-6
+    code: 'LA26220-6'
     label: Double Heterozygous
   - system: LOINC
-    code: LA6707-9
+    code: 'LA6707-9'
     label: Hemizygous
   - system: LOINC
-    code: LA6703-8
+    code: 'LA6703-8'
     label: Heteroplasmic
   - system: LOINC
-    code: LA6704-6
+    code: 'LA6704-6'
     label: Homoplasmic
   - system: LOINC
-    code: LA46-8
+    code: 'LA46-8'
     label: Other
 - id: LOINC:48002-0
   label: Genomic Source Class Value Set v2.0.0
   codes:
   - system: LOINC
-    code: LA6683-2
+    code: 'LA6683-2'
     label: Germline
   - system: LOINC
-    code: LA6684-0
+    code: 'LA6684-0'
     label: Somatic
   - system: LOINC
-    code: LA10429-1
+    code: 'LA10429-1'
     label: Fetal
   - system: LOINC
-    code: LA18194-3
+    code: 'LA18194-3'
     label: Likely Germline
   - system: LOINC
-    code: LA18195-0
+    code: 'LA18195-0'
     label: Likely Somatic
   - system: LOINC
-    code: LA18196-8
+    code: 'LA18196-8'
     label: Likely Fetal
   - system: LOINC
-    code: LA18197-6
+    code: 'LA18197-6'
     label: Unknown Genomic Origin
   - system: LOINC
-    code: LA26807-0
+    code: 'LA26807-0'
     label: De Novo
 - id: LOINC:48019-4
   label: DNA Change Type Value Set v2.0.0
   codes:
   - system: LOINC
-    code: LA9658-1
+    code: 'LA9658-1'
     label: Wild Type
   - system: LOINC
-    code: LA6692-3
+    code: 'LA6692-3'
     label: Deletion
   - system: LOINC
-    code: LA6686-5
+    code: 'LA6686-5'
     label: Duplication
   - system: LOINC
-    code: LA6687-3
+    code: 'LA6687-3'
     label: Insertion
   - system: LOINC
-    code: LA6688-1
+    code: 'LA6688-1'
     label: Insertion/Deletion
   - system: LOINC
-    code: LA6689-9
+    code: 'LA6689-9'
     label: Inversion
   - system: LOINC
-    code: LA6690-7
+    code: 'LA6690-7'
     label: Substitution
 - id: LOINC:53037-8
   label: Clinical Significance ACMG Value Set v2.0.0
   codes:
   - system: LOINC
-    code: LA6668-3
+    code: 'LA6668-3'
     label: Pathogenic
   - system: LOINC
-    code: LA26332-9
+    code: 'LA26332-9'
     label: Likely Pathogenic
   - system: LOINC
-    code: LA26333-7
+    code: 'LA26333-7'
     label: Uncertain Significance
   - system: LOINC
-    code: LA26334-5
+    code: 'LA26334-5'
     label: Likely Benign
   - system: LOINC
-    code: LA6675-8
+    code: 'LA6675-8'
     label: Benign
   - system: LOINC
-    code: LA4489-6
+    code: 'LA4489-6'
     label: Unknown
 - id: GA4GH:therapeutic_actionability
   label: Therapeutic Actionability Value Set v2.0.0
@@ -522,39 +522,39 @@ value_sets:
   label: Clinical Annotation Level Of Evidence Value Set v2.0.0
   codes:
   - system: LOINC
-    code: LA30200-2
+    code: 'LA30200-2'
     label: Very Strong Evidence Pathogenic
   - system: LOINC
-    code: LA30201-0
+    code: 'LA30201-0'
     label: Strong Evidence Pathogenic
   - system: LOINC
-    code: LA30202-8
+    code: 'LA30202-8'
     label: Moderate Evidence Pathogenic
   - system: LOINC
-    code: LA30203-6
+    code: 'LA30203-6'
     label: Supporting Evidence Pathogenic
   - system: LOINC
-    code: LA30204-4
+    code: 'LA30204-4'
     label: Supporting Evidence Benign
   - system: LOINC
-    code: LA30205-1
+    code: 'LA30205-1'
     label: Strong Evidence Benign
   - system: LOINC
-    code: LA30206-9
+    code: 'LA30206-9'
     label: Stand-alone Evidence Pathogenic
   - system: LOINC
-    code: LA30207-7
+    code: 'LA30207-7'
     label: Stand-alone Evidence Benign
   - system: LOINC
-    code: LA26333-7
+    code: 'LA26333-7'
     label: Uncertain Significance
-- id: SNOMED:phenotypicfeature.excluded
+- id: CustomCode:phenotypicfeature.excluded
   label: Phenotype Status Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '410605003'
-    label: Confirmed Present
-  - system: SNOMED
+    label: Confirmed present
+  - system: SNOMEDCT
     code: '723511001'
     label: Refuted
 - id: HP:0003674
@@ -562,54 +562,54 @@ value_sets:
   codes:
   - system: HP
     code: '0011460'
-    label: Embryonal onset (0w-8w embryonal)
+    label: Embryonal onset
   - system: HP
     code: '0011461'
-    label: Fetal onset (8w embryonal - birth)
+    label: Fetal onset
   - system: HP
     code: '0003577'
-    label: Congenital onset (at birth)
+    label: Congenital onset
   - system: HP
     code: '0003623'
-    label: Neonatal onset (0d-28d)
+    label: Neonatal onset
   - system: HP
     code: 0003593
-    label: Infantile onset (28d-1y)
+    label: Infantile onset
   - system: HP
     code: '0011463'
-    label: Childhood onset (1y-5y)
+    label: Childhood onset
   - system: HP
     code: '0003621'
-    label: Juvenile onset (5y-15y)
+    label: Juvenile onset
   - system: HP
     code: '0011462'
-    label: Young adult onset (16y-40y)
+    label: Young adult onset
   - system: HP
-    code: 0003596
-    label: Middle age adult onset (40y-60y)
+    code: '0003596'
+    label: Middle age adult onset
   - system: HP
-    code: 0003584
-    label: Late adult onset (60y+)
+    code: '0003584'
+    label: Late adult onset
 - id: HP:0011008
   label: Temporal Pattern Value Set v2.0.0
   codes:
   - system: HP
-    code: 0011009
+    code: '0011009'
     label: Acute
   - system: HP
     code: '0011010'
     label: Chronic
   - system: HP
-    code: 0031914
+    code: '0031914'
     label: Fluctuating
   - system: HP
-    code: 0025297
+    code: '0025297'
     label: Prolonged
   - system: HP
-    code: 0031796
+    code: '0031796'
     label: Recurrent
   - system: HP
-    code: 0031915
+    code: '0031915'
     label: Stable
   - system: HP
     code: '0011011'
@@ -621,126 +621,126 @@ value_sets:
   label: Severity Value Set v2.0.0
   codes:
   - system: HP
-    code: 0012827
+    code: '0012827'
     label: Borderline
   - system: HP
-    code: 0012825
+    code: '0012825'
     label: Mild
   - system: HP
-    code: 0012826
+    code: '0012826'
     label: Moderate
   - system: HP
-    code: 0012829
+    code: '0012829'
     label: Profound
   - system: HP
-    code: 0012828
+    code: '0012828'
     label: Severe
-- id: SNOMED:64245008
+- id: SNOMEDCT:64245008
   label: Propositus Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373066001'
     label: 'Yes'
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373067005'
     label: 'No'
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '1220561009'
     label: Not recorded
-- id: SNOMED:408732007
+- id: SNOMEDCT:408732007
   label: Family Relationship To Index Case Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '65656005'
     label: Natural mother
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '9947008'
     label: Natural father
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '83420006'
     label: Natural daughter
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '113160008'
     label: Natural son
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '60614009'
     label: Natural brother
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '73678001'
     label: Natural sister
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '11286003'
     label: Twin sibling
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '45929001'
     label: Half-brother
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '2272004'
     label: Half-sister
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '62296006'
     label: Natural grandfather
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '17945006'
     label: Natural grandmother
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '1220561009'
     label: Not recorded
-- id: SNOMED:842009
+- id: SNOMEDCT:842009
   label: Consanguinity Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373066001'
     label: 'Yes'
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373067005'
     label: 'No'
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '1220561009'
     label: Not recorded
-- id: SNOMED:444018008
+- id: SNOMEDCT:444018008
   label: FamilyMember Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '65656005'
     label: Natural mother
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '9947008'
     label: Natural father
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '83420006'
     label: Natural daughter
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '113160008'
     label: Natural son
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '60614009'
     label: Natural brother
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '73678001'
     label: Natural sister
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '11286003'
     label: Twin sibling
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '45929001'
     label: Half-brother
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '2272004'
     label: Half-sister
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '62296006'
     label: Natural grandfather
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '17945006'
     label: Natural grandmother
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '1220561009'
     label: Not recorded
 - id: HL7FHIR:familymemberhistory.status
@@ -758,34 +758,34 @@ value_sets:
   - system: HL7FHIR
     code: health-unknown
     label: Health Unknown
-- id: SNOMED:54123-5
+- id: SNOMEDCT:54123-5
   label: AdministrativeGender Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '248152002'
     label: Female
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '248153007'
     label: Male
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '184115007'
     label: Patient sex unknown
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '32570691000036108'
     label: Intersex
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '1220561009'
     label: Not recorded
-- id: SNOMED:740604001
+- id: SNOMEDCT:740604001
   label: Deceased Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373066001'
     label: 'Yes'
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373067005'
     label: 'No'
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown
 - id: HL7FHIR:309370004
@@ -809,39 +809,39 @@ value_sets:
   - system: HL7FHIR
     code: entered-in-error
     label: Entered in Error
-- id: SNOMED:consent_contact_research
+- id: SNOMEDCT:consent_contact_research
   label: Contact for Research Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373066001'
     label: 'Yes'
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373067005'
     label: 'No'
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown
-- id: SNOMED:conset_data_reuse
+- id: SNOMEDCT:conset_data_reuse
   label: Data Reuse Consent Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373066001'
     label: 'Yes'
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373067005'
     label: 'No'
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown
-- id: SNOMED:123038009
+- id: SNOMEDCT:123038009
   label: Biological Sample Consent Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373066001'
     label: 'Yes'
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373067005'
     label: 'No'
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown

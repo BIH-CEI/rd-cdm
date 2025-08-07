@@ -750,10 +750,10 @@
           "VS"
         ],
         "valueSet": "Reference Genome Value Set v2.0.0",
-        "fhirExpression_v4_0_1": "MolecularSequence.referenceSeqId",
+        "fhirExpression_v4_0_1": "Observation.component:reference-sequence-assembly",
         "recommendedDataSpec_fhir": "CodeableConcept",
-        "phenopacketSchemaElement_v2_0": "VariationDescriptor.vrs_ref_allele_seq",
-        "recommendedDataSpec_phenopackets": "string",
+        "phenopacketSchemaElement_v2_0": "n/a",
+        "recommendedDataSpec_phenopackets": "n/a",
         "description": "The reference genome used for analysing the genetic variant."
       },
       {

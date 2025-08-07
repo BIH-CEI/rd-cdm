@@ -1,5 +1,5 @@
 [project]
-name = "template_for_python_projects"
+name = "rd-cdm"
 authors = [
     {name = "Adam SL Graefe", email="adam.graefe@charite.de"},
     {name = "Filip Rehburg", email="filip.rehburg@charite.de"},
@@ -36,7 +36,10 @@ dependencies = [
     "oaklib", 
     "linkml",
     "poetry",
-    "ruamel.yaml"
+    "ruamel.yaml",
+    "requests (>=2.32.4,<3.0.0)",
+    "requests-cache (>=1.2.1,<2.0.0)",
+    "requests"
 ]
 version = "2.0.0"
 
@@ -57,11 +60,23 @@ package-dir = { "" = "src" }
 where = ["src"]
 
 [tool.poetry]
+name = "rd-cdm"
+version = "2.0.0"
 packages = [
-    { include = "rd_cdm" }
+    { include = "rd_cdm", from = "src" }
 ]
-
 include = [
   "src/rd_cdm/schema/rd_cdm.yaml",
   "src/rd_cdm/instances/v2_0_0/*.yaml"
 ]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+requests = "^2.31.0"
+linkml-runtime = "^1.9.4"
+oaklib = "^0.6.23"
+
+[tool.poetry.plugins."oaklib.plugins"]
+rdcdm = "oakx_rdcdm.rdcdm_implementation:RdCdmValidator"
+[tool.poetry.scripts]
+rd-cdm-validate = "rd_cdm.validation:main"

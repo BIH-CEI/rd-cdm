@@ -1,102 +1,127 @@
 code_systems:
-- id: NCBITaxon
-  name: NCBI organismal classification
-  url: https://www.ncbi.nlm.nih.gov/taxonomy
-  version: '2024-07-03'
-- id: GENO
-  name: 'GENO: The Genotype Ontology'
-  url: http://www.genoontology.org/
-  version: '2023-10-08'
-- id: SO
-  name: Sequence types and features ontology
-  url: http://www.sequenceontology.org/
-  version: '2.6'
-- id: ICD9
-  name: International Classification of Diseases, Ninth Revision
-  url: https://www.cdc.gov/nchs/icd/icd9.htm
-  version: n/a
-- id: ICD10CM
-  name: International Classification of Diseases, Tenth Revision, Clinical 
-    Modification
-  url: https://www.cdc.gov/nchs/icd/icd10cm.htm
-  version: '2024-09-01'
-- id: ICD11
-  name: International Classification of Diseases, Eleventh Revision
-  url: https://icd.who.int/
-  version: '2024-09-01'
-- id: SNOMED
-  name: SNOMED CT
-  url: http://purl.bioontology.org/ontology/SNOMEDCT
+# Codesystems that encode elements and value set items
+- id: SNOMEDCT
+  namespace_iri: http://purl.bioontology.org/ontology/SNOMEDCT/
   version: '2024-10-01'
+  title: Systematized Nomenclature of Medicine – Clinical Terms (SNOMED CT)
+
+- id: LOINC
+  namespace_iri: http://loinc.org
+  version: '2.78'
+  title: Logical Observation Identifiers Names and Codes (LOINC)
+
+- id: HP
+  namespace_iri: http://purl.obolibrary.org/obo/HP
+  version: '2024-08-13'
+  title: Human Phenotype Ontology (HPO)
+
+- id: NCIT
+  namespace_iri: http://purl.obolibrary.org/obo/NCIT
+  version: 24.04e
+  title: NCI Thesaurus (NCIT) OBO Edition
+
 - id: HL7FHIR
-  name: HL7 FHIR R4
-  url: http://hl7.org/fhir/
+  namespace_iri: http://hl7.org/fhir/
   version: v4.0.1
+  title: Health Level Seven Fast Healthcare Interoperability Resources, Release 
+    4
+
 - id: GA4GH
-  name: GA4GH Phenopackets Schema
-  url: https://github.com/ga4gh/phenopacket
+  namespace_iri: https://ga4gh.github.io/phenopacket-v2/
   version: v2.0
+  title: Global Alliance for Genomics and Health Phenopackets Schema
+
+- id: CustomCode
+  namespace_iri: https://github.com/BIH-CEI/rd-cdm
+  version: v2.0.0
+  title: Custom Code System RD CDM v2.0.0
+
+# Codesystems that can encode values of data elements
+- id: NCBITaxon
+  namespace_iri: http://purl.obolibrary.org/obo/NCBITaxon_
+  version: '2024-07-03'
+  title: NCBI organismal classification
+
+- id: GENO
+  namespace_iri: http://purl.obolibrary.org/obo/GENO/
+  version: '2023-10-08'
+  title: GENO – The Genotype Ontology
+
+- id: SO
+  namespace_iri: http://purl.obolibrary.org/obo/SO/
+  version: '2.6'
+  title: Sequence Ontology
+
+- id: UO
+  namespace_iri: http://purl.obolibrary.org/obo/UO/
+  version: '2024-09-12'
+  title: Units Ontology (UO)
+
+- id: ECO
+  namespace_iri: http://purl.obolibrary.org/obo/ECO/
+  version: unknown
+  title: Evidence & Conclusion Ontology (ECO)
+
+- id: ICD9
+  namespace_iri: http://purl.bioontology.org/ontology/ICD9CM/
+  version: n/a
+  title: International Classification of Diseases, Ninth Revision (ICD-9)
+
+- id: ICD10CM
+  namespace_iri: http://purl.bioontology.org/ontology/ICD10CM/
+  version: '2024-09-01'
+  title: International Classification of Diseases, Tenth Revision, Clinical 
+    Modification (ICD-10-CM)
+
+- id: MONDO
+  namespace_iri: http://purl.obolibrary.org/obo/MONDO/
+  version: '2024-09-03'
+  title: Mondo Disease Ontology
+
+- id: ORDO
+  namespace_iri: http://purl.obolibrary.org/obo/ORDO/
+  version: '2024-09-12'
+  title: Orphanet Rare Disease Ontology (ORDO)
+
+- id: HGNC
+  namespace_iri: http://identifiers.org/hgnc/
+  version: '2024-08-23'
+  title: HUGO Gene Nomenclature Committee (HGNC)
+
+- id: OMIM
+  namespace_iri: http://purl.bioontology.org/ontology/OMIM/
+  version: '2024-09-12'
+  title: Online Mendelian Inheritance in Man (OMIM)
+
+- id: HGVS
+  namespace_iri: https://varnomen.hgvs.org/
+  version: 21.0.0
+  title: Human Genome Variation Society Nomenclature
+
+- id: ICD11
+  namespace_iri: http://id.who.int/icd/release/11/mms/
+  version: '2024-09-01'
+  title: International Classification of Diseases, Eleventh Revision (ICD-11)
+
 - id: ISO3166
-  name: ISO 3166 Country Codes
-  url: https://www.iso.org/iso-3166-country-codes.html
+  namespace_iri: https://www.iso.org/iso-3166-country-codes.html
   version: 2020(en)
+  title: International Organization for Standardization – ISO 3166 Country Codes
+
 - id: ICF
-  name: International Classification of Functioning, Disability and Health
-  url: 
+  namespace_iri: 
     https://www.who.int/standards/classifications/international-classification-of-functioning-disability-and-health
   version: 1.0.2
-- id: MONDO
-  name: Mondo Disease Ontology
-  url: https://mondo.monarchinitiative.org/
-  version: '2024-09-03'
-- id: ORDO
-  name: Orphanet Rare Disease Ontology
-  url: http://www.orphadata.org/cgi-bin/index.php
-  version: '2024-09-12'
-- id: OMIM
-  name: Online Mendelian Inheritance in Man
-  url: https://www.omim.org/
-  version: '2024-09-12'
-- id: LOINC
-  name: Logical Observation Identifiers Names and Codes
-  url: https://loinc.org/
-  version: '2.78'
-- id: HGVS
-  name: Human Genome Variation Society Nomenclature
-  url: https://varnomen.hgvs.org/
-  version: 21.0.0
-- id: HGNC
-  name: HUGO Gene Nomenclature Committee
-  url: https://www.genenames.org/
-  version: '2024-08-23'
-- id: HP
-  name: Human Phenotype Ontology
-  url: https://hpo.jax.org/app/
-  version: '2024-08-13'
-- id: NCIT
-  name: NCI Thesaurus OBO Edition
-  url: https://ncit.nci.nih.gov/
-  version: 24.04e
-- id: UO
-  name: Units Ontology
-  url: http://www.ontobee.org/ontology/UO
-  version: '2024-09-12'
-- id: ECO
-  name: Evidence & Conclusion Ontology (ECO)
-  url: https://www.evidenceontology.org/
-  version: unknown
-- id: CustomCode
-  name: Custom Code System RD CDM v2.0.0
-  url: https://github.com/BIH-CEI/rd-cdm
-  version: unknown
+  title: International Classification of Functioning, Disability and Health 
+    (ICF)
 data_elements:
 - ordinal: '1.1'
   section: 1. Formal Criteria
   elementName: Pseudonym
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '422549004'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Identifier
   dataSpecification:
   - n/a
@@ -110,9 +135,9 @@ data_elements:
   section: 1. Formal Criteria
   elementName: Date of Admission
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '399423000'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Date
   dataSpecification:
   - YYYY-MM-DD
@@ -126,9 +151,9 @@ data_elements:
   section: 2. Personal Information
   elementName: Date of Birth
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '184099003'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Date
   dataSpecification:
   - YYYY
@@ -144,9 +169,9 @@ data_elements:
   section: 2. Personal Information
   elementName: Sex at Birth
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '281053000'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -161,9 +186,9 @@ data_elements:
   section: 2. Personal Information
   elementName: Karyotypic Sex
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '1296886006'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSc
@@ -177,9 +202,9 @@ data_elements:
   section: 2. Personal Information
   elementName: Gender Identity
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '263495000'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -194,9 +219,9 @@ data_elements:
   section: 2. Personal Information
   elementName: Country of Birth
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '370159000'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VS
@@ -210,9 +235,9 @@ data_elements:
   section: 3. Patient Status
   elementName: Vital Status
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '278844005'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -227,9 +252,9 @@ data_elements:
   section: 3. Patient Status
   elementName: Time of Death
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '398299004'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Date
   dataSpecification:
   - YYYY
@@ -245,9 +270,9 @@ data_elements:
   section: 3. Patient Status
   elementName: Cause of Death
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '184305005'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - ICD-10CM
@@ -261,9 +286,9 @@ data_elements:
   section: 3. Patient Status
   elementName: Age Category
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '105727008'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -277,9 +302,9 @@ data_elements:
   section: 3. Patient Status
   elementName: Length of Gestation at Birth [weeks+days]
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '412726003'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: String
   dataSpecification:
   - XX+X
@@ -295,9 +320,9 @@ data_elements:
   section: 3. Patient Status
   elementName: Undiagnosed RD Case
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '723663001'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -345,9 +370,9 @@ data_elements:
   section: 4. Care Pathway
   elementName: Encounter Status
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '305058001'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -381,9 +406,9 @@ data_elements:
   section: 5. Disease
   elementName: Disease
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '64572001'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - Ontology Class (MONDO, ORDO, ICD-10, ICD-11, OMIM_g, OMIM_p)
@@ -415,9 +440,9 @@ data_elements:
   section: 5. Disease
   elementName: Age at Onset
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '424850005'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -434,9 +459,9 @@ data_elements:
   section: 5. Disease
   elementName: Date of Onset
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '298059007'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Date
   dataSpecification:
   - YYYY-MM-DD
@@ -450,9 +475,9 @@ data_elements:
   section: 5. Disease
   elementName: Age at Diagnosis
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '423493009'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -467,9 +492,9 @@ data_elements:
   section: 5. Disease
   elementName: Date of Diagnosis
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '432213005'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Date
   dataSpecification:
   - YYYY-MM-DD
@@ -483,14 +508,14 @@ data_elements:
   section: 5. Disease
   elementName: Body Site
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '363698007'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VS
   valueSet: Body Site Value Set v2.0.0
-  fhirExpression_v4_0_1: Condition.bodySite.coding:snomed-ct
+  fhirExpression_v4_0_1: Condition.bodySite.coding:SNOMEDCT-ct
   recommendedDataSpec_fhir: CodeableConcept
   phenopacketSchemaElement_v2_0: Disease.primary_site
   recommendedDataSpec_phenopackets: OntologyClass
@@ -500,9 +525,9 @@ data_elements:
   section: 5. Disease
   elementName: Clinical Status
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '263493007'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VS
@@ -517,9 +542,9 @@ data_elements:
   section: 5. Disease
   elementName: Severity
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '246112005'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VS
@@ -533,9 +558,9 @@ data_elements:
   section: 6. Genetic Findings
   elementName: Genomic Diagnosis
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '106221001'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - OMIM_p
@@ -809,9 +834,9 @@ data_elements:
   section: 6. Phenotypic Feature
   elementName: Phenotypic Feature
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '8116006'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - HPO
@@ -825,9 +850,9 @@ data_elements:
   section: 6.2 Phenotypic Feature
   elementName: Status
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '363778006'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -843,9 +868,9 @@ data_elements:
   section: 6. Phenotypic Feature
   elementName: Determination Date
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: 439272007:704321009=363778006
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Date
   dataSpecification:
   - YYYY-MM-DD
@@ -861,7 +886,7 @@ data_elements:
   elementName: Resolution Date
   elementCode:
     system: HP
-    code: 0034382
+    code: '0034382'
   elementCodeSystem: HP
   dataType: Date
   dataSpecification:
@@ -895,7 +920,7 @@ data_elements:
   elementName: Temporal Pattern
   elementCode:
     system: HP
-    code: 0011008
+    code: '0011008'
   elementCodeSystem: HP
   dataType: Code
   dataSpecification:
@@ -912,7 +937,7 @@ data_elements:
   elementName: Severity
   elementCode:
     system: HP
-    code: 0012824
+    code: '0012824'
   elementCodeSystem: HP
   dataType: Code
   dataSpecification:
@@ -1045,12 +1070,12 @@ data_elements:
   section: 6.3 Measurement
   elementName: Procedure
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '122869004'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
-  - OntologyClass (e.g. NCIT, SNOMED)
+  - OntologyClass (e.g. NCIT, SNOMEDCT)
   valueSet: n/a
   fhirExpression_v4_0_1: Procedure.code
   recommendedDataSpec_fhir: Measurement.procedure
@@ -1078,9 +1103,9 @@ data_elements:
   section: 6.4 Family History
   elementName: Propositus/-a
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '64245008'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -1099,9 +1124,9 @@ data_elements:
   section: 6.4 Family History
   elementName: Relationship of the Individual to the Propositus
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '408732007'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -1114,15 +1139,15 @@ data_elements:
   recommendedDataSpec_phenopackets: (Family.relatives → 1 Phenopacket per family
     member)
   description: 'Specifies the familial relationship of the individual being evaluated
-    to the propositus. Disclaimer: The SNOMED code for propositus (64245008) refers
+    to the propositus. Disclaimer: The SNOMEDCT code for propositus (64245008) refers
     to any gender.'
 - ordinal: 6.4.4
   section: 6.4 Family History
   elementName: Consanguinity
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '842009'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -1137,9 +1162,9 @@ data_elements:
   section: 6.4 Family History
   elementName: Family Member Relationship
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '444018008'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -1225,9 +1250,9 @@ data_elements:
   section: 6.4 Family
   elementName: Family Member Deceased
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '740604001'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -1300,9 +1325,9 @@ data_elements:
   section: 7. Consent
   elementName: Consent Status
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '309370004'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VS
@@ -1332,9 +1357,9 @@ data_elements:
   section: 7. Consent
   elementName: Health Policy Monitoring
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '386318002'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: String
   dataSpecification:
   - n/a
@@ -1383,9 +1408,9 @@ data_elements:
   section: 7. Consent
   elementName: Biological Sample
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '123038009'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -1432,175 +1457,175 @@ data_elements:
     disability according to the International Classification of Functioning, 
     Disability and Health (ICF).
 value_sets:
-- id: SNOMED:281053000
+- id: SNOMEDCT:281053000
   label: Sex at Birth Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '248152002'
     label: Female
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '248153007'
     label: Male
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '184115007'
     label: Patient sex unknown
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '32570691000036108'
     label: Intersex
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '1220561009'
     label: Not recorded
-- id: SNOMED:1296886006
+- id: SNOMEDCT:1296886006
   label: Karyotypic Sex Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '734875008'
     label: XX
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '734876009'
     label: XY
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '80427008'
     label: X0
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '65162001'
     label: XXY
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '35111009'
     label: XXX
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '403760006'
     label: XXYY
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '78317008'
     label: XXXY
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '10567003'
     label: XXXX
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '48930007'
     label: XYY
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '74964007'
     label: Other
-- id: SNOMED:263495000
+- id: SNOMEDCT:263495000
   label: Gender Identity Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '446141000124107'
     label: Female gender identity
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '446151000124109'
     label: Male gender identity
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '394743007'
     label: Gender unknown
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '33791000087105'
     label: Identifies as nonbinary gender
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '1220561009'
     label: Not recorded
-- id: SNOMED:278844005
+- id: SNOMEDCT:278844005
   label: Vital Status Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '438949009'
     label: Alive
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '419099009'
     label: Dead
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '399307001'
     label: Unknown - Lost in follow-up
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '185924006'
     label: Unknown - Opted-out
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown - Other Reason
-- id: SNOMED:105727008
+- id: SNOMEDCT:105727008
   label: Age Category Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '3658006'
     label: Infancy
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '713153009'
     label: Toddler
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '255398004'
     label: Childhood
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '263659003'
     label: Adolescence
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '41847000'
     label: Adulthood
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '303112003'
     label: Fetal period
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '419099009'
     label: Dead
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown
-- id: SNOMED:278844005
+- id: SNOMEDCT:278844005
   label: Vital Status Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '438949009'
     label: Alive
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '419099009'
     label: Dead
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '399307001'
     label: Unknown - Lost in follow-up
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '185924006'
     label: Unknown - Opted-out
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown - Other Reason
-- id: SNOMED:105727008
+- id: SNOMEDCT:105727008
   label: Age Category Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '3658006'
     label: Infancy
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '713153009'
     label: Toddler
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '255398004'
     label: Childhood
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '263659003'
     label: Adolescence
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '41847000'
     label: Adulthood
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '303112003'
     label: Fetal period
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '419099009'
     label: Dead
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown
-- id: SNOMED:723663001
+- id: SNOMEDCT:723663001
   label: Undiagnosed RD Case Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373066001'
     label: Yes
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373067005'
     label: No
-- id: SNOMED:305058001
+- id: SNOMEDCT:305058001
   label: Encounter Status Value Set v2.0.0
   codes:
   - system: HL7FHIR
@@ -1654,7 +1679,7 @@ value_sets:
   - system: HL7FHIR
     code: RDC
     label: RD Specialist Center
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown
 - id: HL7FHIR:99498-8
@@ -1678,40 +1703,40 @@ value_sets:
   - system: HL7FHIR
     code: entered-in-error
     label: Entered in Error
-- id: SNOMED:424850005
+- id: SNOMEDCT:424850005
   label: Age at Onset Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '118189007'
     label: Prenatal
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '3950001'
     label: Birth
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '410672004'
     label: Date
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown
-- id: SNOMED:423493009
+- id: SNOMEDCT:423493009
   label: Age at Diagnosis Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '118189007'
     label: Prenatal
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '3950001'
     label: Birth
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '410672004'
     label: Date
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown
-- id: SNOMED:363698007
+- id: SNOMEDCT:363698007
   label: Body Site Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: << 442083009
     label: << 442083009 |Anatomical or acquired body structure|
 - id: HL7FHIR:263493007
@@ -1735,16 +1760,16 @@ value_sets:
   - system: HL7FHIR
     code: resolved
     label: Resolved
-- id: SNOMED:246112005
+- id: SNOMEDCT:246112005
   label: Severity Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '24484000'
     label: Severe
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '6736007'
     label: Moderate
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '255604002'
     label: Mild
 - id: GA4GH:progress_status
@@ -1982,13 +2007,13 @@ value_sets:
   - system: LOINC
     code: LA26333-7
     label: Uncertain Significance
-- id: SNOMED:phenotypicfeature.excluded
+- id: CustomCode:phenotypicfeature.excluded
   label: Phenotype Status Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '410605003'
-    label: Confirmed Present
-  - system: SNOMED
+    label: Confirmed present
+  - system: SNOMEDCT
     code: '723511001'
     label: Refuted
 - id: HP:0003674
@@ -1996,54 +2021,54 @@ value_sets:
   codes:
   - system: HP
     code: '0011460'
-    label: Embryonal onset (0w-8w embryonal)
+    label: Embryonal onset
   - system: HP
     code: '0011461'
-    label: Fetal onset (8w embryonal - birth)
+    label: Fetal onset
   - system: HP
     code: '0003577'
-    label: Congenital onset (at birth)
+    label: Congenital onset
   - system: HP
     code: '0003623'
-    label: Neonatal onset (0d-28d)
+    label: Neonatal onset
   - system: HP
     code: 0003593
-    label: Infantile onset (28d-1y)
+    label: Infantile onset
   - system: HP
     code: '0011463'
-    label: Childhood onset (1y-5y)
+    label: Childhood onset
   - system: HP
     code: '0003621'
-    label: Juvenile onset (5y-15y)
+    label: Juvenile onset
   - system: HP
     code: '0011462'
-    label: Young adult onset (16y-40y)
+    label: Young adult onset
   - system: HP
-    code: 0003596
-    label: Middle age adult onset (40y-60y)
+    code: '0003596'
+    label: Middle age adult onset
   - system: HP
-    code: 0003584
-    label: Late adult onset (60y+)
+    code: '0003584'
+    label: Late adult onset
 - id: HP:0011008
   label: Temporal Pattern Value Set v2.0.0
   codes:
   - system: HP
-    code: 0011009
+    code: '0011009'
     label: Acute
   - system: HP
     code: '0011010'
     label: Chronic
   - system: HP
-    code: 0031914
+    code: '0031914'
     label: Fluctuating
   - system: HP
-    code: 0025297
+    code: '0025297'
     label: Prolonged
   - system: HP
-    code: 0031796
+    code: '0031796'
     label: Recurrent
   - system: HP
-    code: 0031915
+    code: '0031915'
     label: Stable
   - system: HP
     code: '0011011'
@@ -2055,126 +2080,126 @@ value_sets:
   label: Severity Value Set v2.0.0
   codes:
   - system: HP
-    code: 0012827
+    code: '0012827'
     label: Borderline
   - system: HP
-    code: 0012825
+    code: '0012825'
     label: Mild
   - system: HP
-    code: 0012826
+    code: '0012826'
     label: Moderate
   - system: HP
-    code: 0012829
+    code: '0012829'
     label: Profound
   - system: HP
-    code: 0012828
+    code: '0012828'
     label: Severe
-- id: SNOMED:64245008
+- id: SNOMEDCT:64245008
   label: Propositus Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373066001'
     label: Yes
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373067005'
     label: No
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '1220561009'
     label: Not recorded
-- id: SNOMED:408732007
+- id: SNOMEDCT:408732007
   label: Family Relationship To Index Case Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '65656005'
     label: Natural mother
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '9947008'
     label: Natural father
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '83420006'
     label: Natural daughter
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '113160008'
     label: Natural son
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '60614009'
     label: Natural brother
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '73678001'
     label: Natural sister
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '11286003'
     label: Twin sibling
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '45929001'
     label: Half-brother
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '2272004'
     label: Half-sister
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '62296006'
     label: Natural grandfather
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '17945006'
     label: Natural grandmother
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '1220561009'
     label: Not recorded
-- id: SNOMED:842009
+- id: SNOMEDCT:842009
   label: Consanguinity Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373066001'
     label: Yes
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373067005'
     label: No
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '1220561009'
     label: Not recorded
-- id: SNOMED:444018008
+- id: SNOMEDCT:444018008
   label: FamilyMember Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '65656005'
     label: Natural mother
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '9947008'
     label: Natural father
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '83420006'
     label: Natural daughter
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '113160008'
     label: Natural son
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '60614009'
     label: Natural brother
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '73678001'
     label: Natural sister
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '11286003'
     label: Twin sibling
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '45929001'
     label: Half-brother
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '2272004'
     label: Half-sister
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '62296006'
     label: Natural grandfather
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '17945006'
     label: Natural grandmother
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '1220561009'
     label: Not recorded
 - id: HL7FHIR:familymemberhistory.status
@@ -2192,34 +2217,34 @@ value_sets:
   - system: HL7FHIR
     code: health-unknown
     label: Health Unknown
-- id: SNOMED:54123-5
+- id: SNOMEDCT:54123-5
   label: AdministrativeGender Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '248152002'
     label: Female
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '248153007'
     label: Male
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '184115007'
     label: Patient sex unknown
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '32570691000036108'
     label: Intersex
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '1220561009'
     label: Not recorded
-- id: SNOMED:740604001
+- id: SNOMEDCT:740604001
   label: Deceased Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373066001'
     label: Yes
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373067005'
     label: No
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown
 - id: HL7FHIR:309370004
@@ -2243,39 +2268,39 @@ value_sets:
   - system: HL7FHIR
     code: entered-in-error
     label: Entered in Error
-- id: SNOMED:consent_contact_research
+- id: SNOMEDCT:consent_contact_research
   label: Contact for Research Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373066001'
     label: Yes
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373067005'
     label: No
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown
-- id: SNOMED:conset_data_reuse
+- id: SNOMEDCT:conset_data_reuse
   label: Data Reuse Consent Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373066001'
     label: Yes
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373067005'
     label: No
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown
-- id: SNOMED:123038009
+- id: SNOMEDCT:123038009
   label: Biological Sample Consent Value Set v2.0.0
   codes:
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373066001'
     label: Yes
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '373067005'
     label: No
-  - system: SNOMED
+  - system: SNOMEDCT
     code: '261665006'
     label: Unknown

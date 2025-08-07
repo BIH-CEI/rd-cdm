@@ -1,54 +1,66 @@
 id: https://github.com/BIH-CEI/rd-cdm/linkml/rd_cdm.schema.yaml
 license: CC0
 prefixes:
-  rdcdm: https://github.com/BIH-CEI/rd-cdm/linkml/
-  linkml: https://w3id.org/linkml/
-  xsd: http://www.w3.org/2001/XMLSchema#
+  rdcdm:       https://github.com/BIH-CEI/rd-cdm/
+  linkml:      https://w3id.org/linkml/
+  xsd:         http://www.w3.org/2001/XMLSchema#
+
 imports:
   - linkml:types
 
 # Top-level model for RD-CDM
 classes:
-  RDCDM:
+  RdCdm:
     description: "Root class for the Rare Disease Common Data Model (RD-CDM)"
     tree_root: true
     attributes:
       code_systems:
         range: CodeSystem
         multivalued: true
+        inlined_as_list: true
       data_elements:
         range: DataElement
         multivalued: true
+        inlined_as_list: true
       value_sets:
         range: ValueSet
         multivalued: true
+        inlined_as_list: true
 
   CodeSystem:
-    description: "Metadata for an ontology/code system"
+    description: Metadata for an ontology or code system
     attributes:
       id:
-        description: "Unique identifier (CURIE) for the code system"
-        range: curie
-        required: true
-      name:
-        description: "Human-readable name"
+        description: >
+          The CURIE prefix used for terms in this code system
+          (e.g. “ncbitaxon”, “snomedct”, “icd10cm”).
         range: string
+        identifier: true
         required: true
-      url:
-        description: "Base ontology URI"
+      namespace_iri:
+        description: >
+          The base namespace IRI for this ontology,
+          used by OAKlib to expand CURIEs and load the adapter.
         range: uri
         required: true
       version:
-        description: "Release version or date"
+        description: The release version or publication date of the ontology
         range: string
         required: true
+      title:
+        description: A human-readable title for this code system
+        range: string
+      homepage:
+        description: A URL for human browsing or documentation
+        range: uri
+
 
   Coding:
     description: "A code + code system reference"
     attributes:
       system:
         description: "CURIE for the code system"
-        range: curie
+        range: string
         required: true
       code:
         description: "The code within the system"
@@ -93,8 +105,8 @@ classes:
         range: Coding
         required: true
       elementCodeSystem:
-        description: "Reference to the code system CURIE"
-        range: curie
+        description: Identifier of the code system (matches one of the `CodeSystem.id` values, e.g. “SNOMEDCT”, “LOINC”, “CustomCode”).
+        range: string
         required: true
       dataType:
         description: "Data type (e.g., string, integer, identifier)"
@@ -105,7 +117,7 @@ classes:
         multivalued: true
       valueSet:
         description: "Value set CURIE if applicable"
-        range: curie
+        range: string
       fhirExpression_v4_0_1:
         description: "FHIRPath expression for FHIR mapping"
         range: string

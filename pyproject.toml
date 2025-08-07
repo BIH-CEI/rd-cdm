@@ -1,43 +1,63 @@
+# Use setuptools as the build backend for PEP 517/518
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "template_for_python_projects"
-authors = [
-    {name = "Adam SL Graefe", email="adam.graefe@charite.de"},
-    {name = "Filip Rehburg", email="filip.rehburg@charite.de"},
-    {name = "Daniel Danis", email="daniel.danis@bih-charite.de"},
-    {name = "Peter N Robinson", email="peter.robinson@bih-charite.de"},
-    {name = "Sylvia Thun", email="sylvia.thun@bih-charite.de"},
-]
-description = "An ontology-based Rare Disease Common Data Model (RD CDM) to enable international registry use, HL7 FHIR, and GA4GH Phenopackets."
+name = "rd-cdm"
+version = "2.0.1"  # ← single source of truth (remove the duplicate Poetry version block)
+description = "An ontology-based rare disease common data model (RD-CDM) harmonising international registries, HL7 FHIR, and GA4GH Phenopackets."
 readme = "README.md"
-requires-python = ">=3.10"
-keywords = [
-    "Rare Diseases",
-    "Ontology",
-    "GA4GH Phenopacket Schema",
-    "HL7 FHIR",
-    "Inernational Patient Summary",
-    
-]
+requires-python = ">=3.10, <3.13"
 license = { file = "LICENSE" }
+
+authors = [
+  { name = "Adam SL Graefe", email = "adam.graefe@charite.de" },
+  { name = "Filip Rehburg", email = "filip.rehburg@charite.de" },
+  { name = "Daniel Danis", email = "daniel.danis@bih-charite.de" },
+  { name = "Peter N Robinson", email = "peter.robinson@bih-charite.de" },
+  { name = "Sylvia Thun", email = "sylvia.thun@bih-charite.de" },
+]
+
+keywords = [
+  "Rare Diseases", "Interoperability", "Ontology",
+  "GA4GH Phenopackets", "HL7 FHIR",
+  "Inernational Patient Summary", "Genomics Reporting"
+]
+
 classifiers = [
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-    "Development Status :: 3 - Alpha",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Intended Audience :: Science/Research",
-    "Topic :: Scientific/Engineering :: Machine Learning"
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering :: Medical Science Apps."
 ]
+
+# RUNTIME deps only (no poetry here; remove duplicate 'requests')
 dependencies = [
-    "numpy",
-    "jsonschema",  # Added jsonschema to dependencies
+  "numpy",
+  "jsonschema",
+  "ruamel.yaml>=0.17.21",
+  "requests>=2.31.0,<3.0.0",
+  "requests-cache>=1.2.1,<2.0.0",
+  "linkml-runtime>=1.9.4",
+  "linkml>=1.7.0",
+  "oaklib>=0.6.23",
 ]
-version = "0.1.0"
 
 [project.optional-dependencies]
-test = ["pytest>=7.0.0,<8.0.0"]
-docs = ["sphinx>=7.0.0", "sphinx-rtd-theme>=1.3.0", "sphinx-copybutton>=0.5.0"]
+test = [
+  "pytest>=7.0.0,<9.0.0",
+  "requests-mock>=1.11.0",
+]
+docs = [
+  "sphinx>=7.0.0",
+  "sphinx-rtd-theme>=1.3.0",
+  "sphinx-copybutton>=0.5.0",
+]
 
 [project.urls]
 homepage = "https://github.com/BIH-CEI/rd-cdm"
@@ -45,8 +65,37 @@ repository = "https://github.com/BIH-CEI/rd-cdm"
 documentation = "https://rd-cdm.readthedocs.io/en/latest/"
 bugtracker = "https://github.com/BIH-CEI/rd-cdm/issues"
 
+# Console scripts for your utilities
+[project.scripts]
+rdcdm-merge = "rd_cdm.utils.parsing:main"           # writes rd_cdm_vX_Y_Z.yaml
+rdcdm-json  = "rd_cdm.utils.json_parsing:main"      # writes per-file JSONs + rd_cdm_vX_Y_Z.json
+rdcdm-csv   = "rd_cdm.utils.csv_parsing:write_csvs_from_instances"
+rdcdm-validate = "rd_cdm.utils.validation:main"     # BioPortal validation
+
+# Tell setuptools where the code lives
 [tool.setuptools]
 package-dir = { "" = "src" }
+include-package-data = true
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+# Include non-Python data inside the package (schema + *all* versioned instances)
+[tool.setuptools.package-data]
+rd_cdm = [
+  "schema/rd_cdm.yaml",
+  "instances/*/*.yaml",   # any version directory (v2_0_1, v2_0_0, etc.)
+  "instances/*/jsons/*.json",
+  "instances/*/csvs/*.csv",
+]
+
+# If you still want to keep Poetry for local workflows (optional):
+# - Remove duplicated metadata (name/version/deps) from [tool.poetry]
+# - Or better, drop Poetry sections entirely to avoid drift.
+# Keeping them will cause confusion, so the recommendation is to remove:
+
+# [tool.poetry]
+# [tool.poetry.dependencies]
+# [tool.poetry.plugins."oaklib.plugins"]
+# [tool.poetry.scripts]
+

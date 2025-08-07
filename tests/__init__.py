@@ -1,28 +1,32 @@
-import data_model
-import json
-import os
+"""
+RD-CDM tests package.
 
-def validate_schemas(version):
-    base_path = f'res/v{version}/'  # Adjust path for the subfolder
+This package contains unit tests for the RD-CDM library, covering:
 
-    schema_file = f'{base_path}schema_v{version}.json'
-    data_elements_file = f'{base_path}data_elements_v{version}.json'
-    codesystems_file = f'{base_path}codesystems_v{version}.json'
-    value_sets_file = f'{base_path}value_sets_v{version}.json'
+- **CSV parsing and export** (`test_csv_parsing.py`):
+  Verifies that all part YAML files (`code_systems.yaml`, `data_elements.yaml`, 
+  `value_sets.yaml`) are correctly converted to individual CSVs and that a 
+  combined `rd_cdm_vX_Y_Z.csv` is generated.
 
-    with open(schema_file) as schema_file:
-        schema = json.load(schema_file)
-        
-    for file in [data_elements_file, codesystems_file, value_sets_file]:
-        with open(file) as json_file:
-            data = json.load(json_file)
-            try:
-                data_model.validate(instance=data, schema=schema)
-            except data_model.ValidationError as e:
-                print(f"Validation error in {file}: {e.message}")
-                return False
+- **JSON parsing and export** (`test_json_parsing.py`):
+  Checks that part YAMLs are converted to individual JSON files, skipping the 
+  pre-merged `rd_cdm_vX_Y_Z.yaml` in the loop, and ensuring the combined 
+  `rd_cdm_vX_Y_Z.json` is created at the end.
 
-    print(f"All schemas for version {version} are valid.")
-    return True
+- **Instance merging** (`test_merge_instances.py`):
+  Tests that versioned instance parts are merged into a single 
+  `rd_cdm_vX_Y_Z.yaml` file.
 
-__all__ = ['validate_schemas']
+- **Validation utilities** (`test_validation_utils.py`):
+  Ensures helper functions for code cleaning, ontology label fetching, 
+  and version retrieval work as expected.
+
+- **Version resolution** (`test_versioning.py`):
+  Validates that `resolve_instances_dir` and related helpers correctly locate 
+  and normalize the target instances directory for a given version.
+
+All tests use `pytest` and rely on temporary directories or monkeypatching to 
+avoid altering the actual RD-CDM source data.
+"""
+
+__all__ = []

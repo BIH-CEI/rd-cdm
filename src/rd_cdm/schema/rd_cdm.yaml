@@ -1,0 +1,138 @@
+id: https://github.com/BIH-CEI/rd-cdm/linkml/rd_cdm.schema.yaml
+license: CC0
+prefixes:
+  rdcdm:       https://github.com/BIH-CEI/rd-cdm/
+  linkml:      https://w3id.org/linkml/
+  xsd:         http://www.w3.org/2001/XMLSchema#
+
+imports:
+  - linkml:types
+
+# Top-level model for RD-CDM
+classes:
+  RdCdm:
+    description: "Root class for the Rare Disease Common Data Model (RD-CDM)"
+    tree_root: true
+    attributes:
+      code_systems:
+        range: CodeSystem
+        multivalued: true
+        inlined_as_list: true
+      data_elements:
+        range: DataElement
+        multivalued: true
+        inlined_as_list: true
+      value_sets:
+        range: ValueSet
+        multivalued: true
+        inlined_as_list: true
+
+  CodeSystem:
+    description: Metadata for an ontology or code system
+    attributes:
+      id:
+        description: >
+          The CURIE prefix used for terms in this code system
+          (e.g. “ncbitaxon”, “snomedct”, “icd10cm”).
+        range: string
+        identifier: true
+        required: true
+      namespace_iri:
+        description: >
+          The base namespace IRI for this ontology,
+          used by OAKlib to expand CURIEs and load the adapter.
+        range: uri
+        required: true
+      version:
+        description: The release version or publication date of the ontology
+        range: string
+        required: true
+      title:
+        description: A human-readable title for this code system
+        range: string
+      homepage:
+        description: A URL for human browsing or documentation
+        range: uri
+
+
+  Coding:
+    description: "A code + code system reference"
+    attributes:
+      system:
+        description: "CURIE for the code system"
+        range: string
+        required: true
+      code:
+        description: "The code within the system"
+        range: string
+        required: true
+      label:
+        description: "Preferred label for the code"
+        range: string
+
+  ValueSet:
+    description: "A set of permitted codes for a data element"
+    attributes:
+      id:
+        description: "Unique identifier for the value set"
+        range: curie
+        required: true
+      label:
+        description: "Human-readable name"
+        range: string
+        required: true
+      codes:
+        description: "List of allowed codes"
+        range: Coding
+        multivalued: true
+
+  DataElement:
+    description: "A single data field in the RD-CDM"
+    attributes:
+      ordinal:
+        description: "Position within the form or section"
+        range: string
+        required: true
+      section:
+        description: "Logical grouping or heading"
+        range: string
+      elementName:
+        description: "Human-readable name of the element"
+        range: string
+        required: true
+      elementCode:
+        description: "Primary code describing the element"
+        range: Coding
+        required: true
+      elementCodeSystem:
+        description: Identifier of the code system (matches one of the `CodeSystem.id` values, e.g. “SNOMEDCT”, “LOINC”, “CustomCode”).
+        range: string
+        required: true
+      dataType:
+        description: "Data type (e.g., string, integer, identifier)"
+        range: string
+      dataSpecification:
+        description: "Reference or link to specification"
+        range: string
+        multivalued: true
+      valueSet:
+        description: "Value set CURIE if applicable"
+        range: string
+      fhirExpression_v4_0_1:
+        description: "FHIRPath expression for FHIR mapping"
+        range: string
+      recommendedDataSpec_fhir:
+        description: "Recommendations for FHIR profiling"
+        range: string
+      phenopacketSchemaElement_v2_0:
+        description: "Phenopacket schema path"
+        range: string
+      recommendedDataSpec_phenopackets:
+        description: "Recommended Phenopacket datatype or format"
+        range: string
+      description:
+        description: "Full textual description of the element"
+        range: string
+
+# Top-level slots (optional container definitions)
+slots: {}

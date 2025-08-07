@@ -1,0 +1,107 @@
+code_systems:
+# Codesystems that encode elements and value set items
+- id: SNOMEDCT
+  namespace_iri: http://purl.bioontology.org/ontology/SNOMEDCT/
+  version:    "SNOMEDCT_US_2024_09_01"
+  title:      "Systematized Nomenclature of Medicine – Clinical Terms (SNOMED CT)"
+
+- id: LOINC
+  namespace_iri: http://loinc.org
+  version:    "LNC278"
+  title:      "Logical Observation Identifiers Names and Codes (LOINC)"
+
+- id: HP
+  namespace_iri: http://purl.obolibrary.org/obo/HP
+  version:    "2025-05-06"
+  title:      "Human Phenotype Ontology (HPO)"
+
+- id: NCIT
+  namespace_iri: http://purl.obolibrary.org/obo/NCIT/
+  version:    "24.01e"
+  title:      "NCI Thesaurus (NCIT) OBO Edition"
+
+- id: HL7FHIR
+  namespace_iri: http://hl7.org/fhir/
+  version:    "v4.0.1"
+  title:      "Health Level Seven Fast Healthcare Interoperability Resources, Release 4"
+
+- id: GA4GH
+  namespace_iri: https://ga4gh.github.io/phenopacket-v2/
+  version:    "v2.0"
+  title:      "Global Alliance for Genomics and Health Phenopackets Schema"
+
+- id: CustomCode
+  namespace_iri: https://github.com/BIH-CEI/rd-cdm
+  version:    "v2.0.0"
+  title:      "Custom Code System RD CDM v2.0.0"
+
+# Codesystems that can encode values of data elements
+- id: NCBITAXON
+  namespace_iri: http://purl.obolibrary.org/obo/NCBITAXON/
+  version:    "NCBI2024_04_02"
+  title:      "NCBI organismal classification"
+
+- id: GENO
+  namespace_iri: http://purl.obolibrary.org/obo/GENO/
+  version:    "2023-10-08"
+  title:      "GENO – The Genotype Ontology"
+
+- id: SO
+  namespace_iri: http://purl.obolibrary.org/obo/SO/
+  version:    "2.6"
+  title:      "Sequence Ontology"
+
+- id: UO
+  namespace_iri: http://purl.obolibrary.org/obo/UO/
+  version:    "2023-05-25"
+  title:      "Units Ontology (UO)"
+
+- id: ECO
+  namespace_iri: http://purl.obolibrary.org/obo/ECO/
+  version:    "2025-06-23"
+  title:      "Evidence & Conclusion Ontology (ECO)"
+  
+- id: ICD10CM
+  namespace_iri: http://purl.bioontology.org/ontology/ICD10CM/
+  version:    "CD10CM_2025"
+  title:      "International Classification of Diseases, Tenth Revision, Clinical Modification (ICD-10-CM)"
+
+- id: MONDO
+  namespace_iri: http://purl.obolibrary.org/obo/MONDO/
+  version:    "2025-06-03"
+  title:      "Mondo Disease Ontology"
+
+- id: ORDO
+  namespace_iri: http://purl.obolibrary.org/obo/ORDO/
+  version:    "4.7"
+  title:      "Orphanet Rare Disease Ontology (ORDO)"
+
+- id: HGNC
+  namespace_iri: http://identifiers.org/hgnc/
+  version:    "2024-08-23"
+  title:      "HUGO Gene Nomenclature Committee (HGNC)"
+
+- id: OMIM
+  namespace_iri: http://purl.bioontology.org/ontology/OMIM/
+  version:    "OMIM2024_08_09"
+  title:      "Online Mendelian Inheritance in Man (OMIM)"
+
+- id: HGVS
+  namespace_iri: https://varnomen.hgvs.org/
+  version:    "21.0.0"
+  title:      "Human Genome Variation Society Nomenclature"
+
+- id: ICD11
+  namespace_iri: http://id.who.int/icd/release/11/mms/
+  version:    "2024-09-01"
+  title:      "International Classification of Diseases, Eleventh Revision (ICD-11)"
+
+- id: ISO3166
+  namespace_iri: https://www.iso.org/iso-3166-country-codes.html
+  version:    "2020(en)"
+  title:      "International Organization for Standardization – ISO 3166 Country Codes"
+
+- id: ICF
+  namespace_iri: https://www.who.int/standards/classifications/international-classification-of-functioning-disability-and-health
+  version:    "1.0.2"
+  title:      "International Classification of Functioning, Disability and Health (ICF)"

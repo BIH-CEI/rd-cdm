@@ -1,0 +1,466 @@
+{
+  "value_sets": [
+    {
+      "id": "SNOMEDCT:281053000",
+      "label": "Sex at Birth Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "1220561009",
+          "label": "Not recorded"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:1296886006",
+      "label": "Karyotypic Sex Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "74964007",
+          "label": "Other"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:263495000",
+      "label": "Gender Identity Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "1220561009",
+          "label": "Not recorded"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:278844005",
+      "label": "Vital Status Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "261665006",
+          "label": "Unknown - Other Reason"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:105727008",
+      "label": "Age Category Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "261665006",
+          "label": "Unknown"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:278844005",
+      "label": "Vital Status Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "261665006",
+          "label": "Unknown - Other Reason"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:105727008",
+      "label": "Age Category Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "261665006",
+          "label": "Unknown"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:723663001",
+      "label": "Undiagnosed RD Case Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "373067005",
+          "label": "No"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:305058001",
+      "label": "Encounter Status Value Set v2.0.0",
+      "codes": {
+        "HL7FHIR": {
+          "system": "HL7FHIR",
+          "code": "unknown",
+          "label": "Unknown"
+        }
+      }
+    },
+    {
+      "id": "HL7FHIR:encounter.class",
+      "label": "Encounter Class Value Set v2.0.0",
+      "codes": {
+        "HL7FHIR": {
+          "system": "HL7FHIR",
+          "code": "HH",
+          "label": "Home Health"
+        },
+        "CustomCode": {
+          "system": "CustomCode",
+          "code": "RDC",
+          "label": "RD Specialist Center"
+        },
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "261665006",
+          "label": "Unknown"
+        }
+      }
+    },
+    {
+      "id": "HL7FHIR:99498-8",
+      "label": "Verification Status Value Set v2.0.0",
+      "codes": {
+        "HL7FHIR": {
+          "system": "HL7FHIR",
+          "code": "entered-in-error",
+          "label": "Entered in Error"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:424850005",
+      "label": "Age at Onset Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "261665006",
+          "label": "Unknown"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:423493009",
+      "label": "Age at Diagnosis Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "261665006",
+          "label": "Unknown"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:363698007",
+      "label": "Body Site Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "442083009",
+          "label": "Anatomical or acquired body structure"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:263493007",
+      "label": "Clinical Status Value Set v2.0.0",
+      "codes": {
+        "HL7FHIR": {
+          "system": "HL7FHIR",
+          "code": "resolved",
+          "label": "Resolved"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:246112005",
+      "label": "Severity Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "255604002",
+          "label": "Mild"
+        }
+      }
+    },
+    {
+      "id": "GA4GH:progress_status",
+      "label": "Progress Status Value Set v2.0.0",
+      "codes": {
+        "GA4GH": {
+          "system": "GA4GH",
+          "code": "UNSOLVED",
+          "label": "The interpretation is complete but no definitive diagnosiswas found."
+        }
+      }
+    },
+    {
+      "id": "GA4GH:interpretation_status",
+      "label": "Interpretation Status Value Set v2.0.0",
+      "codes": {
+        "GA4GH": {
+          "system": "GA4GH",
+          "code": "CAUSATIVE",
+          "label": "The variant or gene reported here is  interpreted to be causative of the diagnosis."
+        }
+      }
+    },
+    {
+      "id": "LOINC:81304-8",
+      "label": "Structural Variant Analysis Method Value Set v2.0.0",
+      "codes": {
+        "LOINC": {
+          "system": "LOINC",
+          "code": "LA46-8",
+          "label": "Other"
+        }
+      }
+    },
+    {
+      "id": "LOINC:62374-4",
+      "label": "Reference Genome Value Set v2.0.0",
+      "codes": {
+        "LOINC": {
+          "system": "LOINC",
+          "code": "LA26806-2",
+          "label": "GRCh38 (hg38)"
+        }
+      }
+    },
+    {
+      "id": "LOINC:53034-5",
+      "label": "Zygosity Value Set v2.0.0",
+      "codes": {
+        "LOINC": {
+          "system": "LOINC",
+          "code": "LA46-8",
+          "label": "Other"
+        }
+      }
+    },
+    {
+      "id": "LOINC:48002-0",
+      "label": "Genomic Source Class Value Set v2.0.0",
+      "codes": {
+        "LOINC": {
+          "system": "LOINC",
+          "code": "LA26807-0",
+          "label": "De novo"
+        }
+      }
+    },
+    {
+      "id": "LOINC:48019-4",
+      "label": "DNA Change Type Value Set v2.0.0",
+      "codes": {
+        "LOINC": {
+          "system": "LOINC",
+          "code": "LA6690-7",
+          "label": "Substitution"
+        }
+      }
+    },
+    {
+      "id": "LOINC:53037-8",
+      "label": "Clinical Significance ACMG Value Set v2.0.0",
+      "codes": {
+        "LOINC": {
+          "system": "LOINC",
+          "code": "LA4489-6",
+          "label": "Unknown"
+        }
+      }
+    },
+    {
+      "id": "GA4GH:therapeutic_actionability",
+      "label": "Therapeutic Actionability Value Set v2.0.0",
+      "codes": {
+        "GA4GH": {
+          "system": "GA4GH",
+          "code": "ACTIONABLE",
+          "label": "This variant is known to be therapeuticallyactionalbe."
+        }
+      }
+    },
+    {
+      "id": "LOINC:93044-6",
+      "label": "Clinical Annotation Level Of Evidence Value Set v2.0.0",
+      "codes": {
+        "LOINC": {
+          "system": "LOINC",
+          "code": "LA26333-7",
+          "label": "Uncertain significance"
+        }
+      }
+    },
+    {
+      "id": "CustomCode:phenotypicfeature.excluded",
+      "label": "Phenotype Status Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "723511001",
+          "label": "Refuted"
+        }
+      }
+    },
+    {
+      "id": "HP:0003674",
+      "label": "Onset Category Value Set v2.0.0",
+      "codes": {
+        "HP": {
+          "system": "HP",
+          "code": "0003584",
+          "label": "Late onset"
+        }
+      }
+    },
+    {
+      "id": "HP:0011008",
+      "label": "Temporal Pattern Value Set v2.0.0",
+      "codes": {
+        "HP": {
+          "system": "HP",
+          "code": "0025153",
+          "label": "Transient"
+        }
+      }
+    },
+    {
+      "id": "HP:0012824",
+      "label": "Severity Value Set v2.0.0",
+      "codes": {
+        "HP": {
+          "system": "HP",
+          "code": "0012828",
+          "label": "Severe"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:64245008",
+      "label": "Propositus Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "1220561009",
+          "label": "Not recorded"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:408732007",
+      "label": "Family Relationship To Index Case Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "1220561009",
+          "label": "Not recorded"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:842009",
+      "label": "Consanguinity Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "1220561009",
+          "label": "Not recorded"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:444018008",
+      "label": "FamilyMember Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "1220561009",
+          "label": "Not recorded"
+        }
+      }
+    },
+    {
+      "id": "HL7FHIR:familymemberhistory.status",
+      "label": "FamilyHistoryStatus Value Set v2.0.0",
+      "codes": {
+        "HL7FHIR": {
+          "system": "HL7FHIR",
+          "code": "health-unknown",
+          "label": "Health Unknown"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:54123-5",
+      "label": "AdministrativeGender Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "1220561009",
+          "label": "Not recorded"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:740604001",
+      "label": "Deceased Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "261665006",
+          "label": "Unknown"
+        }
+      }
+    },
+    {
+      "id": "HL7FHIR:309370004",
+      "label": "Consent Status Value Set v2.0.0",
+      "codes": {
+        "HL7FHIR": {
+          "system": "HL7FHIR",
+          "code": "entered-in-error",
+          "label": "Entered in Error"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:consent_contact_research",
+      "label": "Contact for Research Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "261665006",
+          "label": "Unknown"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:conset_data_reuse",
+      "label": "Data Reuse Consent Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "261665006",
+          "label": "Unknown"
+        }
+      }
+    },
+    {
+      "id": "SNOMEDCT:123038009",
+      "label": "Biological Sample Consent Value Set v2.0.0",
+      "codes": {
+        "SNOMEDCT": {
+          "system": "SNOMEDCT",
+          "code": "261665006",
+          "label": "Unknown"
+        }
+      }
+    }
+  ],
+  "@type": "RdCdm"
+}

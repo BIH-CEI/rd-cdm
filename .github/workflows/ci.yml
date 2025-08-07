@@ -50,6 +50,9 @@ jobs:
     name: Merge & Validate
     runs-on: ubuntu-latest
     needs: [tests]
+    env:
+      PYTHONPATH: src
+      BIOPORTAL_API_KEY: ${{ secrets.BIOPORTAL_API_KEY }}  # expose once at job level
     steps:
       - uses: actions/checkout@v4
 
@@ -66,8 +69,6 @@ jobs:
         run: poetry install --no-interaction --no-root
 
       - name: Merge instance files -> rd_cdm_vX_Y_Z.yaml
-        env:
-          PYTHONPATH: src
         run: |
           # Uses your version resolver; omit --version to auto-pick
           poetry run python src/rd_cdm/utils/parsing.py
@@ -80,12 +81,10 @@ jobs:
           poetry run linkml validate --schema src/rd_cdm/schema/rd_cdm.yaml "$MERGED_FILE"
 
       - name: RD-CDM validation against BioPortal (optional)
-        if: ${{ secrets.BIOPORTAL_API_KEY != '' }}
-        env:
-          BIOPORTAL_API_KEY: ${{ secrets.BIOPORTAL_API_KEY }}
-          PYTHONPATH: src
+        if: env.BIOPORTAL_API_KEY != ''
         run: |
           poetry run python src/rd_cdm/utils/validation.py
+
 
   build:
     name: Build (sdist/wheel)

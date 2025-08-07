@@ -171,55 +171,55 @@ value_sets:
   label: Encounter Status Value Set v2.0.0
   codes:
   - system: HL7FHIR
-    code: planned
+    code: 'planned'
     label: Planned
   - system: HL7FHIR
-    code: arrived
+    code: 'arrived'
     label: Arrived
   - system: HL7FHIR
-    code: triaged
+    code: 'triaged'
     label: Triaged
   - system: HL7FHIR
-    code: in-progress
+    code: 'in-progress'
     label: In Progress
   - system: HL7FHIR
-    code: onleave
+    code: 'onleave'
     label: On Leave
   - system: HL7FHIR
-    code: finished
+    code: 'finished'
     label: Finished
   - system: HL7FHIR
-    code: cancelled
+    code: 'cancelled'
     label: Cancelled
   - system: HL7FHIR
-    code: entered-in-error
+    code: 'entered-in-error'
     label: Entered in Error
   - system: HL7FHIR
-    code: unknown
+    code: 'unknown'
     label: Unknown
 - id: HL7FHIR:encounter.class
   label: Encounter Class Value Set v2.0.0
   codes:
   - system: HL7FHIR
-    code: AMB
+    code: 'AMB'
     label: Ambulatory
   - system: HL7FHIR
-    code: IMP
+    code: 'IMP'
     label: Inpatient
   - system: HL7FHIR
-    code: OBSENC
+    code: 'OBSENC'
     label: Observation
   - system: HL7FHIR
-    code: EMER
+    code: 'EMER'
     label: Emergency
   - system: HL7FHIR
-    code: VR
+    code: 'VR'
     label: Virtual
   - system: HL7FHIR
-    code: HH
+    code: 'HH'
     label: Home Health
-  - system: HL7FHIR
-    code: RDC
+  - system: CustomCode
+    code: 'RDC'
     label: RD Specialist Center
   - system: SNOMEDCT
     code: '261665006'
@@ -228,22 +228,22 @@ value_sets:
   label: Verification Status Value Set v2.0.0
   codes:
   - system: HL7FHIR
-    code: unconfirmed
+    code: 'unconfirmed'
     label: Unconfirmed
   - system: HL7FHIR
-    code: provisional
+    code: 'provisional'
     label: Provisional
   - system: HL7FHIR
-    code: differential
+    code: 'differential'
     label: Differential
   - system: HL7FHIR
-    code: confirmed
+    code: 'confirmed'
     label: Confirmed
   - system: HL7FHIR
-    code: refuted
+    code: 'refuted'
     label: Refuted
   - system: HL7FHIR
-    code: entered-in-error
+    code: 'entered-in-error'
     label: Entered in Error
 - id: SNOMEDCT:424850005
   label: Age at Onset Value Set v2.0.0
@@ -279,28 +279,28 @@ value_sets:
   label: Body Site Value Set v2.0.0
   codes:
   - system: SNOMEDCT
-    code: << 442083009
-    label: << 442083009 |Anatomical or acquired body structure|
-- id: HL7FHIR:263493007
+    code: '442083009'
+    label: Anatomical or acquired body structure|
+- id: SNOMEDCT:263493007
   label: Clinical Status Value Set v2.0.0
   codes:
   - system: HL7FHIR
-    code: active
+    code: 'active'
     label: Active
   - system: HL7FHIR
-    code: recurrence
+    code: 'recurrence'
     label: Recurrence
   - system: HL7FHIR
-    code: relapse
+    code: 'relapse'
     label: Relapse
   - system: HL7FHIR
-    code: inactive
+    code: 'inactive'
     label: Inactive
   - system: HL7FHIR
-    code: remission
+    code: 'remission'
     label: Remission
   - system: HL7FHIR
-    code: resolved
+    code: 'resolved'
     label: Resolved
 - id: SNOMEDCT:246112005
   label: Severity Value Set v2.0.0
@@ -310,7 +310,7 @@ value_sets:
     label: Severe
   - system: SNOMEDCT
     code: '6736007'
-    label: Moderate
+    label: Moderate severity
   - system: SNOMEDCT
     code: '255604002'
     label: Mild
@@ -318,41 +318,41 @@ value_sets:
   label: Progress Status Value Set v2.0.0
   codes:
   - system: GA4GH
-    code: UNKNOWN_PROGRESS
+    code: 'UNKNOWN_PROGRESS'
     label: No information is available aboutthe diagnosis
   - system: GA4GH
-    code: IN_PROGRESS
+    code: 'IN_PROGRESS'
     label: No diagnosis has been found to date but additional differential diagnostic
       work is in progress.
   - system: GA4GH
-    code: COMPLETED
+    code: 'COMPLETED'
     label: The work on the interpretation is complete.
   - system: GA4GH
-    code: SOLVED
+    code: 'SOLVED'
     label: The interpretation is complete and also considered to be a definitive diagnosis.
   - system: GA4GH
-    code: UNSOLVED
+    code: 'UNSOLVED'
     label: The interpretation is complete but no definitive diagnosiswas found.
 - id: GA4GH:interpretation_status
   label: Interpretation Status Value Set v2.0.0
   codes:
   - system: GA4GH
-    code: UNKNOWN_STATUS
+    code: 'UNKNOWN_STATUS'
     label: No information is available about the status
   - system: GA4GH
-    code: REJECTED
+    code: 'REJECTED'
     label: The variant or gene reported here is  interpreted not to be related to
       the diagnosis.
   - system: GA4GH
-    code: CANDIDATE
+    code: 'CANDIDATE'
     label: The variant or gene reported here is interpreted to possibly be related
       to the diagnosis.
   - system: GA4GH
-    code: CONTRIBUTORY
+    code: 'CONTRIBUTORY'
     label: The variant or gene reported here is  interpreted to be related to the
       diagnosis.
   - system: GA4GH
-    code: CAUSATIVE
+    code: 'CAUSATIVE'
     label: The variant or gene reported here is  interpreted to be causative of the
       diagnosis.
 - id: LOINC:81304-8
@@ -414,13 +414,13 @@ value_sets:
     label: Homozygous
   - system: LOINC
     code: 'LA6706-1'
-    label: (Simple) Heterozygous
+    label: Heterozygous
   - system: LOINC
     code: 'LA26217-2'
-    label: Compound Heterozygous
+    label: Compound heterozygous
   - system: LOINC
     code: 'LA26220-6'
-    label: Double Heterozygous
+    label: Double heterozygous
   - system: LOINC
     code: 'LA6707-9'
     label: Hemizygous
@@ -447,19 +447,19 @@ value_sets:
     label: Fetal
   - system: LOINC
     code: 'LA18194-3'
-    label: Likely Germline
+    label: Likely germline
   - system: LOINC
     code: 'LA18195-0'
-    label: Likely Somatic
+    label: Likely somatic
   - system: LOINC
     code: 'LA18196-8'
-    label: Likely Fetal
+    label: Likely fetal
   - system: LOINC
     code: 'LA18197-6'
-    label: Unknown Genomic Origin
+    label: Unknown genomic origin
   - system: LOINC
     code: 'LA26807-0'
-    label: De Novo
+    label: De novo
 - id: LOINC:48019-4
   label: DNA Change Type Value Set v2.0.0
   codes:
@@ -492,13 +492,13 @@ value_sets:
     label: Pathogenic
   - system: LOINC
     code: 'LA26332-9'
-    label: Likely Pathogenic
+    label: Likely pathogenic
   - system: LOINC
     code: 'LA26333-7'
-    label: Uncertain Significance
+    label: Uncertain significance
   - system: LOINC
     code: 'LA26334-5'
-    label: Likely Benign
+    label: Likely benign
   - system: LOINC
     code: 'LA6675-8'
     label: Benign
@@ -509,45 +509,45 @@ value_sets:
   label: Therapeutic Actionability Value Set v2.0.0
   codes:
   - system: GA4GH
-    code: UNKNOWN_ACTIONABILITY
+    code: 'UNKNOWN_ACTIONABILITY'
     label: There is not enough information at this time to support any therapeutic
       actionability for this variant.
   - system: GA4GH
-    code: NOT_ACTIONABLE
+    code: 'NOT_ACTIONABLE'
     label: This variant has no therapeutic actionability.
   - system: GA4GH
-    code: ACTIONABLE
+    code: 'ACTIONABLE'
     label: This variant is known to be therapeuticallyactionalbe.
 - id: LOINC:93044-6
   label: Clinical Annotation Level Of Evidence Value Set v2.0.0
   codes:
   - system: LOINC
     code: 'LA30200-2'
-    label: Very Strong Evidence Pathogenic
+    label: Very Strong evidence pathogenic
   - system: LOINC
     code: 'LA30201-0'
-    label: Strong Evidence Pathogenic
+    label: Strong evidence pathogenic
   - system: LOINC
     code: 'LA30202-8'
-    label: Moderate Evidence Pathogenic
+    label: Moderate evidence pathogenic
   - system: LOINC
     code: 'LA30203-6'
-    label: Supporting Evidence Pathogenic
+    label: Supporting evidence pathogenic
   - system: LOINC
     code: 'LA30204-4'
-    label: Supporting Evidence Benign
+    label: Supporting evidence benign
   - system: LOINC
     code: 'LA30205-1'
-    label: Strong Evidence Benign
+    label: Strong evidence benign
   - system: LOINC
     code: 'LA30206-9'
-    label: Stand-alone Evidence Pathogenic
+    label: Stand-alone evidence pathogenic
   - system: LOINC
     code: 'LA30207-7'
-    label: Stand-alone Evidence Benign
+    label: Stand-alone evidence benign
   - system: LOINC
     code: 'LA26333-7'
-    label: Uncertain Significance
+    label: Uncertain significance
 - id: CustomCode:phenotypicfeature.excluded
   label: Phenotype Status Value Set v2.0.0
   codes:
@@ -573,7 +573,7 @@ value_sets:
     code: '0003623'
     label: Neonatal onset
   - system: HP
-    code: 0003593
+    code: '0003593'
     label: Infantile onset
   - system: HP
     code: '0011463'
@@ -586,10 +586,10 @@ value_sets:
     label: Young adult onset
   - system: HP
     code: '0003596'
-    label: Middle age adult onset
+    label: Middle age onset
   - system: HP
     code: '0003584'
-    label: Late adult onset
+    label: Late onset
 - id: HP:0011008
   label: Temporal Pattern Value Set v2.0.0
   codes:
@@ -792,22 +792,22 @@ value_sets:
   label: Consent Status Value Set v2.0.0
   codes:
   - system: HL7FHIR
-    code: draft
+    code: 'draft'
     label: Pending
   - system: HL7FHIR
-    code: proposed
+    code: 'proposed'
     label: Proposed
   - system: HL7FHIR
-    code: active
+    code: 'active'
     label: Active
   - system: HL7FHIR
-    code: rejected
+    code: 'rejected'
     label: Rejected
   - system: HL7FHIR
-    code: inactive
+    code: 'inactive'
     label: Inactive
   - system: HL7FHIR
-    code: entered-in-error
+    code: 'entered-in-error'
     label: Entered in Error
 - id: SNOMEDCT:consent_contact_research
   label: Contact for Research Value Set v2.0.0

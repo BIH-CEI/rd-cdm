@@ -1,60 +1,67 @@
 #!/usr/bin/env python3
-import os
 import sys
-import re
-import urllib.parse
-
+import argparse
 import requests
 import ruamel.yaml
 from linkml_runtime.loaders import yaml_loader
 from rd_cdm.python_classes.rd_cdm import RdCdm
+from rd_cdm.utils.versioning import resolve_instances_dir
+from rd_cdm.utils.validation_utils import clean_code, get_remote_version, get_remote_label
 
 # ——— CONFIG ——————————————————————————————————————————————
 VALIDATION_SYSTEMS = {"SNOMEDCT", "LOINC", "HP", "NCIT"}
+SKIP_VERSION_CHECK = {"CustomCode", "GA4GH", "HL7FHIR", "HGVS", "ICD11", "ISO3166"}
 BP_BASE = "https://data.bioontology.org"
-
-# ——— HELPERS —————————————————————————————————————————————
-def bp_headers():
-    key = os.getenv("BIOPORTAL_API_KEY")
-    if not key:
-        print("ERROR: BIOPORTAL_API_KEY not set", file=sys.stderr)
-        sys.exit(2)
-    return {"Authorization": f"apikey token={key}"}
-
-def clean_code(raw) -> str:
-    s = str(raw)
-    return re.sub(r'[^A-Za-z0-9\.-]', '', s)
-
-def get_remote_version(sys_id: str) -> str:
-    r = requests.get(f"{BP_BASE}/ontologies/{sys_id}", headers=bp_headers())
-    r.raise_for_status()
-    latest = r.json()["links"].get("latest_submission")
-    r2 = requests.get(latest, headers=bp_headers()); r2.raise_for_status()
-    j = r2.json()
-    return j.get("version") or j.get("versionNumber") or j.get("submissionDate")
-
-def get_remote_label(sys_id: str, code: str, iri: str) -> str | None:
-    h = bp_headers()
-    # try CURIE
-    curie = f"{sys_id}:{code}"
-    r = requests.get(f"{BP_BASE}/ontologies/{sys_id}/classes/{urllib.parse.quote(curie, safe='')}", headers=h)
-    if r.status_code == 200:
-        return r.json().get("prefLabel")
-    if r.status_code != 404:
-        r.raise_for_status()
-    # try full IRI
-    full = f"{iri.rstrip('/')}/{code}"
-    r2 = requests.get(f"{BP_BASE}/ontologies/{sys_id}/classes/{urllib.parse.quote(full, safe='')}", headers=h)
-    if r2.status_code == 200:
-        return r2.json().get("prefLabel")
-    if r2.status_code != 404:
-        r2.raise_for_status()
-    return None
 
 # ——— MAIN —————————————————————————————————————————————————
 def main():
-    # 1) load model
-    model: RdCdm = yaml_loader.load("src/rd_cdm/instances/v2_0_0/rd_cdm_full.yaml", RdCdm)
+    """
+    Entry point for RD-CDM validation against BioPortal.
+
+    What it does
+    ------------
+    1) Resolves the instances directory (from --version, pyproject version, or latest).
+    2) Loads the merged LinkML instance (rd_cdm_full.yaml) as RdCdm.
+    3) Builds a map of CodeSystems and checks live version drift for each ontology
+       (except those explicitly skipped).
+    4) Validates every DataElement.elementCode (system+code):
+       - Skips composite codes (contain '=').
+       - Uses get_remote_label to verify existence and optionally detect label drift.
+    5) Validates every ValueSet member (only items under 'codes', not the ValueSet id):
+       - Accepts both dict entries (with system/code/label) and strings 'PREFIX:ID'.
+       - Skips composite codes.
+       - Uses get_remote_label as above.
+    6) Prints a summary: counts of DataElements checked, ValueSet members checked,
+       valid/missing/skipped terms, and number of warnings.
+    7) Prints detailed Errors and Warnings sections.
+    8) Exits with status 1 if any errors were found; otherwise exits 0.
+
+    Inputs & configuration
+    ----------------------
+    - BIOPORTAL_API_KEY must be set in the environment for API calls to succeed.
+    - VALIDATION_SYSTEMS controls which ontologies are validated for code existence.
+    - SKIP_VERSION_CHECK lists ontologies for which version drift is ignored.
+
+    Side effects
+    ------------
+    - Prints to stdout/stderr.
+    - Terminates the process via sys.exit with 0 (success) or 1 (errors).
+
+    Returns
+    -------
+    None
+        (Terminates the process.)
+    """
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--version", help="Instances version (e.g., 2.0.1 or v2_0_1). "
+                                      "Defaults to pyproject version, then latest dir.")
+    args = ap.parse_args()
+
+    instances_dir = resolve_instances_dir(args.version)
+    full_path = instances_dir / "rd_cdm_full.yaml"
+
+    model: RdCdm = yaml_loader.load(str(full_path), RdCdm)
+
     cs_map = {cs.id: cs for cs in model.code_systems}
 
     errors = []
@@ -66,19 +73,18 @@ def main():
     de_checked = 0
     vs_checked = 0
 
-    # 2) version drifts
-    for sys_id in VALIDATION_SYSTEMS:
-        cs = cs_map.get(sys_id)
-        if not cs:
-            errors.append(f"{sys_id}: missing CodeSystem entry")
+    # 2) Version drift checks for *all* code systems except the skips
+    for cs in model.code_systems:
+        if cs.id in SKIP_VERSION_CHECK:
+            # skip these on purpose
             continue
         try:
-            live_v = get_remote_version(sys_id)
+            live_v = get_remote_version(cs.id)
         except Exception as e:
-            errors.append(f"{sys_id}: version fetch failed ({e})")
+            warnings.append(f"{cs.id}: could not fetch live version ({e})")
             continue
         if live_v != cs.version:
-            warnings.append(f"{sys_id}: version drift (model={cs.version}, live={live_v})")
+            warnings.append(f"{cs.id}: version drift – model={cs.version}, live={live_v}")
 
     # 3) DataElement codes
     for de in model.data_elements:
@@ -109,19 +115,34 @@ def main():
 
     # 4) ValueSet codes (raw YAML)
     yaml = ruamel.yaml.YAML(typ="safe")
-    merged = yaml.load(open("src/rd_cdm/instances/v2_0_0/rd_cdm_full.yaml"))
+    with open(instances_dir / "rd_cdm_full.yaml", "r", encoding="utf-8") as fh:
+        merged = yaml.load(fh)
+
     for vs in merged.get("value_sets", []):
+        vs_id = vs.get("id", "<unknown VS>")
         for c in vs.get("codes", []):
-            sys_id = c.get("system")
-            raw_code = c.get("code")
+            # normalize entry → (sys_id, raw_code, label0)
+            if isinstance(c, dict):
+                sys_id = c.get("system")
+                raw_code = c.get("code")
+                label0 = c.get("label")
+            elif isinstance(c, str) and ":" in c:
+                sys_id, raw_code = c.split(":", 1)
+                label0 = None
+            else:
+                errors.append(f"VS {vs_id}: bad code entry {c}")
+                continue
+
             if sys_id not in VALIDATION_SYSTEMS:
                 continue
             if raw_code is None or "=" in str(raw_code):
                 skipped_codes.append(f"{sys_id}:{raw_code}")
                 continue
+
             code = clean_code(raw_code)
             vs_checked += 1
             cs = cs_map[sys_id]
+
             try:
                 label_live = get_remote_label(sys_id, code, cs.namespace_iri)
             except requests.HTTPError:
@@ -129,14 +150,18 @@ def main():
 
             curie = f"{sys_id}:{raw_code}"
             if not label_live:
-                errors.append(f"VS {vs['id']}: missing member {curie}")
+                errors.append(f"VS {vs_id}: missing member {curie}")
                 invalid_codes.append(curie)
             else:
+                # record valid
                 valid_codes.append(curie)
-                label0 = c.get("label")
+                # optional label drift warning
                 if label0 and label_live != label0:
-                    warnings.append(f"VS {vs['id']}: label drift – {curie}: model='{label0}', live='{label_live}'")
-
+                    warnings.append(
+                        f"VS {vs_id}: label drift – {curie}: "
+                        f"model='{label0}', live='{label_live}'"
+                    )
+                    
     # ——— SUMMARY PRINTOUT ————————————————————————————————
     print("\n=== RD‐CDM VALIDATION SUMMARY ===")
     print(f"  DataElements checked: {de_checked}")

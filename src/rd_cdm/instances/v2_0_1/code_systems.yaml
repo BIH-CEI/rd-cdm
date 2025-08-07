@@ -2,22 +2,22 @@ code_systems:
 # Codesystems that encode elements and value set items
 - id: SNOMEDCT
   namespace_iri: http://purl.bioontology.org/ontology/SNOMEDCT/
-  version:    "2024-10-01"
+  version:    "SNOMEDCT_US_2024_09_01"
   title:      "Systematized Nomenclature of Medicine – Clinical Terms (SNOMED CT)"
 
 - id: LOINC
   namespace_iri: http://loinc.org
-  version:    "2.78"
+  version:    "LNC278"
   title:      "Logical Observation Identifiers Names and Codes (LOINC)"
 
 - id: HP
   namespace_iri: http://purl.obolibrary.org/obo/HP
-  version:    "2024-08-13"
+  version:    "2025-05-06"
   title:      "Human Phenotype Ontology (HPO)"
 
 - id: NCIT
-  namespace_iri: http://purl.obolibrary.org/obo/NCIT
-  version:    "24.04e"
+  namespace_iri: http://purl.obolibrary.org/obo/NCIT/
+  version:    "24.01e"
   title:      "NCI Thesaurus (NCIT) OBO Edition"
 
 - id: HL7FHIR
@@ -36,9 +36,9 @@ code_systems:
   title:      "Custom Code System RD CDM v2.0.0"
 
 # Codesystems that can encode values of data elements
-- id: NCBITaxon
-  namespace_iri: http://purl.obolibrary.org/obo/NCBITaxon_
-  version:    "2024-07-03"
+- id: NCBITAXON
+  namespace_iri: http://purl.obolibrary.org/obo/NCBITAXON/
+  version:    "NCBI2024_04_02"
   title:      "NCBI organismal classification"
 
 - id: GENO
@@ -53,32 +53,27 @@ code_systems:
 
 - id: UO
   namespace_iri: http://purl.obolibrary.org/obo/UO/
-  version:    "2024-09-12"
+  version:    "2023-05-25"
   title:      "Units Ontology (UO)"
 
 - id: ECO
   namespace_iri: http://purl.obolibrary.org/obo/ECO/
-  version:    "unknown"
+  version:    "2025-06-23"
   title:      "Evidence & Conclusion Ontology (ECO)"
-
-- id: ICD9
-  namespace_iri: http://purl.bioontology.org/ontology/ICD9CM/
-  version:    "n/a"
-  title:      "International Classification of Diseases, Ninth Revision (ICD-9)"
-
+  
 - id: ICD10CM
   namespace_iri: http://purl.bioontology.org/ontology/ICD10CM/
-  version:    "2024-09-01"
+  version:    "CD10CM_2025"
   title:      "International Classification of Diseases, Tenth Revision, Clinical Modification (ICD-10-CM)"
 
 - id: MONDO
   namespace_iri: http://purl.obolibrary.org/obo/MONDO/
-  version:    "2024-09-03"
+  version:    "2025-06-03"
   title:      "Mondo Disease Ontology"
 
 - id: ORDO
   namespace_iri: http://purl.obolibrary.org/obo/ORDO/
-  version:    "2024-09-12"
+  version:    "4.7"
   title:      "Orphanet Rare Disease Ontology (ORDO)"
 
 - id: HGNC
@@ -88,7 +83,7 @@ code_systems:
 
 - id: OMIM
   namespace_iri: http://purl.bioontology.org/ontology/OMIM/
-  version:    "2024-09-12"
+  version:    "OMIM2024_08_09"
   title:      "Online Mendelian Inheritance in Man (OMIM)"
 
 - id: HGVS

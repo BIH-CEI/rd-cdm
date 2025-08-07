@@ -41,7 +41,7 @@ dependencies = [
     "requests-cache (>=1.2.1,<2.0.0)",
     "requests"
 ]
-version = "2.0.0"
+version = "2.0.1"
 
 [project.optional-dependencies]
 test = ["pytest>=7.0.0,<8.0.0"]
@@ -61,7 +61,7 @@ where = ["src"]
 
 [tool.poetry]
 name = "rd-cdm"
-version = "2.0.0"
+version = "2.0.1"
 packages = [
     { include = "rd_cdm", from = "src" }
 ]

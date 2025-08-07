@@ -35,9 +35,10 @@ dependencies = [
     "jsonschema",
     "oaklib", 
     "linkml",
-    "poetry"
+    "poetry",
+    "ruamel.yaml"
 ]
-version = "2.0.1"
+version = "2.0.0"
 
 [project.optional-dependencies]
 test = ["pytest>=7.0.0,<8.0.0"]
@@ -54,3 +55,13 @@ package-dir = { "" = "src" }
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.poetry]
+packages = [
+    { include = "rd_cdm" }
+]
+
+include = [
+  "src/rd_cdm/schema/rd_cdm.yaml",
+  "src/rd_cdm/instances/v2_0_0/*.yaml"
+]

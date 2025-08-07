@@ -1,0 +1,89 @@
+code_systems:
+- id: NCBITaxon
+  name: NCBI organismal classification
+  url: https://www.ncbi.nlm.nih.gov/taxonomy
+  version: "2024-07-03"
+- id: GENO
+  name: "GENO: The Genotype Ontology"
+  url: http://www.genoontology.org/
+  version: "2023-10-08"
+- id: SO
+  name: Sequence types and features ontology
+  url: http://www.sequenceontology.org/
+  version: "2.6"
+- id: ICD9
+  name: International Classification of Diseases, Ninth Revision
+  url: https://www.cdc.gov/nchs/icd/icd9.htm
+  version: "n/a"
+- id: ICD10CM
+  name: International Classification of Diseases, Tenth Revision, Clinical Modification
+  url: https://www.cdc.gov/nchs/icd/icd10cm.htm
+  version: "2024-09-01"
+- id: ICD11
+  name: International Classification of Diseases, Eleventh Revision
+  url: https://icd.who.int/
+  version: "2024-09-01"
+- id: SNOMED
+  name: SNOMED CT
+  url: http://purl.bioontology.org/ontology/SNOMEDCT
+  version: "2024-10-01"
+- id: HL7FHIR
+  name: HL7 FHIR R4
+  url: http://hl7.org/fhir/
+  version: "v4.0.1"
+- id: GA4GH
+  name: GA4GH Phenopackets Schema
+  url: https://github.com/ga4gh/phenopacket
+  version: "v2.0"
+- id: ISO3166
+  name: ISO 3166 Country Codes
+  url: https://www.iso.org/iso-3166-country-codes.html
+  version: "2020(en)"
+- id: ICF
+  name: International Classification of Functioning, Disability and Health
+  url: https://www.who.int/standards/classifications/international-classification-of-functioning-disability-and-health
+  version: "1.0.2"
+- id: MONDO
+  name: Mondo Disease Ontology
+  url: https://mondo.monarchinitiative.org/
+  version: "2024-09-03"
+- id: ORDO
+  name: Orphanet Rare Disease Ontology
+  url: http://www.orphadata.org/cgi-bin/index.php
+  version: "2024-09-12"
+- id: OMIM
+  name: Online Mendelian Inheritance in Man
+  url: https://www.omim.org/
+  version: "2024-09-12"
+- id: LOINC
+  name: Logical Observation Identifiers Names and Codes
+  url: https://loinc.org/
+  version: "2.78"
+- id: HGVS
+  name: Human Genome Variation Society Nomenclature
+  url: https://varnomen.hgvs.org/
+  version: "21.0.0"
+- id: HGNC
+  name: HUGO Gene Nomenclature Committee
+  url: https://www.genenames.org/
+  version: "2024-08-23"
+- id: HP
+  name: Human Phenotype Ontology
+  url: https://hpo.jax.org/app/
+  version: "2024-08-13"
+- id: NCIT
+  name: NCI Thesaurus OBO Edition
+  url: https://ncit.nci.nih.gov/
+  version: "24.04e"
+- id: UO
+  name: Units Ontology
+  url: http://www.ontobee.org/ontology/UO
+  version: "2024-09-12"
+- id: ECO
+  name: Evidence & Conclusion Ontology (ECO)
+  url: https://www.evidenceontology.org/
+  version: "unknown"
+- id: CustomCode
+  name: Custom Code System RD CDM v2.0.0
+  url: https://github.com/BIH-CEI/rd-cdm
+  version: "unknown"

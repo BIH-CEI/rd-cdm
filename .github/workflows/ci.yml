@@ -1,0 +1,76 @@
+# .github/workflows/ci.yml
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Optional: nightly or weekly version‐bump runs
+    - cron: '0 2 * * 1'
+
+jobs:
+  validate:
+    name: Validate RD-CDM model
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
+          poetry install  # assumes linkml, linkml-runtime, oaklib, ruamel.yaml, etc.
+
+      - name: Merge instance files
+        run: |
+          chmod +x scripts/merge_instances.py
+          ./scripts/merge_instances.py
+
+      - name: Validate LinkML schema & instances
+        run: |
+          linkml validate \
+            --schema src/rd_cdm/schema/rd_cdm.yaml \
+            src/rd_cdm/instances/v2_0_0/rd_cdm_full.yaml
+
+      - name: Run OAKlib validation
+        run: |
+          poetry run python scripts/oak_validate.py \
+            --instance src/rd_cdm/instances/v2_0_0/rd_cdm_full.yaml
+
+      # Optional: if oak_validate.py detects ontology version drifts,
+      # it can exit with a non-zero code or even open a PR automatically.
+
+  bump-version:
+    name: Auto-bump code system versions
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule'
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python & install
+        uses: actions/setup-python@v4
+        with: { python-version: '3.10' }
+      - run: |
+          pip install poetry
+          poetry install
+
+      - name: Fetch latest ontology versions & bump
+        run: |
+          poetry run python scripts/oak_version_bump.py
+      - name: Commit & push changes
+        run: |
+          git config user.name github-actions
+          git config user.email actions@github.com
+          git add src/rd_cdm/instances/v2_0_0/codesystems.yaml
+          git commit -m "ci: bump ontology versions via OAKlib"
+          git push origin HEAD:main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

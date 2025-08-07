@@ -3,9 +3,9 @@ data_elements:
   section: 1. Formal Criteria
   elementName: Pseudonym
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '422549004'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Identifier
   dataSpecification:
   - n/a
@@ -19,9 +19,9 @@ data_elements:
   section: 1. Formal Criteria
   elementName: Date of Admission
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '399423000'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Date
   dataSpecification:
   - YYYY-MM-DD
@@ -35,9 +35,9 @@ data_elements:
   section: 2. Personal Information
   elementName: Date of Birth
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '184099003'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Date
   dataSpecification:
   - YYYY
@@ -53,9 +53,9 @@ data_elements:
   section: 2. Personal Information
   elementName: Sex at Birth
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '281053000'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -70,9 +70,9 @@ data_elements:
   section: 2. Personal Information
   elementName: Karyotypic Sex
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '1296886006'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSc
@@ -86,9 +86,9 @@ data_elements:
   section: 2. Personal Information
   elementName: Gender Identity
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '263495000'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -103,9 +103,9 @@ data_elements:
   section: 2. Personal Information
   elementName: Country of Birth
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '370159000'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VS
@@ -119,9 +119,9 @@ data_elements:
   section: 3. Patient Status
   elementName: Vital Status
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '278844005'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -136,9 +136,9 @@ data_elements:
   section: 3. Patient Status
   elementName: Time of Death
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '398299004'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Date
   dataSpecification:
   - YYYY
@@ -154,9 +154,9 @@ data_elements:
   section: 3. Patient Status
   elementName: Cause of Death
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '184305005'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - ICD-10CM
@@ -170,9 +170,9 @@ data_elements:
   section: 3. Patient Status
   elementName: Age Category
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '105727008'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -186,9 +186,9 @@ data_elements:
   section: 3. Patient Status
   elementName: Length of Gestation at Birth [weeks+days]
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '412726003'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: String
   dataSpecification:
   - XX+X
@@ -202,9 +202,9 @@ data_elements:
   section: 3. Patient Status
   elementName: Undiagnosed RD Case
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '723663001'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -221,7 +221,7 @@ data_elements:
   elementName: Encounter Start
   elementCode:
     system: HL7FHIR
-    code: encounter.period.start
+    code: 'encounter.period.start'
   elementCodeSystem: HL7FHIR
   dataType: Date
   dataSpecification:
@@ -237,7 +237,7 @@ data_elements:
   elementName: Encounter End
   elementCode:
     system: HL7FHIR
-    code: encounter.period.end
+    code: 'encounter.period.end'
   elementCodeSystem: HL7FHIR
   dataType: Date
   dataSpecification:
@@ -252,9 +252,9 @@ data_elements:
   section: 4. Care Pathway
   elementName: Encounter Status
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '305058001'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -286,9 +286,9 @@ data_elements:
   section: 5. Disease
   elementName: Disease
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '64572001'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - Ontology Class (MONDO, ORDO, ICD-10, ICD-11, OMIM_g, OMIM_p)
@@ -305,7 +305,7 @@ data_elements:
   elementName: Verification Status
   elementCode:
     system: LOINC
-    code: 99498-8
+    code: '99498-8'
   elementCodeSystem: LOINC
   dataType: Code
   dataSpecification:
@@ -320,9 +320,9 @@ data_elements:
   section: 5. Disease
   elementName: Age at Onset
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '424850005'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -337,9 +337,9 @@ data_elements:
   section: 5. Disease
   elementName: Date of Onset
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '298059007'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Date
   dataSpecification:
   - YYYY-MM-DD
@@ -353,9 +353,9 @@ data_elements:
   section: 5. Disease
   elementName: Age at Diagnosis
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '423493009'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -370,9 +370,9 @@ data_elements:
   section: 5. Disease
   elementName: Date of Diagnosis
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '432213005'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Date
   dataSpecification:
   - YYYY-MM-DD
@@ -386,14 +386,14 @@ data_elements:
   section: 5. Disease
   elementName: Body Site
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '363698007'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VS
   valueSet: Body Site Value Set v2.0.0
-  fhirExpression_v4_0_1: Condition.bodySite.coding:snomed-ct
+  fhirExpression_v4_0_1: Condition.bodySite.coding:SNOMEDCT-ct
   recommendedDataSpec_fhir: CodeableConcept
   phenopacketSchemaElement_v2_0: Disease.primary_site
   recommendedDataSpec_phenopackets: OntologyClass
@@ -403,9 +403,9 @@ data_elements:
   section: 5. Disease
   elementName: Clinical Status
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '263493007'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VS
@@ -420,9 +420,9 @@ data_elements:
   section: 5. Disease
   elementName: Severity
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '246112005'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VS
@@ -436,9 +436,9 @@ data_elements:
   section: 6. Genetic Findings
   elementName: Genomic Diagnosis
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '106221001'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - OMIM_p
@@ -489,7 +489,7 @@ data_elements:
   elementName: Structural Variant Analysis Method
   elementCode:
     system: LOINC
-    code: 81304-8
+    code: '81304-8'
   elementCodeSystem: LOINC
   dataType: Code
   dataSpecification:
@@ -506,7 +506,7 @@ data_elements:
   elementName: Reference Genome
   elementCode:
     system: LOINC
-    code: 62374-4
+    code: '62374-4'
   elementCodeSystem: LOINC
   dataType: Code
   dataSpecification:
@@ -522,7 +522,7 @@ data_elements:
   elementName: Genetic Mutation String
   elementCode:
     system: LOINC
-    code: LP7824-8
+    code: 'LP7824-8'
   elementCodeSystem: LOINC
   dataType: String
   dataSpecification:
@@ -538,7 +538,7 @@ data_elements:
   elementName: Genomic DNA Change
   elementCode:
     system: LOINC
-    code: 81290-9
+    code: '81290-9'
   elementCodeSystem: LOINC
   dataType: Code
   dataSpecification:
@@ -555,7 +555,7 @@ data_elements:
   elementName: Sequence DNA Change
   elementCode:
     system: LOINC
-    code: 48004-6
+    code: '48004-6'
   elementCodeSystem: LOINC
   dataType: Code
   dataSpecification:
@@ -572,7 +572,7 @@ data_elements:
   elementName: Amino Acid Change
   elementCode:
     system: LOINC
-    code: 48005-3
+    code: '48005-3'
   elementCodeSystem: LOINC
   dataType: Code
   dataSpecification:
@@ -589,7 +589,7 @@ data_elements:
   elementName: Gene
   elementCode:
     system: LOINC
-    code: 48018-6
+    code: '48018-6'
   elementCodeSystem: LOINC
   dataType: Code
   dataSpecification:
@@ -606,7 +606,7 @@ data_elements:
   elementName: Zygosity
   elementCode:
     system: LOINC
-    code: 53034-5
+    code: '53034-5'
   elementCodeSystem: LOINC
   dataType: Code
   dataSpecification:
@@ -624,7 +624,7 @@ data_elements:
   elementName: Genomic Source Class
   elementCode:
     system: LOINC
-    code: 48002-0
+    code: '48002-0'
   elementCodeSystem: LOINC
   dataType: Code
   dataSpecification:
@@ -641,7 +641,7 @@ data_elements:
   elementName: DNA Change Type
   elementCode:
     system: LOINC
-    code: 48019-4
+    code: '48019-4'
   elementCodeSystem: LOINC
   dataType: Code
   dataSpecification:
@@ -658,7 +658,7 @@ data_elements:
   elementName: Clinical Significance [ACMG]
   elementCode:
     system: LOINC
-    code: 53037-8
+    code: '53037-8'
   elementCodeSystem: LOINC
   dataType: Code
   dataSpecification:
@@ -693,7 +693,7 @@ data_elements:
   elementName: Clinical Annotation Level Of Evidence
   elementCode:
     system: LOINC
-    code: 93044-6
+    code: '93044-6'
   elementCodeSystem: LOINC
   dataType: Code
   dataSpecification:
@@ -710,9 +710,9 @@ data_elements:
   section: 6. Phenotypic Feature
   elementName: Phenotypic Feature
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '8116006'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - HPO
@@ -726,9 +726,9 @@ data_elements:
   section: 6.2 Phenotypic Feature
   elementName: Status
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '363778006'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -744,9 +744,9 @@ data_elements:
   section: 6. Phenotypic Feature
   elementName: Determination Date
   elementCode:
-    system: SNOMED
-    code: 439272007:704321009=363778006
-  elementCodeSystem: SNOMED
+    system: SNOMEDCT
+    code: '439272007:704321009=363778006'
+  elementCodeSystem: SNOMEDCT
   dataType: Date
   dataSpecification:
   - YYYY-MM-DD
@@ -762,7 +762,7 @@ data_elements:
   elementName: Resolution Date
   elementCode:
     system: HP
-    code: 0034382
+    code: '0034382'
   elementCodeSystem: HP
   dataType: Date
   dataSpecification:
@@ -795,7 +795,7 @@ data_elements:
   elementName: Temporal Pattern
   elementCode:
     system: HP
-    code: 0011008
+    code: '0011008'
   elementCodeSystem: HP
   dataType: Code
   dataSpecification:
@@ -812,7 +812,7 @@ data_elements:
   elementName: Severity
   elementCode:
     system: HP
-    code: 0012824
+    code: '0012824'
   elementCodeSystem: HP
   dataType: Code
   dataSpecification:
@@ -829,7 +829,7 @@ data_elements:
   elementName: Modifiers
   elementCode:
     system: GA4GH
-    code: phenotypicfeature.modifier
+    code: 'phenotypicfeature.modifier'
   elementCodeSystem: GA4GH
   dataType: Code
   dataSpecification:
@@ -847,7 +847,7 @@ data_elements:
   elementName: Evidence
   elementCode:
     system: GA4GH
-    code: phenotypicfeature.evidence
+    code: 'phenotypicfeature.evidence'
   elementCodeSystem: GA4GH
   dataType: Code
   dataSpecification:
@@ -864,7 +864,7 @@ data_elements:
   elementName: Assay
   elementCode:
     system: NCIT
-    code: C60819
+    code: 'C60819'
   elementCodeSystem: NCIT
   dataType: Code
   dataSpecification:
@@ -880,7 +880,7 @@ data_elements:
   elementName: Value
   elementCode:
     system: NCIT
-    code: C25712
+    code: 'C25712'
   elementCodeSystem: NCIT
   dataType: Value
   dataSpecification:
@@ -896,7 +896,7 @@ data_elements:
   elementName: Value Unit
   elementCode:
     system: NCIT
-    code: C92571
+    code: 'C92571'
   elementCodeSystem: NCIT
   dataType: Code
   dataSpecification:
@@ -912,7 +912,7 @@ data_elements:
   elementName: Interpretation
   elementCode:
     system: NCIT
-    code: C41255
+    code: 'C41255'
   elementCodeSystem: NCIT
   dataType: Code
   dataSpecification:
@@ -929,7 +929,7 @@ data_elements:
   elementName: Time Observed
   elementCode:
     system: NCIT
-    code: C82577
+    code: 'C82577'
   elementCodeSystem: NCIT
   dataType: Date
   dataSpecification:
@@ -944,12 +944,12 @@ data_elements:
   section: 6.3 Measurement
   elementName: Procedure
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '122869004'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
-  - OntologyClass (e.g. NCIT, SNOMED)
+  - OntologyClass (e.g. NCIT, SNOMEDCT)
   valueSet: n/a
   fhirExpression_v4_0_1: Procedure.code
   recommendedDataSpec_fhir: Measurement.procedure
@@ -961,7 +961,7 @@ data_elements:
   elementName: Family Member Pseudonym
   elementCode:
     system: CustomCode
-    code: family_member_id
+    code: 'family_member_id'
   elementCodeSystem: CustomCode
   dataType: Identifier
   dataSpecification:
@@ -976,9 +976,9 @@ data_elements:
   section: 6.4 Family History
   elementName: Propositus/-a
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '64245008'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -997,9 +997,9 @@ data_elements:
   section: 6.4 Family History
   elementName: Relationship of the Individual to the Propositus
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '408732007'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -1012,15 +1012,15 @@ data_elements:
   recommendedDataSpec_phenopackets: "(Family.relatives \u2192 1 Phenopacket per family\
     \ member)"
   description: 'Specifies the familial relationship of the individual being evaluated
-    to the propositus. Disclaimer: The SNOMED code for propositus (64245008) refers
+    to the propositus. Disclaimer: The SNOMEDCT code for propositus (64245008) refers
     to any gender.'
 - ordinal: 6.4.4
   section: 6.4 Family History
   elementName: Consanguinity
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '842009'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -1035,9 +1035,9 @@ data_elements:
   section: 6.4 Family History
   elementName: Family Member Relationship
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '444018008'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -1053,7 +1053,7 @@ data_elements:
   elementName: Family Member Record Status
   elementCode:
     system: HL7FHIR
-    code: familymemberhistory.status
+    code: 'familymemberhistory.status'
   elementCodeSystem: HL7FHIR
   dataType: Code
   dataSpecification:
@@ -1069,7 +1069,7 @@ data_elements:
   elementName: Family Member Sex
   elementCode:
     system: LOINC
-    code: 54123-5
+    code: '54123-5'
   elementCodeSystem: LOINC
   dataType: Code
   dataSpecification:
@@ -1087,7 +1087,7 @@ data_elements:
   elementName: Family Member Age
   elementCode:
     system: LOINC
-    code: 54141-7
+    code: '54141-7'
   elementCodeSystem: LOINC
   dataType: Integer
   dataSpecification:
@@ -1105,7 +1105,7 @@ data_elements:
   elementName: Family Member Date of Birth
   elementCode:
     system: LOINC
-    code: 54124-3
+    code: '54124-3'
   elementCodeSystem: LOINC
   dataType: Date
   dataSpecification:
@@ -1122,9 +1122,9 @@ data_elements:
   section: 6.4 Family
   elementName: Family Member Deceased
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '740604001'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -1141,7 +1141,7 @@ data_elements:
   elementName: Family Member Cause of Death
   elementCode:
     system: LOINC
-    code: 54112-8
+    code: '54112-8'
   elementCodeSystem: LOINC
   dataType: Code
   dataSpecification:
@@ -1159,7 +1159,7 @@ data_elements:
   elementName: Family Member Deceased Age
   elementCode:
     system: LOINC
-    code: 92662-6
+    code: '92662-6'
   elementCodeSystem: LOINC
   dataType: Integer
   dataSpecification:
@@ -1175,7 +1175,7 @@ data_elements:
   elementName: Family Member Disease
   elementCode:
     system: LOINC
-    code: 75315-2
+    code: '75315-2'
   elementCodeSystem: LOINC
   dataType: Code
   dataSpecification:
@@ -1196,9 +1196,9 @@ data_elements:
   section: 7. Consent
   elementName: Consent Status
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '309370004'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VS
@@ -1213,7 +1213,7 @@ data_elements:
   elementName: Consent Date
   elementCode:
     system: HL7FHIR
-    code: consent.datetime
+    code: 'consent.datetime'
   elementCodeSystem: HL7FHIR
   dataType: Date
   dataSpecification:
@@ -1228,9 +1228,9 @@ data_elements:
   section: 7. Consent
   elementName: Health Policy Monitoring
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '386318002'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: String
   dataSpecification:
   - n/a
@@ -1245,7 +1245,7 @@ data_elements:
   elementName: Agreement to be Contacted for Research
   elementCode:
     system: CustomCode
-    code: consent_contact_research
+    code: 'consent_contact_research'
   elementCodeSystem: CustomCode
   dataType: Code
   dataSpecification:
@@ -1261,7 +1261,7 @@ data_elements:
   elementName: Consent to the Reuse of Data
   elementCode:
     system: CustomCode
-    code: conset_data_reuse
+    code: 'conset_data_reuse'
   elementCodeSystem: CustomCode
   dataType: Code
   dataSpecification:
@@ -1276,9 +1276,9 @@ data_elements:
   section: 7. Consent
   elementName: Biological Sample
   elementCode:
-    system: SNOMED
+    system: SNOMEDCT
     code: '123038009'
-  elementCodeSystem: SNOMED
+  elementCodeSystem: SNOMEDCT
   dataType: Code
   dataSpecification:
   - VSe
@@ -1293,7 +1293,7 @@ data_elements:
   elementName: Link to a Biobank
   elementCode:
     system: CustomCode
-    code: biobank_link
+    code: 'biobank_link'
   elementCodeSystem: CustomCode
   dataType: String
   dataSpecification:
@@ -1310,7 +1310,7 @@ data_elements:
   elementName: Classification of Functioning / Disability
   elementCode:
     system: CustomCode
-    code: icf_score
+    code: 'icf_score'
   elementCodeSystem: CustomCode
   dataType: Code
   dataSpecification:

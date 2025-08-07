@@ -5,8 +5,9 @@ import requests
 import ruamel.yaml
 from linkml_runtime.loaders import yaml_loader
 from rd_cdm.python_classes.rd_cdm import RdCdm
-from rd_cdm.utils.versioning import resolve_instances_dir
+from rd_cdm.utils.versioning import resolve_instances_dir, normalize_dir_to_version, version_to_tag
 from rd_cdm.utils.validation_utils import clean_code, get_remote_version, get_remote_label
+
 
 # ——— CONFIG ——————————————————————————————————————————————
 VALIDATION_SYSTEMS = {"SNOMEDCT", "LOINC", "HP", "NCIT"}
@@ -21,7 +22,7 @@ def main():
     What it does
     ------------
     1) Resolves the instances directory (from --version, pyproject version, or latest).
-    2) Loads the merged LinkML instance (rd_cdm_full.yaml) as RdCdm.
+    2) Loads the merged LinkML instance (rd_cdm_vX_Y_Z.yaml) as RdCdm.
     3) Builds a map of CodeSystems and checks live version drift for each ontology
        (except those explicitly skipped).
     4) Validates every DataElement.elementCode (system+code):
@@ -58,21 +59,24 @@ def main():
     args = ap.parse_args()
 
     instances_dir = resolve_instances_dir(args.version)
-    full_path = instances_dir / "rd_cdm_full.yaml"
+
+    # Build filename rd_cdm_vX_Y_Z.yaml from the resolved directory name
+    v_norm = normalize_dir_to_version(instances_dir.name)      # "2.0.1"
+    v_tag  = version_to_tag(v_norm or instances_dir.name)      # "v2_0_1"
+    full_path = instances_dir / f"rd_cdm_{v_tag}.yaml"         # rd_cdm_v2_0_1.yaml
+
+    # Backward-compatibility fallback if someone still has rd_cdm_full.yaml
+    if not full_path.exists():
+        print(f"ERROR: merged instance not found: {full_path}", file=sys.stderr)
+        sys.exit(1)
 
     model: RdCdm = yaml_loader.load(str(full_path), RdCdm)
-
     cs_map = {cs.id: cs for cs in model.code_systems}
 
-    errors = []
-    warnings = []
-    valid_codes = []
-    invalid_codes = []
-    skipped_codes = []
-
-    de_checked = 0
-    vs_checked = 0
-
+    errors, warnings = [], []
+    valid_codes, invalid_codes, skipped_codes = [], [], []
+    de_checked = vs_checked = 0
+    
     # 2) Version drift checks for *all* code systems except the skips
     for cs in model.code_systems:
         if cs.id in SKIP_VERSION_CHECK:
@@ -115,7 +119,7 @@ def main():
 
     # 4) ValueSet codes (raw YAML)
     yaml = ruamel.yaml.YAML(typ="safe")
-    with open(instances_dir / "rd_cdm_full.yaml", "r", encoding="utf-8") as fh:
+    with open(full_path, "r", encoding="utf-8") as fh:  
         merged = yaml.load(fh)
 
     for vs in merged.get("value_sets", []):

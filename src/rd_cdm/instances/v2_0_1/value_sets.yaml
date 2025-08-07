@@ -280,7 +280,7 @@ value_sets:
   codes:
   - system: SNOMEDCT
     code: '442083009'
-    label: Anatomical or acquired body structure|
+    label: Anatomical or acquired body structure
 - id: SNOMEDCT:263493007
   label: Clinical Status Value Set v2.0.0
   codes:

@@ -5,11 +5,11 @@ import sys
 import argparse
 import ruamel.yaml
 
-from rd_cdm.utils.versioning import resolve_instances_dir
+from rd_cdm.utils.versioning import resolve_instances_dir, normalize_dir_to_version, version_to_tag
 
 def main(version: str | None = None) -> int:
     """
-    Merge versioned instance YAML parts into a single `rd_cdm_full.yaml`.
+    Merge versioned instance YAML parts into a single `rd_cdm_vX_Y_Z.yaml`.
 
     Version resolution order:
       1) Explicit `--version` argument (accepts "2.0.1", "v2.0.1", or "v2_0_1")
@@ -27,23 +27,7 @@ def main(version: str | None = None) -> int:
               "data_elements": [...],
               "value_sets":    [...]
             }
-      • Writes the merged result to `rd_cdm_full.yaml` in the same versioned folder.
-
-    Parameters
-    ----------
-    version : str | None
-        Optional version selector. If None, falls back to env/pyproject/latest.
-
-    Returns
-    -------
-    int
-        Exit code: 0 on success, non-zero if required files are missing or write fails.
-
-    Notes
-    -----
-    • This script assumes the three source files exist in the resolved instances dir.
-      If any are missing, it aborts with a clear error message.
-    • ruamel.yaml is used (not PyYAML) to better preserve formatting semantics.
+      • Writes the merged result to `rd_cdm_vX_Y_Z.yaml` in the same versioned folder.
     """
     # 1) Resolve the versioned instances directory
     try:
@@ -52,29 +36,16 @@ def main(version: str | None = None) -> int:
         print(f"ERROR: could not resolve instances directory: {e}", file=sys.stderr)
         return 2
 
-    # 2) YAML loader setup
+    # 2) Build version string with underscores
+    v_norm = normalize_dir_to_version(base.name)       # e.g., "2.0.1"
+    v_tag  = version_to_tag(v_norm or base.name)       # e.g., "v2_0_1"
+
+    # 3) YAML loader setup
     yaml = ruamel.yaml.YAML()
     yaml.preserve_quotes = True
 
     def load_file(name: str):
-        """
-        Load a YAML file named `name` from the resolved instances directory.
-
-        This helper:
-          • Builds the file path as `<instances_dir>/<name>`.
-          • Verifies existence; on missing file, prints an error and exits.
-          • Returns the parsed Python object produced by ruamel.yaml.
-
-        Parameters
-        ----------
-        name : str
-            Filename to load (e.g., "code_systems.yaml").
-
-        Returns
-        -------
-        Any
-            Parsed YAML content (typically a dict-like object).
-        """
+        """Load a YAML file from the resolved instances directory."""
         p = base / name
         if not p.exists():
             print(f"ERROR: missing required file: {p}", file=sys.stderr)
@@ -82,20 +53,20 @@ def main(version: str | None = None) -> int:
         with p.open("r", encoding="utf-8") as fh:
             return yaml.load(fh)
 
-    # 3) Load the three parts
+    # 4) Load the three parts
     cs = load_file("code_systems.yaml")
     de = load_file("data_elements.yaml")
     vs = load_file("value_sets.yaml")
 
-    # 4) Merge with safe .get() defaults
+    # 5) Merge with safe .get() defaults
     merged = {
         "code_systems":  (cs or {}).get("code_systems", []),
         "data_elements": (de or {}).get("data_elements", []),
         "value_sets":    (vs or {}).get("value_sets", []),
     }
 
-    # 5) Write out to the same versioned instances directory
-    out = base / "rd_cdm_full.yaml"
+    # 6) Write out to the same versioned instances directory
+    out = base / f"rd_cdm_{v_tag}.yaml"   # e.g., rd_cdm_v2_0_1.yaml
     try:
         with out.open("w", encoding="utf-8") as f:
             yaml.dump(merged, f)
@@ -108,7 +79,7 @@ def main(version: str | None = None) -> int:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="Merge RD-CDM instance YAMLs into rd_cdm_full.yaml for a specific version."
+        description="Merge RD-CDM instance YAMLs into rd_cdm_vX_Y_Z.yaml for a specific version."
     )
     parser.add_argument(
         "-v", "--version",

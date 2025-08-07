@@ -1,0 +1,22 @@
+id,namespace_iri,title,version
+SNOMEDCT,http://purl.bioontology.org/ontology/SNOMEDCT/,Systematized Nomenclature of Medicine – Clinical Terms (SNOMED CT),SNOMEDCT_US_2024_09_01
+LOINC,http://loinc.org,Logical Observation Identifiers Names and Codes (LOINC),LNC278
+HP,http://purl.obolibrary.org/obo/HP,Human Phenotype Ontology (HPO),2025-05-06
+NCIT,http://purl.obolibrary.org/obo/NCIT/,NCI Thesaurus (NCIT) OBO Edition,24.01e
+HL7FHIR,http://hl7.org/fhir/,"Health Level Seven Fast Healthcare Interoperability Resources, Release 4",v4.0.1
+GA4GH,https://ga4gh.github.io/phenopacket-v2/,Global Alliance for Genomics and Health Phenopackets Schema,v2.0
+CustomCode,https://github.com/BIH-CEI/rd-cdm,Custom Code System RD CDM v2.0.0,v2.0.0
+NCBITAXON,http://purl.obolibrary.org/obo/NCBITAXON/,NCBI organismal classification,NCBI2024_04_02
+GENO,http://purl.obolibrary.org/obo/GENO/,GENO – The Genotype Ontology,2023-10-08
+SO,http://purl.obolibrary.org/obo/SO/,Sequence Ontology,2.6
+UO,http://purl.obolibrary.org/obo/UO/,Units Ontology (UO),2023-05-25
+ECO,http://purl.obolibrary.org/obo/ECO/,Evidence & Conclusion Ontology (ECO),2025-06-23
+ICD10CM,http://purl.bioontology.org/ontology/ICD10CM/,"International Classification of Diseases, Tenth Revision, Clinical Modification (ICD-10-CM)",CD10CM_2025
+MONDO,http://purl.obolibrary.org/obo/MONDO/,Mondo Disease Ontology,2025-06-03
+ORDO,http://purl.obolibrary.org/obo/ORDO/,Orphanet Rare Disease Ontology (ORDO),4.7
+HGNC,http://identifiers.org/hgnc/,HUGO Gene Nomenclature Committee (HGNC),2024-08-23
+OMIM,http://purl.bioontology.org/ontology/OMIM/,Online Mendelian Inheritance in Man (OMIM),OMIM2024_08_09
+HGVS,https://varnomen.hgvs.org/,Human Genome Variation Society Nomenclature,21.0.0
+ICD11,http://id.who.int/icd/release/11/mms/,"International Classification of Diseases, Eleventh Revision (ICD-11)",2024-09-01
+ISO3166,https://www.iso.org/iso-3166-country-codes.html,International Organization for Standardization – ISO 3166 Country Codes,2020(en)
+ICF,https://www.who.int/standards/classifications/international-classification-of-functioning-disability-and-health,"International Classification of Functioning, Disability and Health (ICF)",1.0.2

@@ -5,7 +5,7 @@ on:
   push:
     branches: [ main ]
     tags:
-      - 'v*'            # publish on tag e.g. v2.0.1
+      - 'v*.*.*'            # publish on tag e.g. v2.0.1
   pull_request:
     branches: [ main ]
   schedule:
@@ -71,7 +71,7 @@ jobs:
       - name: Merge instance files -> rd_cdm_vX_Y_Z.yaml
         run: |
           # Uses your version resolver; omit --version to auto-pick
-          poetry run python src/rd_cdm/utils/parsing.py
+          poetry run python src/rd_cdm/utils/merge_instances.py
           # Remember the merged file path for later steps
           echo "MERGED_FILE=$(ls src/rd_cdm/instances/*/rd_cdm_v*.yaml | head -n1)" >> $GITHUB_ENV
 

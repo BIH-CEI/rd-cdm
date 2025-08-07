@@ -8,12 +8,8 @@ Schema
 [![Python CI](https://github.com/BIH-CEI/rd-cdm/actions/workflows/python_ci.yml/badge.svg)](https://github.com/BIH-CEI/rd-cdm/actions/workflows/python_ci.yml)
 [![Documentation Status](https://readthedocs.org/projects/rd-cdm/badge/?version=latest)](https://rd-cdm.readthedocs.io/en/latest/?badge=latest)
 [![DOI](https://zenodo.org/badge/863993011.svg)](https://doi.org/10.5281/zenodo.13891625)
-
-<!-- Combined Badges for RD-CDM v2.0.0 -->
-![RD-CDM v2.0.0](https://img.shields.io/badge/RD%20CDM%20v2.0.0-grey) 
-![JSON Created](https://img.shields.io/badge/JSON%20Created%20Successfully-blue)
-![CSV Created](https://img.shields.io/badge/CSV%20Created%20Successfully-6A5ACD)
-![Validation Successful](https://img.shields.io/badge/Validation%20Successful-brightgreen)
+![Python Versions](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue) 
+[![LinkML](https://img.shields.io/badge/LinkML-1.8.0+-green.svg)](https://linkml.io/)
 
 [Latest Documentation](https://rd-cdm.readthedocs.io/en/latest/)
 

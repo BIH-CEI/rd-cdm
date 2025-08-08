@@ -75,8 +75,12 @@ jobs:
   
       - name: Generate Pydantic models from schema
         run: |
-          poetry run python scripts/gen_pydantic.py
-          echo "PDM_DIR=$(ls -d src/rd_cdm/pydantic_models/* | head -n1)" >> $GITHUB_ENV
+          poetry run python src/rd_cdm/utils/gen_pydantic.py
+          python - << 'PY'
+          import importlib
+          importlib.import_module("rd_cdm.python_classes.rd_cdm_pydantic")
+          print("✅ rd_cdm.python_classes.rd_cdm_pydantic imported OK")
+          PY
   
       - name: Import smoke test (Pydantic models)
         run: |

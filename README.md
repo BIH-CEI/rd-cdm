@@ -59,11 +59,9 @@ Installing `rd-cdm` from PyPI provides:
     - `src/rd_cdm/instances/v2_0_1/jsons/*.json`
     - `src/rd_cdm/instances/v2_0_1/csvs/*.csv`
 
-- **Generated Python classes (LinkML)**
+- **Generated Python & Pydantic classes (LinkML)**
   - `src/rd_cdm/python_classes/rd_cdm.py` (LinkML runtime dataclasses)
-
-- **(Optional, generated in CI or locally) Pydantic models**
-  - `src/rd_cdm/pydantic_models/v2_0_1/*.py` (generated from the schema via LinkML’s Pydantic generator)
+  - `src/rd_cdm/python_classes/rd_cdm_pydantic.py` (generated from the schema via LinkML’s Pydantic generator)
 
 - **Utilities / CLI entry points**
   - `rdcdm-merge` – merge instance parts into `rd_cdm_vX_Y_Z.yaml`
@@ -129,6 +127,31 @@ rdcdm-json                   # or: rdcdm-json -v 2.0.1
 
 # Export CSV (per-file .csv + combined rd_cdm_vX_Y_Z.csv)
 rdcdm-csv                    # or: rdcdm-csv -v 2.0.1
+
+# Validate merged instance file against ontologies via BioPortal
+rdcdm-validate               # or: rdcdm-validate -v 2.0.1 (Note: set up BioPortal API key for this)
+```
+
+### BioPoratal API Key Setup for Validation
+The ``rdcdm-validate`` command uses the BioPortal API
+to check ontology term validity. This requires an API key to be set as an environment variable.
+
+#### Get an API key:
+
+Sign up (or log in) at https://bioportal.bioontology.org/accounts/new
+
+- Go to your account settings and copy your API Key.
+- Set the API key in your environment
+
+#### macOS / Linux (bash/zsh): 
+
+```bash
+export BIOPORTAL_API_KEY="your-key-here"
+```
+
+#### Windoes (PowerShell):
+```bash
+setx BIOPORTAL_API_KEY "your-key-here"
 ```
 
 ---

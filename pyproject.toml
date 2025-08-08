@@ -36,7 +36,6 @@ classifiers = [
   "Topic :: Scientific/Engineering :: Medical Science Apps."
 ]
 
-# RUNTIME deps only (no poetry here; remove duplicate 'requests')
 dependencies = [
   "numpy",
   "jsonschema",
@@ -46,7 +45,10 @@ dependencies = [
   "linkml-runtime>=1.9.4",
   "linkml>=1.7.0",
   "oaklib>=0.6.23",
+  "pydantic>=2.4",
+  "pydantic-settings>=2.3"
 ]
+
 
 [project.optional-dependencies]
 test = [
@@ -67,7 +69,7 @@ bugtracker = "https://github.com/BIH-CEI/rd-cdm/issues"
 
 # Console scripts for your utilities
 [project.scripts]
-rdcdm-merge = "rd_cdm.utils.parsing:main"           # writes rd_cdm_vX_Y_Z.yaml
+rdcdm-merge = "rd_cdm.utils.merge_instances:main"           # writes rd_cdm_vX_Y_Z.yaml
 rdcdm-json  = "rd_cdm.utils.json_parsing:main"      # writes per-file JSONs + rd_cdm_vX_Y_Z.json
 rdcdm-csv   = "rd_cdm.utils.csv_parsing:write_csvs_from_instances"
 rdcdm-validate = "rd_cdm.utils.validation:main"     # BioPortal validation
@@ -84,9 +86,10 @@ where = ["src"]
 [tool.setuptools.package-data]
 rd_cdm = [
   "schema/rd_cdm.yaml",
-  "instances/*/*.yaml",   # any version directory (v2_0_1, v2_0_0, etc.)
+  "instances/*/*.yaml",
   "instances/*/jsons/*.json",
   "instances/*/csvs/*.csv",
+  "pydantic_models/*/*.py",
 ]
 
 # If you still want to keep Poetry for local workflows (optional):

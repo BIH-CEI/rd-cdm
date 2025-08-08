@@ -26,7 +26,7 @@ keywords = [
   "Ontology",
   "GA4GH Phenopackets",
   "HL7 FHIR",
-  "Inernational Patient Summary",
+  "International Patient Summary",
   "Genomics Reporting",
 ]
 classifiers = [
@@ -56,7 +56,7 @@ include = [
 python = ">=3.10,<3.13"
 numpy = "*"
 jsonschema = "*"
-ruamel.yaml = ">=0.17.21"
+"ruamel.yaml" = ">=0.17.21"
 requests = ">=2.31.0,<3.0.0"
 requests-cache = ">=1.2.1,<2.0.0"
 linkml-runtime = ">=1.9.4"

@@ -76,7 +76,7 @@ Installing `rd-cdm` from PyPI provides:
 ## Features
 
 - **Interoperability**: Aligns with HL7 FHIR v4.0.1 and GA4GH Phenopacket v2.0
-- **Ontology-driven**: Uses SNOMED CT, LOINC, MONDO, OMIM, HPO, and more
+- **Ontology-driven**: Uses SNOMED CT, LOINC, NCIT, MONDO, OMIM, HPO, and more
 - **Modular**: Clear separation of schema, instances, and exports
 - **Versioned data**: Instances shipped and resolved per version (e.g., `v2_0_1`)
 - **Tooling**: Merge, export, and validation utilities with simple CLIs
@@ -198,17 +198,9 @@ development of this RD-CDM model.
 - Authors:
   - [Adam SL Graefe](https://github.com/aslgraefe)
   - [Filip Rehburg](https://github.com/frehburg) 
-  - Miriam Hübner
-  - Steffen Sander
-  - Sophie A. I. Klopfenstein
   - [Samer Alkarkoukly](https://github.com/alkarkoukly)
-  - Ana Grönke
-  - Annic Weyersberg
   - [Daniel Danis](https://github.com/ielis)
-  - Jana Zschüntzsch
-  - Elisabeth F. Nyoungui
-  - Susanna Wiegand
-  - Peter Kühnen
   - [Peter N. Robinson](https://github.com/pnrobinson)
-  - Prof. Sylvia Thun
-  - Prof. Oya Beyan
+  - Oya Beyan
+  - Sylvia Thun
+

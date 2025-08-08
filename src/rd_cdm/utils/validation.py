@@ -7,7 +7,7 @@ from linkml_runtime.loaders import yaml_loader
 from rd_cdm.python_classes.rd_cdm import RdCdm
 from rd_cdm.utils.versioning import resolve_instances_dir, normalize_dir_to_version, version_to_tag
 from rd_cdm.utils.validation_utils import clean_code, get_remote_version, get_remote_label
-
+from rd_cdm.utils.settings import ValidationSettings
 
 # ——— CONFIG ——————————————————————————————————————————————
 VALIDATION_SYSTEMS = {"SNOMEDCT", "LOINC", "HP", "NCIT"}
@@ -15,6 +15,8 @@ SKIP_VERSION_CHECK = {"CustomCode", "GA4GH", "HL7FHIR", "HGVS", "ICD11", "ISO316
 BP_BASE = "https://data.bioontology.org"
 
 # ——— MAIN —————————————————————————————————————————————————
+#!/usr/bin/env python3
+
 def main():
     """
     Entry point for RD-CDM validation against BioPortal.
@@ -54,18 +56,19 @@ def main():
         (Terminates the process.)
     """
     ap = argparse.ArgumentParser()
-    ap.add_argument("--version", help="Instances version (e.g., 2.0.1 or v2_0_1). "
-                                      "Defaults to pyproject version, then latest dir.")
+    ap.add_argument("--version", help="Instances version (e.g., 2.0.1 or v2_0_1).")
     args = ap.parse_args()
+
+    settings = ValidationSettings()
+    if not settings.bioportal_api_key:
+        print("ERROR: BIOPORTAL_API_KEY not set", file=sys.stderr)
+        sys.exit(2)
 
     instances_dir = resolve_instances_dir(args.version)
 
-    # Build filename rd_cdm_vX_Y_Z.yaml from the resolved directory name
-    v_norm = normalize_dir_to_version(instances_dir.name)      # "2.0.1"
-    v_tag  = version_to_tag(v_norm or instances_dir.name)      # "v2_0_1"
-    full_path = instances_dir / f"rd_cdm_{v_tag}.yaml"         # rd_cdm_v2_0_1.yaml
-
-    # Backward-compatibility fallback if someone still has rd_cdm_full.yaml
+    v_norm = normalize_dir_to_version(instances_dir.name) or instances_dir.name
+    v_tag  = version_to_tag(v_norm)
+    full_path = instances_dir / f"rd_cdm_{v_tag}.yaml"
     if not full_path.exists():
         print(f"ERROR: merged instance not found: {full_path}", file=sys.stderr)
         sys.exit(1)
@@ -73,14 +76,11 @@ def main():
     model: RdCdm = yaml_loader.load(str(full_path), RdCdm)
     cs_map = {cs.id: cs for cs in model.code_systems}
 
-    errors, warnings = [], []
-    valid_codes, invalid_codes, skipped_codes = [], [], []
+    errors, warnings, valid_codes, invalid_codes, skipped_codes = [], [], [], [], []
     de_checked = vs_checked = 0
-    
-    # 2) Version drift checks for *all* code systems except the skips
+
     for cs in model.code_systems:
         if cs.id in SKIP_VERSION_CHECK:
-            # skip these on purpose
             continue
         try:
             live_v = get_remote_version(cs.id)
@@ -90,7 +90,6 @@ def main():
         if live_v != cs.version:
             warnings.append(f"{cs.id}: version drift – model={cs.version}, live={live_v}")
 
-    # 3) DataElement codes
     for de in model.data_elements:
         sys_id = de.elementCode.system
         raw_code = de.elementCode.code
@@ -117,15 +116,13 @@ def main():
             if label0 and label_live != label0:
                 warnings.append(f"DE {de.ordinal} {de.elementName}: label drift – {curie}: model='{label0}', live='{label_live}'")
 
-    # 4) ValueSet codes (raw YAML)
-    yaml = ruamel.yaml.YAML(typ="safe")
-    with open(full_path, "r", encoding="utf-8") as fh:  
-        merged = yaml.load(fh)
+    yaml_s = ruamel.yaml.YAML(typ="safe")
+    with open(full_path, "r", encoding="utf-8") as fh:
+        merged = yaml_s.load(fh) or {}
 
     for vs in merged.get("value_sets", []):
         vs_id = vs.get("id", "<unknown VS>")
         for c in vs.get("codes", []):
-            # normalize entry → (sys_id, raw_code, label0)
             if isinstance(c, dict):
                 sys_id = c.get("system")
                 raw_code = c.get("code")
@@ -146,7 +143,6 @@ def main():
             code = clean_code(raw_code)
             vs_checked += 1
             cs = cs_map[sys_id]
-
             try:
                 label_live = get_remote_label(sys_id, code, cs.namespace_iri)
             except requests.HTTPError:
@@ -157,16 +153,10 @@ def main():
                 errors.append(f"VS {vs_id}: missing member {curie}")
                 invalid_codes.append(curie)
             else:
-                # record valid
                 valid_codes.append(curie)
-                # optional label drift warning
                 if label0 and label_live != label0:
-                    warnings.append(
-                        f"VS {vs_id}: label drift – {curie}: "
-                        f"model='{label0}', live='{label_live}'"
-                    )
-                    
-    # ——— SUMMARY PRINTOUT ————————————————————————————————
+                    warnings.append(f"VS {vs_id}: label drift – {curie}: model='{label0}', live='{label_live}'")
+
     print("\n=== RD‐CDM VALIDATION SUMMARY ===")
     print(f"  DataElements checked: {de_checked}")
     print(f"  ValueSet members checked: {vs_checked}")
@@ -184,7 +174,6 @@ def main():
         for w in warnings:
             print(f"  • {w}")
 
-    # exit 1 on errors only
     sys.exit(1 if errors else 0)
 
 if __name__ == "__main__":

@@ -9,6 +9,36 @@ LinkML versions. It does NOT generate any versioned models.
 from __future__ import annotations
 from pathlib import Path
 import sys
+import re
+
+
+def _rewrite_pydantic_config_to_v2(src: str) -> str:
+    """
+    Replace Pydantic v1 `class Config:` blocks with v2 `model_config = ConfigDict(...)`.
+    """
+    # Ensure ConfigDict is imported
+    if "ConfigDict" not in src:
+        src = src.replace(
+            "from pydantic import BaseModel",
+            "from pydantic import BaseModel, ConfigDict"
+        )
+
+    # Match a Config class definition with indented attributes
+    pattern = re.compile(r"(?ms)^class\s+Config:\n((?:\s+.+\n)+)")
+
+    def repl(m: re.Match) -> str:
+        body = m.group(1)
+        kwargs = []
+        for line in body.splitlines():
+            stripped = line.strip()
+            if not stripped or stripped.startswith("#"):
+                continue
+            if "=" in stripped:
+                k, v = stripped.split("=", 1)
+                kwargs.append(f"{k.strip()}={v.strip()}")
+        return f"model_config = ConfigDict({', '.join(kwargs)})\n" if kwargs else ""
+
+    return re.sub(pattern, repl, src)
 
 
 def main() -> int:
@@ -31,6 +61,7 @@ def main() -> int:
     try:
         gen = PydanticGenerator(str(schema))
         code_str = gen.serialize()  # Python source as a string
+        code_str = _rewrite_pydantic_config_to_v2(code_str)  # Patch for Pydantic v2
     except Exception as e:
         print("ERROR: Failed to generate Pydantic code from schema.", file=sys.stderr)
         print(f"Details: {e}", file=sys.stderr)

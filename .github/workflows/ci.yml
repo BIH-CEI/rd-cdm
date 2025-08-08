@@ -82,16 +82,15 @@ jobs:
           print("✅ rd_cdm.python_classes.rd_cdm_pydantic imported OK")
           PY
   
-      - name: Import smoke test (Pydantic models)
+      - name: Import smoke test (Pydantic general module)
         run: |
-          python - << 'PY'
-          import os, sys, glob, importlib
-          pdm_dirs = glob.glob("src/rd_cdm/pydantic_models/*")
-          assert pdm_dirs, "No pydantic_models directory generated"
-          pkg = "rd_cdm.pydantic_models." + os.path.basename(pdm_dirs[0]) + ".models"
-          importlib.import_module(pkg)
-          print("Imported", pkg, "OK")
+          poetry run python - << 'PY'
+          import importlib, os
+          assert os.path.exists("src/rd_cdm/python_classes/rd_cdm_pydantic.py")
+          importlib.import_module("rd_cdm.python_classes.rd_cdm_pydantic")
+          print("Imported rd_cdm.python_classes.rd_cdm_pydantic OK")
           PY
+          
   
       - name: LinkML validate schema & merged instances
         run: |

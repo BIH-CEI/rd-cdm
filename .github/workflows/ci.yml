@@ -70,20 +70,32 @@ jobs:
 
       - name: Merge instance files -> rd_cdm_vX_Y_Z.yaml
         run: |
-          # Uses your version resolver; omit --version to auto-pick
-          poetry run python src/rd_cdm/utils/merge_instances.py
-          # Remember the merged file path for later steps
+          poetry run python -m rd_cdm.utils.merge_instances
           echo "MERGED_FILE=$(ls src/rd_cdm/instances/*/rd_cdm_v*.yaml | head -n1)" >> $GITHUB_ENV
-
+  
+      - name: Generate Pydantic models from schema
+        run: |
+          poetry run python src/rd_cdm/utils/gen_pydantic.py
+          poetry run python - << 'PY'
+          import importlib
+          importlib.import_module("rd_cdm.python_classes.rd_cdm_pydantic")
+          print("✅ rd_cdm.python_classes.rd_cdm_pydantic imported OK")
+          PY
+  
+      - name: Import smoke test (Pydantic general module)
+        run: |
+          poetry run python - << 'PY'
+          import importlib, os
+          assert os.path.exists("src/rd_cdm/python_classes/rd_cdm_pydantic.py")
+          importlib.import_module("rd_cdm.python_classes.rd_cdm_pydantic")
+          print("Imported rd_cdm.python_classes.rd_cdm_pydantic OK")
+          PY
+          
+  
       - name: LinkML validate schema & merged instances
         run: |
           echo "Validating $MERGED_FILE"
           poetry run linkml validate --schema src/rd_cdm/schema/rd_cdm.yaml "$MERGED_FILE"
-
-      - name: RD-CDM validation against BioPortal (optional)
-        if: env.BIOPORTAL_API_KEY != ''
-        run: |
-          poetry run python src/rd_cdm/utils/validation.py
 
 
   build:

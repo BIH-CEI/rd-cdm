@@ -4,8 +4,16 @@ from __future__ import annotations
 import sys
 import argparse
 import ruamel.yaml
-
+from rd_cdm.utils.config import VersioningConfig, PathsConfig
 from rd_cdm.utils.versioning import resolve_instances_dir, normalize_dir_to_version, version_to_tag
+
+def _resolve_paths(vc: VersioningConfig) -> PathsConfig:
+    base = resolve_instances_dir(vc.version)
+    v_norm = normalize_dir_to_version(base.name) or base.name
+    v_tag = version_to_tag(v_norm)
+    src_root = base.parents[2]
+    return PathsConfig(src_root=src_root, instances_dir=base, version_tag=v_tag, version_norm=v_norm)
+
 
 def main(version: str | None = None) -> int:
     """
@@ -29,44 +37,34 @@ def main(version: str | None = None) -> int:
             }
       • Writes the merged result to `rd_cdm_vX_Y_Z.yaml` in the same versioned folder.
     """
-    # 1) Resolve the versioned instances directory
     try:
-        base = resolve_instances_dir(version)
+        paths = _resolve_paths(VersioningConfig(version=version))
     except Exception as e:
         print(f"ERROR: could not resolve instances directory: {e}", file=sys.stderr)
         return 2
 
-    # 2) Build version string with underscores
-    v_norm = normalize_dir_to_version(base.name)       # e.g., "2.0.1"
-    v_tag  = version_to_tag(v_norm or base.name)       # e.g., "v2_0_1"
-
-    # 3) YAML loader setup
     yaml = ruamel.yaml.YAML()
     yaml.preserve_quotes = True
 
     def load_file(name: str):
-        """Load a YAML file from the resolved instances directory."""
-        p = base / name
+        p = paths.instances_dir / name
         if not p.exists():
             print(f"ERROR: missing required file: {p}", file=sys.stderr)
             sys.exit(1)
         with p.open("r", encoding="utf-8") as fh:
             return yaml.load(fh)
 
-    # 4) Load the three parts
-    cs = load_file("code_systems.yaml")
-    de = load_file("data_elements.yaml")
-    vs = load_file("value_sets.yaml")
+    cs = load_file("code_systems.yaml") or {}
+    de = load_file("data_elements.yaml") or {}
+    vs = load_file("value_sets.yaml") or {}
 
-    # 5) Merge with safe .get() defaults
     merged = {
-        "code_systems":  (cs or {}).get("code_systems", []),
-        "data_elements": (de or {}).get("data_elements", []),
-        "value_sets":    (vs or {}).get("value_sets", []),
+        "code_systems":  cs.get("code_systems", []),
+        "data_elements": de.get("data_elements", []),
+        "value_sets":    vs.get("value_sets", []),
     }
 
-    # 6) Write out to the same versioned instances directory
-    out = base / f"rd_cdm_{v_tag}.yaml"   # e.g., rd_cdm_v2_0_1.yaml
+    out = paths.instances_dir / f"rd_cdm_{paths.version_tag}.yaml"
     try:
         with out.open("w", encoding="utf-8") as f:
             yaml.dump(merged, f)
@@ -78,12 +76,7 @@ def main(version: str | None = None) -> int:
     return 0
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        description="Merge RD-CDM instance YAMLs into rd_cdm_vX_Y_Z.yaml for a specific version."
-    )
-    parser.add_argument(
-        "-v", "--version",
-        help='Version like "2.0.1", "v2.0.1", or "v2_0_1". If omitted, uses env/pyproject/latest.'
-    )
-    args = parser.parse_args()
+    p = argparse.ArgumentParser(description="Merge RD-CDM instance YAMLs into rd_cdm_vX_Y_Z.yaml for a specific version.")
+    p.add_argument("-v","--version", help='Version like "2.0.1", "v2.0.1", or "v2_0_1".')
+    args = p.parse_args()
     raise SystemExit(main(args.version))

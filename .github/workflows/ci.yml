@@ -76,7 +76,7 @@ jobs:
       - name: Generate Pydantic models from schema
         run: |
           poetry run python src/rd_cdm/utils/gen_pydantic.py
-          python - << 'PY'
+          poetry run python - << 'PY'
           import importlib
           importlib.import_module("rd_cdm.python_classes.rd_cdm_pydantic")
           print("✅ rd_cdm.python_classes.rd_cdm_pydantic imported OK")

@@ -17,38 +17,39 @@ In here you find all resources that are available in the RD-CDM to download.
     Here you can find more information on LinkML and how to use it:
     `LinkML <https://linkml.io/linkml/>`_.
 
-RD-CDM v2.0.1
+RD-CDM v2.0.2
 -------------------
 
-The RD-CDM v2.0.1 is the latest version of the Rare Disease Common Data Model.
+The RD-CDM v2.0.2 is the latest version of the Rare Disease Common Data Model.
 It is based on the RD-CDM v2.0.0 and includes some minor changes to the
 data elements and value sets. The changes are documented in the
 :ref:`_changelog`.
 
 
-The entire LinkML-based RD-CDM v2.0.1 can be downloaded as a JSON or CSV file:
+The entire LinkML-based RD-CDM v2.0.2 can be downloaded as a JSON or CSV file:
 
-- :download:`Entire RD-CDM v2.0.1 JSON <../../src/rd_cdm/instances/v2_0_1/jsons/rd_cdm_v2_0_1.json>`
-- :download:`Entire RD-CDM v2.0.1 CSV <../../src/rd_cdm/instances/v2_0_1/csvs/rd_cdm_v2_0_1.csv>`
+- :download:`Entire RD-CDM v2.0.2 JSON <../../src/rd_cdm/instances/v2_0_2/jsons/rd_cdm_v2_0_2.json>`
+- :download:`Entire RD-CDM v2.0.2 CSV <../../src/rd_cdm/instances/v2_0_2/csvs/rd_cdm_v2_0_2.csv>`
 
-The RD-CDM v2.0.1 consists of the following components:
+The RD-CDM v2.0.2 consists of the following components:
 
-- :download:`Code Systems v2.0.1 JSON <../../src/rd_cdm/instances/v2_0_1/jsons/code_systems.json>`
-- :download:`Code Systems v2.0.1 CSV <../../src/rd_cdm/instances/v2_0_1/csvs/code_systems.csv>`
-- :download:`Data Elements v2.0.1 JSON <../../src/rd_cdm/instances/v2_0_1/jsons/data_elements.json>`
-- :download:`Data Elements v2.0.1 CSV <../../src/rd_cdm/instances/v2_0_1/csvs/data_elements.csv>`
-- :download:`Value Sets v2.0.1 JSON <../../src/rd_cdm/instances/v2_0_1/jsons/value_sets.json>`
-- :download:`Value Sets v2.0.1 CSV <../../src/rd_cdm/instances/v2_0_1/csvs/value_sets.csv>`
+- :download:`Code Systems v2.0.2 JSON <../../src/rd_cdm/instances/v2_0_2/jsons/code_systems.json>`
+- :download:`Code Systems v2.0.2 CSV <../../src/rd_cdm/instances/v2_0_2/csvs/code_systems.csv>`
+- :download:`Data Elements v2.0.2 JSON <../../src/rd_cdm/instances/v2_0_2/jsons/data_elements.json>`
+- :download:`Data Elements v2.0.2 CSV <../../src/rd_cdm/instances/v2_0_2/csvs/data_elements.csv>`
+- :download:`Value Sets v2.0.2 JSON <../../src/rd_cdm/instances/v2_0_2/jsons/value_sets.json>`
+- :download:`Value Sets v2.0.2 CSV <../../src/rd_cdm/instances/v2_0_2/csvs/value_sets.csv>`
 
 The corresponding LinkML .yaml schema files can be found in the
 
-:download:`RD-CDM v2.0.1 schema <../../src/rd_cdm/instances/v2_0_1/rd_cdm_v2_0_1.yaml>`
+:download:`RD-CDM v2.0.2 schema <../../src/rd_cdm/instances/v2_0_2/rd_cdm_v2_0_2.yaml>`
 
 and the
 
-:download:`RD-CDM v2.0.1 code systems schema <../../src/rd_cdm/instances/v2_0_1/codes_ystems.yaml>`.
-:download:`RD-CDM v2.0.1 code systems schema <../../src/rd_cdm/instances/v2_0_1/value_sets.yaml>`.
-:download:`RD-CDM v2.0.1 code systems schema <../../src/rd_cdm/instances/v2_0_1/data_elements.yaml>`.
+:download:`RD-CDM v2.0.2 code systems schema <../../src/rd_cdm/instances/v2_0_2/codes_ystems.yaml>`.
+:download:`RD-CDM v2.0.2 code systems schema <../../src/rd_cdm/instances/v2_0_2/value_sets.yaml>`.
+:download:`RD-CDM v2.0.2 code systems schema <../../src/rd_cdm/instances/v2_0_2/data_elements.yaml>`.
+
 
 
 

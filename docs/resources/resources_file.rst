@@ -42,13 +42,13 @@ The RD-CDM v2.0.1 consists of the following components:
 
 The corresponding LinkML .yaml schema files can be found in the
 
-:download:`RD-CDM v2.0.1 schema <../../src/rd_cdm/instances/rd_cdm_v2_0_1.yaml>`
+:download:`RD-CDM v2.0.1 schema <../../src/rd_cdm/instances/v2_0_1/rd_cdm_v2_0_1.yaml>`
 
 and the
 
-:download:`RD-CDM v2.0.1 code systems schema <../../src/rd_cdm/instances/codes_ystems.yaml>`.
-:download:`RD-CDM v2.0.1 code systems schema <../../src/rd_cdm/instances/value_sets.yaml>`.
-:download:`RD-CDM v2.0.1 code systems schema <../../src/rd_cdm/instances/data_elements.yaml>`.
+:download:`RD-CDM v2.0.1 code systems schema <../../src/rd_cdm/instances/v2_0_1/codes_ystems.yaml>`.
+:download:`RD-CDM v2.0.1 code systems schema <../../src/rd_cdm/instances/v2_0_1/value_sets.yaml>`.
+:download:`RD-CDM v2.0.1 code systems schema <../../src/rd_cdm/instances/v2_0_1/data_elements.yaml>`.
 
 
 

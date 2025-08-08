@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "rd-cdm"
-version = "2.0.1"
+version = "2.0.1A"
 description = "An ontology-based rare disease common data model (RD-CDM) harmonising international registries, HL7 FHIR, and GA4GH Phenopackets."
 readme = "README.md"
 license = "MIT"

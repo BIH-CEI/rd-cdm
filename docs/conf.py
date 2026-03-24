@@ -15,7 +15,7 @@ sys.path.insert(0, src_path)
 project = 'Ontology-based rare disease common data model (RD-CDM)'
 copyright = 'Berlin Institute of Health, Charité Universitätsmedizin Berlin'
 author = 'Adam S.L. Graefe'
-release = '2.0.0'
+release = '2.0.3'
 
 extensions = [
     'sphinx.ext.autodoc',
@@ -42,11 +42,6 @@ autodoc_member_order = 'bysource'
 doctest_path = [src_path]
 doctest_test_doctest_blocks = ""
 
-# code to be executed before each doctest block
-doctest_global_setup = """ 
-import numpy as np
-"""
-
 doctest_default_flags = (doctest.REPORT_ONLY_FIRST_FAILURE
                          | doctest.ELLIPSIS
                          | doctest.IGNORE_EXCEPTION_DETAIL
@@ -60,7 +55,6 @@ intersphinx_mapping = {
     "requests": ("https://docs.python-requests.org/en/stable/", None),
     "scipy": ("https://docs.scipy.org/doc/scipy-1.11.0/", None),
     "statsmodels": ("https://www.statsmodels.org/stable/", None),
-    "numpy": ("https://numpy.org/doc/stable/", None),
 }
 
 # -- Options for HTML output -------------------------------------------------

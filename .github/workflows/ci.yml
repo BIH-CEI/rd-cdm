@@ -5,11 +5,11 @@ on:
   push:
     branches: [ main ]
     tags:
-      - 'v*.*.*'            # publish on tag e.g. v2.0.1
+      - 'v*.*.*'
   pull_request:
     branches: [ main ]
   schedule:
-    - cron: '0 2 * * 1' # weekly (Mon 02:00 UTC)
+    - cron: '0 2 * * 1'
 
 jobs:
   tests:
@@ -34,17 +34,13 @@ jobs:
       - name: Configure Poetry to create venv in project
         run: poetry config virtualenvs.in-project true
 
-      - name: Install dependencies (Poetry)
-        run: poetry install --no-interaction --no-root
-
-      - name: Install package
+      - name: Install dependencies
         run: poetry install --no-interaction
 
       - name: Run pytest
         env:
           PYTHONPATH: src
-        run: |
-          poetry run pytest -q
+        run: poetry run pytest -q
 
   merge_and_validate:
     name: Merge & Validate
@@ -52,7 +48,7 @@ jobs:
     needs: [tests]
     env:
       PYTHONPATH: src
-      BIOPORTAL_API_KEY: ${{ secrets.BIOPORTAL_API_KEY }}  # expose once at job level
+      BIOPORTAL_API_KEY: ${{ secrets.BIOPORTAL_API_KEY }}
     steps:
       - uses: actions/checkout@v4
 
@@ -65,38 +61,30 @@ jobs:
       - name: Install Poetry
         run: python -m pip install --upgrade pip poetry
 
-      - name: Install dependencies (Poetry)
-        run: poetry install --no-interaction --no-root
+      - name: Install dependencies
+        run: poetry install --no-interaction --with dev
 
-      - name: Merge instance files -> rd_cdm_vX_Y_Z.yaml
-        run: |
-          poetry run python -m rd_cdm.utils.merge_instances
-          echo "MERGED_FILE=$(ls src/rd_cdm/instances/*/rd_cdm_v*.yaml | head -n1)" >> $GITHUB_ENV
-  
-      - name: Generate Pydantic models from schema
+      - name: Merge instance files → rd_cdm.yaml
+        run: poetry run rd-cdm-merge
+
+      - name: Generate Python classes from schema
         run: |
           poetry run python src/rd_cdm/utils/gen_pydantic.py
+
+      - name: Smoke test generated classes
+        run: |
           poetry run python - << 'PY'
           import importlib
+          importlib.import_module("rd_cdm.python_classes.rd_cdm")
           importlib.import_module("rd_cdm.python_classes.rd_cdm_pydantic")
-          print("✅ rd_cdm.python_classes.rd_cdm_pydantic imported OK")
+          print("✅ both python_classes modules imported OK")
           PY
-  
-      - name: Import smoke test (Pydantic general module)
-        run: |
-          poetry run python - << 'PY'
-          import importlib, os
-          assert os.path.exists("src/rd_cdm/python_classes/rd_cdm_pydantic.py")
-          importlib.import_module("rd_cdm.python_classes.rd_cdm_pydantic")
-          print("Imported rd_cdm.python_classes.rd_cdm_pydantic OK")
-          PY
-          
-  
-      - name: LinkML validate schema & merged instances
-        run: |
-          echo "Validating $MERGED_FILE"
-          poetry run linkml validate --schema src/rd_cdm/schema/rd_cdm.yaml "$MERGED_FILE"
 
+      - name: LinkML validate schema & merged instance
+        run: |
+          poetry run linkml validate \
+            --schema src/rd_cdm/schema/rd_cdm.yaml \
+            src/rd_cdm/instances/rd_cdm.yaml
 
   build:
     name: Build (sdist/wheel)
@@ -127,11 +115,11 @@ jobs:
     name: Publish to PyPI
     runs-on: ubuntu-latest
     needs: [build]
-    if: startsWith(github.ref, 'refs/tags/v')   # only on tags like v2.0.1
+    if: startsWith(github.ref, 'refs/tags/v')
     permissions:
-      id-token: write          # REQUIRED for PyPI trusted publishing (OIDC)
+      id-token: write
       contents: read
-    environment: pypi          # optional, for environment protection rules
+    environment: pypi
     steps:
       - uses: actions/checkout@v4
 
@@ -141,9 +129,7 @@ jobs:
           name: dist
           path: dist
 
-      - name: Publish to PyPI via OIDC (trusted publishing)
+      - name: Publish to PyPI via OIDC
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          # no username/password needed; OIDC handles auth
-          # repository-url: https://upload.pypi.org/legacy/  # default
           verbose: true

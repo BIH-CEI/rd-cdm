@@ -1,45 +1,43 @@
+# tests/test_json_parsing.py
 import json
-from pathlib import Path
-import types
-
+import ruamel.yaml
 import rd_cdm.utils.json_parsing as jp
+from rd_cdm.utils.config import PathsConfig
 
 
-def test_json_parsing_skips_merged_and_writes_combined(tmp_path, monkeypatch):
-    version_tag = "v2_0_1"
-    src_dir = tmp_path / "src"
-    inst_dir = src_dir / "rd_cdm" / "instances" / version_tag
-    json_dir = inst_dir / "jsons"
+def test_json_parsing_reads_merged_and_writes_json(tmp_path, monkeypatch):
+    """main() should read rd_cdm.yaml and write jsons/rd_cdm.json."""
+
+    inst_dir = tmp_path / "src" / "rd_cdm" / "instances"
     inst_dir.mkdir(parents=True, exist_ok=True)
 
-    # create part YAMLs + a merged YAML that must be skipped in the loop
-    (inst_dir / "code_systems.yaml").write_text("dummy")
-    (inst_dir / "data_elements.yaml").write_text("dummy")
-    (inst_dir / "value_sets.yaml").write_text("dummy")
-    (inst_dir / "rd_cdm_v2_0_1.yaml").write_text("dummy")  # must be skipped
+    # write a minimal merged rd_cdm.yaml (as merge step would produce)
+    merged_data = {
+        "rd_cdm_version": "2.0.3",
+        "rd_cdm_date": "2025-03-24",
+        "code_systems": [{"id": "HP", "version": "v1"}],
+        "data_elements": [{"elementName": "E"}],
+        "value_sets": [{"id": "VS1"}],
+    }
+    yaml = ruamel.yaml.YAML()
+    with (inst_dir / "rd_cdm.yaml").open("w") as f:
+        yaml.dump(merged_data, f)
 
-    # monkeypatch instance resolver
-    monkeypatch.setattr(jp, "resolve_instances_dir", lambda ver=None: inst_dir)
+    src_root = tmp_path / "src"
+    monkeypatch.setattr(
+        jp,
+        "resolve_paths",
+        lambda: PathsConfig(src_root=src_root, instances_dir=inst_dir),
+    )
 
-    # monkeypatch loader + dumper to avoid LinkML dependency
-    monkeypatch.setattr(jp, "yaml_loader", types.SimpleNamespace(
-        load=lambda path, target_class: {"loaded_from": Path(path).name}
-    ))
-    monkeypatch.setattr(jp, "json_dumper", types.SimpleNamespace(
-        dumps=lambda obj: json.dumps(obj)
-    ))
-
-    rc = jp.main(None)
+    rc = jp.main()
     assert rc == 0
 
-    # per-file JSONs (no rd_cdm_v*.json from the loop itself)
-    assert (json_dir / "code_systems.json").exists()
-    assert (json_dir / "data_elements.json").exists()
-    assert (json_dir / "value_sets.json").exists()
-    assert (json_dir / "rd_cdm_v2_0_1.json").exists()
+    out_file = inst_dir / "jsons" / "rd_cdm.json"
+    assert out_file.exists()
 
-    # combined file present with v-tag in name
-    combined = json_dir / "rd_cdm_v2_0_1.json"
-    assert combined.exists()
-    data = json.loads(combined.read_text())
-    assert set(data.keys()) == {"code_systems", "data_elements", "value_sets"}
+    data = json.loads(out_file.read_text())
+    assert data["rd_cdm_version"] == "2.0.3"
+    assert "code_systems" in data
+    assert "data_elements" in data
+    assert "value_sets" in data

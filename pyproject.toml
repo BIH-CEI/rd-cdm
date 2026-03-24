@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "rd-cdm"
-version = "2.0.2"
+version = "2.0.3"
 description = "An ontology-based rare disease common data model (RD-CDM) harmonising international registries, HL7 FHIR, and GA4GH Phenopackets."
 readme = "README.md"
 license = "MIT"
@@ -46,43 +46,35 @@ packages = [
 
 include = [
   "src/rd_cdm/schema/rd_cdm.yaml",
-  "src/rd_cdm/instances/*/*.yaml",
-  "src/rd_cdm/instances/*/jsons/*.json",
-  "src/rd_cdm/instances/*/csvs/*.csv",
+  "src/rd_cdm/instances/*.yaml",
+  "src/rd_cdm/instances/jsons/*.json",
+  "src/rd_cdm/instances/csvs/*.csv",
   "src/rd_cdm/python_classes/*.py",
 ]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
-numpy = "*"
-jsonschema = "*"
 "ruamel.yaml" = ">=0.17.21"
 requests = ">=2.31.0,<3.0.0"
-requests-cache = ">=1.2.1,<2.0.0"
+tqdm = ">=4.0.0"
 linkml-runtime = ">=1.9.4"
-linkml = ">=1.7.0"
-oaklib = ">=0.6.23"
 pydantic = ">=2.4,<3.0"
 pydantic-settings = ">=2.3,<3.0"
 
-# make test/docs deps optional here (with versions!)
 pytest = { version = ">=7.0.0,<9.0.0", optional = true }
 requests-mock = { version = ">=1.11.0", optional = true }
-
 sphinx = { version = ">=7.0.0", optional = true }
 sphinx-rtd-theme = { version = ">=1.3.0", optional = true }
 sphinx-copybutton = { version = ">=0.5.0", optional = true }
+linkml = { version = ">=1.9.0", optional = true }
 
 [tool.poetry.extras]
-# extras list ONLY the package names (no versions)
 test = ["pytest", "requests-mock"]
 docs = ["sphinx", "sphinx-rtd-theme", "sphinx-copybutton"]
+dev  = ["linkml"]
 
 [tool.poetry.scripts]
-rdcdm-merge = "rd_cdm.utils.merge_instances:main"
-rdcdm-json = "rd_cdm.utils.json_parsing:main"
-rdcdm-csv = "rd_cdm.utils.csv_parsing:write_csvs_from_instances"
-rdcdm-validate = "rd_cdm.utils.validation:main"
-
-[tool.poetry.plugins."oaklib.plugins"]
-rdcdm = "oakx_rdcdm.rdcdm_implementation:RdCdmValidator"
+rd-cdm-merge    = "rd_cdm.utils.merge_instances:main"
+rd-cdm-json     = "rd_cdm.utils.json_parsing:main"
+rd-cdm-csv      = "rd_cdm.utils.csv_parsing:main"
+rd-cdm-validate = "rd_cdm.utils.validation:main"

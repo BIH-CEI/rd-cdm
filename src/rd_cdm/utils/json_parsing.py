@@ -2,68 +2,51 @@
 from __future__ import annotations
 import json
 import argparse
-from linkml_runtime.loaders import yaml_loader
-from linkml_runtime.dumpers import json_dumper
-from rd_cdm.python_classes.rd_cdm import RdCdm
-from rd_cdm.utils.config import VersioningConfig, PathsConfig
-from rd_cdm.utils.versioning import resolve_instances_dir, normalize_dir_to_version, version_to_tag
+import ruamel.yaml
+from rd_cdm.utils.config import resolve_paths
+import datetime
 
-def _resolve_paths(vc: VersioningConfig) -> PathsConfig:
-    base = resolve_instances_dir(vc.version)
-    v_norm = normalize_dir_to_version(base.name) or base.name
-    v_tag = version_to_tag(v_norm)
-    src_root = base.parents[2]
-    return PathsConfig(src_root=src_root, instances_dir=base, version_tag=v_tag, version_norm=v_norm)
+def _default(obj):
+    if isinstance(obj, datetime.date):
+        return str(obj)
+    raise TypeError(f"Object of type {type(obj).__name__} is not JSON serializable")
 
-def main(version: str | None = None) -> int:
+
+def main() -> int:
     """
-    Convert LinkML instance YAMLs in the resolved versioned instances dir to JSON,
-    writing them under: src/rd_cdm/instances/{vTAG}/jsons/
-    Also creates a combined `rd_cdm_vX_Y_Z.json`.
+    Convert the merged rd_cdm.yaml to rd_cdm.json.
 
-    Notes
-    -----
-    • Skips already-merged YAMLs (rd_cdm_full.yaml and rd_cdm_v*.yaml) during per-file conversion.
-    • The combined file name matches the merged YAML naming (rd_cdm_vX_Y_Z.json).
+    Reads from: src/rd_cdm/instances/rd_cdm.yaml
+    Writes to:  src/rd_cdm/instances/jsons/rd_cdm.json
+
+    The version (rd_cdm_version, rd_cdm_date) is already embedded in the
+    merged YAML by the merge step and will appear at the top of the JSON.
     """
-    paths = _resolve_paths(VersioningConfig(version=version))
-    out_dir = paths.src_root / "rd_cdm" / "instances" / paths.version_tag / "jsons"
+    paths = resolve_paths()
+    merged_path = paths.instances_dir / "rd_cdm.yaml"
+    if not merged_path.exists():
+        print(f"ERROR: merged instance not found at {merged_path}. Run rd-cdm-merge first.")
+        return 1
+
+    out_dir = paths.instances_dir / "jsons"
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    yamls = list(paths.instances_dir.glob("*.yaml")) + list(paths.instances_dir.glob("*.yml"))
-    if not yamls:
-        print(f"⚠️  No YAML files found in {paths.instances_dir}")
-        return 0
+    yaml = ruamel.yaml.YAML()
+    with merged_path.open("r", encoding="utf-8") as fh:
+        data = yaml.load(fh) or {}
 
-    ok, fail = 0, 0
-    combined_data: dict[str, dict] = {}
-    for yf in sorted(yamls):
-        stem = yf.stem
-        if stem.startswith("rd_cdm_full") or stem.startswith("rd_cdm_v"):
-            continue
-        try:
-            obj = yaml_loader.load(str(yf), target_class=RdCdm)
-            out_path = out_dir / (stem + ".json")
-            json_str = json_dumper.dumps(obj)
-            json_obj = json.loads(json_str)
-            with out_path.open("w", encoding="utf-8") as f:
-                json.dump(json_obj, f, indent=2, ensure_ascii=False)
-            combined_data[stem] = json_obj
-            print(f"✅ {yf.name} -> rd_cdm/instances/{paths.version_tag}/jsons/{out_path.name}")
-            ok += 1
-        except Exception as e:
-            print(f"❌ {yf.name}: {e}")
-            fail += 1
+    out_path = out_dir / "rd_cdm.json"
+    with out_path.open("w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False, default=_default)
 
-    combined_path = out_dir / f"rd_cdm_{paths.version_tag}.json"
-    with combined_path.open("w", encoding="utf-8") as f:
-        json.dump(combined_data, f, indent=2, ensure_ascii=False)
+    version = data.get("rd_cdm_version", "unknown")
+    print(f"✅ Wrote {out_path} (rd_cdm_version={version})")
+    return 0
 
-    print(f"\nDone. Wrote {ok} JSON(s); {fail} file(s) failed. Combined JSON at {combined_path}")
-    return 0 if fail == 0 else 1
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser()
-    ap.add_argument("-v","--version", help='Version like "2.0.1" / "v2.0.1" / "v2_0_1".')
-    args = ap.parse_args()
-    raise SystemExit(main(args.version))
+    ap = argparse.ArgumentParser(
+        description="Export merged RD-CDM YAML to JSON."
+    )
+    ap.parse_args()
+    raise SystemExit(main())

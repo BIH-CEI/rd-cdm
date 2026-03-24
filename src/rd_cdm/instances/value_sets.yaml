@@ -465,7 +465,7 @@ value_sets:
   codes:
   - system: LOINC
     code: 'LA9658-1'
-    label: Wild Type
+    label: Wild type
   - system: LOINC
     code: 'LA6692-3'
     label: Deletion
@@ -523,7 +523,7 @@ value_sets:
   codes:
   - system: LOINC
     code: 'LA30200-2'
-    label: Very Strong evidence pathogenic
+    label: Very strong evidence pathogenic
   - system: LOINC
     code: 'LA30201-0'
     label: Strong evidence pathogenic

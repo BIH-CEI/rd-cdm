@@ -1,12 +1,12 @@
 from __future__ import annotations
+from pydantic import ConfigDict
 from pydantic_settings import BaseSettings
+
 
 class ValidationSettings(BaseSettings):
     """
     Environment-driven settings for validation steps.
     """
-    bioportal_api_key: str = ""  # set in CI/locally; validation step will check emptiness
+    model_config = ConfigDict(env_prefix="", extra="ignore")
 
-    class Config:
-        env_prefix = ""   # BIOPORTAL_API_KEY
-        env_file = ".env"
+    bioportal_api_key: str = ""  # set via BIOPORTAL_API_KEY env var or .env file

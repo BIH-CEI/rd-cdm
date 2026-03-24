@@ -1,4 +1,9 @@
 id: https://github.com/BIH-CEI/rd-cdm/linkml/rd_cdm.schema.yaml
+name: rd-cdm
+title: ontology-based rare disease common data model (RD-CDM) harmonising 
+       international registries, FHIR, and Phenopackets
+version: 2.0.3
+date: 2026-03-24
 license: CC0
 prefixes:
   rdcdm:       https://github.com/BIH-CEI/rd-cdm/
@@ -14,6 +19,14 @@ classes:
     description: "Root class for the Rare Disease Common Data Model (RD-CDM)"
     tree_root: true
     attributes:
+      rd_cdm_version:
+        description: "Version of the RD-CDM schema"
+        range: string
+        required: true
+      rd_cdm_date:
+        description: "Date of the RD-CDM release"
+        range: date
+        required: true
       code_systems:
         range: CodeSystem
         multivalued: true

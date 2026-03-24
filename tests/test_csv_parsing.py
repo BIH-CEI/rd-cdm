@@ -1,32 +1,49 @@
-import types
+# tests/test_csv_parsing.py
+import csv
+import ruamel.yaml
 import rd_cdm.utils.csv_parsing as cp
+from rd_cdm.utils.config import PathsConfig
+
 
 def test_csv_parsing_writes_all_and_combined(tmp_path, monkeypatch):
-    version_tag = "v2_0_1"
-    src_dir = tmp_path / "src"
-    inst_dir = src_dir / "rd_cdm" / "instances" / version_tag
-    out_dir = inst_dir / "csvs"
+    """main() should write per-section CSVs and a combined rd_cdm.csv
+    with a _metadata row carrying rd_cdm_version."""
+
+    inst_dir = tmp_path / "src" / "rd_cdm" / "instances"
     inst_dir.mkdir(parents=True, exist_ok=True)
 
-    # minimal source YAMLs
-    (inst_dir / "code_systems.yaml").write_text("code_systems:\n  - {id: HP, version: v1}\n")
-    (inst_dir / "data_elements.yaml").write_text("data_elements:\n  - {elementName: E, elementCode: {system: HP, code: '0000118'}}\n")
-    (inst_dir / "value_sets.yaml").write_text("value_sets:\n  - {id: VS1, codes: ['HP:0000118']}\n")
+    # write a minimal merged rd_cdm.yaml
+    merged_data = {
+        "rd_cdm_version": "2.0.3",
+        "rd_cdm_date": "2025-03-24",
+        "code_systems": [{"id": "HP", "version": "v1"}],
+        "data_elements": [{"elementName": "E", "elementCode": {"system": "HP", "code": "0000118"}}],
+        "value_sets": [{"id": "VS1", "codes": ["HP:0000118"]}],
+    }
+    yaml = ruamel.yaml.YAML()
+    with (inst_dir / "rd_cdm.yaml").open("w") as f:
+        yaml.dump(merged_data, f)
 
-    # point resolver to our temp folder
-    monkeypatch.setattr(cp, "resolve_instances_dir", lambda ver=None: inst_dir)
-    # avoid ruamel dependency variability: use safe loader behavior
-    import ruamel.yaml
-    yaml = ruamel.yaml.YAML(typ="safe")
-    monkeypatch.setattr(cp, "ruamel", types.SimpleNamespace(yaml=types.SimpleNamespace(YAML=lambda: yaml)))
+    src_root = tmp_path / "src"
+    monkeypatch.setattr(
+        cp,
+        "resolve_paths",
+        lambda: PathsConfig(src_root=src_root, instances_dir=inst_dir),
+    )
 
-    rc = cp.write_csvs_from_instances(None)
+    rc = cp.main()
     assert rc == 0
 
-    # per-list CSVs
-    assert (out_dir / "code_systems.csv").exists()
-    assert (out_dir / "data_elements.csv").exists()
-    assert (out_dir / "value_sets.csv").exists()
+    csv_dir = inst_dir / "csvs"
+    assert (csv_dir / "code_systems.csv").exists()
+    assert (csv_dir / "data_elements.csv").exists()
+    assert (csv_dir / "value_sets.csv").exists()
+    assert (csv_dir / "rd_cdm.csv").exists()
 
-    # combined file follows v-tag style (e.g., rd_cdm_v2_0_1.csv)
-    assert (out_dir / "rd_cdm_v2_0_1.csv").exists()
+    # check _metadata row carries the version
+    with (csv_dir / "rd_cdm.csv").open(newline="", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+
+    metadata_rows = [r for r in rows if r.get("_section") == "_metadata"]
+    assert len(metadata_rows) == 1
+    assert metadata_rows[0]["rd_cdm_version"] == "2.0.3"

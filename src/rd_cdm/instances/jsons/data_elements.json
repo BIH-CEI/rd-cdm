@@ -63,10 +63,10 @@
       "ordinal": "2.2",
       "elementName": "Sex at Birth",
       "elementCode": {
-        "system": "SNOMEDCT",
-        "code": "281053000"
+        "system": "LOINC",
+        "code": "76689-9"
       },
-      "elementCodeSystem": "SNOMEDCT",
+      "elementCodeSystem": "LOINC",
       "section": "2. Personal Information",
       "dataType": "Code",
       "dataSpecification": [

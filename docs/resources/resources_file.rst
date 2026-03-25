@@ -15,7 +15,7 @@ To access a specific older version, install the corresponding PyPI release
 (``pip install rd-cdm==2.0.2``) or browse the
 `GitHub tags <https://github.com/BIH-CEI/rd-cdm/tags>`_.
 
----
+------------------------------------------------------------------------
 
 Schema
 ------
@@ -27,7 +27,7 @@ and version:
 
 See `LinkML <https://linkml.io/linkml/>`_ for documentation on how to use it.
 
----
+------------------------------------------------------------------------
 
 Latest RD-CDM — Combined Files
 --------------------------------
@@ -44,7 +44,7 @@ Download all files as a ZIP archive from GitHub:
 - `Download latest release as ZIP <https://github.com/BIH-CEI/rd-cdm/archive/refs/heads/main.zip>`_
 - `Browse all tagged releases <https://github.com/BIH-CEI/rd-cdm/releases>`_
 
----
+------------------------------------------------------------------------
 
 Latest RD-CDM — Individual Components
 ---------------------------------------
@@ -70,7 +70,7 @@ Value Sets
 - :download:`Value Sets JSON <../../src/rd_cdm/instances/jsons/value_sets.json>`
 - :download:`Value Sets CSV <../../src/rd_cdm/instances/csvs/value_sets.csv>`
 
----
+------------------------------------------------------------------------
 
 RD-CDM v2.0.0 (outdated)
 --------------------------

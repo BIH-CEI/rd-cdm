@@ -207,7 +207,7 @@ Custom top-level schema fields (``date``) that are not valid
 generation to avoid ``SchemaDefinition.__init__()`` errors.
 
 
-Version 2.0.1 (2025-08-07)
+v2.0.1 & v2.0.2 (2025-08-07)
 --------------------------
 
 **What’s new**
@@ -274,14 +274,14 @@ Version 2.0.1 (2025-08-07)
     rd-cdm-validate --version 2.0.1
 
 
-Version 2.0.0 (2025-02-08)
+v2.0.0 (2025-02-08)
 ----------------------------
 
 The RD-CDM has been updated to version 2.0.0 as the corresponding
 manuscript was published.
 
 
-Version 2.0.0.dev0 (2024-09-30)
+v2.0.0.dev0 (2024-09-30)
 -------------------------------
 
 - Initial release of the RD-CDM in development and review. 

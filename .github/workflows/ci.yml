@@ -35,7 +35,7 @@ jobs:
         run: poetry config virtualenvs.in-project true
 
       - name: Install dependencies
-        run: poetry install --no-interaction
+        run: poetry install --no-interaction -E test
 
       - name: Run pytest
         env:
@@ -62,10 +62,18 @@ jobs:
         run: python -m pip install --upgrade pip poetry
 
       - name: Install dependencies
-        run: poetry install --no-interaction --with dev
+        run: poetry install --no-interaction -E dev -E test
 
       - name: Merge instance files → rd_cdm.yaml
         run: poetry run rd-cdm-merge
+
+      # Structural consistency needs no BioPortal key, so it runs on forks too
+      # and fails fast before the network pass.
+      - name: Validate structure (offline)
+        run: poetry run rd-cdm-validate --offline
+
+      - name: Project the instance data into a documentable schema
+        run: poetry run rd-cdm-profile
 
       - name: Generate Python classes from schema
         run: |
@@ -85,6 +93,20 @@ jobs:
           poetry run linkml validate \
             --schema src/rd_cdm/schema/rd_cdm.yaml \
             src/rd_cdm/instances/rd_cdm.yaml
+
+      # The build job packages the checked-out tree with no regeneration, so a
+      # stale committed artefact would ship to PyPI. python_classes is excluded:
+      # gen-pydantic stamps a generation date, so it can never match byte-wise.
+      - name: Committed artefacts match the sources
+        run: |
+          poetry run rd-cdm-json
+          poetry run rd-cdm-csv
+          if ! git diff --exit-code -- \
+               src/rd_cdm/instances src/rd_cdm/schema/rd_cdm_profile.yaml; then
+            echo "::error::Generated files are stale. Run: rd-cdm-merge && \
+          rd-cdm-profile && rd-cdm-json && rd-cdm-csv, then commit the result."
+            exit 1
+          fi
 
   build:
     name: Build (sdist/wheel)

@@ -15,7 +15,13 @@ sys.path.insert(0, src_path)
 project = 'Ontology-based rare disease common data model (RD-CDM)'
 copyright = 'Berlin Institute of Health, Charité Universitätsmedizin Berlin'
 author = 'Adam S.L. Graefe'
-release = '2.0.3'
+
+try:
+    from rd_cdm.utils.versioning import get_model_version
+
+    release = get_model_version() or 'unknown'
+except Exception:
+    release = 'unknown'
 
 extensions = [
     'sphinx.ext.autodoc',
@@ -25,8 +31,27 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
     'sphinx.ext.intersphinx',
-    'sphinx_copybutton'
+    'sphinx_copybutton',
+    'myst_parser',
+    'sphinxcontrib.mermaid',
 ]
+
+# gen-doc emits Markdown; myst renders it alongside the hand-written reST.
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}
+myst_heading_anchors = 3
+
+# gen-doc puts a mermaid class diagram on each class page as a fenced block.
+# Without this it is treated as a code block with an unknown lexer, which warns
+# and renders the diagram source as text.
+myst_fence_as_directive = ['mermaid']
+
+# gen-doc writes one page per class, slot and enum, linked from
+# datamodel/index.md rather than from a toctree. Without this every generated
+# page raises "document isn't included in any toctree" and buries real warnings.
+suppress_warnings = ['toc.not_included']
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']

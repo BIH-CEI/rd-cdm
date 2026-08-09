@@ -1,4 +1,22 @@
 #!/usr/bin/env python3
+"""Validate the merged RD-CDM instance.
+
+Two independent passes:
+
+1. **Structure** (offline, no key needed) - value sets declared once, every
+   referenced value set exists, every value set is referenced, and a value set's
+   ``id`` is the CURIE of the data element it constrains. See
+   ``rd_cdm.utils.structure_checks``.
+2. **Terminology** (BioPortal) - every code in a ``DataElement.elementCode`` or a
+   ``ValueSet.codes`` entry resolves to a ``prefLabel``, and that label matches
+   the one recorded in the model.
+
+Note what pass 2 is *not*: it never checks that a code is a member of the value
+set's root concept. ``VS X: unresolvable code Y`` means "the code Y, declared in
+value set X, does not resolve in BioPortal" - X is only the container it was
+found in. Codes marked ``status: inactive`` are expected not to resolve and are
+reported separately rather than as errors.
+"""
 from __future__ import annotations
 import sys
 import argparse
@@ -6,6 +24,7 @@ import requests
 import ruamel.yaml
 from tqdm import tqdm
 from rd_cdm.utils.config import resolve_paths
+from rd_cdm.utils.structure_checks import check_structure
 from rd_cdm.utils.validation_utils import clean_code, get_remote_version, get_remote_label
 from rd_cdm.utils.settings import ValidationSettings
 
@@ -13,17 +32,7 @@ VALIDATION_SYSTEMS = {"SNOMEDCT", "LOINC", "HP", "NCIT"}
 SKIP_VERSION_CHECK = {"CustomCode", "GA4GH", "HL7FHIR", "HGVS", "ICD11", "ISO3166"}
 
 
-def main():
-    ap = argparse.ArgumentParser(
-        description="Validate RD-CDM ontology codes against BioPortal."
-    )
-    ap.parse_args()
-
-    settings = ValidationSettings()
-    if not settings.bioportal_api_key:
-        print("ERROR: BIOPORTAL_API_KEY not set", file=sys.stderr)
-        sys.exit(2)
-
+def load_merged():
     paths = resolve_paths()
     full_path = paths.instances_dir / "rd_cdm.yaml"
     if not full_path.exists():
@@ -33,10 +42,51 @@ def main():
             file=sys.stderr,
         )
         sys.exit(1)
-
     yaml_s = ruamel.yaml.YAML(typ="safe")
     with open(full_path, "r", encoding="utf-8") as fh:
-        merged = yaml_s.load(fh) or {}
+        return yaml_s.load(fh) or {}
+
+
+def main():
+    ap = argparse.ArgumentParser(
+        description="Validate RD-CDM structure, and ontology codes against BioPortal."
+    )
+    ap.add_argument(
+        "--offline",
+        action="store_true",
+        help="Run the structural checks only; skip every BioPortal call.",
+    )
+    args = ap.parse_args()
+
+    merged = load_merged()
+
+    errors, warnings, inactive_codes, valid_codes, invalid_codes, skipped_codes = (
+        [], [], [], [], [], []
+    )
+    de_checked = vs_checked = 0
+
+    # ------------------------------------------------------------------ #
+    # Pass 1 - structure (offline)
+    # ------------------------------------------------------------------ #
+    structural = check_structure(merged)
+    errors.extend(f"structure: {p}" for p in structural)
+
+    if args.offline:
+        rd_cdm_version = merged.get("rd_cdm_version", "unknown")
+        print(f"\n=== RD-CDM STRUCTURE SUMMARY (model version: {rd_cdm_version}) ===")
+        print(f"  Value sets              : {len(merged.get('value_sets', []) or [])}")
+        print(f"  Data elements           : {len(merged.get('data_elements', []) or [])}")
+        print(f"  Structural problems     : {len(structural)}\n")
+        if structural:
+            print("Errors:")
+            for e in structural:
+                print(f"  • {e}")
+        sys.exit(1 if structural else 0)
+
+    settings = ValidationSettings()
+    if not settings.bioportal_api_key:
+        print("ERROR: BIOPORTAL_API_KEY not set", file=sys.stderr)
+        sys.exit(2)
 
     cs_map = {
         cs["id"]: type("CS", (), {
@@ -48,10 +98,9 @@ def main():
         if isinstance(cs, dict) and "id" in cs
     }
 
-    errors, warnings, valid_codes, invalid_codes, skipped_codes = [], [], [], [], []
-    de_checked = vs_checked = 0
-
-    # Version drift check
+    # ------------------------------------------------------------------ #
+    # Pass 2a - code system version drift
+    # ------------------------------------------------------------------ #
     code_systems = [
         cs for cs in merged.get("code_systems", [])
         if isinstance(cs, dict) and cs.get("id") not in SKIP_VERSION_CHECK
@@ -71,7 +120,9 @@ def main():
                     f"{cs_id}: version drift – model={model_v}, live={live_v}"
                 )
 
-    # DataElement code validation
+    # ------------------------------------------------------------------ #
+    # Pass 2b - DataElement codes
+    # ------------------------------------------------------------------ #
     data_elements = [
         de for de in merged.get("data_elements", [])
         if isinstance(de, dict)
@@ -103,7 +154,10 @@ def main():
 
             curie = f"{sys_id}:{raw_code}"
             if not label_live:
-                errors.append(f"DE {ordinal} {de_name}: missing term {curie}")
+                errors.append(
+                    f"DE {ordinal} {de_name}: unresolvable code {curie} "
+                    f"(no prefLabel in BioPortal {sys_id})"
+                )
                 invalid_codes.append(curie)
             else:
                 valid_codes.append(curie)
@@ -114,7 +168,9 @@ def main():
                         f"{curie}: model='{label0}', live='{label_live}'"
                     )
 
-    # ValueSet code validation
+    # ------------------------------------------------------------------ #
+    # Pass 2c - ValueSet member codes
+    # ------------------------------------------------------------------ #
     value_sets = merged.get("value_sets", [])
     all_vs_codes = [
         (vs.get("id", "<unknown VS>"), c)
@@ -123,10 +179,12 @@ def main():
     ]
     with tqdm(all_vs_codes, desc="Validating value set codes", unit="code") as pbar:
         for vs_id, c in pbar:
+            status = None
             if isinstance(c, dict):
                 sys_id = c.get("system")
                 raw_code = c.get("code")
                 label0 = c.get("label")
+                status = c.get("status")
             elif isinstance(c, str) and ":" in c:
                 sys_id, raw_code = c.split(":", 1)
                 label0 = None
@@ -134,7 +192,7 @@ def main():
                 errors.append(f"VS {vs_id}: bad code entry {c!r}")
                 continue
 
-            pbar.set_postfix(vs=vs_id[:20], code=str(raw_code)[:15])
+            pbar.set_postfix(vs=str(vs_id)[:20], code=str(raw_code)[:15])
 
             if sys_id not in VALIDATION_SYSTEMS:
                 continue
@@ -154,8 +212,29 @@ def main():
                 label_live = None
 
             curie = f"{sys_id}:{raw_code}"
+
+            if status == "inactive":
+                # Expected not to resolve. If it does, the inactivation is stale.
+                if label_live:
+                    warnings.append(
+                        f"VS {vs_id}: {curie} is marked inactive but resolves in "
+                        f"BioPortal as '{label_live}' - drop the status"
+                    )
+                else:
+                    successor = c.get("replacedBy") if isinstance(c, dict) else None
+                    tail = f"replaced by {successor}" if successor else "no successor recorded"
+                    inactive_codes.append(
+                        f"VS {vs_id}: {curie} ({label0}) - inactive in {sys_id}, {tail}"
+                    )
+                continue
+
             if not label_live:
-                errors.append(f"VS {vs_id}: missing member {curie}")
+                errors.append(
+                    f"VS {vs_id}: unresolvable code {curie} "
+                    f"(no prefLabel in BioPortal {sys_id}) - if the terminology "
+                    "withdrew the concept, mark it 'status: inactive' with a "
+                    "statusNote and add the active successor as a member"
+                )
                 invalid_codes.append(curie)
             else:
                 valid_codes.append(curie)
@@ -165,13 +244,17 @@ def main():
                         f"{curie}: model='{label0}', live='{label_live}'"
                     )
 
+    # ------------------------------------------------------------------ #
     # Summary
+    # ------------------------------------------------------------------ #
     rd_cdm_version = merged.get("rd_cdm_version", "unknown")
     print(f"\n=== RD-CDM VALIDATION SUMMARY (model version: {rd_cdm_version}) ===")
+    print(f"  Structural problems     : {len(structural)}")
     print(f"  DataElements checked    : {de_checked}")
     print(f"  ValueSet members checked: {vs_checked}")
     print(f"  Valid terms             : {len(valid_codes)}")
-    print(f"  Invalid (missing) terms : {len(invalid_codes)}")
+    print(f"  Unresolvable terms      : {len(invalid_codes)}")
+    print(f"  Known inactivations     : {len(inactive_codes)}")
     print(f"  Skipped terms           : {len(skipped_codes)}")
     print(f"  Warnings                : {len(warnings)}\n")
 
@@ -179,6 +262,10 @@ def main():
         print("Errors:")
         for e in errors:
             print(f"  • {e}")
+    if inactive_codes:
+        print("\nKnown inactivations (recorded in the model, not errors):")
+        for r in inactive_codes:
+            print(f"  • {r}")
     if warnings:
         print("\nWarnings:")
         for w in warnings:

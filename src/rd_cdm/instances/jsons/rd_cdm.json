@@ -1,11 +1,11 @@
 {
-  "rd_cdm_version": "2.0.3",
-  "rd_cdm_date": "2026-03-24",
+  "rd_cdm_version": "2.1.0",
+  "rd_cdm_date": "2026-08-08",
   "code_systems": [
     {
       "id": "SNOMEDCT",
       "namespace_iri": "http://purl.bioontology.org/ontology/SNOMEDCT/",
-      "version": "2025AB",
+      "version": "2025_09_01",
       "title": "Systematized Nomenclature of Medicine – Clinical Terms (SNOMED CT)"
     },
     {
@@ -17,13 +17,13 @@
     {
       "id": "HP",
       "namespace_iri": "http://purl.obolibrary.org/obo/HP",
-      "version": "2026-02-16",
+      "version": "2026-06-23",
       "title": "Human Phenotype Ontology (HPO)"
     },
     {
       "id": "NCIT",
       "namespace_iri": "http://purl.obolibrary.org/obo/NCIT/",
-      "version": "26.02d",
+      "version": "26.07d",
       "title": "NCI Thesaurus (NCIT) OBO Edition"
     },
     {
@@ -65,7 +65,7 @@
     {
       "id": "UO",
       "namespace_iri": "http://purl.obolibrary.org/obo/UO/",
-      "version": "2026-01-16",
+      "version": "2026-07-31",
       "title": "Units Ontology (UO)"
     },
     {
@@ -83,19 +83,19 @@
     {
       "id": "MONDO",
       "namespace_iri": "http://purl.obolibrary.org/obo/MONDO/",
-      "version": "2026-03-03",
+      "version": "2026-08-04",
       "title": "Mondo Disease Ontology"
     },
     {
       "id": "ORDO",
       "namespace_iri": "http://purl.obolibrary.org/obo/ORDO/",
-      "version": "4.8",
+      "version": "4.9",
       "title": "Orphanet Rare Disease Ontology (ORDO)"
     },
     {
       "id": "HGNC",
       "namespace_iri": "http://identifiers.org/hgnc/",
-      "version": "2024-08-23",
+      "version": "2026-05-11",
       "title": "HUGO Gene Nomenclature Committee (HGNC)"
     },
     {
@@ -257,22 +257,23 @@
     {
       "ordinal": "2.5",
       "section": "2. Personal Information",
-      "elementName": "Country of Birth",
+      "elementName": "Country of Origin",
       "elementCode": {
-        "system": "SNOMEDCT",
-        "code": "370159000"
+        "system": "CustomCode",
+        "code": "country_of_origin"
       },
-      "elementCodeSystem": "SNOMEDCT",
+      "elementCodeSystem": "CustomCode",
       "dataType": "Code",
       "dataSpecification": [
-        "VS"
+        "ISO 3166-1 (2- or 3-letter country code)",
+        "ISO 3166-2 (country subdivision)"
       ],
       "valueSet": null,
       "fhirExpression_v4_0_1": "Patient.extension:patient-birthPlace",
       "recommendedDataSpec_fhir": "DataType: Address",
       "phenopacketSchemaElement_v2_0": "n/a",
       "recommendedDataSpec_phenopackets": "n/a",
-      "description": "The individual's country of birth."
+      "description": "A person’s descent or lineage, from a person or from a population. Provide a 2- or 3-letter code from ISO 3166-1 if only a country is given; use ISO 3166-2 for a country subdivision. Aligned with the GDI equivalent element."
     },
     {
       "ordinal": "3.1",
@@ -654,7 +655,7 @@
       "dataSpecification": [
         "VS"
       ],
-      "valueSet": "Severity Value Set v2.0.0",
+      "valueSet": "Disease Severity Value Set v2.0.0",
       "fhirExpression_v4_0_1": "Condition.severity",
       "recommendedDataSpec_fhir": "ValueSet: ConditionSeverity",
       "phenopacketSchemaElement_v2_0": "n/a",
@@ -1124,7 +1125,7 @@
         "VSe",
         "VSc"
       ],
-      "valueSet": "Severity Value Set v2.0.0",
+      "valueSet": "Phenotype Severity Value Set v2.0.0",
       "fhirExpression_v4_0_1": "Observation.interpretation",
       "recommendedDataSpec_fhir": "CodeableConcept",
       "phenopacketSchemaElement_v2_0": "PhenotypicFeature.severity",
@@ -1290,6 +1291,26 @@
       "phenopacketSchemaElement_v2_0": "Measurement.procedure",
       "recommendedDataSpec_phenopackets": "Measurement.procedure",
       "description": "Clinical procedure performed to acquire the sample used for the measurement."
+    },
+    {
+      "ordinal": "6.4.0",
+      "section": "6.4 Family History",
+      "elementName": "Family Identifier",
+      "elementCode": {
+        "system": "GA4GH",
+        "code": "family.id"
+      },
+      "elementCodeSystem": "GA4GH",
+      "dataType": "Identifier",
+      "dataSpecification": [
+        "n/a"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Group.identifier",
+      "recommendedDataSpec_fhir": "Identifier",
+      "phenopacketSchemaElement_v2_0": "Family.id",
+      "recommendedDataSpec_phenopackets": "string",
+      "description": "An identifier shared by all members of one family, grouping the individual and their relatives into a single family record. Distinct from 6.4.1, which identifies a single family member."
     },
     {
       "ordinal": "6.4.1",
@@ -1645,7 +1666,7 @@
       "elementName": "Consent to the Reuse of Data",
       "elementCode": {
         "system": "CustomCode",
-        "code": "conset_data_reuse"
+        "code": "consent_data_reuse"
       },
       "elementCodeSystem": "CustomCode",
       "dataType": "Code",
@@ -1722,7 +1743,7 @@
   ],
   "value_sets": [
     {
-      "id": "SNOMEDCT:281053000",
+      "id": "LOINC:76689-9",
       "label": "Sex at Birth Value Set v2.0.0",
       "codes": [
         {
@@ -1738,12 +1759,20 @@
         {
           "system": "SNOMEDCT",
           "code": "184115007",
-          "label": "Patient sex unknown"
+          "label": "Patient sex unknown",
+          "status": "inactive",
+          "replacedBy": "SNOMEDCT:261665006",
+          "statusNote": "Does not resolve in BioPortal, which is this model's terminology authority, so it is not offered for new capture. Retained, with replacedBy, so records already captured against it stay interpretable and can be migrated: identifiers are never reused, so the code still means what it meant when it was recorded.\n"
         },
         {
           "system": "SNOMEDCT",
           "code": "32570691000036108",
           "label": "Intersex"
+        },
+        {
+          "system": "SNOMEDCT",
+          "code": "261665006",
+          "label": "Unknown"
         },
         {
           "system": "SNOMEDCT",
@@ -1759,47 +1788,56 @@
         {
           "system": "SNOMEDCT",
           "code": "734875008",
-          "label": "XX"
+          "label": "Karyotype 46, XX",
+          "displayLabel": "XX"
         },
         {
           "system": "SNOMEDCT",
           "code": "734876009",
-          "label": "XY"
+          "label": "Karyotype 46, XY",
+          "displayLabel": "XY"
         },
         {
           "system": "SNOMEDCT",
           "code": "80427008",
-          "label": "X0"
+          "label": "X0 sex chromosome alteration",
+          "displayLabel": "X0"
         },
         {
           "system": "SNOMEDCT",
           "code": "65162001",
-          "label": "XXY"
+          "label": "XXY sex chromosome alteration",
+          "displayLabel": "XXY"
         },
         {
           "system": "SNOMEDCT",
           "code": "35111009",
-          "label": "XXX"
+          "label": "Trisomy X syndrome",
+          "displayLabel": "XXX"
         },
         {
           "system": "SNOMEDCT",
           "code": "403760006",
-          "label": "XXYY"
+          "label": "XXYY syndrome",
+          "displayLabel": "XXYY"
         },
         {
           "system": "SNOMEDCT",
           "code": "78317008",
-          "label": "XXXY"
+          "label": "XXXY syndrome",
+          "displayLabel": "XXXY"
         },
         {
           "system": "SNOMEDCT",
           "code": "10567003",
-          "label": "XXXX"
+          "label": "Tetrasomy X syndrome",
+          "displayLabel": "XXXX"
         },
         {
           "system": "SNOMEDCT",
           "code": "48930007",
-          "label": "XYY"
+          "label": "XYY sex chromosome alteration",
+          "displayLabel": "XYY"
         },
         {
           "system": "SNOMEDCT",
@@ -1815,12 +1853,14 @@
         {
           "system": "SNOMEDCT",
           "code": "446141000124107",
-          "label": "Female gender identity"
+          "label": "Identifies as female gender",
+          "displayLabel": "Female gender identity"
         },
         {
           "system": "SNOMEDCT",
           "code": "446151000124109",
-          "label": "Male gender identity"
+          "label": "Identifies as male gender",
+          "displayLabel": "Male gender identity"
         },
         {
           "system": "SNOMEDCT",
@@ -1856,94 +1896,23 @@
         {
           "system": "SNOMEDCT",
           "code": "399307001",
-          "label": "Unknown - Lost in follow-up"
+          "label": "Lost to follow-up",
+          "displayLabel": "Unknown - Lost in follow-up"
         },
         {
           "system": "SNOMEDCT",
           "code": "185924006",
-          "label": "Unknown - Opted-out"
+          "label": "Unknown - Opted-out",
+          "displayLabel": "Unknown - Opted-out",
+          "status": "inactive",
+          "replacedBy": "SNOMEDCT:261665006",
+          "statusNote": "Does not resolve in BioPortal, which is this model's terminology authority, so it is not offered for new capture. Retained, with replacedBy, so records already captured against it stay interpretable and can be migrated. Note that the successor is the generic Unknown: the opted-out *reason* is not preserved by the migration and belongs in the consent section rather than in vital status.\n"
         },
         {
           "system": "SNOMEDCT",
           "code": "261665006",
-          "label": "Unknown - Other Reason"
-        }
-      ]
-    },
-    {
-      "id": "SNOMEDCT:105727008",
-      "label": "Age Category Value Set v2.0.0",
-      "codes": [
-        {
-          "system": "SNOMEDCT",
-          "code": "3658006",
-          "label": "Infancy"
-        },
-        {
-          "system": "SNOMEDCT",
-          "code": "713153009",
-          "label": "Toddler"
-        },
-        {
-          "system": "SNOMEDCT",
-          "code": "255398004",
-          "label": "Childhood"
-        },
-        {
-          "system": "SNOMEDCT",
-          "code": "263659003",
-          "label": "Adolescence"
-        },
-        {
-          "system": "SNOMEDCT",
-          "code": "41847000",
-          "label": "Adulthood"
-        },
-        {
-          "system": "SNOMEDCT",
-          "code": "303112003",
-          "label": "Fetal period"
-        },
-        {
-          "system": "SNOMEDCT",
-          "code": "419099009",
-          "label": "Dead"
-        },
-        {
-          "system": "SNOMEDCT",
-          "code": "261665006",
-          "label": "Unknown"
-        }
-      ]
-    },
-    {
-      "id": "SNOMEDCT:278844005",
-      "label": "Vital Status Value Set v2.0.0",
-      "codes": [
-        {
-          "system": "SNOMEDCT",
-          "code": "438949009",
-          "label": "Alive"
-        },
-        {
-          "system": "SNOMEDCT",
-          "code": "419099009",
-          "label": "Dead"
-        },
-        {
-          "system": "SNOMEDCT",
-          "code": "399307001",
-          "label": "Unknown - Lost in follow-up"
-        },
-        {
-          "system": "SNOMEDCT",
-          "code": "185924006",
-          "label": "Unknown - Opted-out"
-        },
-        {
-          "system": "SNOMEDCT",
-          "code": "261665006",
-          "label": "Unknown - Other Reason"
+          "label": "Unknown",
+          "displayLabel": "Unknown - Other Reason"
         }
       ]
     },
@@ -2107,7 +2076,7 @@
       ]
     },
     {
-      "id": "HL7FHIR:99498-8",
+      "id": "LOINC:99498-8",
       "label": "Verification Status Value Set v2.0.0",
       "codes": [
         {
@@ -2149,7 +2118,8 @@
         {
           "system": "SNOMEDCT",
           "code": "118189007",
-          "label": "Prenatal"
+          "label": "Prenatal finding",
+          "displayLabel": "Prenatal"
         },
         {
           "system": "SNOMEDCT",
@@ -2175,7 +2145,8 @@
         {
           "system": "SNOMEDCT",
           "code": "118189007",
-          "label": "Prenatal"
+          "label": "Prenatal finding",
+          "displayLabel": "Prenatal"
         },
         {
           "system": "SNOMEDCT",
@@ -2243,7 +2214,7 @@
     },
     {
       "id": "SNOMEDCT:246112005",
-      "label": "Severity Value Set v2.0.0",
+      "label": "Disease Severity Value Set v2.0.0",
       "codes": [
         {
           "system": "SNOMEDCT",
@@ -2387,27 +2358,32 @@
         {
           "system": "LOINC",
           "code": "LA14032-9",
-          "label": "NCBI Build 34 (hg16)"
+          "label": "NCBI Build 34",
+          "displayLabel": "NCBI Build 34 (hg16)"
         },
         {
           "system": "LOINC",
           "code": "LA14029-5",
-          "label": "GRCh37 (hg19)"
+          "label": "GRCh37",
+          "displayLabel": "GRCh37 (hg19)"
         },
         {
           "system": "LOINC",
           "code": "LA14030-3",
-          "label": "NCBI Build 36.1 (hg18)"
+          "label": "NCBI Build 36.1",
+          "displayLabel": "NCBI Build 36.1 (hg18)"
         },
         {
           "system": "LOINC",
           "code": "LA14031-1",
-          "label": "NCBI Build 35 (hg17)"
+          "label": "NCBI Build 35",
+          "displayLabel": "NCBI Build 35 (hg17)"
         },
         {
           "system": "LOINC",
           "code": "LA26806-2",
-          "label": "GRCh38 (hg38)"
+          "label": "GRCh38",
+          "displayLabel": "GRCh38 (hg38)"
         }
       ]
     },
@@ -2653,7 +2629,7 @@
       ]
     },
     {
-      "id": "CustomCode:phenotypicfeature.excluded",
+      "id": "SNOMEDCT:363778006",
       "label": "Phenotype Status Value Set v2.0.0",
       "codes": [
         {
@@ -2772,7 +2748,7 @@
     },
     {
       "id": "HP:0012824",
-      "label": "Severity Value Set v2.0.0",
+      "label": "Phenotype Severity Value Set v2.0.0",
       "codes": [
         {
           "system": "HP",
@@ -3012,7 +2988,7 @@
       ]
     },
     {
-      "id": "SNOMEDCT:54123-5",
+      "id": "LOINC:54123-5",
       "label": "AdministrativeGender Value Set v2.0.0",
       "codes": [
         {
@@ -3028,12 +3004,20 @@
         {
           "system": "SNOMEDCT",
           "code": "184115007",
-          "label": "Patient sex unknown"
+          "label": "Patient sex unknown",
+          "status": "inactive",
+          "replacedBy": "SNOMEDCT:261665006",
+          "statusNote": "Does not resolve in BioPortal, which is this model's terminology authority, so it is not offered for new capture. Retained, with replacedBy, so records already captured against it stay interpretable and can be migrated: identifiers are never reused, so the code still means what it meant when it was recorded.\n"
         },
         {
           "system": "SNOMEDCT",
           "code": "32570691000036108",
           "label": "Intersex"
+        },
+        {
+          "system": "SNOMEDCT",
+          "code": "261665006",
+          "label": "Unknown"
         },
         {
           "system": "SNOMEDCT",
@@ -3064,7 +3048,7 @@
       ]
     },
     {
-      "id": "HL7FHIR:309370004",
+      "id": "SNOMEDCT:309370004",
       "label": "Consent Status Value Set v2.0.0",
       "codes": [
         {
@@ -3100,7 +3084,7 @@
       ]
     },
     {
-      "id": "SNOMEDCT:consent_contact_research",
+      "id": "CustomCode:consent_contact_research",
       "label": "Contact for Research Value Set v2.0.0",
       "codes": [
         {
@@ -3121,7 +3105,7 @@
       ]
     },
     {
-      "id": "SNOMEDCT:conset_data_reuse",
+      "id": "CustomCode:consent_data_reuse",
       "label": "Data Reuse Consent Value Set v2.0.0",
       "codes": [
         {

@@ -32,6 +32,7 @@ the RD-CDM data in FHIR and Phenopackets formats.
 
 For more information on RareLink, please see the: 
 
+- RareLink paper published in npj Genomic Medicine (2025): https://www.nature.com/articles/s41525-025-00534-z
 - RareLink Docuemntation: https://rarelink.readthedocs.io/en/latest/index.html
 - RareLink GitHub: https://github.com/BIH-CEI/rarelink 
 

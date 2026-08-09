@@ -101,20 +101,23 @@ data_elements:
   description: The self-assigned gender of the individual.
 - ordinal: '2.5'
   section: 2. Personal Information
-  elementName: Country of Birth
+  elementName: Country of Origin
   elementCode:
-    system: SNOMEDCT
-    code: '370159000'
-  elementCodeSystem: SNOMEDCT
+    system: CustomCode
+    code: 'country_of_origin'
+  elementCodeSystem: CustomCode
   dataType: Code
   dataSpecification:
-  - VS
+  - ISO 3166-1 (2- or 3-letter country code)
+  - ISO 3166-2 (country subdivision)
   valueSet: null
   fhirExpression_v4_0_1: Patient.extension:patient-birthPlace
   recommendedDataSpec_fhir: 'DataType: Address'
   phenopacketSchemaElement_v2_0: n/a
   recommendedDataSpec_phenopackets: n/a
-  description: The individual's country of birth.
+  description: "A person\u2019s descent or lineage, from a person or from a population.\
+    \ Provide a 2- or 3-letter code from ISO 3166-1 if only a country is given; use\
+    \ ISO 3166-2 for a country subdivision. Aligned with the GDI equivalent element."
 - ordinal: '3.1'
   section: 3. Patient Status
   elementName: Vital Status
@@ -426,14 +429,14 @@ data_elements:
   dataType: Code
   dataSpecification:
   - VS
-  valueSet: Severity Value Set v2.0.0
+  valueSet: Disease Severity Value Set v2.0.0
   fhirExpression_v4_0_1: Condition.severity
   recommendedDataSpec_fhir: 'ValueSet: ConditionSeverity'
   phenopacketSchemaElement_v2_0: n/a
   recommendedDataSpec_phenopackets: n/a
   description: The severity of the disease is categorised byclinical evaluation.
 - ordinal: 6.1.1
-  section: 6. Genetic Findings
+  section: 6.1 Genetic Findings
   elementName: Genomic Diagnosis
   elementCode:
     system: SNOMEDCT
@@ -451,7 +454,7 @@ data_elements:
   description: The genomic diagnoses can correspond to the diagnoseddisease in (5.1)
     if the same OMIM codes are used.
 - ordinal: 6.1.2
-  section: 6. Genetic Findings
+  section: 6.1 Genetic Findings
   elementName: Progress Status of Interpretation
   elementCode:
     system: GA4GH
@@ -468,7 +471,7 @@ data_elements:
   description: The interpretation has a ProgressStatus that refers tothe status of
     the attempted diagnosis.
 - ordinal: 6.1.3
-  section: 6. Genetic Findings
+  section: 6.1 Genetic Findings
   elementName: Interpretation Status
   elementCode:
     system: GA4GH
@@ -485,7 +488,7 @@ data_elements:
   description: An enumeration that describes the conclusion made about the genomic
     interpretation.
 - ordinal: 6.1.4
-  section: 6. Genetic Findings
+  section: 6.1 Genetic Findings
   elementName: Structural Variant Analysis Method
   elementCode:
     system: LOINC
@@ -502,7 +505,7 @@ data_elements:
   recommendedDataSpec_phenopackets: n/a
   description: The method used to analyse structural variants in the genome.
 - ordinal: 6.1.5
-  section: 6. Genetic Findings
+  section: 6.1 Genetic Findings
   elementName: Reference Genome
   elementCode:
     system: LOINC
@@ -518,7 +521,7 @@ data_elements:
   recommendedDataSpec_phenopackets: n/a
   description: The reference genome used for analysing the genetic variant.
 - ordinal: 6.1.6
-  section: 6. Genetic Findings
+  section: 6.1 Genetic Findings
   elementName: Genetic Mutation String
   elementCode:
     system: LOINC
@@ -534,7 +537,7 @@ data_elements:
   recommendedDataSpec_phenopackets: string
   description: An unvalidated (HGVS) string that describes the variant change
 - ordinal: 6.1.7
-  section: 6. Genetic Findings
+  section: 6.1 Genetic Findings
   elementName: Genomic DNA Change
   elementCode:
     system: LOINC
@@ -551,7 +554,7 @@ data_elements:
   description: The specific change in the genomic DNA sequence encoded with a validated
     g.HGVS expression.
 - ordinal: 6.1.8
-  section: 6. Genetic Findings
+  section: 6.1 Genetic Findings
   elementName: Sequence DNA Change
   elementCode:
     system: LOINC
@@ -568,7 +571,7 @@ data_elements:
   description: The specific change in the DNA sequence at the nucleotide level with
     a validated c.HGVS expression.
 - ordinal: 6.1.9
-  section: 6. Genetic Findings
+  section: 6.1 Genetic Findings
   elementName: Amino Acid Change
   elementCode:
     system: LOINC
@@ -585,7 +588,7 @@ data_elements:
   description: The specific change in the amino acid sequence resulting from agenetic
     variant as a validated p.HGVS expression.
 - ordinal: 6.1.10
-  section: 6. Genetic Findings
+  section: 6.1 Genetic Findings
   elementName: Gene
   elementCode:
     system: LOINC
@@ -602,7 +605,7 @@ data_elements:
   description: The specific gene or genes that were analysed or identified in the
     study.
 - ordinal: 6.1.11
-  section: 6. Genetic Findings
+  section: 6.1 Genetic Findings
   elementName: Zygosity
   elementCode:
     system: LOINC
@@ -620,7 +623,7 @@ data_elements:
   recommendedDataSpec_phenopackets: OntologyClass
   description: The zygosity of the genetic variant.
 - ordinal: 6.1.12
-  section: 6. Genetic Findings
+  section: 6.1 Genetic Findings
   elementName: Genomic Source Class
   elementCode:
     system: LOINC
@@ -637,7 +640,7 @@ data_elements:
   description: The classification of the genomic source, such as germline, somatic,
     or other origins.
 - ordinal: 6.1.13
-  section: 6. Genetic Findings
+  section: 6.1 Genetic Findings
   elementName: DNA Change Type
   elementCode:
     system: LOINC
@@ -654,7 +657,7 @@ data_elements:
   description: "The variant\u2019s type of DNA change, such as point mutation, deletion,\
     \ insertion, or other types."
 - ordinal: 6.1.14
-  section: 6. Genetic Findings
+  section: 6.1 Genetic Findings
   elementName: Clinical Significance [ACMG]
   elementCode:
     system: LOINC
@@ -672,7 +675,7 @@ data_elements:
   description: The clinical significance of the genetic variant, indicating its impact
     on health and disease.
 - ordinal: 6.1.15
-  section: 6. Genetic Findings
+  section: 6.1 Genetic Findings
   elementName: Therapeutic Actionability
   elementCode:
     system: GA4GH
@@ -689,7 +692,7 @@ data_elements:
   description: An enumeration flagging the variant as being a candidate for treatment
     or clinical intervention, which could improve the clinical outcome.
 - ordinal: 6.1.16
-  section: 6. Genetic Findings
+  section: 6.1 Genetic Findings
   elementName: Clinical Annotation Level Of Evidence
   elementCode:
     system: LOINC
@@ -707,7 +710,7 @@ data_elements:
   description: The level of evidence supporting the clinical annotation of the genetic
     variant.
 - ordinal: 6.2.1
-  section: 6. Phenotypic Feature
+  section: 6.2 Phenotypic Feature
   elementName: Phenotypic Feature
   elementCode:
     system: SNOMEDCT
@@ -741,7 +744,7 @@ data_elements:
   description: The current status of the phenotypic feature, indicating whether it
     is confirmed or refuted.
 - ordinal: 6.2.3
-  section: 6. Phenotypic Feature
+  section: 6.2 Phenotypic Feature
   elementName: Determination Date
   elementCode:
     system: SNOMEDCT
@@ -818,14 +821,14 @@ data_elements:
   dataSpecification:
   - VSe
   - VSc
-  valueSet: Severity Value Set v2.0.0
+  valueSet: Phenotype Severity Value Set v2.0.0
   fhirExpression_v4_0_1: Observation.interpretation
   recommendedDataSpec_fhir: CodeableConcept
   phenopacketSchemaElement_v2_0: PhenotypicFeature.severity
   recommendedDataSpec_phenopackets: OntologyClass
   description: A description of the severity of the feature.
 - ordinal: 6.2.8
-  section: 6. Phenotypic Feature
+  section: 6.2 Phenotypic Feature
   elementName: Modifiers
   elementCode:
     system: GA4GH
@@ -956,6 +959,24 @@ data_elements:
   phenopacketSchemaElement_v2_0: Measurement.procedure
   recommendedDataSpec_phenopackets: Measurement.procedure
   description: Clinical procedure performed to acquire the sample used for the measurement.
+- ordinal: 6.4.0
+  section: 6.4 Family History
+  elementName: Family Identifier
+  elementCode:
+    system: GA4GH
+    code: 'family.id'
+  elementCodeSystem: GA4GH
+  dataType: Identifier
+  dataSpecification:
+  - n/a
+  valueSet: n/a
+  fhirExpression_v4_0_1: Group.identifier
+  recommendedDataSpec_fhir: Identifier
+  phenopacketSchemaElement_v2_0: Family.id
+  recommendedDataSpec_phenopackets: string
+  description: An identifier shared by all members of one family, grouping the
+    individual and their relatives into a single family record. Distinct from
+    6.4.1, which identifies a single family member.
 - ordinal: 6.4.1
   section: 6.4 Family History
   elementName: Family Member Pseudonym
@@ -1049,7 +1070,7 @@ data_elements:
   recommendedDataSpec_phenopackets: string
   description: Specifies the relationship of the selected family member to the patient.
 - ordinal: 6.4.6
-  section: 6.4 Family
+  section: 6.4 Family History
   elementName: Family Member Record Status
   elementCode:
     system: HL7FHIR
@@ -1065,7 +1086,7 @@ data_elements:
   description: "Specifies the record\u2019s status of the family history of a specific\
     \ family member."
 - ordinal: 6.4.7
-  section: 6.4 Family
+  section: 6.4 Family History
   elementName: Family Member Sex
   elementCode:
     system: LOINC
@@ -1083,7 +1104,7 @@ data_elements:
   description: Specifies the sex (or gender) of the specific family member. If possible,
     the sex assigned at birth should be selected.
 - ordinal: 6.4.8
-  section: 6.4 Family
+  section: 6.4 Family History
   elementName: Family Member Age
   elementCode:
     system: LOINC
@@ -1101,7 +1122,7 @@ data_elements:
     \ member)"
   description: Records the current age of the selected family member.
 - ordinal: 6.4.9
-  section: 6.4 Family
+  section: 6.4 Family History
   elementName: Family Member Date of Birth
   elementCode:
     system: LOINC
@@ -1119,7 +1140,7 @@ data_elements:
     \ member)"
   description: Records the date of birth of the selected family member.
 - ordinal: 6.4.10
-  section: 6.4 Family
+  section: 6.4 Family History
   elementName: Family Member Deceased
   elementCode:
     system: SNOMEDCT
@@ -1137,7 +1158,7 @@ data_elements:
     \ member)"
   description: Indicates whether the selected family member is deceased.
 - ordinal: 6.4.11
-  section: 6.4 Family
+  section: 6.4 Family History
   elementName: Family Member Cause of Death
   elementCode:
     system: LOINC
@@ -1155,7 +1176,7 @@ data_elements:
     \ member)"
   description: Records the cause of death of the selected deceasedfamily member.
 - ordinal: 6.4.12
-  section: 6.4 Family
+  section: 6.4 Family History
   elementName: Family Member Deceased Age
   elementCode:
     system: LOINC
@@ -1171,7 +1192,7 @@ data_elements:
   recommendedDataSpec_phenopackets: Family.relatives
   description: Records the age at which the selected family member died.
 - ordinal: 6.4.13
-  section: 6.4 Family
+  section: 6.4 Family History
   elementName: Family Member Disease
   elementCode:
     system: LOINC
@@ -1261,7 +1282,7 @@ data_elements:
   elementName: Consent to the Reuse of Data
   elementCode:
     system: CustomCode
-    code: 'conset_data_reuse'
+    code: 'consent_data_reuse'
   elementCodeSystem: CustomCode
   dataType: Code
   dataSpecification:

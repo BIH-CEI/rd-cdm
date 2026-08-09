@@ -8,11 +8,6 @@ from __future__ import annotations
 from pathlib import Path
 import sys
 import re
-import tempfile
-import ruamel.yaml
-
-# Top-level fields we added to the schema that are not valid LinkML SchemaDefinition fields
-_STRIP_FROM_SCHEMA = {"date"}
 
 
 def _rewrite_pydantic_config_to_v2(src: str) -> str:
@@ -77,53 +72,39 @@ def main() -> int:
         print(f"Details: {e}", file=sys.stderr)
         return 1
 
-    # Strip custom top-level fields that LinkML SchemaDefinition doesn't accept
-    yaml = ruamel.yaml.YAML()
-    with schema.open("r", encoding="utf-8") as fh:
-        schema_data = yaml.load(fh) or {}
-    for field in _STRIP_FROM_SCHEMA:
-        schema_data.pop(field, None)
+    # The schema is generated from directly. Until 2.1.0 it carried a top-level
+    # `date:`, which SchemaDefinition rejects, so this ran the generators over a
+    # stripped temporary copy - and that workaround is exactly why gen_pydantic
+    # succeeded while `linkml validate` and `gen-doc` failed. The date is now an
+    # annotation, so there is nothing to strip.
+    schema_arg = str(schema)
 
-    tmp_path = None
+    # 1) LinkML runtime dataclasses (rd_cdm.py)
+    print("Generating LinkML runtime dataclasses...")
     try:
-        with tempfile.NamedTemporaryFile(
-            mode="w", suffix=".yaml", delete=False, encoding="utf-8"
-        ) as tmp:
-            yaml.dump(schema_data, tmp)
-            tmp_path = tmp.name
+        dataclass_code = PythonGenerator(schema_arg).serialize()
+    except Exception as e:
+        print("ERROR: Failed to generate LinkML dataclasses.", file=sys.stderr)
+        print(f"Details: {e}", file=sys.stderr)
+        return 1
 
-        # 1) LinkML runtime dataclasses (rd_cdm.py)
-        print("Generating LinkML runtime dataclasses...")
-        try:
-            python_gen = PythonGenerator(tmp_path)
-            dataclass_code = python_gen.serialize()
-        except Exception as e:
-            print("ERROR: Failed to generate LinkML dataclasses.", file=sys.stderr)
-            print(f"Details: {e}", file=sys.stderr)
-            return 1
+    if not _write_generated(dataclass_code, out_dataclasses, schema, "PythonGenerator"):
+        return 1
+    print(f"✅ LinkML dataclasses written to {out_dataclasses}")
 
-        if not _write_generated(dataclass_code, out_dataclasses, schema, "PythonGenerator"):
-            return 1
-        print(f"✅ LinkML dataclasses written to {out_dataclasses}")
+    # 2) Pydantic v2 models (rd_cdm_pydantic.py)
+    print("Generating Pydantic v2 models...")
+    try:
+        pydantic_code = PydanticGenerator(schema_arg).serialize()
+        pydantic_code = _rewrite_pydantic_config_to_v2(pydantic_code)
+    except Exception as e:
+        print("ERROR: Failed to generate Pydantic models.", file=sys.stderr)
+        print(f"Details: {e}", file=sys.stderr)
+        return 1
 
-        # 2) Pydantic v2 models (rd_cdm_pydantic.py)
-        print("Generating Pydantic v2 models...")
-        try:
-            pydantic_gen = PydanticGenerator(tmp_path)
-            pydantic_code = pydantic_gen.serialize()
-            pydantic_code = _rewrite_pydantic_config_to_v2(pydantic_code)
-        except Exception as e:
-            print("ERROR: Failed to generate Pydantic models.", file=sys.stderr)
-            print(f"Details: {e}", file=sys.stderr)
-            return 1
-
-        if not _write_generated(pydantic_code, out_pydantic, schema, "PydanticGenerator"):
-            return 1
-        print(f"✅ Pydantic models written to {out_pydantic}")
-
-    finally:
-        if tmp_path:
-            Path(tmp_path).unlink(missing_ok=True)
+    if not _write_generated(pydantic_code, out_pydantic, schema, "PydanticGenerator"):
+        return 1
+    print(f"✅ Pydantic models written to {out_pydantic}")
 
     return 0
 

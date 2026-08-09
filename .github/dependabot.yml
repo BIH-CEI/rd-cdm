@@ -1,0 +1,25 @@
+version: 2
+
+updates:
+  - package-ecosystem: pip
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    labels: ["dependencies"]
+    groups:
+      linkml:
+        patterns: ["linkml", "linkml-runtime"]
+      dev-tooling:
+        patterns: ["pytest*", "requests-mock", "sphinx*"]
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    labels: ["dependencies", "ci"]
+    groups:
+      actions:
+        patterns: ["*"]

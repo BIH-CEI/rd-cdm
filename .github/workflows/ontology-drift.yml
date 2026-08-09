@@ -1,0 +1,106 @@
+name: Ontology drift
+
+# Weekly check of the model's ontology versions and labels against BioPortal.
+# Version drift is applied automatically; label drift and missing terms are
+# reported in the pull request body for review. Re-runs push to the same branch,
+# so findings accumulate in one pull request rather than many.
+
+on:
+  schedule:
+    - cron: '0 3 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  drift:
+    name: Check ontology versions and labels
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: src
+      BIOPORTAL_API_KEY: ${{ secrets.BIOPORTAL_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip poetry
+          poetry install --no-interaction -E dev -E test
+
+      - name: Apply version drift
+        run: poetry run rd-cdm-sync-versions | tee sync-report.txt
+
+      - name: Regenerate merged and derived files
+        run: |
+          poetry run rd-cdm-merge
+          poetry run rd-cdm-profile
+          poetry run rd-cdm-json
+          poetry run rd-cdm-csv
+
+      - name: Validate against BioPortal
+        run: |
+          set +e
+          poetry run rd-cdm-validate > drift-report.txt 2>&1
+          echo "validate exited $?"
+          cat drift-report.txt
+
+      - name: Build pull request body
+        run: |
+          {
+            echo "Automated check of RD-CDM ontology codes against BioPortal."
+            echo
+            # rd-cdm-validate exits non-zero both when it finds problems and
+            # when it crashes. Only a completed run prints its summary header,
+            # so that is what distinguishes "nothing to review" from "the check
+            # never ran" - without this, a crash reads as a clean bill of health.
+            if ! grep -q 'RD-CDM VALIDATION SUMMARY' drift-report.txt; then
+              echo "> [!CAUTION]"
+              echo "> \`rd-cdm-validate\` did not complete. The report below is a"
+              echo "> failure, not a clean result - treat the findings section as"
+              echo "> unknown rather than empty."
+              echo
+            fi
+            echo "### Applied automatically"
+            echo
+            echo '```'
+            cat sync-report.txt
+            echo '```'
+            echo
+            echo "### Needs review"
+            echo
+            echo "Label drift, unresolvable codes and structural problems are"
+            echo "**not** applied automatically. A changed or absent label can"
+            echo "mean a term was redefined or withdrawn, which is a data"
+            echo "question rather than housekeeping."
+            echo
+            echo '```'
+            grep 'label drift\|unresolvable code\|marked inactive but resolves\|^  • structure:' drift-report.txt || echo "none"
+            echo '```'
+            echo
+            echo "<details><summary>Full validation report</summary>"
+            echo
+            echo '```'
+            cat drift-report.txt
+            echo '```'
+            echo
+            echo "</details>"
+          } > pr-body.md
+          cat pr-body.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open or update pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: chore/ontology-drift
+          base: main
+          title: "chore(ontology): sync code system versions with BioPortal"
+          body-path: pr-body.md
+          commit-message: "chore(ontology): sync code system versions with BioPortal"
+          labels: ontology, automated
+          delete-branch: false

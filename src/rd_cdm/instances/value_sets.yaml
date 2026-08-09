@@ -1,5 +1,5 @@
 value_sets:
-- id: SNOMEDCT:281053000
+- id: LOINC:76689-9
   label: Sex at Birth Value Set v2.0.0
   codes:
   - system: SNOMEDCT
@@ -11,9 +11,20 @@ value_sets:
   - system: SNOMEDCT
     code: '184115007'
     label: Patient sex unknown
+    status: inactive
+    replacedBy: SNOMEDCT:261665006
+    statusNote: >
+      Does not resolve in BioPortal, which is this model's terminology
+      authority, so it is not offered for new capture. Retained, with
+      replacedBy, so records already captured against it stay interpretable and
+      can be migrated: identifiers are never reused, so the code still means
+      what it meant when it was recorded.
   - system: SNOMEDCT
     code: '32570691000036108'
     label: Intersex
+  - system: SNOMEDCT
+    code: '261665006'
+    label: Unknown
   - system: SNOMEDCT
     code: '1220561009'
     label: Not recorded
@@ -22,31 +33,40 @@ value_sets:
   codes:
   - system: SNOMEDCT
     code: '734875008'
-    label: XX
+    label: 'Karyotype 46, XX'
+    displayLabel: XX
   - system: SNOMEDCT
     code: '734876009'
-    label: XY
+    label: 'Karyotype 46, XY'
+    displayLabel: XY
   - system: SNOMEDCT
     code: '80427008'
-    label: X0
+    label: X0 sex chromosome alteration
+    displayLabel: X0
   - system: SNOMEDCT
     code: '65162001'
-    label: XXY
+    label: XXY sex chromosome alteration
+    displayLabel: XXY
   - system: SNOMEDCT
     code: '35111009'
-    label: XXX
+    label: Trisomy X syndrome
+    displayLabel: XXX
   - system: SNOMEDCT
     code: '403760006'
-    label: XXYY
+    label: XXYY syndrome
+    displayLabel: XXYY
   - system: SNOMEDCT
     code: '78317008'
-    label: XXXY
+    label: XXXY syndrome
+    displayLabel: XXXY
   - system: SNOMEDCT
     code: '10567003'
-    label: XXXX
+    label: Tetrasomy X syndrome
+    displayLabel: XXXX
   - system: SNOMEDCT
     code: '48930007'
-    label: XYY
+    label: XYY sex chromosome alteration
+    displayLabel: XYY
   - system: SNOMEDCT
     code: '74964007'
     label: Other
@@ -55,10 +75,12 @@ value_sets:
   codes:
   - system: SNOMEDCT
     code: '446141000124107'
-    label: Female gender identity
+    label: Identifies as female gender
+    displayLabel: Female gender identity
   - system: SNOMEDCT
     code: '446151000124109'
-    label: Male gender identity
+    label: Identifies as male gender
+    displayLabel: Male gender identity
   - system: SNOMEDCT
     code: '394743007'
     label: Gender unknown
@@ -79,58 +101,25 @@ value_sets:
     label: Dead
   - system: SNOMEDCT
     code: '399307001'
-    label: Unknown - Lost in follow-up
+    label: Lost to follow-up
+    displayLabel: Unknown - Lost in follow-up
   - system: SNOMEDCT
     code: '185924006'
     label: Unknown - Opted-out
-  - system: SNOMEDCT
-    code: '261665006'
-    label: Unknown - Other Reason
-- id: SNOMEDCT:105727008
-  label: Age Category Value Set v2.0.0
-  codes:
-  - system: SNOMEDCT
-    code: '3658006'
-    label: Infancy
-  - system: SNOMEDCT
-    code: '713153009'
-    label: Toddler
-  - system: SNOMEDCT
-    code: '255398004'
-    label: Childhood
-  - system: SNOMEDCT
-    code: '263659003'
-    label: Adolescence
-  - system: SNOMEDCT
-    code: '41847000'
-    label: Adulthood
-  - system: SNOMEDCT
-    code: '303112003'
-    label: Fetal period
-  - system: SNOMEDCT
-    code: '419099009'
-    label: Dead
+    displayLabel: Unknown - Opted-out
+    status: inactive
+    replacedBy: SNOMEDCT:261665006
+    statusNote: >
+      Does not resolve in BioPortal, which is this model's terminology
+      authority, so it is not offered for new capture. Retained, with
+      replacedBy, so records already captured against it stay interpretable and
+      can be migrated. Note that the successor is the generic Unknown: the
+      opted-out *reason* is not preserved by the migration and belongs in the
+      consent section rather than in vital status.
   - system: SNOMEDCT
     code: '261665006'
     label: Unknown
-- id: SNOMEDCT:278844005
-  label: Vital Status Value Set v2.0.0
-  codes:
-  - system: SNOMEDCT
-    code: '438949009'
-    label: Alive
-  - system: SNOMEDCT
-    code: '419099009'
-    label: Dead
-  - system: SNOMEDCT
-    code: '399307001'
-    label: Unknown - Lost in follow-up
-  - system: SNOMEDCT
-    code: '185924006'
-    label: Unknown - Opted-out
-  - system: SNOMEDCT
-    code: '261665006'
-    label: Unknown - Other Reason
+    displayLabel: Unknown - Other Reason
 - id: SNOMEDCT:105727008
   label: Age Category Value Set v2.0.0
   codes:
@@ -224,7 +213,7 @@ value_sets:
   - system: SNOMEDCT
     code: '261665006'
     label: Unknown
-- id: HL7FHIR:99498-8
+- id: LOINC:99498-8
   label: Verification Status Value Set v2.0.0
   codes:
   - system: HL7FHIR
@@ -250,7 +239,8 @@ value_sets:
   codes:
   - system: SNOMEDCT
     code: '118189007'
-    label: Prenatal
+    label: Prenatal finding
+    displayLabel: Prenatal
   - system: SNOMEDCT
     code: '3950001'
     label: Birth
@@ -265,7 +255,8 @@ value_sets:
   codes:
   - system: SNOMEDCT
     code: '118189007'
-    label: Prenatal
+    label: Prenatal finding
+    displayLabel: Prenatal
   - system: SNOMEDCT
     code: '3950001'
     label: Birth
@@ -303,7 +294,7 @@ value_sets:
     code: 'resolved'
     label: Resolved
 - id: SNOMEDCT:246112005
-  label: Severity Value Set v2.0.0
+  label: Disease Severity Value Set v2.0.0
   codes:
   - system: SNOMEDCT
     code: '24484000'
@@ -393,19 +384,24 @@ value_sets:
   codes:
   - system: LOINC
     code: 'LA14032-9'
-    label: NCBI Build 34 (hg16)
+    label: NCBI Build 34
+    displayLabel: NCBI Build 34 (hg16)
   - system: LOINC
     code: 'LA14029-5'
-    label: GRCh37 (hg19)
+    label: GRCh37
+    displayLabel: GRCh37 (hg19)
   - system: LOINC
     code: 'LA14030-3'
-    label: NCBI Build 36.1 (hg18)
+    label: NCBI Build 36.1
+    displayLabel: NCBI Build 36.1 (hg18)
   - system: LOINC
     code: 'LA14031-1'
-    label: NCBI Build 35 (hg17)
+    label: NCBI Build 35
+    displayLabel: NCBI Build 35 (hg17)
   - system: LOINC
     code: 'LA26806-2'
-    label: GRCh38 (hg38)
+    label: GRCh38
+    displayLabel: GRCh38 (hg38)
 - id: LOINC:53034-5
   label: Zygosity Value Set v2.0.0
   codes:
@@ -548,7 +544,7 @@ value_sets:
   - system: LOINC
     code: 'LA26333-7'
     label: Uncertain significance
-- id: CustomCode:phenotypicfeature.excluded
+- id: SNOMEDCT:363778006
   label: Phenotype Status Value Set v2.0.0
   codes:
   - system: SNOMEDCT
@@ -618,7 +614,7 @@ value_sets:
     code: '0025153'
     label: Transient
 - id: HP:0012824
-  label: Severity Value Set v2.0.0
+  label: Phenotype Severity Value Set v2.0.0
   codes:
   - system: HP
     code: '0012827'
@@ -758,7 +754,7 @@ value_sets:
   - system: HL7FHIR
     code: health-unknown
     label: Health Unknown
-- id: SNOMEDCT:54123-5
+- id: LOINC:54123-5
   label: AdministrativeGender Value Set v2.0.0
   codes:
   - system: SNOMEDCT
@@ -770,9 +766,20 @@ value_sets:
   - system: SNOMEDCT
     code: '184115007'
     label: Patient sex unknown
+    status: inactive
+    replacedBy: SNOMEDCT:261665006
+    statusNote: >
+      Does not resolve in BioPortal, which is this model's terminology
+      authority, so it is not offered for new capture. Retained, with
+      replacedBy, so records already captured against it stay interpretable and
+      can be migrated: identifiers are never reused, so the code still means
+      what it meant when it was recorded.
   - system: SNOMEDCT
     code: '32570691000036108'
     label: Intersex
+  - system: SNOMEDCT
+    code: '261665006'
+    label: Unknown
   - system: SNOMEDCT
     code: '1220561009'
     label: Not recorded
@@ -788,7 +795,7 @@ value_sets:
   - system: SNOMEDCT
     code: '261665006'
     label: Unknown
-- id: HL7FHIR:309370004
+- id: SNOMEDCT:309370004
   label: Consent Status Value Set v2.0.0
   codes:
   - system: HL7FHIR
@@ -809,7 +816,7 @@ value_sets:
   - system: HL7FHIR
     code: 'entered-in-error'
     label: Entered in Error
-- id: SNOMEDCT:consent_contact_research
+- id: CustomCode:consent_contact_research
   label: Contact for Research Value Set v2.0.0
   codes:
   - system: SNOMEDCT
@@ -821,7 +828,7 @@ value_sets:
   - system: SNOMEDCT
     code: '261665006'
     label: Unknown
-- id: SNOMEDCT:conset_data_reuse
+- id: CustomCode:consent_data_reuse
   label: Data Reuse Consent Value Set v2.0.0
   codes:
   - system: SNOMEDCT

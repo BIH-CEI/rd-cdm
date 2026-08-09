@@ -27,6 +27,8 @@ the harmonization of data across different systems.
    background/background_file
    resources/resources_file
    usage/usage_file
+   reference/index
+   datamodel/index
    contributing
    license
    changelog

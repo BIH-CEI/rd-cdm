@@ -5,6 +5,30 @@ from urllib.parse import quote
 import requests
 BP_BASE = "https://data.bioontology.org"
 
+#: Code system ids whose BioPortal submission is published under a different
+#: acronym. Used for *both* version and label lookups so that the version we
+#: record is the version of the submission the labels were resolved against.
+BIOPORTAL_ACRONYM = {
+    "ORPHA": "ORDO",
+    "HGNC": "HGNC-NR",
+}
+
+#: Version strings that carry no information. `rd-cdm-sync-versions` refuses to
+#: overwrite a known version with one of these.
+UNINFORMATIVE_VERSIONS = {"", "unknown", "<unknown>", "none", "null"}
+
+#: Statuses that mean "BioPortal has no such class". 404 is the documented one;
+#: 400 comes back when the identifier is not a well-formed IRI or CURIE, which
+#: is what the bare-identifier fallback sends for SNOMEDCT, LOINC and ICD10CM.
+#: Treating 400 as an exception rather than a miss aborted the whole run on the
+#: first unresolvable code.
+NOT_FOUND_STATUSES = (400, 404)
+
+
+def bioportal_acronym(sys_id: str) -> str:
+    """Return the BioPortal acronym that publishes a code system."""
+    return BIOPORTAL_ACRONYM.get(sys_id, sys_id)
+
 def clean_code(raw) -> str:
     """
     Normalize a raw ontology code into the minimal token that BioPortal will accept.
@@ -88,7 +112,7 @@ def get_remote_version(sys_id: str) -> str:
     RuntimeError
         If the ontology record has no 'latest_submission' link.
     """
-    url_meta = f"{BP_BASE}/ontologies/{sys_id}"
+    url_meta = f"{BP_BASE}/ontologies/{bioportal_acronym(sys_id)}"
     r_meta = requests.get(url_meta, headers=bp_headers())
     r_meta.raise_for_status()
     meta = r_meta.json()
@@ -106,16 +130,19 @@ def get_remote_label(sys_id: str, code: str, namespace_iri: str) -> str | None:
 
     Resolution strategy (mirrors the working RareLink behavior):
     1) Try CURIE lookup directly: /ontologies/{sys_id}/classes/{quote(sys_id:code)}
-       - Works for ontologies that accept CURIE identifiers.
-       - 200 → return 'prefLabel'; 404 → fall through; other → raise_for_status().
+       - Works for ontologies that accept CURIE identifiers, and is the only form
+         that works for SNOMEDCT, LOINC and ICD10CM.
+       - 200 → return 'prefLabel'; 400/404 → fall through; other → raise_for_status().
     2) Try an ontology-specific full IRI using a hard-coded mapping:
        - ORPHA → ORDO IRI (http://www.orpha.net/ORDO/Orphanet_{code})
        - HGNC  → HGNC-NR IRI (http://identifiers.org/hgnc/{code})
        - NCIT  → EVS Thesaurus IRI (http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#{code})
        - NCBITAXON, HP, MONDO, OMIM, ECO, UO, VO, GENO → OBO-style IRIs
-       - ICD10CM, SNOMEDCT, LOINC → use the identifier *as-is* (BioPortal accepts IDs for these)
+       - ICD10CM, SNOMEDCT, LOINC → the bare identifier, which BioPortal rejects
+         with 400; for these three step 1 is the only route that can succeed and
+         step 2 exists only so the code path is uniform
        - If no mapping exists, build a fallback IRI as {namespace_iri.rstrip('/')}/{code}
-       - 200 → return 'prefLabel'; 404 → return None; other → raise_for_status().
+       - 200 → return 'prefLabel'; 400/404 → return None; other → raise_for_status().
 
     Special cases
     -------------
@@ -143,7 +170,9 @@ def get_remote_label(sys_id: str, code: str, namespace_iri: str) -> str | None:
     Raises
     ------
     requests.HTTPError
-        If BioPortal returns a non-2xx status other than 404 for either request.
+        If BioPortal returns a status other than 200, 400 or 404 for either
+        request - a genuine server or authentication fault, as opposed to the
+        code simply not being there.
     """
 
     # 0) skip composite codes
@@ -154,8 +183,8 @@ def get_remote_label(sys_id: str, code: str, namespace_iri: str) -> str | None:
 
     # Build the ontology_map exactly as in RareLink
     ontology_map = {
-        "ORPHA":     {"api": "ORDO",     "iri": f"http://www.orpha.net/ORDO/Orphanet_{code}"},
-        "HGNC":      {"api": "HGNC-NR",  "iri": f"http://identifiers.org/hgnc/{code}"},
+        "ORPHA":     {"api": BIOPORTAL_ACRONYM["ORPHA"], "iri": f"http://www.orpha.net/ORDO/Orphanet_{code}"},
+        "HGNC":      {"api": BIOPORTAL_ACRONYM["HGNC"],  "iri": f"http://identifiers.org/hgnc/{code}"},
         "NCIT":      {"api": "NCIT",     "iri": f"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#{code}"},
         "NCBITAXON": {"api": "NCBITAXON","iri": f"http://purl.bioontology.org/ontology/NCBITAXON/{code}"},
         "HP":        {"api": "HP",       "iri": f"http://purl.obolibrary.org/obo/HP_{code.replace(':','_')}"},
@@ -176,7 +205,7 @@ def get_remote_label(sys_id: str, code: str, namespace_iri: str) -> str | None:
     r = requests.get(url_curie, headers=headers)
     if r.status_code == 200:
         return r.json().get("prefLabel")
-    if r.status_code not in (404,):
+    if r.status_code not in NOT_FOUND_STATUSES:
         r.raise_for_status()
 
     # 2) Fall back to the mapped IRI for this ontology (or default to namespace_iri/code)
@@ -191,7 +220,7 @@ def get_remote_label(sys_id: str, code: str, namespace_iri: str) -> str | None:
     r2 = requests.get(url_iri, headers=headers)
     if r2.status_code == 200:
         return r2.json().get("prefLabel")
-    if r2.status_code not in (404,):
+    if r2.status_code not in NOT_FOUND_STATUSES:
         r2.raise_for_status()
 
     return None

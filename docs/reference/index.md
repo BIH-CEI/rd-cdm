@@ -1,13 +1,16 @@
 # Element Reference
 
-Generated from the RD-CDM instance data (RD-CDM 2.1.0) via
-`rd-cdm-profile` and LinkML `gen-doc`. Do not edit these files by hand — run
+Generated from the RD-CDM instance data (RD-CDM 2.1.0) via `rd-cdm-profile`
+and LinkML `gen-doc`. Do not edit these files by hand — run
 `rd-cdm-profile && rd-cdm-docs`.
 
 Each section is a class, each data element a slot named by its ordinal, and each
 value set an enumeration listing every permitted code with its CURIE. Codes
 marked **DEPRECATED** do not resolve against BioPortal and are not available for
 new data capture; their description names the code to use instead.
+
+For the container schema these are instances of, see the
+[Data Model Reference](../datamodel/index.md).
 
 # RD-CDM 2.1.0 - data elements and value sets
 

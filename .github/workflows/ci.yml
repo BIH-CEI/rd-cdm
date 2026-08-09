@@ -66,7 +66,7 @@ jobs:
         run: python -m pip install --upgrade pip poetry
 
       - name: Install dependencies
-        run: poetry install --no-interaction -E dev -E test
+        run: poetry install --no-interaction -E dev -E test -E docs
 
       - name: Merge instance files → rd_cdm.yaml
         run: poetry run rd-cdm-merge
@@ -99,18 +99,25 @@ jobs:
             src/rd_cdm/instances/rd_cdm.yaml
 
       # The build job packages the checked-out tree with no regeneration, so a
-      # stale committed artefact would ship to PyPI. python_classes is excluded:
+      # stale committed artefact would ship to PyPI - and a stale docs/ page
+      # would ship to Read the Docs, which builds from the committed Markdown
+      # rather than running gen-doc itself. python_classes is excluded:
       # gen-pydantic stamps a generation date, so it can never match byte-wise.
       - name: Committed artefacts match the sources
         run: |
           poetry run rd-cdm-json
           poetry run rd-cdm-csv
+          poetry run rd-cdm-docs
           if ! git diff --exit-code -- \
-               src/rd_cdm/instances src/rd_cdm/schema/rd_cdm_profile.yaml; then
-            echo "::error::Generated files are stale. Run: rd-cdm-merge && \
-          rd-cdm-profile && rd-cdm-json && rd-cdm-csv, then commit the result."
+               src/rd_cdm/instances \
+               src/rd_cdm/schema/rd_cdm_profile.yaml \
+               docs/datamodel docs/reference; then
+            echo "::error::Generated files are stale. Run rd-cdm-merge, rd-cdm-profile, rd-cdm-json, rd-cdm-csv and rd-cdm-docs, then commit the result."
             exit 1
           fi
+
+      - name: Documentation builds
+        run: poetry run mkdocs build
 
   build:
     name: Build (sdist/wheel)

@@ -10,6 +10,10 @@ on:
     branches: [ main ]
   schedule:
     - cron: '0 2 * * 1'
+  # Without this the workflow can only be provoked by a push or a tag, which
+  # made diagnosing a silent trigger impossible: gh workflow run ci.yml now
+  # exercises the whole pipeline without touching a tag.
+  workflow_dispatch:
 
 jobs:
   tests:

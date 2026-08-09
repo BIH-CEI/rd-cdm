@@ -14,6 +14,337 @@ This changelog provides a history of the changes to the RD-CDM.
     not publicly available.
 
 
+v2.1.0 (2026-08-08)
+--------------------
+
+New Data Element: Family Identifier (6.4.0)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A new data element **6.4.0 Family Identifier** has been added to section 6.4
+Family History:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 25 35
+
+   * - Property
+     - Value
+   * - Element code
+     - ``GA4GH:family.id``
+   * - Data type
+     - Identifier
+   * - FHIR
+     - ``Group.identifier``
+   * - Phenopacket Schema
+     - ``Family.id``
+
+It identifies the family as a whole — the group shared by an individual and
+their relatives — and complements **6.4.1 Family Member Pseudonym**, which
+identifies a single member. It is coded under GA4GH, matching the convention
+already used for other Phenopacket-derived elements (6.1.2, 6.2.8, 6.2.9),
+because the element exists to carry the Phenopacket ``Family.id`` rather than
+an independent clinical concept.
+
+The element was numbered **6.4.0** deliberately, so that no existing ordinal in
+section 6.4 shifts — downstream models reference elements by ordinal.
+
+Required by RareLink for Family Phenopacket export
+(`BIH-CEI/rarelink#219 <https://github.com/BIH-CEI/rarelink/issues/219>`_).
+
+Data Element Update: Country of Origin (2.5)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Data element **2.5** has been renamed from *Country of Birth* to **Country of
+Origin** and aligned with the equivalent GDI element:
+
+- **Definition**: a person's descent or lineage, from a person or from a
+  population.
+- **Data specification**: a 2- or 3-letter code from **ISO 3166-1** where only a
+  country is provided; a value from **ISO 3166-2** where a country subdivision
+  is provided.
+
+.. note::
+   The element code changed from SNOMED CT ``370159000 | Country of birth |`` to
+   ``CustomCode:country_of_origin``. The SNOMED concept denotes *country of
+   birth*, which is not the same as descent or lineage — a person born in one
+   country may have their origin in another. No SNOMED concept was found that
+   matches the GDI definition precisely: ``372148003 | Ethnic group |`` and
+   ``103579009 | Race |`` are both narrower and would misrepresent the element.
+   ``CustomCode`` follows the convention already used for elements 7.4, 7.5, 7.7
+   and 8.1, where no clean ontology match exists. If a suitable SNOMED or GDI
+   concept is identified, this should be replaced.
+
+Ontology Drift Automation
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``rd-cdm-validate`` was never invoked by any workflow. The scheduled CI job ran
+merge, class generation and ``linkml validate``, but not the BioPortal check —
+so version and label drift had gone undetected despite the weekly schedule and
+a configured API key.
+
+A dedicated **Ontology drift** workflow now runs weekly:
+
+1. ``rd-cdm-sync-versions`` applies code system **version** drift automatically.
+2. ``rd-cdm-merge`` / ``-json`` / ``-csv`` regenerate the derived files.
+3. ``rd-cdm-validate`` reports label drift and missing terms.
+4. A pull request is opened — or, on re-runs, **updated** — with the findings.
+
+Label drift and missing terms are deliberately **not** applied automatically: a
+changed or absent label can mean a term was redefined or obsoleted, which is a
+data question rather than housekeeping.
+
+The new ``rd-cdm-sync-versions`` command can also be run locally:
+
+.. code-block:: bash
+
+   export BIOPORTAL_API_KEY=...
+   rd-cdm-sync-versions
+
+Browsable Data Model Documentation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The LinkML schema documentation is now generated with ``gen-doc`` and rendered
+inside these docs, so classes, slots and enumerations can be browsed directly.
+See :doc:`datamodel/index`. LinkML's builtin types are excluded — nineteen pages
+documenting ``String``, ``Boolean``, ``Jsonpointer`` and the rest, of which the
+schema uses four.
+
+Ontology Terms Withdrawn from New Capture
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Two SNOMED CT codes no longer resolve in the submission BioPortal currently
+publishes (``2025_09_01``). Since BioPortal is this model's terminology
+authority, both are marked ``status: inactive`` and are **not** offered for new
+data capture:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 22 28 25 25
+
+   * - Code
+     - Label
+     - Value sets
+     - Replaced by
+   * - ``SNOMEDCT:184115007``
+     - Patient sex unknown
+     - Sex at Birth, AdministrativeGender
+     - ``SNOMEDCT:261665006`` *Unknown*
+   * - ``SNOMEDCT:185924006``
+     - Unknown - Opted-out
+     - Vital Status
+     - ``SNOMEDCT:261665006`` *Unknown*
+
+Both codes **remain in their value sets**. Identifiers are never reused, so a
+record captured against one still means exactly what it meant when it was
+recorded; removing them would make existing data uninterpretable and force a
+migration. ``rd-cdm-validate`` reports them as known inactivations rather than
+errors, and warns if either starts resolving again.
+
+.. note::
+   ``SNOMEDCT:261665006`` *Unknown* has been **added as a member** of both sex
+   value sets, which otherwise offered no active "unknown" option —
+   ``1220561009`` *Not recorded* is a statement about the record, not about the
+   person. For downstream models such as RareLink this is an additive dropdown
+   option, not a data migration.
+
+   For Vital Status, the opted-out *reason* is not preserved by the migration.
+   Representing it belongs in the consent section (7.x) rather than in vital
+   status, and is open for v2.2.0.
+
+New Schema Fields: ``displayLabel``, ``status``, ``replacedBy``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``Coding`` gains four optional attributes:
+
+- **``displayLabel``** — a presentation label for forms and user interfaces,
+  used where the terminology's preferred label is unhelpful to a data entrant.
+  Never validated against the terminology.
+- **``status``** (``CodeStatus``: ``active`` | ``inactive``) — whether the code
+  still resolves against BioPortal.
+- **``replacedBy``** — the active code a value recorded under an inactive one
+  migrates to. Must itself be a member of the same value set.
+- **``statusNote``** — why a code carries a non-default status.
+
+``label`` now means *the preferred label in the source terminology* and is what
+``rd-cdm-validate`` compares.
+
+Ontology Labels Adopted from BioPortal
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Twenty codes whose recorded label had drifted now carry the terminology's
+preferred label. Every replaced string is preserved as ``displayLabel``, so
+nothing curated is lost:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 35 35
+
+   * - Value set
+     - ``label`` now
+     - ``displayLabel`` (was ``label``)
+   * - Karyotypic Sex (9 codes)
+     - Karyotype 46, XX …
+     - XX …
+   * - Gender Identity (2)
+     - Identifies as female gender
+     - Female gender identity
+   * - Vital Status (2)
+     - Lost to follow-up; Unknown
+     - Unknown - Lost in follow-up; Unknown - Other Reason
+   * - Age at Onset / Diagnosis (2)
+     - Prenatal finding
+     - Prenatal
+   * - Reference Genome (5)
+     - GRCh38 …
+     - GRCh38 (hg38) …
+
+.. warning::
+   RareLink copies these labels by hand into its CDM schema definitions and
+   ``label_dicts.py``, and emits them as Phenopacket labels. Adopting them there
+   is a separate change and will require re-baselining RareLink's golden files.
+   Prefer ``displayLabel`` for REDCap dropdowns and other data-entry surfaces.
+
+Value Set Corrections
+~~~~~~~~~~~~~~~~~~~~~~
+
+- **Two value sets were declared twice.** *Vital Status*
+  (``SNOMEDCT:278844005``) and *Age Category* (``SNOMEDCT:105727008``) each
+  appeared verbatim twice, so their members were validated — and reported —
+  twice.
+- **Two data elements shared one value set label.** *5.9 Severity* and
+  *6.2.7 Severity* both referenced ``Severity Value Set v2.0.0``, of which there
+  were two. Split into **Disease Severity Value Set** (``SNOMEDCT:246112005``)
+  and **Phenotype Severity Value Set** (``HP:0012824``).
+- **Seven value set ids did not identify the element they constrain.** Data
+  elements reference value sets by *label*, so nothing ever resolved the ``id``
+  and a stale one was invisible:
+
+  .. list-table::
+     :header-rows: 1
+     :widths: 34 33 33
+
+     * - Value set
+       - Was
+       - Now
+     * - Sex at Birth
+       - ``SNOMEDCT:281053000``
+       - ``LOINC:76689-9``
+     * - AdministrativeGender
+       - ``SNOMEDCT:54123-5``
+       - ``LOINC:54123-5``
+     * - Verification Status
+       - ``HL7FHIR:99498-8``
+       - ``LOINC:99498-8``
+     * - Consent Status
+       - ``HL7FHIR:309370004``
+       - ``SNOMEDCT:309370004``
+     * - Phenotype Status
+       - ``CustomCode:phenotypicfeature.excluded``
+       - ``SNOMEDCT:363778006``
+     * - Contact for Research
+       - ``SNOMEDCT:consent_contact_research``
+       - ``CustomCode:consent_contact_research``
+     * - Data Reuse Consent
+       - ``SNOMEDCT:conset_data_reuse``
+       - ``CustomCode:consent_data_reuse``
+
+  ``SNOMEDCT:281053000`` is the deprecated Sex-at-Birth concept the model moved
+  off in v2.0.3 (see above); ``54123-5`` and ``99498-8`` are LOINC codes that
+  carried a ``SNOMEDCT`` and an ``HL7FHIR`` prefix respectively. The typo in
+  ``CustomCode:conset_data_reuse`` (element 7.5) is also corrected.
+- **Section labels are now consistent.** Elements 6.1.x said ``6. Genetic
+  Findings``, 6.2.x mixed ``6.`` and ``6.2``, and section 6.4 split six elements
+  as ``6.4 Family History`` against eight as ``6.4 Family``.
+
+Offline Structural Validation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``rd-cdm-validate --offline`` runs a new set of consistency checks that need no
+BioPortal key, and therefore run in CI on every pull request:
+
+- value sets are declared once, under a unique id **and** a unique label;
+- every referenced value set exists and every declared one is used;
+- members are not duplicated, and a value set is not entirely inactive;
+- a ``replacedBy`` target is a member of the same value set;
+- section labels are consistent within an ordinal group;
+- **a value set's ``id`` is the CURIE of the data element it constrains**.
+
+That last invariant is what would have caught ``SNOMEDCT:281053000`` when
+element 2.2 moved to LOINC in v2.0.3.
+
+Browsable Element Reference
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``gen-doc`` documents a *schema*, and the RD-CDM's data elements and value sets
+are *instances* of the five-class container — so the generated reference
+described ``Coding`` and ``ValueSet`` as abstract shapes and never mentioned
+element 6.1.11 or the codes it permits.
+
+The new **``rd-cdm-profile``** command projects the instance data into a LinkML
+schema (``schema/rd_cdm_profile.yaml``) where each value set is an enumeration
+with ``meaning:`` on every member, each data element a slot named by its ordinal
+with ``slot_uri`` set to its element code, and each section a class. Stock
+``gen-doc`` then renders the whole model. See :doc:`reference/index` for the
+elements and value sets, and :doc:`datamodel/index` for the container schema.
+
+The generated schema is published with the package, so downstream consumers can
+import the value sets as bound LinkML enumerations rather than re-declaring them.
+
+Validation and Tooling Fixes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **A ``400`` from BioPortal aborted the entire validation run.**
+  ``get_remote_label`` treated only ``404`` as "not found", but the
+  bare-identifier fallback used for SNOMEDCT, LOINC and ICD10CM is not a
+  well-formed IRI and returns ``400`` — so the first unresolvable code raised
+  instead of being recorded.
+- **``VS X: missing member Y`` was misleading.** The message described a live
+  BioPortal resolution failure but read as a value set *membership* failure. It
+  is now ``VS X: unresolvable code Y``.
+- **A placeholder version could overwrite a real one.**
+  ``rd-cdm-sync-versions`` replaced Sequence Ontology ``2.6`` with the string
+  ``unknown``, which no later run could undo. Placeholders are now reported and
+  skipped.
+- **Version and label lookups used different BioPortal submissions.** HGNC
+  labels resolve against ``HGNC-NR`` while the version was read from ``HGNC``.
+- **The schema could not be loaded by LinkML's own tooling.** A top-level
+  ``date:`` key is not a ``SchemaDefinition`` slot, so ``linkml validate`` and
+  ``gen-doc`` failed before doing any work. The release date is now
+  ``annotations.rd_cdm_date``. This also removes the workaround in
+  ``gen_pydantic.py`` that stripped the key into a temporary file — which is why
+  class generation had kept working while validation did not.
+- **CI was failing at its install step.** ``poetry install --with dev`` treats
+  ``dev`` and ``test`` as dependency *groups*; they are *extras*. The
+  merge-and-validate and ontology-drift jobs never ran, and the test job never
+  installed ``pytest``.
+- **The ontology drift report could not distinguish a clean result from a
+  crash.** A failed validation run produced an empty findings section rather
+  than an alert.
+- **Committed generated files are now checked against their sources in CI**, so
+  a stale artefact cannot be published to PyPI.
+
+Single Source of Truth for the Model Version
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``schema/rd_cdm.yaml`` declares the model version; ``rd-cdm-merge`` propagates
+it into ``instances/rd_cdm.yaml`` and the generated JSON and CSV exports. This
+was already the intended design, but ``versioning.get_model_version()`` did not
+implement it — it called an undefined ``_read_project_version`` and looked for
+``pyproject.toml`` inside ``src/``, so any caller would have raised
+``NameError``. It now reads the schema.
+
+``pyproject.toml`` still carries its own copy of the version because packaging
+requires it. ``tests/test_version_consistency.py`` now fails if the two
+disagree, or if the merged instance is stale relative to the schema.
+
+Dependency Automation
+~~~~~~~~~~~~~~~~~~~~~~
+
+Dependabot has been enabled for ``pip`` and ``github-actions``, with LinkML
+packages and development tooling grouped so related updates arrive as a single
+pull request.
+
+
 v2.0.3 (2026-03-24)
 --------------------
 

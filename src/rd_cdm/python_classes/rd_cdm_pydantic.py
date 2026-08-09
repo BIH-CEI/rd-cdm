@@ -33,8 +33,8 @@ from pydantic import (
 )
 
 
-metamodel_version = "1.7.0"
-version = "2.0.3"
+metamodel_version = "1.11.0"
+version = "2.1.0"
 
 
 class ConfiguredBaseModel(BaseModel):
@@ -81,9 +81,26 @@ linkml_meta = LinkMLMeta({'default_prefix': 'https://github.com/BIH-CEI/rd-cdm/l
                             'prefix_reference': 'https://github.com/BIH-CEI/rd-cdm/'},
                   'xsd': {'prefix_prefix': 'xsd',
                           'prefix_reference': 'http://www.w3.org/2001/XMLSchema#'}},
-     'source_file': '/var/folders/yj/9p08lt_93y3gvmv0pp1dg7kr0000gn/T/tmpe_1_xxje.yaml',
+     'source_file': '/var/folders/dw/90nzwf496hz_c9v0gprb4_s40000gn/T/tmpy6w9czgd.yaml',
      'title': 'ontology-based rare disease common data model (RD-CDM) harmonising '
               'international registries, FHIR, and Phenopackets'} )
+
+class CodeStatus(str, Enum):
+    """
+    Whether a code still resolves against BioPortal, the single terminology authority this model validates against.
+
+    """
+    active = "active"
+    """
+    The code resolves. This is the default and is not written out explicitly.
+
+    """
+    inactive = "inactive"
+    """
+    The code no longer resolves in BioPortal. Not available for new data capture - use `replacedBy` instead - but retained so that data already captured against it stays interpretable. `rd-cdm-validate` reports it as a known inactivation rather than an error, and warns if it starts resolving again.
+
+    """
+
 
 
 class RdCdm(ConfiguredBaseModel):
@@ -123,7 +140,17 @@ class Coding(ConfiguredBaseModel):
 
     system: str = Field(default=..., description="""CURIE for the code system""", json_schema_extra = { "linkml_meta": {'domain_of': ['Coding']} })
     code: str = Field(default=..., description="""The code within the system""", json_schema_extra = { "linkml_meta": {'domain_of': ['Coding']} })
-    label: Optional[str] = Field(default=None, description="""Preferred label for the code""", json_schema_extra = { "linkml_meta": {'domain_of': ['Coding', 'ValueSet']} })
+    label: Optional[str] = Field(default=None, description="""The preferred label of the code in its source terminology. This is the string `rd-cdm-validate` compares against the live ontology, so it must track the terminology rather than local presentation preferences.
+""", json_schema_extra = { "linkml_meta": {'domain_of': ['Coding', 'ValueSet']} })
+    displayLabel: Optional[str] = Field(default=None, description="""An optional presentation label for user interfaces and data capture forms, used where the terminology's preferred label is unhelpful to a data entrant (for example `XX` for `Karyotype 46, XX`). Never validated against the terminology.
+""", json_schema_extra = { "linkml_meta": {'domain_of': ['Coding']} })
+    status: Optional[CodeStatus] = Field(default=None, description="""Lifecycle of this code against the model's terminology authority. Defaults to `active`. `inactive` records that the code no longer resolves in BioPortal, which is the single authority this model validates against - the RD-CDM does not consult a terminology's own release files, so this is a statement about resolvability, not a claim about why the concept was withdrawn.
+An inactive code MUST NOT be offered for new data capture: a generator building a form or dropdown from this value set filters to `active`. It is kept in the value set so that data already captured against it stays interpretable - terminologies do not reuse identifiers, so the code still means exactly what it meant when it was recorded.
+""", json_schema_extra = { "linkml_meta": {'domain_of': ['Coding']} })
+    replacedBy: Optional[str] = Field(default=None, description="""The CURIE of the active code that a value recorded under an inactive one migrates to. The successor must itself be a member of the same value set, so a legacy value can be migrated without leaving it. Absent where no equivalent has been agreed.
+""", json_schema_extra = { "linkml_meta": {'domain_of': ['Coding']} })
+    statusNote: Optional[str] = Field(default=None, description="""Why a code carries a non-default status, and what a consumer should do about it. Required in practice for inactive codes.
+""", json_schema_extra = { "linkml_meta": {'domain_of': ['Coding']} })
 
 
 class ValueSet(ConfiguredBaseModel):
@@ -150,7 +177,8 @@ class DataElement(ConfiguredBaseModel):
     elementCodeSystem: str = Field(default=..., description="""Identifier of the code system (matches one of the `CodeSystem.id` values, e.g. “SNOMEDCT”, “LOINC”, “CustomCode”).""", json_schema_extra = { "linkml_meta": {'domain_of': ['DataElement']} })
     dataType: Optional[str] = Field(default=None, description="""Data type (e.g., string, integer, identifier)""", json_schema_extra = { "linkml_meta": {'domain_of': ['DataElement']} })
     dataSpecification: Optional[list[str]] = Field(default=None, description="""Reference or link to specification""", json_schema_extra = { "linkml_meta": {'domain_of': ['DataElement']} })
-    valueSet: Optional[str] = Field(default=None, description="""Value set CURIE if applicable""", json_schema_extra = { "linkml_meta": {'domain_of': ['DataElement']} })
+    valueSet: Optional[str] = Field(default=None, description="""The `label` of the ValueSet constraining this element - not its `id`. Value set labels are therefore unique, and a value set's `id` is by convention the CURIE of the element it constrains. Both are enforced by `rd_cdm.utils.structure_checks`.
+""", json_schema_extra = { "linkml_meta": {'domain_of': ['DataElement']} })
     fhirExpression_v4_0_1: Optional[str] = Field(default=None, description="""FHIRPath expression for FHIR mapping""", json_schema_extra = { "linkml_meta": {'domain_of': ['DataElement']} })
     recommendedDataSpec_fhir: Optional[str] = Field(default=None, description="""Recommendations for FHIR profiling""", json_schema_extra = { "linkml_meta": {'domain_of': ['DataElement']} })
     phenopacketSchemaElement_v2_0: Optional[str] = Field(default=None, description="""Phenopacket schema path""", json_schema_extra = { "linkml_meta": {'domain_of': ['DataElement']} })

@@ -2,8 +2,8 @@
 # Schema: /Users/adamgraefe/Documents/git/rd-cdm/src/rd_cdm/schema/rd_cdm.yaml
 # Do not edit manually — re-run gen_pydantic.py to regenerate.
 
-# Auto generated from tmpe_1_xxje.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-03-24T17:00:59
+# Auto generated from tmpy6w9czgd.yaml by pythongen.py version: 0.0.1
+# Generation date: 2026-08-09T16:44:27
 # Schema: rd-cdm
 #
 # id: https://github.com/BIH-CEI/rd-cdm/linkml/rd_cdm.schema.yaml
@@ -63,8 +63,8 @@ from rdflib import (
 from linkml_runtime.linkml_model.types import Curie, Date, String, Uri
 from linkml_runtime.utils.metamodelcore import Curie, URI, XSDDate
 
-metamodel_version = "1.7.0"
-version = "2.0.3"
+metamodel_version = "1.11.0"
+version = "2.1.0"
 
 # Namespaces
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
@@ -176,6 +176,10 @@ class Coding(YAMLRoot):
     system: str = None
     code: str = None
     label: Optional[str] = None
+    displayLabel: Optional[str] = None
+    status: Optional[Union[str, "CodeStatus"]] = None
+    replacedBy: Optional[str] = None
+    statusNote: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.system):
@@ -190,6 +194,18 @@ class Coding(YAMLRoot):
 
         if self.label is not None and not isinstance(self.label, str):
             self.label = str(self.label)
+
+        if self.displayLabel is not None and not isinstance(self.displayLabel, str):
+            self.displayLabel = str(self.displayLabel)
+
+        if self.status is not None and not isinstance(self.status, CodeStatus):
+            self.status = CodeStatus(self.status)
+
+        if self.replacedBy is not None and not isinstance(self.replacedBy, str):
+            self.replacedBy = str(self.replacedBy)
+
+        if self.statusNote is not None and not isinstance(self.statusNote, str):
+            self.statusNote = str(self.statusNote)
 
         super().__post_init__(**kwargs)
 
@@ -305,7 +321,21 @@ class DataElement(YAMLRoot):
 
 
 # Enumerations
+class CodeStatus(EnumDefinitionImpl):
+    """
+    Whether a code still resolves against BioPortal, the single terminology authority this model validates against.
+    """
+    active = PermissibleValue(
+        text="active",
+        description="""The code resolves. This is the default and is not written out explicitly.""")
+    inactive = PermissibleValue(
+        text="inactive",
+        description="""The code no longer resolves in BioPortal. Not available for new data capture - use `replacedBy` instead - but retained so that data already captured against it stays interpretable. `rd-cdm-validate` reports it as a known inactivation rather than an error, and warns if it starts resolving again.""")
 
+    _defn = EnumDefinition(
+        name="CodeStatus",
+        description="""Whether a code still resolves against BioPortal, the single terminology authority this model validates against.""",
+    )
 
 # Slots
 class slots:
@@ -349,6 +379,18 @@ slots.coding__code = Slot(uri=DEFAULT_.code, name="coding__code", curie=DEFAULT_
 
 slots.coding__label = Slot(uri=DEFAULT_.label, name="coding__label", curie=DEFAULT_.curie('label'),
                    model_uri=DEFAULT_.coding__label, domain=None, range=Optional[str])
+
+slots.coding__displayLabel = Slot(uri=DEFAULT_.displayLabel, name="coding__displayLabel", curie=DEFAULT_.curie('displayLabel'),
+                   model_uri=DEFAULT_.coding__displayLabel, domain=None, range=Optional[str])
+
+slots.coding__status = Slot(uri=DEFAULT_.status, name="coding__status", curie=DEFAULT_.curie('status'),
+                   model_uri=DEFAULT_.coding__status, domain=None, range=Optional[Union[str, "CodeStatus"]])
+
+slots.coding__replacedBy = Slot(uri=DEFAULT_.replacedBy, name="coding__replacedBy", curie=DEFAULT_.curie('replacedBy'),
+                   model_uri=DEFAULT_.coding__replacedBy, domain=None, range=Optional[str])
+
+slots.coding__statusNote = Slot(uri=DEFAULT_.statusNote, name="coding__statusNote", curie=DEFAULT_.curie('statusNote'),
+                   model_uri=DEFAULT_.coding__statusNote, domain=None, range=Optional[str])
 
 slots.valueSet__id = Slot(uri=DEFAULT_.id, name="valueSet__id", curie=DEFAULT_.curie('id'),
                    model_uri=DEFAULT_.valueSet__id, domain=None, range=Union[str, Curie])

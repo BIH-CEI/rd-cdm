@@ -2,8 +2,12 @@ id: https://github.com/BIH-CEI/rd-cdm/linkml/rd_cdm.schema.yaml
 name: rd-cdm
 title: ontology-based rare disease common data model (RD-CDM) harmonising 
        international registries, FHIR, and Phenopackets
-version: 2.0.3
-date: 2026-03-24
+version: 2.1.0
+annotations:
+  # The model's release date. It lives in an annotation rather than a top-level
+  # `date:` key because `date` is not a slot on the LinkML SchemaDefinition -
+  # it made `linkml validate` and `gen-doc` fail to load the schema at all.
+  rd_cdm_date: "2026-08-08"
 license: CC0
 prefixes:
   rdcdm:       https://github.com/BIH-CEI/rd-cdm/
@@ -80,7 +84,44 @@ classes:
         range: string
         required: true
       label:
-        description: "Preferred label for the code"
+        description: >
+          The preferred label of the code in its source terminology. This is the
+          string `rd-cdm-validate` compares against the live ontology, so it must
+          track the terminology rather than local presentation preferences.
+        range: string
+      displayLabel:
+        description: >
+          An optional presentation label for user interfaces and data capture
+          forms, used where the terminology's preferred label is unhelpful to a
+          data entrant (for example `XX` for `Karyotype 46, XX`). Never validated
+          against the terminology.
+        range: string
+      status:
+        description: >
+          Lifecycle of this code against the model's terminology authority.
+          Defaults to `active`. `inactive` records that the code no longer
+          resolves in BioPortal, which is the single authority this model
+          validates against - the RD-CDM does not consult a terminology's own
+          release files, so this is a statement about resolvability, not a claim
+          about why the concept was withdrawn.
+
+          An inactive code MUST NOT be offered for new data capture: a generator
+          building a form or dropdown from this value set filters to `active`.
+          It is kept in the value set so that data already captured against it
+          stays interpretable - terminologies do not reuse identifiers, so the
+          code still means exactly what it meant when it was recorded.
+        range: CodeStatus
+      replacedBy:
+        description: >
+          The CURIE of the active code that a value recorded under an inactive
+          one migrates to. The successor must itself be a member of the same
+          value set, so a legacy value can be migrated without leaving it.
+          Absent where no equivalent has been agreed.
+        range: string
+      statusNote:
+        description: >
+          Why a code carries a non-default status, and what a consumer should do
+          about it. Required in practice for inactive codes.
         range: string
 
   ValueSet:
@@ -129,7 +170,11 @@ classes:
         range: string
         multivalued: true
       valueSet:
-        description: "Value set CURIE if applicable"
+        description: >
+          The `label` of the ValueSet constraining this element - not its `id`.
+          Value set labels are therefore unique, and a value set's `id` is by
+          convention the CURIE of the element it constrains. Both are enforced by
+          `rd_cdm.utils.structure_checks`.
         range: string
       fhirExpression_v4_0_1:
         description: "FHIRPath expression for FHIR mapping"
@@ -146,6 +191,24 @@ classes:
       description:
         description: "Full textual description of the element"
         range: string
+
+enums:
+  CodeStatus:
+    description: >
+      Whether a code still resolves against BioPortal, the single terminology
+      authority this model validates against.
+    permissible_values:
+      active:
+        description: >
+          The code resolves. This is the default and is not written out
+          explicitly.
+      inactive:
+        description: >
+          The code no longer resolves in BioPortal. Not available for new data
+          capture - use `replacedBy` instead - but retained so that data already
+          captured against it stays interpretable. `rd-cdm-validate` reports it
+          as a known inactivation rather than an error, and warns if it starts
+          resolving again.
 
 # Top-level slots (optional container definitions)
 slots: {}

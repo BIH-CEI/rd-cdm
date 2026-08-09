@@ -8,13 +8,18 @@ from rd_cdm.utils.config import resolve_paths
 
 
 def _read_schema_meta(schema_path) -> dict:
-    """Read version and date from the LinkML schema (single source of truth)."""
+    """Read version and date from the LinkML schema (single source of truth).
+
+    The date is an annotation, not a top-level key: `date` is not a slot on the
+    LinkML SchemaDefinition, so a top-level one makes the schema unloadable.
+    """
     yaml = ruamel.yaml.YAML()
     with schema_path.open("r", encoding="utf-8") as fh:
         schema = yaml.load(fh) or {}
+    annotations = schema.get("annotations") or {}
     return {
         "rd_cdm_version": schema.get("version", "unknown"),
-        "rd_cdm_date": schema.get("date", "unknown"),
+        "rd_cdm_date": annotations.get("rd_cdm_date", "unknown"),
     }
 
 

@@ -664,7 +664,7 @@
     },
     {
       "ordinal": "6.1.1",
-      "section": "6. Genetic Findings",
+      "section": "6.1 Genetic Findings",
       "elementName": "Genomic Diagnosis",
       "elementCode": {
         "system": "SNOMEDCT",
@@ -685,7 +685,7 @@
     },
     {
       "ordinal": "6.1.2",
-      "section": "6. Genetic Findings",
+      "section": "6.1 Genetic Findings",
       "elementName": "Progress Status of Interpretation",
       "elementCode": {
         "system": "GA4GH",
@@ -705,7 +705,7 @@
     },
     {
       "ordinal": "6.1.3",
-      "section": "6. Genetic Findings",
+      "section": "6.1 Genetic Findings",
       "elementName": "Interpretation Status",
       "elementCode": {
         "system": "GA4GH",
@@ -725,7 +725,7 @@
     },
     {
       "ordinal": "6.1.4",
-      "section": "6. Genetic Findings",
+      "section": "6.1 Genetic Findings",
       "elementName": "Structural Variant Analysis Method",
       "elementCode": {
         "system": "LOINC",
@@ -746,7 +746,7 @@
     },
     {
       "ordinal": "6.1.5",
-      "section": "6. Genetic Findings",
+      "section": "6.1 Genetic Findings",
       "elementName": "Reference Genome",
       "elementCode": {
         "system": "LOINC",
@@ -766,7 +766,7 @@
     },
     {
       "ordinal": "6.1.6",
-      "section": "6. Genetic Findings",
+      "section": "6.1 Genetic Findings",
       "elementName": "Genetic Mutation String",
       "elementCode": {
         "system": "LOINC",
@@ -786,7 +786,7 @@
     },
     {
       "ordinal": "6.1.7",
-      "section": "6. Genetic Findings",
+      "section": "6.1 Genetic Findings",
       "elementName": "Genomic DNA Change",
       "elementCode": {
         "system": "LOINC",
@@ -806,7 +806,7 @@
     },
     {
       "ordinal": "6.1.8",
-      "section": "6. Genetic Findings",
+      "section": "6.1 Genetic Findings",
       "elementName": "Sequence DNA Change",
       "elementCode": {
         "system": "LOINC",
@@ -826,7 +826,7 @@
     },
     {
       "ordinal": "6.1.9",
-      "section": "6. Genetic Findings",
+      "section": "6.1 Genetic Findings",
       "elementName": "Amino Acid Change",
       "elementCode": {
         "system": "LOINC",
@@ -846,7 +846,7 @@
     },
     {
       "ordinal": "6.1.10",
-      "section": "6. Genetic Findings",
+      "section": "6.1 Genetic Findings",
       "elementName": "Gene",
       "elementCode": {
         "system": "LOINC",
@@ -866,7 +866,7 @@
     },
     {
       "ordinal": "6.1.11",
-      "section": "6. Genetic Findings",
+      "section": "6.1 Genetic Findings",
       "elementName": "Zygosity",
       "elementCode": {
         "system": "LOINC",
@@ -888,7 +888,7 @@
     },
     {
       "ordinal": "6.1.12",
-      "section": "6. Genetic Findings",
+      "section": "6.1 Genetic Findings",
       "elementName": "Genomic Source Class",
       "elementCode": {
         "system": "LOINC",
@@ -908,7 +908,7 @@
     },
     {
       "ordinal": "6.1.13",
-      "section": "6. Genetic Findings",
+      "section": "6.1 Genetic Findings",
       "elementName": "DNA Change Type",
       "elementCode": {
         "system": "LOINC",
@@ -928,7 +928,7 @@
     },
     {
       "ordinal": "6.1.14",
-      "section": "6. Genetic Findings",
+      "section": "6.1 Genetic Findings",
       "elementName": "Clinical Significance [ACMG]",
       "elementCode": {
         "system": "LOINC",
@@ -949,7 +949,7 @@
     },
     {
       "ordinal": "6.1.15",
-      "section": "6. Genetic Findings",
+      "section": "6.1 Genetic Findings",
       "elementName": "Therapeutic Actionability",
       "elementCode": {
         "system": "GA4GH",
@@ -969,7 +969,7 @@
     },
     {
       "ordinal": "6.1.16",
-      "section": "6. Genetic Findings",
+      "section": "6.1 Genetic Findings",
       "elementName": "Clinical Annotation Level Of Evidence",
       "elementCode": {
         "system": "LOINC",
@@ -990,7 +990,7 @@
     },
     {
       "ordinal": "6.2.1",
-      "section": "6. Phenotypic Feature",
+      "section": "6.2 Phenotypic Feature",
       "elementName": "Phenotypic Feature",
       "elementCode": {
         "system": "SNOMEDCT",
@@ -1031,7 +1031,7 @@
     },
     {
       "ordinal": "6.2.3",
-      "section": "6. Phenotypic Feature",
+      "section": "6.2 Phenotypic Feature",
       "elementName": "Determination Date",
       "elementCode": {
         "system": "SNOMEDCT",
@@ -1134,7 +1134,7 @@
     },
     {
       "ordinal": "6.2.8",
-      "section": "6. Phenotypic Feature",
+      "section": "6.2 Phenotypic Feature",
       "elementName": "Modifiers",
       "elementCode": {
         "system": "GA4GH",
@@ -1417,7 +1417,7 @@
     },
     {
       "ordinal": "6.4.6",
-      "section": "6.4 Family",
+      "section": "6.4 Family History",
       "elementName": "Family Member Record Status",
       "elementCode": {
         "system": "HL7FHIR",
@@ -1436,7 +1436,7 @@
     },
     {
       "ordinal": "6.4.7",
-      "section": "6.4 Family",
+      "section": "6.4 Family History",
       "elementName": "Family Member Sex",
       "elementCode": {
         "system": "LOINC",
@@ -1457,7 +1457,7 @@
     },
     {
       "ordinal": "6.4.8",
-      "section": "6.4 Family",
+      "section": "6.4 Family History",
       "elementName": "Family Member Age",
       "elementCode": {
         "system": "LOINC",
@@ -1477,7 +1477,7 @@
     },
     {
       "ordinal": "6.4.9",
-      "section": "6.4 Family",
+      "section": "6.4 Family History",
       "elementName": "Family Member Date of Birth",
       "elementCode": {
         "system": "LOINC",
@@ -1497,7 +1497,7 @@
     },
     {
       "ordinal": "6.4.10",
-      "section": "6.4 Family",
+      "section": "6.4 Family History",
       "elementName": "Family Member Deceased",
       "elementCode": {
         "system": "SNOMEDCT",
@@ -1517,7 +1517,7 @@
     },
     {
       "ordinal": "6.4.11",
-      "section": "6.4 Family",
+      "section": "6.4 Family History",
       "elementName": "Family Member Cause of Death",
       "elementCode": {
         "system": "LOINC",
@@ -1537,7 +1537,7 @@
     },
     {
       "ordinal": "6.4.12",
-      "section": "6.4 Family",
+      "section": "6.4 Family History",
       "elementName": "Family Member Deceased Age",
       "elementCode": {
         "system": "LOINC",
@@ -1557,7 +1557,7 @@
     },
     {
       "ordinal": "6.4.13",
-      "section": "6.4 Family",
+      "section": "6.4 Family History",
       "elementName": "Family Member Disease",
       "elementCode": {
         "system": "LOINC",

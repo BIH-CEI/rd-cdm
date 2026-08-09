@@ -101,8 +101,8 @@ pip install rd-cdm
 Optional extras:
 ```bash
 pip install rd-cdm[test]   # pytest, requests-mock
-pip install rd-cdm[docs]   # sphinx, sphinx-rtd-theme, sphinx-copybutton
-pip install rd-cdm[dev]    # linkml (for regenerating Python classes)
+pip install rd-cdm[docs]   # mkdocs and the material theme
+pip install rd-cdm[dev]    # linkml (for regenerating Python classes and docs)
 ```
 
 ### Development install
@@ -210,7 +210,7 @@ For the ontology versions used in each RD-CDM release, see the
 
 ## License
 
-[MIT License](https://github.com/BIH-CEI/rd-cdm/blob/develop/LICENSE)
+[MIT License](https://github.com/BIH-CEI/rd-cdm/blob/main/LICENSE)
 
 ## Citing
 

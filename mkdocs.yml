@@ -1,0 +1,115 @@
+site_name: RD-CDM
+site_description: >-
+  An ontology-based rare disease common data model harmonising international
+  registries, HL7 FHIR, and GA4GH Phenopackets.
+site_url: https://rd-cdm.readthedocs.io/
+repo_url: https://github.com/BIH-CEI/rd-cdm
+repo_name: BIH-CEI/rd-cdm
+edit_uri: edit/main/docs/
+copyright: MIT License
+
+docs_dir: docs
+
+# The hook is source, not a page: without this it would be published at
+# /hooks/copy_downloads.py.
+exclude_docs: |
+  hooks/
+
+# gen-doc links its per-class and per-element pages from datamodel/index.md and
+# reference/index.md rather than from the nav, so their absence there is
+# expected rather than a mistake.
+not_in_nav: |
+  datamodel/*
+  reference/*
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - navigation.indexes
+    - toc.follow
+    - content.code.copy
+    - content.action.edit
+    - search.suggest
+    - search.highlight
+    - search.share
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+
+# Copies the schema, instances and exports into the built site so the download
+# links resolve. They live outside docs/, which MkDocs cannot serve directly,
+# and copying them into git would duplicate generated artefacts.
+hooks:
+  - docs/hooks/copy_downloads.py
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.smartsymbols
+
+# gen-doc links its pages from datamodel/index.md and reference/index.md rather
+# than from the nav, so the per-class and per-element pages are expected to be
+# absent here.
+validation:
+  nav:
+    omitted_files: info
+  omitted_files: info
+  absolute_links: info
+  unrecognized_links: info
+
+nav:
+  - Home: index.md
+  - Background: background/background_file.md
+  - Resources: resources/resources_file.md
+  - Usage: usage/usage_file.md
+  - Element Reference: reference/index.md
+  - Data Model Reference: datamodel/index.md
+  - Contributing: contributing.md
+  - License: license.md
+  - Changelog: changelog.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/BIH-CEI/rd-cdm
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/rd-cdm/

@@ -22,9 +22,9 @@ jobs:
       PYTHONPATH: src
       BIOPORTAL_API_KEY: ${{ secrets.BIOPORTAL_API_KEY }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
           cache: 'pip'
@@ -95,7 +95,7 @@ jobs:
           cat pr-body.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Open or update pull request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           branch: chore/ontology-drift
           base: main

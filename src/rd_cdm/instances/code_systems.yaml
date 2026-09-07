@@ -12,12 +12,12 @@ code_systems:
 
 - id: HP
   namespace_iri: http://purl.obolibrary.org/obo/HP
-  version: "2026-06-23"
+  version: "2026-09-01"
   title: "Human Phenotype Ontology (HPO)"
 
 - id: NCIT
   namespace_iri: http://purl.obolibrary.org/obo/NCIT/
-  version: "26.07d"
+  version: "26.08e"
   title: "NCI Thesaurus (NCIT) OBO Edition"
 
 - id: HL7FHIR
@@ -68,7 +68,7 @@ code_systems:
 
 - id: MONDO
   namespace_iri: http://purl.obolibrary.org/obo/MONDO/
-  version: "2026-08-04"
+  version: "2026-09-01"
   title: "Mondo Disease Ontology"
 
 - id: ORDO

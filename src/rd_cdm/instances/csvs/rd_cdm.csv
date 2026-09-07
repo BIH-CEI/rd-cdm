@@ -2,8 +2,8 @@ _section,codes,dataSpecification,dataType,description,elementCode,elementCodeSys
 _metadata,,,,,,,,,,,,,,2026-08-08,2.1.0,,,,,,
 code_systems,,,,,,,,,SNOMEDCT,,http://purl.bioontology.org/ontology/SNOMEDCT/,,,,,,,,Systematized Nomenclature of Medicine – Clinical Terms (SNOMED CT),,2025_09_01
 code_systems,,,,,,,,,LOINC,,http://loinc.org,,,,,,,,Logical Observation Identifiers Names and Codes (LOINC),,281
-code_systems,,,,,,,,,HP,,http://purl.obolibrary.org/obo/HP,,,,,,,,Human Phenotype Ontology (HPO),,2026-06-23
-code_systems,,,,,,,,,NCIT,,http://purl.obolibrary.org/obo/NCIT/,,,,,,,,NCI Thesaurus (NCIT) OBO Edition,,26.07d
+code_systems,,,,,,,,,HP,,http://purl.obolibrary.org/obo/HP,,,,,,,,Human Phenotype Ontology (HPO),,2026-09-01
+code_systems,,,,,,,,,NCIT,,http://purl.obolibrary.org/obo/NCIT/,,,,,,,,NCI Thesaurus (NCIT) OBO Edition,,26.08e
 code_systems,,,,,,,,,HL7FHIR,,http://hl7.org/fhir/,,,,,,,,"Health Level Seven Fast Healthcare Interoperability Resources, Release 4",,v4.0.1
 code_systems,,,,,,,,,GA4GH,,https://ga4gh.github.io/phenopacket-v2/,,,,,,,,Global Alliance for Genomics and Health Phenopackets Schema,,v2.0
 code_systems,,,,,,,,,CustomCode,,https://github.com/BIH-CEI/rd-cdm,,,,,,,,Custom Code System RD CDM v2.0,,v2.0
@@ -13,7 +13,7 @@ code_systems,,,,,,,,,SO,,http://purl.obolibrary.org/obo/SO/,,,,,,,,Sequence Onto
 code_systems,,,,,,,,,UO,,http://purl.obolibrary.org/obo/UO/,,,,,,,,Units Ontology (UO),,2026-07-31
 code_systems,,,,,,,,,ECO,,http://purl.obolibrary.org/obo/ECO/,,,,,,,,Evidence & Conclusion Ontology (ECO),,releases/2025-06-23
 code_systems,,,,,,,,,ICD10CM,,http://purl.bioontology.org/ontology/ICD10CM/,,,,,,,,"International Classification of Diseases, Tenth Revision, Clinical Modification (ICD-10-CM)",,2026
-code_systems,,,,,,,,,MONDO,,http://purl.obolibrary.org/obo/MONDO/,,,,,,,,Mondo Disease Ontology,,2026-08-04
+code_systems,,,,,,,,,MONDO,,http://purl.obolibrary.org/obo/MONDO/,,,,,,,,Mondo Disease Ontology,,2026-09-01
 code_systems,,,,,,,,,ORDO,,http://purl.obolibrary.org/obo/ORDO/,,,,,,,,Orphanet Rare Disease Ontology (ORDO),,4.9
 code_systems,,,,,,,,,HGNC,,http://identifiers.org/hgnc/,,,,,,,,HUGO Gene Nomenclature Committee (HGNC),,2026-05-11
 code_systems,,,,,,,,,OMIM,,http://purl.bioontology.org/ontology/OMIM/,,,,,,,,Online Mendelian Inheritance in Man (OMIM),,2025_08_04

@@ -17,13 +17,13 @@
     {
       "id": "HP",
       "namespace_iri": "http://purl.obolibrary.org/obo/HP",
-      "version": "2026-06-23",
+      "version": "2026-09-01",
       "title": "Human Phenotype Ontology (HPO)"
     },
     {
       "id": "NCIT",
       "namespace_iri": "http://purl.obolibrary.org/obo/NCIT/",
-      "version": "26.07d",
+      "version": "26.10d",
       "title": "NCI Thesaurus (NCIT) OBO Edition"
     },
     {
@@ -65,13 +65,13 @@
     {
       "id": "UO",
       "namespace_iri": "http://purl.obolibrary.org/obo/UO/",
-      "version": "2026-07-31",
+      "version": "2026-10-12",
       "title": "Units Ontology (UO)"
     },
     {
       "id": "ECO",
       "namespace_iri": "http://purl.obolibrary.org/obo/ECO/",
-      "version": "releases/2025-06-23",
+      "version": "releases/2026-07-10",
       "title": "Evidence & Conclusion Ontology (ECO)"
     },
     {
@@ -83,7 +83,7 @@
     {
       "id": "MONDO",
       "namespace_iri": "http://purl.obolibrary.org/obo/MONDO/",
-      "version": "2026-08-04",
+      "version": "2026-10-06",
       "title": "Mondo Disease Ontology"
     },
     {
